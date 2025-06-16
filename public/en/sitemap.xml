@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:36639/about/index.html</loc>
+  </url>
+  <url>
+    <loc>http://localhost:36639/categories/index.html</loc>
+    <lastmod>2025-05-25T00:00:00+00:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:36639/categories/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:36639/categories/index.html" />
+    <xhtml:link rel="alternate" hreflang="art-x-pir" href="http://localhost:36639/pir/categories/index.html" />
+  </url>
+  <url>
+    <loc>http://localhost:36639/honeyhttpd/index.html</loc>
+    <lastmod>2025-05-25T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:36639/index.html</loc>
+    <lastmod>2025-05-25T00:00:00+00:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:36639/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:36639/index.html" />
+    <xhtml:link rel="alternate" hreflang="art-x-pir" href="http://localhost:36639/pir/index.html" />
+  </url>
+  <url>
+    <loc>http://localhost:36639/tags/index.html</loc>
+    <lastmod>2025-05-25T00:00:00+00:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:36639/tags/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:36639/tags/index.html" />
+    <xhtml:link rel="alternate" hreflang="art-x-pir" href="http://localhost:36639/pir/tags/index.html" />
+  </url>
+  <url>
+    <loc>http://localhost:36639/tags/threathunting/index.html</loc>
+    <lastmod>2025-05-25T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:36639/categories/threathunting/index.html</loc>
+    <lastmod>2025-05-25T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:36639/categories/blog/index.html</loc>
+  </url>
+  <url>
+    <loc>http://localhost:36639/tags/forensics/index.html</loc>
+  </url>
+  <url>
+    <loc>http://localhost:36639/tags/openbsd/index.html</loc>
+  </url>
+  <url>
+    <loc>http://localhost:36639/openbsdzen/index.html</loc>
+  </url>
+  <url>
+    <loc>http://localhost:36639/tags/sans/index.html</loc>
+  </url>
+  <url>
+    <loc>http://localhost:36639/sans_for608/index.html</loc>
+  </url>
+  <url>
+    <loc>http://localhost:36639/tags/sans-for608@forensics/index.html</loc>
+  </url>
+  <url>
+    <loc>http://localhost:36639/tags/zen/index.html</loc>
+  </url>
+</urlset>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags :: Forensic Wheels</title>
+    <link>http://localhost:1313/tags/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>All text is licensed under a Creative Commons Attribution 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 25 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tag :: About</title>
+      <link>http://localhost:1313/tags/about/index.html</link>
+      <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/about/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag :: Emacs</title>
+      <link>http://localhost:1313/tags/emacs/index.html</link>
+      <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/emacs/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag :: Openbsd</title>
+      <link>http://localhost:1313/tags/openbsd/index.html</link>
+      <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/openbsd/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag :: Skateboarding</title>
+      <link>http://localhost:1313/tags/skateboarding/index.html</link>
+      <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/skateboarding/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag :: Threathunting</title>
+      <link>http://localhost:1313/tags/threathunting/index.html</link>
+      <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/threathunting/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag :: Zen</title>
+      <link>http://localhost:1313/tags/zen/index.html</link>
+      <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/zen/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag :: Forensics</title>
+      <link>http://localhost:1313/tags/forensics/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/forensics/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag :: Sans</title>
+      <link>http://localhost:1313/tags/sans/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sans/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag :: Sans-For608</title>
+      <link>http://localhost:1313/tags/sans-for608/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sans-for608/index.html</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
