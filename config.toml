@@ -1,3 +1,10 @@
+baseURL = 'https://forensicwheels.org/'
+languageCode = 'en-us'
+title = 'Forensic Wheels'
+#themesdir = '../..'
+theme = 'hugo-theme-relearn'
+relativeURLs = true
+
 [markup.goldmark.renderer]
   unsafe = true
   
