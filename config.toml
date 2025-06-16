@@ -1,4 +1,4 @@
-baseURL = 'https://polymathmonkey.github.io/weblog/'
+baseURL = 'https://polymathmonkey.github.io/'
 languageCode = 'en-us'
 title = 'Forensic Wheels'
 #themesdir = '../..'
