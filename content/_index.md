@@ -11,7 +11,7 @@ You are not your thoughts, they are just the finger pointing at the moon<br />
 </div>
 
 
-## Posts {#posts}
+## <span class="org-todo done DONE">DONE</span> Posts {#posts}
 
 This is my intro post for my blog [About](blog/about)
 
