@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Forensics :: Tag :: Forensic Wheels</title>
+    <link>http://localhost:1313/tags/forensics/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>All text is licensed under a Creative Commons Attribution 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 17 Jun 2025 21:47:00 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/forensics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SANS FOR608 Review</title>
+      <link>http://localhost:1313/posts/sans_for608/index.html</link>
+      <pubDate>Tue, 17 Jun 2025 21:47:00 +0200</pubDate>
+      <guid>http://localhost:1313/posts/sans_for608/index.html</guid>
+      <description>Inhaltsverzeichnis Enterprise Threat hunting and Response (FOR608) Introduction Brief overview of forensic analysis and its application Course Overview Proactive Detection and Response (608.1) Scaling Response and Analysis (608.2) Modern Attacks against Windows and Linux DFIR (608.3) Analyzing macOS and Docker Containers (608.4) Cloud Attacks and Response (608.5) Capstone: Enterprise-Class IR Challenge Key Takeaways Summary of key concepts and skills learned during the course Analysis of learning outcomes and their application in real-world scenarios Conclusion and Recommendations Summary of overall effectiveness of the SANS Forensics course for608 Recommendations for future students looking to learn forensic analysis skills Gain Practical Experience Develop Your Analytical Skills Learn about Cloud Computing Familiarize Yourself with Linux and macOS Join Online Communities Consider Specializing in a Specific Area Stay Up-to-Date with Industry Developments Enterprise Threat hunting and Response (FOR608) Course description from SANS 1 :&#xA;FOR608: Enterprise-Class Incident Response &amp; Threat Hunting focuses on identifying and responding to incidents too large to focus on individual machines. By using example tools built to operate at enterprise-class scale, students learn the techniques to collect focused data for incident response and threat hunting, and dig into analysis methodologies to learn multiple approaches to understand attacker movement and activity across hosts of varying functions and operating systems by using an array of analysis techniques.&#xA;Introduction Brief overview of forensic analysis and its application Forensic analysis in computer science investigates digital evidence to solve cybercrimes and security incidents. In enterprise environments, it involves analyzing devices, networks, and cloud storage. Key applications include incident response, compliance with regulations, investigations, and predictive analytics.</description>
+    </item>
+  </channel>
+</rss>

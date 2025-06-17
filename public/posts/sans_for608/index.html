@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.142.0">
+    <meta name="generator" content="Relearn 7.6.1+0b83617ee9da5253aafcf11807b256da7d88d709">
+    <meta name="description" content="Inhaltsverzeichnis Enterprise Threat hunting and Response (FOR608) Introduction Brief overview of forensic analysis and its application Course Overview Proactive Detection and Response (608.1) Scaling Response and Analysis (608.2) Modern Attacks against Windows and Linux DFIR (608.3) Analyzing macOS and Docker Containers (608.4) Cloud Attacks and Response (608.5) Capstone: Enterprise-Class IR Challenge Key Takeaways Summary of key concepts and skills learned during the course Analysis of learning outcomes and their application in real-world scenarios Conclusion and Recommendations Summary of overall effectiveness of the SANS Forensics course for608 Recommendations for future students looking to learn forensic analysis skills Gain Practical Experience Develop Your Analytical Skills Learn about Cloud Computing Familiarize Yourself with Linux and macOS Join Online Communities Consider Specializing in a Specific Area Stay Up-to-Date with Industry Developments Enterprise Threat hunting and Response (FOR608) Course description from SANS 1 :
+FOR608: Enterprise-Class Incident Response &amp; Threat Hunting focuses on identifying and responding to incidents too large to focus on individual machines. By using example tools built to operate at enterprise-class scale, students learn the techniques to collect focused data for incident response and threat hunting, and dig into analysis methodologies to learn multiple approaches to understand attacker movement and activity across hosts of varying functions and operating systems by using an array of analysis techniques.
+Introduction Brief overview of forensic analysis and its application Forensic analysis in computer science investigates digital evidence to solve cybercrimes and security incidents. In enterprise environments, it involves analyzing devices, networks, and cloud storage. Key applications include incident response, compliance with regulations, investigations, and predictive analytics.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SANS FOR608 Review :: Forensic Wheels">
+    <meta name="twitter:description" content="Inhaltsverzeichnis Enterprise Threat hunting and Response (FOR608) Introduction Brief overview of forensic analysis and its application Course Overview Proactive Detection and Response (608.1) Scaling Response and Analysis (608.2) Modern Attacks against Windows and Linux DFIR (608.3) Analyzing macOS and Docker Containers (608.4) Cloud Attacks and Response (608.5) Capstone: Enterprise-Class IR Challenge Key Takeaways Summary of key concepts and skills learned during the course Analysis of learning outcomes and their application in real-world scenarios Conclusion and Recommendations Summary of overall effectiveness of the SANS Forensics course for608 Recommendations for future students looking to learn forensic analysis skills Gain Practical Experience Develop Your Analytical Skills Learn about Cloud Computing Familiarize Yourself with Linux and macOS Join Online Communities Consider Specializing in a Specific Area Stay Up-to-Date with Industry Developments Enterprise Threat hunting and Response (FOR608) Course description from SANS 1 :
+FOR608: Enterprise-Class Incident Response &amp; Threat Hunting focuses on identifying and responding to incidents too large to focus on individual machines. By using example tools built to operate at enterprise-class scale, students learn the techniques to collect focused data for incident response and threat hunting, and dig into analysis methodologies to learn multiple approaches to understand attacker movement and activity across hosts of varying functions and operating systems by using an array of analysis techniques.
+Introduction Brief overview of forensic analysis and its application Forensic analysis in computer science investigates digital evidence to solve cybercrimes and security incidents. In enterprise environments, it involves analyzing devices, networks, and cloud storage. Key applications include incident response, compliance with regulations, investigations, and predictive analytics.">
+    <meta property="og:url" content="http://localhost:1313/posts/sans_for608/index.html">
+    <meta property="og:site_name" content="Forensic Wheels">
+    <meta property="og:title" content="SANS FOR608 Review :: Forensic Wheels">
+    <meta property="og:description" content="Inhaltsverzeichnis Enterprise Threat hunting and Response (FOR608) Introduction Brief overview of forensic analysis and its application Course Overview Proactive Detection and Response (608.1) Scaling Response and Analysis (608.2) Modern Attacks against Windows and Linux DFIR (608.3) Analyzing macOS and Docker Containers (608.4) Cloud Attacks and Response (608.5) Capstone: Enterprise-Class IR Challenge Key Takeaways Summary of key concepts and skills learned during the course Analysis of learning outcomes and their application in real-world scenarios Conclusion and Recommendations Summary of overall effectiveness of the SANS Forensics course for608 Recommendations for future students looking to learn forensic analysis skills Gain Practical Experience Develop Your Analytical Skills Learn about Cloud Computing Familiarize Yourself with Linux and macOS Join Online Communities Consider Specializing in a Specific Area Stay Up-to-Date with Industry Developments Enterprise Threat hunting and Response (FOR608) Course description from SANS 1 :
+FOR608: Enterprise-Class Incident Response &amp; Threat Hunting focuses on identifying and responding to incidents too large to focus on individual machines. By using example tools built to operate at enterprise-class scale, students learn the techniques to collect focused data for incident response and threat hunting, and dig into analysis methodologies to learn multiple approaches to understand attacker movement and activity across hosts of varying functions and operating systems by using an array of analysis techniques.
+Introduction Brief overview of forensic analysis and its application Forensic analysis in computer science investigates digital evidence to solve cybercrimes and security incidents. In enterprise environments, it involves analyzing devices, networks, and cloud storage. Key applications include incident response, compliance with regulations, investigations, and predictive analytics.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Forensic wheels">
+    <meta property="article:published_time" content="2025-06-17T21:47:00+02:00">
+    <meta property="article:modified_time" content="2025-06-17T21:47:00+02:00">
+    <meta property="article:tag" content="Forensics">
+    <meta property="article:tag" content="Sans">
+    <meta property="article:tag" content="Threathunting">
+    <meta property="article:tag" content="Sans-For608">
+    <meta itemprop="name" content="SANS FOR608 Review :: Forensic Wheels">
+    <meta itemprop="description" content="Inhaltsverzeichnis Enterprise Threat hunting and Response (FOR608) Introduction Brief overview of forensic analysis and its application Course Overview Proactive Detection and Response (608.1) Scaling Response and Analysis (608.2) Modern Attacks against Windows and Linux DFIR (608.3) Analyzing macOS and Docker Containers (608.4) Cloud Attacks and Response (608.5) Capstone: Enterprise-Class IR Challenge Key Takeaways Summary of key concepts and skills learned during the course Analysis of learning outcomes and their application in real-world scenarios Conclusion and Recommendations Summary of overall effectiveness of the SANS Forensics course for608 Recommendations for future students looking to learn forensic analysis skills Gain Practical Experience Develop Your Analytical Skills Learn about Cloud Computing Familiarize Yourself with Linux and macOS Join Online Communities Consider Specializing in a Specific Area Stay Up-to-Date with Industry Developments Enterprise Threat hunting and Response (FOR608) Course description from SANS 1 :
+FOR608: Enterprise-Class Incident Response &amp; Threat Hunting focuses on identifying and responding to incidents too large to focus on individual machines. By using example tools built to operate at enterprise-class scale, students learn the techniques to collect focused data for incident response and threat hunting, and dig into analysis methodologies to learn multiple approaches to understand attacker movement and activity across hosts of varying functions and operating systems by using an array of analysis techniques.
+Introduction Brief overview of forensic analysis and its application Forensic analysis in computer science investigates digital evidence to solve cybercrimes and security incidents. In enterprise environments, it involves analyzing devices, networks, and cloud storage. Key applications include incident response, compliance with regulations, investigations, and predictive analytics.">
+    <meta itemprop="datePublished" content="2025-06-17T21:47:00+02:00">
+    <meta itemprop="dateModified" content="2025-06-17T21:47:00+02:00">
+    <meta itemprop="wordCount" content="2202">
+    <meta itemprop="keywords" content="Forensics,Sans,Threathunting,Sans-For608">
+    <title>SANS FOR608 Review :: Forensic Wheels</title>
+    <link href="/posts/sans_for608/index.xml" rel="alternate" type="application/rss+xml" title="SANS FOR608 Review :: Forensic Wheels">
+    <link href="/posts/sans_for608/index.print.html" rel="alternate" type="text/html" title="SANS FOR608 Review :: Forensic Wheels">
+    <link href="/images/logo.svg?1750190088" rel="icon" type="image/svg+xml">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1750190088" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1750190088" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1750190088" rel="stylesheet">
+    <link href="/css/theme.css?1750190088" rel="stylesheet">
+    <link href="/css/format-html.css?1750190088" rel="stylesheet" id="R-format-style">
+    <link href="/css/auto-complete/auto-complete.min.css?1750190088" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1750190088" defer></script>
+    <script src="/js/lunr/lunr.min.js?1750190088" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1750190088" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1750190088" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1750190088" defer></script>
+    <script src="/js/search.js?1750190088" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/posts\/sans_for608\/index.html';
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.contentLangs=['en'];
+      window.relearn.index_js_url="/searchindex.en.js?1750190088";
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // variant stuff
+      window.relearn.themevariants = [ 'blue' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+    <style>
+       
+      #R-body svg.purple,
+      #R-body svg.purple :not([fill]),
+      #R-body svg.purple :not([fill='black']),
+      #R-body svg.purple :not([fill='#000000']) {
+        fill: var(--INTERNAL-PRIMARY-color) !important;
+      }
+
+       
+      #R-logo {
+        font-size: 1.4rem;
+        margin-bottom: -.8125rem;
+        margin-top: -.8125rem;
+        max-width: 100%;
+        width: 14.125rem;
+      }
+      @media only all and (max-width: 59.999rem) {
+        #R-logo {
+          font-size: 1rem;
+          margin-bottom: -.25rem;
+          margin-top: -.25rem;
+        }
+      }
+      #R-logo svg {
+        display: inline-block;
+        opacity: .945;
+        vertical-align: middle;
+        width: 26% !important;
+      }
+      @media only all and (max-width: 59.999rem) {
+        #R-logo svg {
+          width: 24.5% !important;
+        }
+      }
+      #R-logo svg * {
+        opacity: .945;
+      }
+      #R-logo .logo-title{
+        display: inline-block;
+        overflow-wrap: break-word;
+        text-align: left;
+        text-wrap: wrap;
+        vertical-align: middle;
+        width: 4.5em;
+      }
+    </style>
+  </head>
+  <body class="mobile-support html" data-url="/posts/sans_for608/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#enterprise-threat-hunting-and-response--for608"><strong>Enterprise Threat hunting and Response (FOR608)</strong></a></li>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#brief-overview-of-forensic-analysis-and-its-application">Brief overview of forensic analysis and its application</a></li>
+      </ul>
+    </li>
+    <li><a href="#course-overview"><strong>Course Overview</strong></a>
+      <ul>
+        <li><a href="#proactive-detection-and-response--608-dot-1">Proactive Detection and Response (608.1)</a></li>
+        <li><a href="#scaling-response-and-analysis--608-dot-2">Scaling Response and Analysis (608.2)</a></li>
+        <li><a href="#modern-attacks-against-windows-and-linux-dfir--608-dot-3">Modern Attacks against Windows and Linux DFIR (608.3)</a></li>
+        <li><a href="#analyzing-macos-and-docker-containers--608-dot-4">Analyzing macOS and Docker Containers (608.4)</a></li>
+        <li><a href="#cloud-attacks-and-response--608-dot-5">Cloud Attacks and Response (608.5)</a></li>
+        <li><a href="#capstone-enterprise-class-ir-challenge">Capstone: Enterprise-Class IR Challenge</a></li>
+      </ul>
+    </li>
+    <li><a href="#key-takeaways"><strong>Key Takeaways</strong></a>
+      <ul>
+        <li><a href="#summary-of-key-concepts-and-skills-learned-during-the-course">Summary of key concepts and skills learned during the course</a></li>
+        <li><a href="#analysis-of-learning-outcomes-and-their-application-in-real-world-scenarios">Analysis of learning outcomes and their application in real-world scenarios</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion-and-recommendations"><strong>Conclusion and Recommendations</strong></a>
+      <ul>
+        <li><a href="#summary-of-overall-effectiveness-of-the-sans-forensics-course-for608">Summary of overall effectiveness of the SANS Forensics course for608</a></li>
+        <li><a href="#recommendations-for-future-students-looking-to-learn-forensic-analysis-skills">Recommendations for future students looking to learn forensic analysis skills</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav> 
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="/index.html"><span itemprop="name">Forensic Wheels</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li>
+            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="/posts/index.html"><span itemprop="name">Forensic wheels</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li>
+            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">SANS FOR608 Review</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/posts/sans_for608/index.print.html" title="Print whole chapter (CTRL+ALT+p)"><i class="fa-fw fas fa-print"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/posts/index.html" title="Forensic wheels (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/posts/honeyhttpd/index.html" title="Honeyhttpd for threathunting (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable posts" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+<div class="R-taxonomy taxonomy-tags cstyle tags" title="Tags" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
+  <ul>
+    <li><a class="term-link" href="/tags/forensics/index.html">Forensics</a></li>
+    <li><a class="term-link" href="/tags/sans/index.html">Sans</a></li>
+    <li><a class="term-link" href="/tags/sans-for608/index.html">Sans-For608</a></li>
+    <li><a class="term-link" href="/tags/threathunting/index.html">Threathunting</a></li>
+  </ul>
+</div>
+  </header>
+
+<h1 id="sans-for608-review">SANS FOR608 Review</h1>
+
+<div class="ox-hugo-toc toc">
+<div class="heading">Inhaltsverzeichnis</div>
+<ul>
+<li><a href="/posts/sans_for608/index.html#enterprise-threat-hunting-and-response--for608"><strong>Enterprise Threat hunting and Response (FOR608)</strong></a></li>
+<li><a href="/posts/sans_for608/index.html#introduction">Introduction</a>
+<ul>
+<li><a href="/posts/sans_for608/index.html#brief-overview-of-forensic-analysis-and-its-application">Brief overview of forensic analysis and its application</a></li>
+</ul>
+</li>
+<li><a href="/posts/sans_for608/index.html#course-overview"><strong>Course Overview</strong></a>
+<ul>
+<li><a href="/posts/sans_for608/index.html#proactive-detection-and-response--608-dot-1">Proactive Detection and Response (608.1)</a></li>
+<li><a href="/posts/sans_for608/index.html#scaling-response-and-analysis--608-dot-2">Scaling Response and Analysis (608.2)</a></li>
+<li><a href="/posts/sans_for608/index.html#modern-attacks-against-windows-and-linux-dfir--608-dot-3">Modern Attacks against Windows and Linux DFIR (608.3)</a></li>
+<li><a href="/posts/sans_for608/index.html#analyzing-macos-and-docker-containers--608-dot-4">Analyzing macOS and Docker Containers (608.4)</a></li>
+<li><a href="/posts/sans_for608/index.html#cloud-attacks-and-response--608-dot-5">Cloud Attacks and Response (608.5)</a></li>
+<li><a href="/posts/sans_for608/index.html#capstone-enterprise-class-ir-challenge">Capstone: Enterprise-Class IR Challenge</a></li>
+</ul>
+</li>
+<li><a href="/posts/sans_for608/index.html#key-takeaways"><strong>Key Takeaways</strong></a>
+<ul>
+<li><a href="/posts/sans_for608/index.html#summary-of-key-concepts-and-skills-learned-during-the-course">Summary of key concepts and skills learned during the course</a></li>
+<li><a href="/posts/sans_for608/index.html#analysis-of-learning-outcomes-and-their-application-in-real-world-scenarios">Analysis of learning outcomes and their application in real-world scenarios</a></li>
+</ul>
+</li>
+<li><a href="/posts/sans_for608/index.html#conclusion-and-recommendations"><strong>Conclusion and Recommendations</strong></a>
+<ul>
+<li><a href="/posts/sans_for608/index.html#summary-of-overall-effectiveness-of-the-sans-forensics-course-for608">Summary of overall effectiveness of the SANS Forensics course for608</a></li>
+<li><a href="/posts/sans_for608/index.html#recommendations-for-future-students-looking-to-learn-forensic-analysis-skills">Recommendations for future students looking to learn forensic analysis skills</a>
+<ul>
+<li><a href="/posts/sans_for608/index.html#gain-practical-experience">Gain Practical Experience</a></li>
+<li><a href="/posts/sans_for608/index.html#develop-your-analytical-skills">Develop Your Analytical Skills</a></li>
+<li><a href="/posts/sans_for608/index.html#learn-about-cloud-computing">Learn about Cloud Computing</a></li>
+<li><a href="/posts/sans_for608/index.html#familiarize-yourself-with-linux-and-macos">Familiarize Yourself with Linux and macOS</a></li>
+<li><a href="/posts/sans_for608/index.html#join-online-communities">Join Online Communities</a></li>
+<li><a href="/posts/sans_for608/index.html#consider-specializing-in-a-specific-area">Consider Specializing in a Specific Area</a></li>
+<li><a href="/posts/sans_for608/index.html#stay-up-to-date-with-industry-developments">Stay Up-to-Date with Industry Developments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!--endtoc-->
+<h2 id="enterprise-threat-hunting-and-response--for608"><strong>Enterprise Threat hunting and Response (FOR608)</strong></h2>
+<p>Course description from SANS <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> :</p>
+<blockquote>
+<p>FOR608: Enterprise-Class Incident Response &amp; Threat Hunting focuses
+on identifying and responding to incidents too large to focus on
+individual machines. By using example tools built to operate at
+enterprise-class scale, students learn the techniques to collect
+focused data for incident response and threat hunting, and dig
+into analysis methodologies to learn multiple approaches to
+understand attacker movement and activity across hosts of varying
+functions and operating systems by using an array of analysis techniques.</p>
+</blockquote>
+<h2 id="introduction">Introduction</h2>
+<h3 id="brief-overview-of-forensic-analysis-and-its-application">Brief overview of forensic analysis and its application</h3>
+<p>Forensic analysis in computer science investigates digital evidence to
+solve cybercrimes and security incidents. In enterprise environments,
+it involves analyzing devices, networks, and cloud storage. Key applications
+include incident response, compliance with regulations, investigations,
+and predictive analytics.</p>
+<p>Tools like Timesketch, Velociraptor or Wireshark, and cloud forensics platforms aid in the
+analysis. Collaboration between IT and law enforcement is also crucial for
+successful investigations.</p>
+<!--more-->
+<p>The goal of forensic analysis is to reconstruct events, identify perpetrators,
+and determine damage extent, ensuring organizations can respond effectively
+to security threats and maintain compliance with regulations.</p>
+<h2 id="course-overview"><strong>Course Overview</strong></h2>
+<h3 id="proactive-detection-and-response--608-dot-1">Proactive Detection and Response (608.1)</h3>
+<p>The FOR608 course begins in chapter 1 by discussing current cyber defense concerns
+and the importance of collaboration among incident responders and threat
+hunters. It emphasizes the need for sharing knowledge from sources like
+the <a href="https://attack.mitre.org/" rel="external" target="_blank">MITRE ATT&amp;CK</a> framework and explores the concept of active defense,
+including the use of honeypots, honey tokens, and canaries to slow down
+attackers and facilitate detection.</p>
+<!--more-->
+<p>When a compromise does occur, the course focuses on efficient handling of
+intrusions, covering topics such as leading the response, managing team
+members, documenting findings, and communicating with stakeholders. The
+<a href="https://github.com/cyb3rfox/Aurora-Incident-Response" rel="external" target="_blank">Aurora</a> documentation tool is introduced as a means for tracking investigation
+phases from initial detection to remediation.</p>
+<!--more-->
+<p>The chapter then dives into an example scenario where an alert is triggered in
+a company network, and triage data is analyzed using <a href="https://timesketch.org/" rel="external" target="_blank">Timesketch</a>, a powerful
+platform for scalable and collaborative analysis of forensic data.
+Additionally, techniques are shared for viewing the same data set with <a href="https://www.elastic.co/kibana" rel="external" target="_blank">Kibana</a>,
+which offers capabilities such as creating dashboards and saved searches to aid
+analysis.</p>
+<!--more-->
+<p>Chapter 608.1 concludes by examining key threat intelligence concepts, including
+developing and implementing internal threat intelligence. External projects
+like <a href="https://attack.mitre.org/" rel="external" target="_blank">MITRE ATT&amp;CK</a> and <a href="https://github.com/SigmaHQ/sigma" rel="external" target="_blank">Sigma</a> are leveraged, and two comprehensive threat intel
+platforms, <a href="https://www.misp-project.org" rel="external" target="_blank">MISP</a> and <a href="https://filigran.io/solutions/open-cti/" rel="external" target="_blank">OpenCTI</a>, are introduced. A threat intel report on the
+adversary targeting Stark Research Labs is presented to kick off the
+investigation into potential signs of intrusion in the company.</p>
+<h3 id="scaling-response-and-analysis--608-dot-2">Scaling Response and Analysis (608.2)</h3>
+<p>The course continues from chapter 1 by focusing on response actions.
+Students learn how to collect evidence at scale to scope a potential intrusion
+by leveraging EDR tooling data from EDR Solutions like <a href="https://learn.microsoft.com/de-de/sysinternals/downloads/sysmon" rel="external" target="_blank">Sysmon</a>. However, they
+also discuss common bypass techniques that attackers use to evade EDR
+technology.To aid in this analysis, the <a href="https://docs.velociraptor.app/" rel="external" target="_blank">Velociraptor</a> tool is introduced
+as a powerful platform for incident response and threat hunting.</p>
+<!--more-->
+<p>The chapter shows how <a href="https://docs.velociraptor.app" rel="external" target="_blank">Velociraptor</a> can collect forensic artifacts from across
+the enterprise and provide deep-dive capabilities into individual hosts
+of interest. Additionally, <a href="https://www.elastic.co/elasticsearch" rel="external" target="_blank">Elasticsearch</a> is used to ingest and process data
+from various tools, allowing for fast searches and aggregations. Students
+also learn about rapid response options for targeted data collections at
+scale using tools like <a href="https://docs.velociraptor.app/" rel="external" target="_blank">Velociraptor</a> and <a href="https://github.com/orlikoski/CyLR" rel="external" target="_blank">CyLR</a>. Finally, solutions are presented
+for quickly processing acquired data for analysis in tools like  <a href="https://timesketch.org/" rel="external" target="_blank">Timesketch</a>
+and individual artifact review.</p>
+<h3 id="modern-attacks-against-windows-and-linux-dfir--608-dot-3">Modern Attacks against Windows and Linux DFIR (608.3)</h3>
+<p>The third chapter of the course shifts focus from network-based analysis to
+traditional host-based forensic artifact analysis. It begins by discussing
+modern attack techniques on Windows systems, including ransomware and
+&ldquo;<a href="https://lolbas-project.github.io/" rel="external" target="_blank">living-of-the-land</a>&rdquo; (LOTB) attacks that avoid detection by using built-in
+binaries and scripts. The use of <a href="https://github.com/SigmaHQ/sigma" rel="external" target="_blank">Sigma</a> rules is highlighted as a way to
+facilitate rapid detection and response.</p>
+<!--more-->
+<p>The section also covers Linux incident response and analysis, starting with
+common vulnerabilities and exploits targeting Linux systems. It then dives
+into DFIR fundamentals for analyzing Linux systems, including key concepts
+such as differences among Linux distributions and file systems, and
+strategies for handling initial triage and deeper forensic analysis.
+The chapter concludes by providing best practices for hardening Linux
+systems and enhancing logging configurations to aid future investigations.</p>
+<h3 id="analyzing-macos-and-docker-containers--608-dot-4">Analyzing macOS and Docker Containers (608.4)</h3>
+<p>The course now focuses on Apple macOS incident response, building on the
+foundation established earlier. This includes understanding the history,
+ecosystem, and details of the Apple Filesystem (APFS), file structure, and
+important file types such as Property List (plist) configuration files. A
+discussion of challenges and opportunities in responding to macOS incidents
+follows, covering topics like acquiring disk and triage data, reviewing
+acquisitions, and identifying suspicious activity in logs and artifacts.</p>
+<!--more-->
+<p>This part of the course then transitions to containerized microservices
+and <a href="https://www.docker.com/" rel="external" target="_blank">Docker</a> analysis, focusing on the architecture and management of <a href="https://www.docker.com/" rel="external" target="_blank">Docker</a>
+containers and providing a specific triage workflow for quick and effective
+response against individual containers as well as the container host.</p>
+<h3 id="cloud-attacks-and-response--608-dot-5">Cloud Attacks and Response (608.5)</h3>
+<p>This part of the course focuses on incident response in major cloud platforms
+from Microsoft and Amazon, covering log analysis techniques, architecture
+designs, and automation initiatives that can be applied across various cloud
+providers. It highlights unique challenges and opportunities in cloud
+environments, particularly through the use of
+the <a href="https://attack.mitre.org/matrices/enterprise/cloud/" rel="external" target="_blank">MITRE ATT&amp;CK framework&rsquo;s Cloud Matrix</a>.</p>
+<!--more-->
+<p>In-depth discussion follows on Microsoft 365 (M365) and Azure, including
+popular SaaS offerings like Entra ID, Exchange, SharePoint, and Teams, as
+well as common attack scenarios against these platforms. The importance of
+log analysis is emphasized, particularly in identifying suspicious user
+logon and email activity from Unified Audit Logs.</p>
+<!--more-->
+<p>The course then addresses the Recovery phase, covering security enhancements
+to detect or prevent similar attacks in the future for M365 and Azure.</p>
+<!--more-->
+<p>Next, it delves into Amazon Web Services (AWS), covering its general
+architecture and components, as well as numerous logs and services
+providing critical detection and analysis data for responders. Discussions
+focus on architecting for response in the cloud, including setting up security
+accounts for a secure enclave within AWS, using template VMs (AMIs) for
+analysis, and automating IR tasks with AWS Lambda and Step Functions.</p>
+<h3 id="capstone-enterprise-class-ir-challenge">Capstone: Enterprise-Class IR Challenge</h3>
+<p>The final section of the course is a capstone exercise that allows students to
+apply their knowledge by working on a simulated breach scenario. They will
+receive a dataset from a compromised environment that spans multiple host
+operating systems and cloud environments, and use tools and techniques
+learned throughout the course to uncover the steps of the breach.</p>
+<h2 id="key-takeaways"><strong>Key Takeaways</strong></h2>
+<h3 id="summary-of-key-concepts-and-skills-learned-during-the-course">Summary of key concepts and skills learned during the course</h3>
+<p>During the SANS FOR608 course, I learned key concepts and skills
+that enabled me to do effective incident response team management
+and coordination, including enterprise-level incident detection and
+to deploy threat hunting strategies. The course covered large-scale
+event correlation and timeline analysis techniques to identify patterns
+and trends in incidents, as well as multi-platform artifact analysis
+for incident response.</p>
+<!--more-->
+<p>Specifically, I gained hands-on experience
+analyzing artifacts from various platforms, including Windows devices,
+Linux systems, macOS devices, containerized environments, and cloud-based
+infrastructure. This comprehensive training has equipped me with the
+knowledge and tools needed to detect, analyze, and respond to complex
+threats in enterprise environments.</p>
+<h3 id="analysis-of-learning-outcomes-and-their-application-in-real-world-scenarios">Analysis of learning outcomes and their application in real-world scenarios</h3>
+<p>Based on the provided course materials, I have analyzed my learning outcomes
+and their application in real-world scenarios. Through my analysis, I have
+gained a deeper understanding of the key concepts and skills required for
+effective cloud response and analysis, container DFIR fundamentals, detecting
+modern attacks, enterprise incident response management, enterprise visibility
+and incident scoping, foundational cloud concepts, Linux DFIR fundamentals,
+macOS DFIR fundamentals, macOS essentials, rapid response triage at scale.</p>
+<!--more-->
+<p>I have also gained practical knowledge of how to correlate large volumes of
+data to identify patterns and trends in incidents.</p>
+<!--more-->
+<p>In particular, my experience with cloud-based infrastructure has highlighted
+the need for a comprehensive understanding of foundational cloud concepts,
+including popular cloud services that enterprises use to support business
+operations. I have also gained familiarity with common data source types in
+an enterprise environment and strategies to aggregate telemetry from
+disparate resources.</p>
+<!--more-->
+<p>My analysis of learning outcomes suggests that effective application of these
+skills requires a combination of technical expertise, analytical thinking, and
+communication skills. By mastering these skills, I am confident in my ability
+to respond effectively to complex incidents and provide value to organizations
+as a security professional.</p>
+<h2 id="conclusion-and-recommendations"><strong>Conclusion and Recommendations</strong></h2>
+<h3 id="summary-of-overall-effectiveness-of-the-sans-forensics-course-for608">Summary of overall effectiveness of the SANS Forensics course for608</h3>
+<p>The SANS FOR608 course is a comprehensive training program that provides
+students with a strong foundation in incident response, threat hunting, and
+digital forensic analysis. Through its curriculum, the course covers key
+concepts and skills related to managing incident response teams, detecting
+threats in enterprise environments using advanced analytics tools, correlating
+large volumes of data to identify patterns and trends in incidents, analyzing
+artifacts from various platforms including Windows devices, Linux systems,
+macOS devices, containerized environments, and cloud-based infrastructure.</p>
+<p><span class="underline">Analysis</span>:</p>
+<ul>
+<li><strong>Comprehensive coverage</strong>: The course covers a wide range of topics related to
+incident response and digital forensic analysis, providing students with a
+comprehensive understanding of the subject matter.</li>
+<li><strong>Hands-on experience</strong>: The course includes hands-on exercises that allow
+students to apply their knowledge in real-world scenarios, which helps
+to reinforce learning and improve retention.</li>
+<li><strong>Practical skills</strong>: The course emphasizes practical skills over theoretical
+concepts, which is beneficial for security professionals who need to
+respond to incidents in a timely and effective manner.</li>
+<li><strong>Real-world relevance</strong>: The course covers topics that are relevant to
+real-world scenarios, making it easier for students to apply their knowledge in practical settings.</li>
+</ul>
+<p>Summary:</p>
+<p>From my opinion the SANS FOR608 course is highly effective in providing
+students with a comprehensive understanding of incident response and
+digital forensic analysis. Through its comprehensive coverage, hands-on
+exercises, and emphasis on practical skills, the course provides security
+professionals with the knowledge and skills needed to respond effectively
+to incidents. Overall, the course is well-structured, engaging, and relevant
+to real-world scenarios, making it an excellent choice for individuals looking
+to improve their incident response and digital forensic analysis skills.</p>
+<h3 id="recommendations-for-future-students-looking-to-learn-forensic-analysis-skills">Recommendations for future students looking to learn forensic analysis skills</h3>
+<h4 id="gain-practical-experience">Gain Practical Experience</h4>
+<p>Before enrolling in a forensic analysis course, try to gain as much practical
+experience as possible for example practicing <a href="https://app.hackthebox.com/sherlocks/" rel="external" target="_blank">Sherlocks on hack the box</a> or try
+yourself in Malware analysis challanges This could also involve setting up your
+own home lab, participating in bug bounty programs, or volunteering to help a friend or
+family member with their computer issues. The more hands-on experience you
+have, the better equipped you&rsquo;ll be to learn and apply forensic analysis skills.</p>
+<h4 id="develop-your-analytical-skills">Develop Your Analytical Skills</h4>
+<p>Forensic analysis requires strong analytical skills, including attention to
+detail, critical thinking, and problem-solving. Practice these skills by
+working on puzzles, brain teasers, or other activities that challenge your
+mind. You can also try analyzing data sets, network traffic logs, or
+system logs to develop your skills.</p>
+<h4 id="learn-about-cloud-computing">Learn about Cloud Computing</h4>
+<p>As a forensic analyst, it&rsquo;s essential to understand cloud computing and how
+it affects the analysis of digital evidence. Take online courses or attend
+webinars that teach you about cloud security, compliance, and investigation
+techniques. This will help you stay up-to-date with the latest trends
+and technologies.</p>
+<h4 id="familiarize-yourself-with-linux-and-macos">Familiarize Yourself with Linux and macOS</h4>
+<p>Linux and macOS are popular operating systems used by many organizations,
+including those in the finance, healthcare, and government sectors. Take
+online courses or attend workshops that teach you about these operating
+systems, including their command-line interfaces, file systems, and
+security features.</p>
+<h4 id="join-online-communities">Join Online Communities</h4>
+<p>Joining online communities, such as Reddit&rsquo;s r/learnprogramming or r/netsec,
+can be a great way to connect with other professionals in the field, ask
+questions, and learn from their experiences. You can also participate in
+online forums, attend webinars, or join online study groups to stay updated
+on the latest forensic analysis techniques.</p>
+<h4 id="consider-specializing-in-a-specific-area">Consider Specializing in a Specific Area</h4>
+<p>Forensic analysis is a broad field that encompasses many areas, including
+computer forensics, mobile device forensics, and digital evidence collection.
+Consider specializing in a specific area that interests you the most, such as
+incident response or threat hunting. This will help you develop deeper
+knowledge and skills in that area.</p>
+<h4 id="stay-up-to-date-with-industry-developments">Stay Up-to-Date with Industry Developments</h4>
+<p>The field of forensic analysis is constantly evolving, with new technologies
+and techniques emerging regularly. Stay up-to-date with industry developments
+by attending conferences, webinars, or online courses that focus on the latest
+trends and advancements.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://www.sans.org/cyber-security-courses/enterprise-incident-response-threat-hunting/" rel="external" target="_blank">https://www.sans.org/cyber-security-courses/enterprise-incident-response-threat-hunting/</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+  <footer class="footline">
+              <i class='fa-fw fas fa-calendar'></i> Jun 17, 2025
+<div class="R-taxonomy taxonomy-categories cstyle" title="Categories" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
+  <i class="fa-fw fas fa-layer-group"></i>
+  <ul>
+    <li><a class="term-link" href="/categories/forensics/index.html">Forensics</a></li>
+  </ul>
+</div>
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          
+          <a id="R-logo" href="/index.html">
+<svg class="inlinecontent lazy figure-image" style=" height: auto; width: auto;" xmlns="http://www.w3.org/2000/svg" viewBox="75 75 350 350">
+  <style>
+    @media (prefers-color-scheme: dark) {
+    path { fill: white; }
+    }
+  </style>
+  <path
+    d="M250,80 a170,170 0 1,0 0,340 a170,170 0 1,0 0,-340 M250,95 a155,155 0 1,1 0,310 a155,155 0 1,1 0,-310 Z" />
+  <path
+    d="M 250 110 C 223.33333 123.33333 203.33333 156.66667 190 210 C 190 230 200 246.66667 220 260 C 246.66667 273.33333 270 273.33333 290 260 C 310 246.66667 316.66667 230 310 210 C 296.66667 156.66667 276.66667 123.33333 250 110 z M 230 152 A 22 28 0 0 1 250.02539 168.43164 A 22 28 0 0 1 270 152 A 22 28 0 0 1 292 180 A 22 28 0 0 1 270 208 A 22 28 0 0 1 250 191.48828 A 22 28 0 0 1 230 208 A 22 28 0 0 1 208 180 A 22 28 0 0 1 230 152 z " />
+  <path
+    d="M 232 190 A 7 7 0 1 0 218 190 A 7 7 0 1 0 232 190" />
+  <path
+    d="M 282 190 A 7 7 0 1 0 268 190 A 7 7 0 1 0 282 190" />
+  <path
+    d="m 251.62695,262.67773 -3.2539,14.64454 c 29.6411,6.58691 52.50119,14.00059 68.27343,21.88671 15.77224,7.88612 23.89316,16.12675 26.23829,23.16211 l 0.16796,0.50586 0.23829,0.47657 c 2.77431,5.54863 2.96984,9.14709 2.09375,11.77539 -0.8761,2.62829 -3.18965,5.38779 -8.73829,8.16211 -5.54863,2.77431 -9.14709,2.96984 -11.77539,2.09375 -2.62829,-0.8761 -5.38779,-3.18965 -8.16211,-8.73829 -5.77224,-11.54447 -5.77224,-21.74849 0,-33.29296 l -13.41796,-6.70704 c -7.5611,15.12219 -7.5611,31.58485 0,46.70704 3.89235,7.7847 9.46618,13.80448 16.83789,16.26171 7.3717,2.45724 15.4399,0.9861 23.22461,-2.90625 7.7847,-3.89235 13.80448,-9.46618 16.26171,-16.83789 2.45724,-7.3717 0.9861,-15.4399 -2.90625,-23.22461 l 0.40625,0.98243 c -4.32154,-12.96464 -16.20062,-23.05735 -33.76171,-31.83789 -17.5611,-8.78055 -41.36767,-16.36687 -71.72657,-23.11329 z" />
+  <path
+    d="m 251.06055,262.57617 -2.1211,14.84766 c 22.66512,3.23787 40.0389,8.90614 52.08594,16.43554 12.04704,7.52941 18.84739,16.55167 21.69922,27.95899 l 0.19922,0.79883 0.36719,0.73633 c 2.77431,5.54863 2.96984,9.14709 2.09375,11.77539 -0.8761,2.62829 -3.18965,5.38779 -8.73829,8.16211 -5.54863,2.77431 -9.14709,2.96984 -11.77539,2.09375 -2.62829,-0.8761 -5.38779,-3.18965 -8.16211,-8.73829 -5.77224,-11.54447 -5.77224,-21.74849 0,-33.29296 l -13.41796,-6.70704 c -7.5611,15.12219 -7.5611,31.58485 0,46.70704 3.89235,7.7847 9.46618,13.80448 16.83789,16.26171 7.3717,2.45724 15.4399,0.9861 23.22461,-2.90625 7.7847,-3.89235 13.80448,-9.46618 16.26171,-16.83789 2.36474,-7.09422 1.02935,-14.82889 -2.53906,-22.33984 -3.93242,-14.96263 -13.69431,-27.38609 -28.10156,-36.39063 -14.61962,-9.13726 -33.91251,-15.13566 -57.91406,-18.56445 z" />
+  <path
+    d="m 254.16016,263.75977 -8.32032,12.48046 c 18.87994,12.58663 30.93166,27.79106 37.04493,46.13086 l 0.16796,0.50586 0.23829,0.47657 c 2.77431,5.54863 2.96984,9.14709 2.09375,11.77539 -0.8761,2.62829 -3.18965,5.38779 -8.73829,8.16211 -5.54863,2.77431 -9.14709,2.96984 -11.77539,2.09375 -2.62829,-0.8761 -5.38779,-3.18965 -8.16211,-8.73829 -5.77224,-11.54447 -5.77224,-21.74849 0,-33.29296 l -13.41796,-6.70704 c -7.5611,15.12219 -7.5611,31.58485 0,46.70704 3.89235,7.7847 9.46618,13.80448 16.83789,16.26171 7.3717,2.45724 15.4399,0.9861 23.22461,-2.90625 7.7847,-3.89235 13.80448,-9.46618 16.26171,-16.83789 2.36103,-7.08308 1.03217,-14.80481 -2.52343,-22.30468 -7.22746,-21.63209 -21.83225,-39.74038 -42.93164,-53.80664 z" />
+  <path
+    d="m 245.83984,263.75977 c -21.09939,14.06626 -35.70418,32.17455 -42.93164,53.80664 -3.5556,7.49987 -4.88446,15.2216 -2.52343,22.30468 2.45723,7.37171 8.47701,12.94554 16.26171,16.83789 7.78471,3.89235 15.85291,5.36349 23.22461,2.90625 7.37171,-2.45723 12.94554,-8.47701 16.83789,-16.26171 7.5611,-15.12219 7.5611,-31.58485 0,-46.70704 l -13.41796,6.70704 c 5.77224,11.54447 5.77224,21.74849 0,33.29296 -2.77432,5.54864 -5.53382,7.86219 -8.16211,8.73829 -2.6283,0.87609 -6.22676,0.68056 -11.77539,-2.09375 -5.54864,-2.77432 -7.86219,-5.53382 -8.73829,-8.16211 -0.87609,-2.6283 -0.68056,-6.22676 2.09375,-11.77539 l 0.23829,-0.47657 0.16796,-0.50586 c 6.11327,-18.3398 18.16499,-33.54423 37.04493,-46.13086 z" />
+  <path
+    d="m 248.5293,262.64648 c -35.0305,7.0061 -60.89872,25.32088 -75.23828,54 C 169.62227,323.98397 167.5,330.83333 167.5,337.5 c 0,6.66667 2.53811,13.14358 7.19727,17.80273 5.1011,5.1011 13.27646,6.61163 20.17382,4.3125 6.89737,-2.29912 13.32304,-7.20389 20.43164,-14.3125 l 0.86133,-0.85937 0.54492,-1.08984 c 7.5611,-15.12219 7.5611,-31.58485 0,-46.70704 l -13.41796,6.70704 c 5.58408,11.16816 5.64385,21.1051 0.42382,32.1914 -5.75159,5.55819 -10.66362,8.86574 -13.58593,9.83985 -3.10264,1.03421 -3.26061,0.87806 -4.82618,-0.6875 C 183.29523,342.68976 182.5,340.83333 182.5,337.5 c 0,-3.33333 1.21106,-8.15064 4.20898,-14.14648 12.32711,-24.65421 33.12555,-39.67277 64.76172,-46 z" />
+  <path
+    d="m 248.37305,262.67773 c -30.3589,6.74642 -54.16547,14.33274 -71.72657,23.11329 -17.56109,8.78054 -29.44017,18.87325 -33.76171,31.83789 l 0.40625,-0.98243 c -3.89235,7.78471 -5.36349,15.85291 -2.90625,23.22461 2.45723,7.37171 8.47701,12.94554 16.26171,16.83789 7.78471,3.89235 15.85291,5.36349 23.22461,2.90625 7.37171,-2.45723 12.94554,-8.47701 16.83789,-16.26171 7.5611,-15.12219 7.5611,-31.58485 0,-46.70704 l -13.41796,6.70704 c 5.77224,11.54447 5.77224,21.74849 0,33.29296 -2.77432,5.54864 -5.53382,7.86219 -8.16211,8.73829 -2.6283,0.87609 -6.22676,0.68056 -11.77539,-2.09375 -5.54864,-2.77432 -7.86219,-5.53382 -8.73829,-8.16211 -0.87609,-2.6283 -0.68056,-6.22676 2.09375,-11.77539 l 0.23829,-0.47657 0.16796,-0.50586 c 2.34513,-7.03536 10.46605,-15.27599 26.23829,-23.16211 15.77224,-7.88612 38.63233,-15.2998 68.27343,-21.88671 z" />
+</svg>
+            <div class="logo-title">Forensic Wheels</div>
+          </a>
+        </div>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="parent " data-nav-id="/posts/index.html"><a class="padding" href="/posts/index.html">Forensic wheels</a><ul id="R-subsections-b4e55eb7e39db1aee6d02808a2267090" class="collapsible-menu">
+            <li class="active " data-nav-id="/posts/sans_for608/index.html"><a class="padding" href="/posts/sans_for608/index.html">SANS FOR608 Review</a></li>
+            <li class="" data-nav-id="/posts/honeyhttpd/index.html"><a class="padding" href="/posts/honeyhttpd/index.html">Honeyhttpd for threathunting</a></li>
+            <li class="" data-nav-id="/posts/about/index.html"><a class="padding" href="/posts/about/index.html">About</a></li>
+            <li class="" data-nav-id="/posts/openbsdzen/index.html"><a class="padding" href="/posts/openbsdzen/index.html">OpenBSD and Zen</a></li></ul></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="/js/clipboard/clipboard.min.js?1750190088" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1750190088" defer></script>
+    <script src="/js/theme.js?1750190088" defer></script>
+  </body>
+</html>
