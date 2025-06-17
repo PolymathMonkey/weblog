@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About :: Forensic Wheels</title>
+    <link>http://localhost:1313/posts/about/index.html</link>
+    <description>Abbildung 1: What is this about?&#xA;Hello there! I’m Dirk, a security engineer with a passion for forensics and Skateboarding. By day, I help my Company safeguard their networks and systems from the ever-evolving threats in the cybersecurity landscape.&#xA;But when the sun goes down, my true self emerges. Skateboarding is not just a hobby - it’s my passion, my center, and my identity. For me, Skatelife is more than just a lifestyle; it’s a way of life that embodies creativity, freedom, and community. I’ve been shredding for years, and I still get that same rush every time I’m on my board.&#xA;In addition to my love for skateboarding, I’m also an enthusiast of OpenBSD - the most secure, yet accessible operating system out there. I’ve built my own OpenBSD-based router and infrastructure for threat hunting, which allows me to stay one step ahead in the game of cybersecurity. There’s something about the simplicity, elegance, and power of OpenBSD that resonates deeply with me.</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>All text is licensed under a Creative Commons Attribution 4.0 International License.</copyright>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/about/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

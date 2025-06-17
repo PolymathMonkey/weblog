@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>  &#34;Forensic wheels&#34;
-   :: Forensic Wheels</title>
+    <title>Forensic wheels :: Forensic Wheels</title>
     <link>http://localhost:1313/posts/index.html</link>
-    <description>I write in Emacs And this is my nice _index.org file.</description>
+    <description>You are not your thoughts, they are just the finger pointing at the moon&#xA;Posts This is my intro post for my blog About&#xA;Dirk – 2025-05-26 Mo Some thoughts and Idears about what OpenBSD and Zen have in Common - OpenBSD and Zen&#xA;Dirk – 2025-05-26 Mo My review of the Sans Enterprise Forensics and Threadhunting Course - SANS FOR608</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>All text is licensed under a Creative Commons Attribution 4.0 International License.</copyright>
@@ -15,28 +14,7 @@
       <link>http://localhost:1313/posts/about/index.html</link>
       <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/about/index.html</guid>
-      <description>Abbildung 1: What is this about?&#xA;Hello there! I’m [Your Name], a seasoned security engineer with a passion for protecting people and their digital lives. By day, I help organizations safeguard their networks and systems from the ever-evolving threats in the cybersecurity landscape.&#xA;But when the sun goes down, my true self emerges. Skateboarding is not just a hobby - it’s my passion, my sanctuary, and my identity. For me, Skatelife is more than just a lifestyle; it’s a way of life that embodies creativity, freedom, and community. I’ve been shredding the gnar for years, and I still get that same rush every time I’m on my board.&#xA;In addition to my love for skateboarding, I’m also an enthusiast of OpenBSD - the most secure, yet accessible operating system out there. I’ve built my own OpenBSD-based router and infrastructure for threat hunting, which allows me to stay one step ahead in the game of cybersecurity. There’s something about the simplicity, elegance, and power of OpenBSD that resonates deeply with me.</description>
-    </item>
-    <item>
-      <title>Honeyhttpd for threathunting</title>
-      <link>http://localhost:1313/posts/honeyhttpd/index.html</link>
-      <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/honeyhttpd/index.html</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>OpenBSD and Zen</title>
-      <link>http://localhost:1313/posts/openbsdzen/index.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/openbsdzen/index.html</guid>
-      <description>About Simplicity and Clarity Attention to Detail The Power of Consistency The Beauty of Imperfection About As a security enthusiast, I’ve always been fascinated by the world of open-source operating systems. Among them, OpenBSD stands out for its commitment to security, stability, and simplicity. But what sets it apart from other OSes? And how does it relate to my personal journey with Zen meditation?</description>
-    </item>
-    <item>
-      <title>SANS FOR608 Review</title>
-      <link>http://localhost:1313/posts/sans_for608/index.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/sans_for608/index.html</guid>
-      <description>Enterprise Threat hunting and Response (FOR608) Introduction Brief overview of forensic analysis and its application Introduction to the SANS Forensics course for608, including its objectives and duration Course Overview Detailed explanation of the course syllabus Discussion of the course modules and topics covered Key Takeaways • Summary of key concepts and skills learned during the course • Analysis of learning outcomes and their application in real-world scenarios Conclusion and Recommendations • Summary of overall effectiveness of the SANS Forensics course for608 • Recommendations for future students or professionals looking to learn forensic analysis skills Enterprise Threat hunting and Response (FOR608) Introduction Brief overview of forensic analysis and its application Introduction to the SANS Forensics course for608, including its objectives and duration Course Overview Detailed explanation of the course syllabus Discussion of the course modules and topics covered Key Takeaways • Summary of key concepts and skills learned during the course • Analysis of learning outcomes and their application in real-world scenarios Conclusion and Recommendations • Summary of overall effectiveness of the SANS Forensics course for608 • Recommendations for future students or professionals looking to learn forensic analysis skills</description>
+      <description>Abbildung 1: What is this about?&#xA;Hello there! I’m Dirk, a security engineer with a passion for forensics and Skateboarding. By day, I help my Company safeguard their networks and systems from the ever-evolving threats in the cybersecurity landscape.&#xA;But when the sun goes down, my true self emerges. Skateboarding is not just a hobby - it’s my passion, my center, and my identity. For me, Skatelife is more than just a lifestyle; it’s a way of life that embodies creativity, freedom, and community. I’ve been shredding for years, and I still get that same rush every time I’m on my board.&#xA;In addition to my love for skateboarding, I’m also an enthusiast of OpenBSD - the most secure, yet accessible operating system out there. I’ve built my own OpenBSD-based router and infrastructure for threat hunting, which allows me to stay one step ahead in the game of cybersecurity. There’s something about the simplicity, elegance, and power of OpenBSD that resonates deeply with me.</description>
     </item>
   </channel>
 </rss>
