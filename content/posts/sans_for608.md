@@ -1,10 +1,10 @@
 +++
 title = "SANS FOR608 Review"
 author = ["Dirk"]
-date = 2025-05-25
+date = 2025-06-17T21:47:00+02:00
 tags = ["forensics", "sans", "threathunting", "sans-for608"]
 categories = ["forensics"]
-draft = true
+draft = false
 +++
 
 <div class="ox-hugo-toc toc">
