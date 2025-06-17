@@ -4,7 +4,7 @@ author = ["Dirk"]
 date = 2025-05-25
 tags = ["openbsd", "zen"]
 categories = ["blog"]
-draft = true
+draft = false
 +++
 
 <div class="ox-hugo-toc toc">
