@@ -1,6 +1,6 @@
 baseURL = 'https://polymathmonkey.github.io/'
 languageCode = 'en-us'
-title = 'home'
+title = 'Forensic wheels'
 theme = 'hugo-theme-relearn'
 #relativeURLs = true
 preserveTaxonomyNames = true
