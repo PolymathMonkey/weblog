@@ -6,37 +6,40 @@
     <meta name="generator" content="Hugo 0.142.0">
     <meta name="generator" content="Relearn 7.6.1+0b83617ee9da5253aafcf11807b256da7d88d709">
     <meta name="description" content="I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD II. Setting up HoneyPot HTTPD for Web Data Ingestion Containerizing the application to run inside docker III.Ingesting Web Data into Elasticsearch with HoneyPot HTTPD Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure IV. Benefits and Use Cases Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility) Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity) V. Conclusion Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch*** Final thoughts on the value of this setup for your organization’s threat hunting or security operations. I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD I recently set out to ingest web traffic data into our SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.">
-    <meta name="author" content="">
+    <meta name="author" content="Dirk">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="HoneyHTTPD :: Forensic wheels">
+    <meta name="twitter:title" content="HoneyHTTPD - Forensic wheels">
     <meta name="twitter:description" content="I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD II. Setting up HoneyPot HTTPD for Web Data Ingestion Containerizing the application to run inside docker III.Ingesting Web Data into Elasticsearch with HoneyPot HTTPD Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure IV. Benefits and Use Cases Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility) Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity) V. Conclusion Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch*** Final thoughts on the value of this setup for your organization’s threat hunting or security operations. I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD I recently set out to ingest web traffic data into our SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.">
     <meta property="og:url" content="http://localhost:1313/posts/honeyhttpd/index.html">
     <meta property="og:site_name" content="Forensic wheels">
-    <meta property="og:title" content="HoneyHTTPD :: Forensic wheels">
+    <meta property="og:title" content="HoneyHTTPD - Forensic wheels">
     <meta property="og:description" content="I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD II. Setting up HoneyPot HTTPD for Web Data Ingestion Containerizing the application to run inside docker III.Ingesting Web Data into Elasticsearch with HoneyPot HTTPD Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure IV. Benefits and Use Cases Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility) Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity) V. Conclusion Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch*** Final thoughts on the value of this setup for your organization’s threat hunting or security operations. I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD I recently set out to ingest web traffic data into our SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Forensic wheels">
     <meta property="article:published_time" content="2019-01-11T16:00:00-05:00">
     <meta property="article:modified_time" content="2019-01-11T16:00:00-05:00">
-    <meta itemprop="name" content="HoneyHTTPD :: Forensic wheels">
+    <meta property="article:tag" content="Threathunting">
+    <meta property="article:tag" content="Honeypot">
+    <meta itemprop="name" content="HoneyHTTPD - Forensic wheels">
     <meta itemprop="description" content="I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD II. Setting up HoneyPot HTTPD for Web Data Ingestion Containerizing the application to run inside docker III.Ingesting Web Data into Elasticsearch with HoneyPot HTTPD Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure IV. Benefits and Use Cases Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility) Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity) V. Conclusion Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch*** Final thoughts on the value of this setup for your organization’s threat hunting or security operations. I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD I recently set out to ingest web traffic data into our SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.">
     <meta itemprop="datePublished" content="2019-01-11T16:00:00-05:00">
     <meta itemprop="dateModified" content="2019-01-11T16:00:00-05:00">
     <meta itemprop="wordCount" content="821">
-    <title>HoneyHTTPD :: Forensic wheels</title>
-    <link href="/images/logo.svg?1750334049" rel="icon" type="image/svg+xml">
-    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1750334049" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1750334049" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1750334049" rel="stylesheet">
-    <link href="/css/theme.css?1750334049" rel="stylesheet">
-    <link href="/css/format-html.css?1750334049" rel="stylesheet" id="R-format-style">
-    <link href="/css/auto-complete/auto-complete.min.css?1750334049" rel="stylesheet">
-    <script src="/js/auto-complete/auto-complete.min.js?1750334049" defer></script>
-    <script src="/js/lunr/lunr.min.js?1750334049" defer></script>
-    <script src="/js/lunr/lunr.stemmer.support.min.js?1750334049" defer></script>
-    <script src="/js/lunr/lunr.multi.min.js?1750334049" defer></script>
-    <script src="/js/lunr/lunr.en.min.js?1750334049" defer></script>
-    <script src="/js/search.js?1750334049" defer></script>
+    <meta itemprop="keywords" content="Threathunting,Honeypot">
+    <title>HoneyHTTPD - Forensic wheels</title>
+    <link href="/images/logo.svg?1750454804" rel="icon" type="image/svg+xml">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1750454804" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1750454804" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1750454804" rel="stylesheet">
+    <link href="/css/theme.css?1750454804" rel="stylesheet">
+    <link href="/css/format-html.css?1750454804" rel="stylesheet" id="R-format-style">
+    <link href="/css/auto-complete/auto-complete.min.css?1750454804" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1750454804" defer></script>
+    <script src="/js/lunr/lunr.min.js?1750454804" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1750454804" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1750454804" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1750454804" defer></script>
+    <script src="/js/search.js?1750454804" defer></script>
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -46,7 +49,7 @@
       window.relearn.relBaseUri='..\/..';
       window.relearn.absBaseUri='http:\/\/localhost:1313';
       window.relearn.contentLangs=['en'];
-      window.relearn.index_js_url="/searchindex.en.js?1750334049";
+      window.relearn.index_js_url="/searchindex.en.js?1750454804";
       window.relearn.disableAnchorCopy=false;
       window.relearn.disableAnchorScrolling=false;
       window.relearn.disableInlineCopyToClipboard=false;
@@ -141,16 +144,10 @@
               </div>
             </div>
           </div>
-          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList">
-            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="/index.html"><span itemprop="name">Home</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li>
-            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="/posts/index.html"><span itemprop="name">Forensic wheels</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li>
-            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">HoneyHTTPD</span><meta itemprop="position" content="3"></li>
-          </ol>
+          <span class="topbar-breadcrumbs highlightable">
+            HoneyHTTPD
+          </span>
           <div class="topbar-area topbar-area-end" data-area="end">
-            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/posts/about/index.html" title="About (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
-            </div>
-            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/posts/openbsdzen/index.html" title="OpenBSD and Zen (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
-            </div>
             <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
               <div class="topbar-content">
                 <div class="topbar-content-wrapper">
@@ -167,6 +164,12 @@
         <div class="flex-block-wrapper">
 <article class="default">
   <header class="headline">
+<div class="R-taxonomy taxonomy-tags cstyle tags" title="Tags" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
+  <ul>
+    <li><a class="term-link" href="/tags/honeypot/index.html">Honeypot</a></li>
+    <li><a class="term-link" href="/tags/threathunting/index.html">Threathunting</a></li>
+  </ul>
+</div>
   </header>
 
 <h1 id="honeyhttpd">HoneyHTTPD</h1>
@@ -343,7 +346,7 @@ Elasticsearch.</p>
           </div>
         </form></search>
       </div>
-      <div id="R-homelinks" class="default-animation homelinks">
+      <div id="R-homelinks" class="default-animation">
         <div class="R-menu-divider default-animation">
           <hr class="padding">
         </div>
@@ -402,8 +405,22 @@ Elasticsearch.</p>
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/js/clipboard/clipboard.min.js?1750334049" defer></script>
-    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1750334049" defer></script>
-    <script src="/js/theme.js?1750334049" defer></script>
+    <script src="/js/clipboard/clipboard.min.js?1750454804" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1750454804" defer></script>
+    <script src="/js/js-yaml/js-yaml.min.js?1750454804" defer></script>
+    <script src="/js/d3/d3-color.min.js?1750454804" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1750454804" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1750454804" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1750454804" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1750454804" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1750454804" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1750454804" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1750454804" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1750454804" defer></script>
+    <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js" defer></script>
+    <script>
+      window.relearn.themeUseMermaid = JSON.parse("{}");
+    </script>
+    <script src="/js/theme.js?1750454804" defer></script>
   </body>
 </html>
