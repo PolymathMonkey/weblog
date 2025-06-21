@@ -69,22 +69,6 @@ imageEffects.purple = false
   # Disable showing the social sharing links on blog posts
   socialShareDisabled = false
 
-
-  [[params.boxStyle]]
-    color = 'oklch(0.852 0.199 91.936)'
-    i18n = ''
-    icon = 'rainbow'
-    identifier = 'magic'
-    title = 'Magic'
-
-  [params.imageEffects]
-    border = true
-    dataurl = false
-    inlinecontent = false
-    lazy = true
-    lightbox = true
-    shadow = false
-
 [caches]
   [caches.assets]
     dir = ':resourceDir/_gen'
