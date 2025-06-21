@@ -5,14 +5,14 @@ theme = 'hugo-theme-relearn'
 relativeURLs = true
 preserveTaxonomyNames = true
 MetaDataFormat = "yaml"
-SectionPagesMenu = "main"
+#SectionPagesMenu = "main"
 googleAnalytics = ""
 enableRobotsTXT = true
 enableEmoji = true
 pluralizeListTitles = false
 copyright = "All text is licensed under a Creative Commons Attribution 4.0 International License."
 showAllPostsArchive = true
-ShowReadingTime = true
+#ShowReadingTime = true
 ShowShareButtons = true
 ShowBreadCrumbs = true 
 ShowCodeCopyButtons = true
@@ -38,7 +38,7 @@ imageEffects.purple = false
 [params]
   author.name = 'Dirk'
   # choose a background color from any on this page: http://tachyons.io/docs/themes/skins/ and preface it with "bg-"
-  background_color_class = "bg-black"
+  #background_color_class = "bg-black"
   themeVariant = [ "auto", "neon" ]
   disableLandingPageButton = true
   #linkTitle = 'posts'
@@ -51,13 +51,13 @@ imageEffects.purple = false
   # This will match the navbarTitle to the section of the website
   dynamicTitles        = true
   # RSS icon that appear on the sidebar, next to the social media buttons
-  rssAppearAtTop       = true
-  rssAppearAtBottom    = true
+  #rssAppearAtTop       = true
+  #rssAppearAtBottom    = true
   # Social media buttons that appear on the sidebar
-  socialAppearAtTop    = true
-  socialAppearAtBottom = true
-  categoriesByCount    = true
-  includeReadingTime   = true
+  #socialAppearAtTop    = true
+  #socialAppearAtBottom = true
+  #categoriesByCount    = true
+  #includeReadingTime   = true
   # The set of favicons used are based on the write-up from this link:
   # https://github.com/audreyr/favicon-cheat-sheet
   # Please see the favicon partial template for more information
