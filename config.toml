@@ -43,6 +43,11 @@ imageEffects.purple = false
   themeVariant = [ "auto", "neon" ]
   disableLandingPageButton = true
   linkTitle = 'Forensic wheels'
+  showVisitedLinks=true
+  disableSearch = true
+  alwaysopen = false
+  disableSearchIndex = true
+  disableSearchPage = true
 # Optional Params
   # This will match the navbarTitle to the section of the website
   dynamicTitles        = true
