@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Openbsd - Tag - Forensic wheels</title>
+    <link>http://localhost:1313/tags/openbsd/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 11 Jan 2019 16:00:00 -0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/openbsd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenBSD and Zen</title>
+      <link>http://localhost:1313/posts/openbsdzen/index.html</link>
+      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/openbsdzen/index.html</guid>
+      <description>About Simplicity and Clarity Attention to Detail The Power of Consistency The Beauty of Imperfection About As a security enthusiast, I’ve always been fascinated by the world of open-source operating systems. Among them, OpenBSD stands out for its commitment to security, stability, and simplicity. But what sets it apart from other OSes? And how does it relate to my journey with Zen meditation?&#xA;At first glance, OpenBSD and Zen might seem like vastly different concepts. One is a powerful operating system, while the other is a spiritual practice that originated in ancient China. However, as I delved deeper into both worlds, I discovered some intriguing commonalities.</description>
+    </item>
+  </channel>
+</rss>
