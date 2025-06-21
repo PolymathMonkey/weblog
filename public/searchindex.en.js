@@ -18,14 +18,6 @@ var relearn_searchindex = [
     "uri": "/tags/forensic/index.html"
   },
   {
-    "breadcrumb": "",
-    "content": "You are not your thoughts, they are just the finger pointing at the moon\nPosts 1.This is my intro post for my blog About\nDirk – 2025-05-26 Mo Some thoughts and Idears about what OpenBSD and Zen have in Common - OpenBSD and Zen\nDirk – 2025-05-26 Mo My review of the Sans Enterprise Forensics and Threadhunting Course - SANS FOR608\nDirk – 2025-05-29 Thu",
-    "description": "You are not your thoughts, they are just the finger pointing at the moon\nPosts 1.This is my intro post for my blog About\nDirk – 2025-05-26 Mo Some thoughts and Idears about what OpenBSD and Zen have in Common - OpenBSD and Zen\nDirk – 2025-05-26 Mo My review of the Sans Enterprise Forensics and Threadhunting Course - SANS FOR608\nDirk – 2025-05-29 Thu",
-    "tags": [],
-    "title": "Forensic wheels",
-    "uri": "/index.html"
-  },
-  {
     "breadcrumb": "Forensic wheels",
     "content": "You are not your thoughts, they are just the finger pointing at the moon\nPosts 1.This is my intro post for my blog About\nDirk – 2025-05-26 Mo Some thoughts and Idears about what OpenBSD and Zen have in Common - OpenBSD and Zen\nDirk – 2025-05-26 Mo My review of the Sans Enterprise Forensics and Threadhunting Course - SANS FOR608\nDirk – 2025-05-29 Thu",
     "description": "You are not your thoughts, they are just the finger pointing at the moon\nPosts 1.This is my intro post for my blog About\nDirk – 2025-05-26 Mo Some thoughts and Idears about what OpenBSD and Zen have in Common - OpenBSD and Zen\nDirk – 2025-05-26 Mo My review of the Sans Enterprise Forensics and Threadhunting Course - SANS FOR608\nDirk – 2025-05-29 Thu",
