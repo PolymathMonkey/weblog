@@ -3,24 +3,23 @@ languageCode = 'en-us'
 title = 'Forensic wheels'
 theme = 'hugo-theme-relearn'
 #relativeURLs = true
-preserveTaxonomyNames = true
+#preserveTaxonomyNames = true
 MetaDataFormat = "yaml"
 SectionPagesMenu = "main"
 #Paginate = 3 # this is set low for demonstrating with dummy content. Set to a higher number
 #googleAnalytics = ""
 enableRobotsTXT = true
 enableEmoji = true
-pluralizeListTitles = false
+#pluralizeListTitles = false
 copyright = "All text is licensed under a Creative Commons Attribution 4.0 International License."
-showAllPostsArchive = true
-ShowReadingTime = true
-ShowShareButtons = true
-ShowBreadCrumbs = true 
-ShowCodeCopyButtons = true
+#showAllPostsArchive = true
+#ShowReadingTime = true
+#ShowShareButtons = true
+#ShowBreadCrumbs = true 
+#ShowCodeCopyButtons = true
 ignoreLogs = ['warning-goldmark-raw-html']
 
 # recommended theme parameter
-author.name = 'Dirk'
 include.errorlevel = 'warning'
 image.errorlevel = 'warning'
 externalLinkTarget = '_self'
@@ -30,6 +29,9 @@ openapi.errorlevel = 'warning'
 # specific image effect for this showcase;
 imageEffects.purple = false
 
+[author]
+  email = 'dirk@fake.mx'
+  name = 'Dirk'
 
 [outputs]
   # `print` - activate the themes feature to print whole chapters or leaf pages
@@ -67,6 +69,22 @@ imageEffects.purple = false
   # Disable showing the social sharing links on blog posts
   socialShareDisabled = false
 
+
+  [[params.boxStyle]]
+    color = 'oklch(0.852 0.199 91.936)'
+    i18n = ''
+    icon = 'rainbow'
+    identifier = 'magic'
+    title = 'Magic'
+
+  [params.imageEffects]
+    border = true
+    dataurl = false
+    inlinecontent = false
+    lazy = true
+    lightbox = true
+    shadow = false
+
 [caches]
   [caches.assets]
     dir = ':resourceDir/_gen'
@@ -93,4 +111,3 @@ imageEffects.purple = false
 [markup.goldmark.renderer]
   unsafe = true
   
-ignoreLogs = ['warning-goldmark-raw-html']

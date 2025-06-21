@@ -1,7 +1,8 @@
 ---
-title: "Forensic wheels"
+title: ""
 author: ["dirk"]
-draft: false
+draft: true
+date: '2025-06-21T09:19:15+02:00'
 ---
 
 You are not your thoughts, they are just the finger pointing at the moon
