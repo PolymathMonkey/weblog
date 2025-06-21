@@ -27,10 +27,7 @@ openapi.errorlevel = 'warning'
 
 # specific image effect for this showcase;
 imageEffects.purple = false
-
-[author]
-  email = 'dirk@fake.mx'
-  name = 'Dirk'
+params.author.name = 'Dirk'
 
 [outputs]
   # `print` - activate the themes feature to print whole chapters or leaf pages
