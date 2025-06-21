@@ -42,6 +42,7 @@ imageEffects.purple = false
   background_color_class = "bg-black"
   themeVariant = [ "auto", "neon" ]
   disableLandingPageButton = true
+  linkTitle = 'Forensic wheels'
 # Optional Params
   # This will match the navbarTitle to the section of the website
   dynamicTitles        = true
