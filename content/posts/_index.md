@@ -9,7 +9,7 @@ You are not your thoughts, they are just the finger pointing at the moon
 
 ## Posts {#posts}
 
-1.This is my intro post for my blog [About](about)
+This is my intro post for my blog [About](about)
 
 -   Dirk -- _2025-05-26 Mo_
 

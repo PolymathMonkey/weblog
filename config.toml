@@ -2,7 +2,6 @@ baseURL = 'https://polymathmonkey.github.io/'
 languageCode = 'en-us'
 title = 'Forensic wheels'
 theme = 'hugo-theme-relearn'
-#relativeURLs = true
 preserveTaxonomyNames = true
 MetaDataFormat = "yaml"
 enableRobotsTXT = true
@@ -36,25 +35,14 @@ imageEffects.purple = false
   author.name = 'Dirk'
   themeVariant = [ "auto", "neon" ]
   disableLandingPageButton = true
-  #nkTitle = 'weblog'
   showVisitedLinks=true
   disableSearch = true
   alwaysopen = false
   disableSearchIndex = true
   disableSearchPage = true
-# Optional Params
+  # Optional Params
   # This will match the navbarTitle to the section of the website
   dynamicTitles        = true
-  # RSS icon that appear on the sidebar, next to the social media buttons
-  #rssAppearAtTop       = true
-  #rssAppearAtBottom    = true
-  # Social media buttons that appear on the sidebar
-  #socialAppearAtTop    = true
-  #socialAppearAtBottom = true
-  #categoriesByCount    = true
-  #includeReadingTime   = true
-  # The set of favicons used are based on the write-up from this link:
-  # https://github.com/audreyr/favicon-cheat-sheet
   # Please see the favicon partial template for more information
   loadFavicon          = false
   faviconVersion       = ""
