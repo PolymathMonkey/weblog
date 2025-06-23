@@ -6,13 +6,27 @@
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 Jan 2019 16:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 23 Jun 2025 22:36:54 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tag - Forensic</title>
       <link>http://localhost:1313/tags/forensic/index.html</link>
-      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
+      <pubDate>Mon, 26 May 2025 16:21:00 -0500</pubDate>
       <guid>http://localhost:1313/tags/forensic/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag - Sans</title>
+      <link>http://localhost:1313/tags/sans/index.html</link>
+      <pubDate>Mon, 26 May 2025 16:21:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/sans/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag - Threathunting</title>
+      <link>http://localhost:1313/tags/threathunting/index.html</link>
+      <pubDate>Mon, 26 May 2025 16:21:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/threathunting/index.html</guid>
       <description></description>
     </item>
     <item>
@@ -27,20 +41,6 @@
       <link>http://localhost:1313/tags/openbsd/index.html</link>
       <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
       <guid>http://localhost:1313/tags/openbsd/index.html</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tag - Sans</title>
-      <link>http://localhost:1313/tags/sans/index.html</link>
-      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/tags/sans/index.html</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tag - Threathunting</title>
-      <link>http://localhost:1313/tags/threathunting/index.html</link>
-      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/tags/threathunting/index.html</guid>
       <description></description>
     </item>
     <item>

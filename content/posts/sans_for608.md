@@ -1,37 +1,35 @@
 ---
 title: "SANS FOR608"
 author: ["Dirk"]
-date: 2019-01-11T16:00:00-05:00
+date: 2025-05-26T16:21:00-05:00
+lastmod: 2025-06-23T22:36:54+02:00
 tags: ["sans", "forensic", "threathunting"]
 draft: false
 ---
 
-{{< figure src="../img/SANS.png" >}}
+<div class="ox-hugo-toc toc">
 
-[**Enterprise Threat hunting and Response**](#enterprise-threat-hunting-and-response--for608)
+<div class="heading">Inhaltsverzeichnis</div>
 
--   [Introduction](#introduction)
-    -   [Brief overview of forensic analysis and its application](#brief-overview-of-forensic-analysis-and-its-application)
--   [**Course Overview**](#course-overview)
-    -   [Proactive Detection and Response (608.1)](#proactive-detection-and-response--608-dot-1)
-    -   [Scaling Response and Analysis (608.2)](#scaling-response-and-analysis--608-dot-2)
-    -   [Modern Attacks against Windows and Linux DFIR (608.3)](#modern-attacks-against-windows-and-linux-dfir--608-dot-3)
-    -   [Analyzing macOS and Docker Containers (608.4)](#analyzing-macos-and-docker-containers--608-dot-4)
-    -   [Cloud Attacks and Response (608.5)](#cloud-attacks-and-response--608-dot-5)
-    -   [Capstone: Enterprise-Class IR Challenge](#capstone-enterprise-class-ir-challenge)
--   [**Key Takeaways**](#key-takeaways)
-    -   [Summary of key concepts and skills learned during the course](#summary-of-key-concepts-and-skills-learned-during-the-course)
-    -   [Analysis of learning outcomes and their application in real-world scenarios](#analysis-of-learning-outcomes-and-their-application-in-real-world-scenarios)
--   [**Conclusion and Recommendations**](#conclusion-and-recommendations)
-    -   [Summary of overall effectiveness of the SANS Forensics course for608](#summary-of-overall-effectiveness-of-the-sans-forensics-course-for608)
-    -   [Recommendations for future students looking to learn forensic analysis skills](#recommendations-for-future-students-looking-to-learn-forensic-analysis-skills)
-        -   [Gain Practical Experience](#gain-practical-experience)
-        -   [Develop Your Analytical Skills](#develop-your-analytical-skills)
-        -   [Learn about Cloud Computing](#learn-about-cloud-computing)
-        -   [Familiarize Yourself with Linux and macOS](#familiarize-yourself-with-linux-and-macos)
-        -   [Join Online Communities](#join-online-communities)
-        -   [Consider Specializing in a Specific Area](#consider-specializing-in-a-specific-area)
-        -   [Stay Up-to-Date with Industry Developments](#stay-up-to-date-with-industry-developments)
+- [**Enterprise Threat hunting and Response (FOR608)**](#enterprise-threat-hunting-and-response--for608)
+- [Introduction](#introduction)
+    - [Brief overview of forensic analysis and its application](#brief-overview-of-forensic-analysis-and-its-application)
+- [**Course Overview**](#course-overview)
+    - [Proactive Detection and Response (608.1)](#proactive-detection-and-response--608-dot-1)
+    - [Scaling Response and Analysis (608.2)](#scaling-response-and-analysis--608-dot-2)
+    - [Modern Attacks against Windows and Linux DFIR (608.3)](#modern-attacks-against-windows-and-linux-dfir--608-dot-3)
+    - [Analyzing macOS and Docker Containers (608.4)](#analyzing-macos-and-docker-containers--608-dot-4)
+    - [Cloud Attacks and Response (608.5)](#cloud-attacks-and-response--608-dot-5)
+    - [Capstone: Enterprise-Class IR Challenge](#capstone-enterprise-class-ir-challenge)
+- [**Key Takeaways**](#key-takeaways)
+    - [Summary of key concepts and skills learned during the course](#summary-of-key-concepts-and-skills-learned-during-the-course)
+    - [Analysis of learning outcomes and their application in real-world scenarios](#analysis-of-learning-outcomes-and-their-application-in-real-world-scenarios)
+- [**Conclusion and Recommendations**](#conclusion-and-recommendations)
+    - [Summary of overall effectiveness of the SANS Forensics course for608](#summary-of-overall-effectiveness-of-the-sans-forensics-course-for608)
+    - [Recommendations for future students looking to learn forensic analysis skills](#recommendations-for-future-students-looking-to-learn-forensic-analysis-skills)
+
+</div>
+<!--endtoc-->
 
 
 ## **Enterprise Threat hunting and Response (FOR608)** {#enterprise-threat-hunting-and-response--for608}
@@ -59,21 +57,9 @@ involves analyzing devices, networks, and cloud storage. Key
 applications include incident response, compliance with regulations,
 investigations, and predictive analytics.
 
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
-
 Tools like Timesketch, Velociraptor or Wireshark, and cloud forensics
 platforms aid in the analysis. Collaboration between IT and law
 enforcement is also crucial for successful investigations.
-
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
 
 The goal of forensic analysis is to reconstruct events, identify
 perpetrators, and determine damage extent, ensuring organizations can
@@ -94,24 +80,12 @@ ATT&amp;CK](https://attack.mitre.org/) framework and explores the concept of act
 the use of honeypots, honey tokens, and canaries to slow down attackers
 and facilitate detection.
 
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
-
 When a compromise does occur, the course focuses on efficient handling
 of intrusions, covering topics such as leading the response, managing
 team members, documenting findings, and communicating with stakeholders.
 The [Aurora](https://github.com/cyb3rfox/Aurora-Incident-Response)
 documentation tool is introduced as a means for tracking investigation
 phases from initial detection to remediation.
-
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
 
 The chapter then dives into an example scenario where an alert is
 triggered in a company network, and triage data is analyzed using
@@ -120,12 +94,6 @@ scalable and collaborative analysis of forensic data. Additionally,
 techniques are shared for viewing the same data set with
 [Kibana](https://www.elastic.co/kibana), which offers capabilities
 such as creating dashboards and saved searches to aid analysis.
-
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
 
 Chapter 608.1 concludes by examining key threat intelligence concepts,
 including developing and implementing internal threat intelligence.
@@ -149,12 +117,6 @@ However, they also discuss common bypass techniques that attackers use
 to evade EDR technology.To aid in this analysis, the
 [Velociraptor](https://docs.velociraptor.app/) tool is introduced as a
 powerful platform for incident response and threat hunting.
-
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
 
 The chapter shows how [Velociraptor](https://docs.velociraptor.app)
 can collect forensic artifacts from across the enterprise and provide
@@ -181,12 +143,6 @@ attacks that avoid detection by using built-in binaries and scripts. The
 use of [Sigma](https://github.com/SigmaHQ/sigma) rules is highlighted
 as a way to facilitate rapid detection and response.
 
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
-
 The section also covers Linux incident response and analysis, starting
 with common vulnerabilities and exploits targeting Linux systems. It
 then dives into DFIR fundamentals for analyzing Linux systems, including
@@ -208,12 +164,6 @@ macOS incidents follows, covering topics like acquiring disk and triage
 data, reviewing acquisitions, and identifying suspicious activity in
 logs and artifacts.
 
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
-
 This part of the course then transitions to containerized microservices
 and [Docker](https://www.docker.com/) analysis, focusing on the
 architecture and management of [Docker](https://www.docker.com/)
@@ -232,33 +182,15 @@ opportunities in cloud environments, particularly through the use of the
 [MITRE ATT&amp;CK
 framework's Cloud Matrix](https://attack.mitre.org/matrices/enterprise/cloud/).
 
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
-
 In-depth discussion follows on Microsoft 365 (M365) and Azure, including
 popular SaaS offerings like Entra ID, Exchange, SharePoint, and Teams,
 as well as common attack scenarios against these platforms. The
 importance of log analysis is emphasized, particularly in identifying
 suspicious user logon and email activity from Unified Audit Logs.
 
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
-
 The course then addresses the Recovery phase, covering security
 enhancements to detect or prevent similar attacks in the future for M365
 and Azure.
-
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
 
 Next, it delves into Amazon Web Services (AWS), covering its general
 architecture and components, as well as numerous logs and services
@@ -292,12 +224,6 @@ correlation and timeline analysis techniques to identify patterns and
 trends in incidents, as well as multi-platform artifact analysis for
 incident response.
 
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
-
 Specifically, I gained hands-on experience analyzing artifacts from
 various platforms, including Windows devices, Linux systems, macOS
 devices, containerized environments, and cloud-based infrastructure.
@@ -317,20 +243,8 @@ response management, enterprise visibility and incident scoping,
 foundational cloud concepts, Linux DFIR fundamentals, macOS DFIR
 fundamentals, macOS essentials, rapid response triage at scale.
 
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
-
 I have also gained practical knowledge of how to correlate large volumes
 of data to identify patterns and trends in incidents.
-
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
 
 In particular, my experience with cloud-based infrastructure has
 highlighted the need for a comprehensive understanding of foundational
@@ -338,12 +252,6 @@ cloud concepts, including popular cloud services that enterprises use to
 support business operations. I have also gained familiarity with common
 data source types in an enterprise environment and strategies to
 aggregate telemetry from disparate resources.
-
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
 
 My analysis of learning outcomes suggests that effective application of
 these skills requires a combination of technical expertise, analytical

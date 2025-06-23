@@ -5,12 +5,28 @@
     <lastmod>2025-06-21T09:19:15+02:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/forensic/index.html</loc>
-    <lastmod>2019-01-11T16:00:00-05:00</lastmod>
+    <loc>http://localhost:1313/posts/index.html</loc>
+    <lastmod>2025-06-21T09:19:15+02:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/index.html</loc>
-    <lastmod>2019-01-11T16:00:00-05:00</lastmod>
+    <loc>http://localhost:1313/tags/forensic/index.html</loc>
+    <lastmod>2025-06-23T22:36:54+02:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/sans/index.html</loc>
+    <lastmod>2025-06-23T22:36:54+02:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/sans_for608/index.html</loc>
+    <lastmod>2025-06-23T22:36:54+02:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/index.html</loc>
+    <lastmod>2025-06-23T22:36:54+02:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/threathunting/index.html</loc>
+    <lastmod>2025-06-23T22:36:54+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/nontechnical/index.html</loc>
@@ -22,22 +38,6 @@
   </url>
   <url>
     <loc>http://localhost:1313/posts/openbsdzen/index.html</loc>
-    <lastmod>2019-01-11T16:00:00-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/tags/sans/index.html</loc>
-    <lastmod>2019-01-11T16:00:00-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/posts/sans_for608/index.html</loc>
-    <lastmod>2019-01-11T16:00:00-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/tags/index.html</loc>
-    <lastmod>2019-01-11T16:00:00-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/tags/threathunting/index.html</loc>
     <lastmod>2019-01-11T16:00:00-05:00</lastmod>
   </url>
   <url>
