@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Personal - Tag - Forensic wheels</title>
+    <link>http://localhost:35545/tags/personal/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 11 Jan 2019 16:00:00 -0500</lastBuildDate>
+    <atom:link href="http://localhost:35545/tags/personal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:35545/posts/about/index.html</link>
+      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
+      <guid>http://localhost:35545/posts/about/index.html</guid>
+      <description>Hello there! I’m Dirk, a security engineer with a passion for forensics and Skateboarding. By day, I help my Company safeguard their networks and systems from the ever-evolving threats in the cybersecurity landscape.&#xA;But when the sun goes down, my true self emerges. Skateboarding is not just a hobby - it’s my passion, my center, and my identity. For me, Skatelife is more than just a lifestyle; it’s a way of life that embodies creativity, freedom, and community. I’ve been shredding for years, and I still get that same rush every time I’m on my board.</description>
+    </item>
+  </channel>
+</rss>

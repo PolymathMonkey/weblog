@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags - Forensic wheels</title>
+    <link>http://localhost:35545/tags/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 11 Jan 2019 16:00:00 -0500</lastBuildDate>
+    <atom:link href="http://localhost:35545/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tag - Forensic</title>
+      <link>http://localhost:35545/tags/forensic/index.html</link>
+      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
+      <guid>http://localhost:35545/tags/forensic/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag - Nontechnical</title>
+      <link>http://localhost:35545/tags/nontechnical/index.html</link>
+      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
+      <guid>http://localhost:35545/tags/nontechnical/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag - Openbsd</title>
+      <link>http://localhost:35545/tags/openbsd/index.html</link>
+      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
+      <guid>http://localhost:35545/tags/openbsd/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag - Personal</title>
+      <link>http://localhost:35545/tags/personal/index.html</link>
+      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
+      <guid>http://localhost:35545/tags/personal/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag - Sans</title>
+      <link>http://localhost:35545/tags/sans/index.html</link>
+      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
+      <guid>http://localhost:35545/tags/sans/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag - Threathunting</title>
+      <link>http://localhost:35545/tags/threathunting/index.html</link>
+      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
+      <guid>http://localhost:35545/tags/threathunting/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag - Zen</title>
+      <link>http://localhost:35545/tags/zen/index.html</link>
+      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
+      <guid>http://localhost:35545/tags/zen/index.html</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
