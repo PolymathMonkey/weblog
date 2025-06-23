@@ -1,17 +1,17 @@
----
-title: "Forensic wheels"
-author: ["dirk"]
-draft: false
----
++++
+title = "Forensic wheels"
+author = ["dirk"]
+draft = false
++++
 
 You are not your thoughts, they are just the finger pointing at the moon
 
 
 ## Posts {#posts}
 
-This is my intro post for my blog [About](about)
+My review of the Sans Enterprise Forensics and Threadhunting Course - [SANS FOR608](sans_for608)
 
--   Dirk -- _2025-05-26 Mo_
+-   Dirk -- _2025-05-29 Thu_
 
 ---
 
@@ -21,6 +21,6 @@ Some thoughts and Idears about what OpenBSD and Zen have in Common - [OpenBSD an
 
 ---
 
-My review of the Sans Enterprise Forensics and Threadhunting Course - [SANS FOR608](sans_for608)
+This is my intro post for my blog [About](about)
 
--   Dirk -- _2025-05-29 Thu_
+-   Dirk -- _2025-05-26 Mo_
