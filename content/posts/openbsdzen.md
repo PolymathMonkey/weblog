@@ -1,12 +1,11 @@
 ---
 title: "OpenBSD and Zen"
 author: ["Dirk"]
-date: 2019-01-11T16:00:00-05:00
+date: 2025-07-11T18:00:00-05:00
+lastmod: 2025-06-24T11:39:00+02:00
 tags: ["openbsd", "zen", "nontechnical"]
 draft: false
 ---
-
-{{< figure src="../img/puffy77.gif" >}}
 
 -   [About](#about)
 -   [Simplicity and Clarity](#simplicity-and-clarity)
@@ -17,17 +16,18 @@ draft: false
 
 ## About {#about}
 
-As a security enthusiast, I've always been fascinated by the world of
-open-source operating systems. Among them, OpenBSD stands out for its
+As someone who is into security, I've always been fascinated by the world of
+Unix operating systems. Among them, OpenBSD stands out for its
 commitment to security, stability, and simplicity. But what sets it
 apart from other OSes? And how does it relate to my journey with Zen
 meditation?
 
+{{< figure src="../img/puffy77.gif" >}}
+
 At first glance, OpenBSD and Zen might seem like vastly different
 concepts. One is a powerful operating system, while the other is a
 spiritual practice that originated in ancient China. However, as I
-delved deeper into both worlds, I discovered some intriguing
-commonalities.
+dived deeper into both worlds, I discovered some intriguing commonalities.
 
 
 ## Simplicity and Clarity {#simplicity-and-clarity}
@@ -38,6 +38,8 @@ inner clarity and balance. By stripping away unnecessary complexity,
 OpenBSD aims to create a stable and secure foundation for users.
 Similarly, in meditation, simplicity helps to quiet the mind and focus
 on the present moment.
+
+{{< figure src="../img/Enso.jpg" >}}
 
 
 ## Attention to Detail {#attention-to-detail}

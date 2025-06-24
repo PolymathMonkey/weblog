@@ -60,40 +60,12 @@ var relearn_searchindex = [
     "uri": "/tags/threathunting/index.html"
   },
   {
-    "breadcrumb": "Forensic wheels \u003e  Tags",
-    "content": "",
-    "description": "",
-    "tags": [],
-    "title": "Tag - Nontechnical",
-    "uri": "/tags/nontechnical/index.html"
-  },
-  {
-    "breadcrumb": "Forensic wheels \u003e  Tags",
-    "content": "",
-    "description": "",
-    "tags": [],
-    "title": "Tag - Openbsd",
-    "uri": "/tags/openbsd/index.html"
-  },
-  {
     "breadcrumb": "Forensic wheels \u003e  Forensic wheels",
-    "content": "About Simplicity and Clarity Attention to Detail The Power of Consistency The Beauty of Imperfection About As a security enthusiast, I’ve always been fascinated by the world of open-source operating systems. Among them, OpenBSD stands out for its commitment to security, stability, and simplicity. But what sets it apart from other OSes? And how does it relate to my journey with Zen meditation?\nAt first glance, OpenBSD and Zen might seem like vastly different concepts. One is a powerful operating system, while the other is a spiritual practice that originated in ancient China. However, as I delved deeper into both worlds, I discovered some intriguing commonalities.\nSimplicity and Clarity OpenBSD’s minimalist approach to software design resonates deeply with the principles of Zen Buddhism. In Zen, simplicity is key to achieving inner clarity and balance. By stripping away unnecessary complexity, OpenBSD aims to create a stable and secure foundation for users. Similarly, in meditation, simplicity helps to quiet the mind and focus on the present moment.\nAttention to Detail Both OpenBSD and Zen emphasize the importance of attention to detail. In software development, this means carefully crafting each line of code to ensure stability and security. In Zen practice, it means paying close attention to one’s breath, posture, and mental state to achieve a state of mindfulness. By focusing on these details, both OpenBSD and Zen strive for perfection.\nThe Power of Consistency OpenBSD’s commitment to consistency is evident in its codebase, where each code change follows a code review. Zen practice, consistency is also crucial, as it helps to establish a sense of routine and stability. By establishing a daily meditation practice, I’ve found that consistency is key to making progress on my spiritual journey.\nThe Beauty of Imperfection Finally, both OpenBSD and Zen recognize the beauty in imperfection. In software development, imperfections can often be corrected or mitigated through careful design and testing. In Zen practice, imperfections are seen as opportunities for growth and self-awareness. By embracing our imperfections, we can cultivate a sense of humility and compassion.\nAs I continue on my journey with OpenBSD and Zen, I’m struck by the ways in which these two seemingly disparate worlds intersect. By embracing simplicity, attention to detail, consistency, and the beauty of imperfection, both OpenBSD and Zen offer unique insights into the nature of software development and personal growth.\nStay tuned for more updates from my adventures in the world of security, coding, and spiritual growth!\nIdeas for future posts:\n“My favorite OpenBSD configuration files and tweaks” “How I use Zen principles to improve my coding workflow” “The intersection of security and spirituality: How both inform each other”",
-    "description": "About Simplicity and Clarity Attention to Detail The Power of Consistency The Beauty of Imperfection About As a security enthusiast, I’ve always been fascinated by the world of open-source operating systems. Among them, OpenBSD stands out for its commitment to security, stability, and simplicity. But what sets it apart from other OSes? And how does it relate to my journey with Zen meditation?\nAt first glance, OpenBSD and Zen might seem like vastly different concepts. One is a powerful operating system, while the other is a spiritual practice that originated in ancient China. However, as I delved deeper into both worlds, I discovered some intriguing commonalities.",
-    "tags": [
-      "Openbsd",
-      "Zen",
-      "Nontechnical"
-    ],
-    "title": "OpenBSD and Zen",
-    "uri": "/posts/openbsdzen/index.html"
-  },
-  {
-    "breadcrumb": "Forensic wheels \u003e  Tags",
-    "content": "",
-    "description": "",
+    "content": "Hi! I’m Dirk, a security engineer with a passion for Skateboarding and Forensics. By day, I help my Company safeguard their networks and systems from the ever-evolving threats in the cybersecurity landscape.\nBut when the sun goes down, my true self emerges. Skateboarding is not just my hobby - it’s my passion, my center, and my identity. For me, Skatelife is more than just lifestyle; it’s a way of life that embodies creativity, freedom, and community and Family. I’ve been skating for years, and I still get that same feel every time I’m on my board.\nIn addition to my love for skateboarding, I’m also a big enthusiast of OpenBSD - the most secure, yet accessible operating system out there. I’ve built my own OpenBSD-based router and infrastructure for threat hunting, which allows me to stay one step ahead in the game of cybersecurity. There’s something about the simplicity, elegance, and power of OpenBSD that resonates deeply with me. You can also read about the smilarities I see between OpenBSD and Zen\nAs a nerd, I have to mention my love affair with Emacs - the most flexible, and customizable text editor out there. I’ve been using it for over 12 years now, and I still can’t imagine working without it. Whether I’m writing code, weblogging, or just tinkering with snippets of text, Emacs is always by my side.\nAs I navigate the world of cybersecurity, I’m always looking for ways to improve my skills, stay ahead of the curve, and when I’m not geeking out over security patches or network protocols, you can find me:\nShredding the on my Deck (Skatelife all the way!) Exploring the depths of OpenBSD and building cool stuff Rocking with Emacs (like this hugo blog for example) Writing about my adventures, insights, and projects Stay tuned for more updates on my journey as a security engineer, skateboarder, OpenBSD enthusiast, and Zen student”\nAnd since I am searching for a new employer right now I will update this part soon with a more professional CV like part.",
+    "description": "Hi! I’m Dirk, a security engineer with a passion for Skateboarding and Forensics. By day, I help my Company safeguard their networks and systems from the ever-evolving threats in the cybersecurity landscape.\nBut when the sun goes down, my true self emerges. Skateboarding is not just my hobby - it’s my passion, my center, and my identity. For me, Skatelife is more than just lifestyle; it’s a way of life that embodies creativity, freedom, and community and Family. I’ve been skating for years, and I still get that same feel every time I’m on my board.",
     "tags": [],
-    "title": "Tag - Zen",
-    "uri": "/tags/zen/index.html"
+    "title": "About",
+    "uri": "/posts/about/index.html"
   },
   {
     "breadcrumb": "Forensic wheels",

@@ -29,26 +29,5 @@
       <guid>http://localhost:1313/tags/threathunting/index.html</guid>
       <description></description>
     </item>
-    <item>
-      <title>Tag - Nontechnical</title>
-      <link>http://localhost:1313/tags/nontechnical/index.html</link>
-      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/tags/nontechnical/index.html</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tag - Openbsd</title>
-      <link>http://localhost:1313/tags/openbsd/index.html</link>
-      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/tags/openbsd/index.html</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tag - Zen</title>
-      <link>http://localhost:1313/tags/zen/index.html</link>
-      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/tags/zen/index.html</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>

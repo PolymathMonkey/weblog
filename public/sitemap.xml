@@ -29,20 +29,8 @@
     <lastmod>2025-06-23T22:36:54+02:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/nontechnical/index.html</loc>
-    <lastmod>2019-01-11T16:00:00-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/tags/openbsd/index.html</loc>
-    <lastmod>2019-01-11T16:00:00-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/posts/openbsdzen/index.html</loc>
-    <lastmod>2019-01-11T16:00:00-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/tags/zen/index.html</loc>
-    <lastmod>2019-01-11T16:00:00-05:00</lastmod>
+    <loc>http://localhost:1313/posts/about/index.html</loc>
+    <lastmod>2025-06-24T11:28:37+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/categories/index.html</loc>
