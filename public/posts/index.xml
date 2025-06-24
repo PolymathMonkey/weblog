@@ -6,7 +6,7 @@
     <description>You are not your thoughts, they are just the finger pointing at the moon&#xA;Posts My review of the Sans Enterprise Forensics and Threadhunting Course - SANS FOR608&#xA;Dirk – 2025-05-29 Thu Some thoughts and Idears about what OpenBSD and Zen have in Common - OpenBSD and Zen&#xA;Dirk – 2025-05-26 Mo This is my intro post for my blog About&#xA;Dirk – 2025-05-26 Mo</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Jun 2025 11:28:37 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jun 2025 12:03:10 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SANS FOR608</title>
@@ -21,6 +21,13 @@
       <pubDate>Sun, 16 Mar 2025 11:00:00 -0500</pubDate>
       <guid>http://localhost:1313/posts/about/index.html</guid>
       <description>Hi! I’m Dirk, a security engineer with a passion for Skateboarding and Forensics. By day, I help my Company safeguard their networks and systems from the ever-evolving threats in the cybersecurity landscape.&#xA;But when the sun goes down, my true self emerges. Skateboarding is not just my hobby - it’s my passion, my center, and my identity. For me, Skatelife is more than just lifestyle; it’s a way of life that embodies creativity, freedom, and community and Family. I’ve been skating for years, and I still get that same feel every time I’m on my board.</description>
+    </item>
+    <item>
+      <title>OpenBSD and Zen</title>
+      <link>http://localhost:1313/posts/openbsdzen/index.html</link>
+      <pubDate>Sun, 16 Mar 2025 11:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/openbsdzen/index.html</guid>
+      <description>About Simplicity and Clarity Attention to Detail The Power of Consistency The Beauty of Imperfection About As someone who is into security, I’ve always been fascinated by the world of Unix operating systems. Among them, OpenBSD stands out for its commitment to security, stability, and simplicity. But what sets it apart from other OSes? And how does it relate to my journey with Zen meditation?&#xA;At first glance, OpenBSD and Zen might seem like vastly different concepts. One is a powerful operating system, while the other is a spiritual practice that originated in ancient China. However, as I dived deeper into both worlds, I discovered some intriguing commonalities.</description>
     </item>
   </channel>
 </rss>

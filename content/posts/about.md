@@ -2,7 +2,8 @@
 title: "About"
 author: ["Dirk"]
 date: 2025-03-16T11:00:00-05:00
-lastmod: 2025-06-24T11:28:37+02:00
+lastmod: 2025-06-24T11:49:27+02:00
+tags: ["personal"]
 draft: false
 ---
 

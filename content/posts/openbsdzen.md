@@ -1,8 +1,8 @@
 ---
 title: "OpenBSD and Zen"
 author: ["Dirk"]
-date: 2025-07-11T18:00:00-05:00
-lastmod: 2025-06-24T11:39:00+02:00
+date: 2025-03-16T11:00:00-05:00
+lastmod: 2025-06-24T12:03:10+02:00
 tags: ["openbsd", "zen", "nontechnical"]
 draft: false
 ---
@@ -38,8 +38,6 @@ inner clarity and balance. By stripping away unnecessary complexity,
 OpenBSD aims to create a stable and secure foundation for users.
 Similarly, in meditation, simplicity helps to quiet the mind and focus
 on the present moment.
-
-{{< figure src="../img/Enso.jpg" >}}
 
 
 ## Attention to Detail {#attention-to-detail}

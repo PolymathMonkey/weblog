@@ -2,7 +2,7 @@
 title: "SANS FOR608"
 author: ["Dirk"]
 date: 2025-05-26T16:21:00-05:00
-lastmod: 2025-06-23T22:36:54+02:00
+lastmod: 2025-06-24T11:49:27+02:00
 tags: ["sans", "forensic", "threathunting"]
 draft: false
 ---

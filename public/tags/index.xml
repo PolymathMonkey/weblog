@@ -6,7 +6,7 @@
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Jun 2025 22:36:54 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jun 2025 12:03:10 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tag - Forensic</title>
@@ -27,6 +27,41 @@
       <link>http://localhost:1313/tags/threathunting/index.html</link>
       <pubDate>Mon, 26 May 2025 16:21:00 -0500</pubDate>
       <guid>http://localhost:1313/tags/threathunting/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag - Nontechnical</title>
+      <link>http://localhost:1313/tags/nontechnical/index.html</link>
+      <pubDate>Sun, 16 Mar 2025 11:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/nontechnical/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag - Openbsd</title>
+      <link>http://localhost:1313/tags/openbsd/index.html</link>
+      <pubDate>Sun, 16 Mar 2025 11:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/openbsd/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag - Personal</title>
+      <link>http://localhost:1313/tags/personal/index.html</link>
+      <pubDate>Sun, 16 Mar 2025 11:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/personal/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag - Zen</title>
+      <link>http://localhost:1313/tags/zen/index.html</link>
+      <pubDate>Sun, 16 Mar 2025 11:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/zen/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag - Honeypot</title>
+      <link>http://localhost:1313/tags/honeypot/index.html</link>
+      <pubDate>Fri, 11 Jan 2019 16:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/honeypot/index.html</guid>
       <description></description>
     </item>
   </channel>

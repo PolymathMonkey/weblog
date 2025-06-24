@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.142.0">
+    <meta name="generator" content="Relearn 7.6.1+0b83617ee9da5253aafcf11807b256da7d88d709">
+    <meta name="description" content="I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD II. Setting up HoneyPot HTTPD for Web Data Ingestion Containerizing the application to run inside docker III.Ingesting Web Data into Elasticsearch with HoneyPot HTTPD Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure IV. Benefits and Use Cases Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility) Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity) V. Conclusion Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch*** Final thoughts on the value of this setup for your organization’s threat hunting or security operations. I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD I recently set out to ingest web traffic data into our SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.">
+    <meta name="author" content="Dirk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="HoneyHTTPD - Forensic wheels">
+    <meta name="twitter:description" content="I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD II. Setting up HoneyPot HTTPD for Web Data Ingestion Containerizing the application to run inside docker III.Ingesting Web Data into Elasticsearch with HoneyPot HTTPD Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure IV. Benefits and Use Cases Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility) Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity) V. Conclusion Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch*** Final thoughts on the value of this setup for your organization’s threat hunting or security operations. I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD I recently set out to ingest web traffic data into our SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.">
+    <meta property="og:url" content="http://localhost:1313/posts/honeyhttpd/index.html">
+    <meta property="og:site_name" content="Forensic wheels">
+    <meta property="og:title" content="HoneyHTTPD - Forensic wheels">
+    <meta property="og:description" content="I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD II. Setting up HoneyPot HTTPD for Web Data Ingestion Containerizing the application to run inside docker III.Ingesting Web Data into Elasticsearch with HoneyPot HTTPD Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure IV. Benefits and Use Cases Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility) Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity) V. Conclusion Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch*** Final thoughts on the value of this setup for your organization’s threat hunting or security operations. I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD I recently set out to ingest web traffic data into our SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Forensic wheels">
+    <meta property="article:published_time" content="2019-01-11T16:00:00-05:00">
+    <meta property="article:modified_time" content="2025-06-24T11:49:27+02:00">
+    <meta property="article:tag" content="Threathunting">
+    <meta property="article:tag" content="Honeypot">
+    <meta itemprop="name" content="HoneyHTTPD - Forensic wheels">
+    <meta itemprop="description" content="I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD II. Setting up HoneyPot HTTPD for Web Data Ingestion Containerizing the application to run inside docker III.Ingesting Web Data into Elasticsearch with HoneyPot HTTPD Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure IV. Benefits and Use Cases Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility) Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity) V. Conclusion Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch*** Final thoughts on the value of this setup for your organization’s threat hunting or security operations. I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD I recently set out to ingest web traffic data into our SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.">
+    <meta itemprop="datePublished" content="2019-01-11T16:00:00-05:00">
+    <meta itemprop="dateModified" content="2025-06-24T11:49:27+02:00">
+    <meta itemprop="wordCount" content="821">
+    <meta itemprop="keywords" content="Threathunting,Honeypot">
+    <title>HoneyHTTPD - Forensic wheels</title>
+    <link href="/images/logo.svg?1750759399" rel="icon" type="image/svg+xml">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1750759399" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1750759399" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1750759399" rel="stylesheet">
+    <link href="/css/theme.css?1750759399" rel="stylesheet">
+    <link href="/css/format-html.css?1750759399" rel="stylesheet" id="R-format-style">
+    <link href="/css/auto-complete/auto-complete.min.css?1750759399" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1750759399" defer></script>
+    <script src="/js/lunr/lunr.min.js?1750759399" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1750759399" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1750759399" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1750759399" defer></script>
+    <script src="/js/search.js?1750759399" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/posts\/honeyhttpd\/index.html';
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.contentLangs=['en'];
+      window.relearn.index_js_url="/searchindex.en.js?1750759399";
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // variant stuff
+      window.relearn.themevariants = [ 'auto', 'neon' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/posts/honeyhttpd/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#i-dot-introduction">I. Introduction</a>
+      <ul>
+        <li><a href="#brief-overview-of-the-use-case-ingesting-web-data-into-elasticsearch-with-honeypot-httpd">Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD</a></li>
+      </ul>
+    </li>
+    <li><a href="#ii-dot-setting-up-honeypot-httpd-for-web-data-ingestion">II. Setting up HoneyPot HTTPD for Web Data Ingestion</a>
+      <ul>
+        <li><a href="#containerizing-the-application-to-run-inside-docker">Containerizing the application to run inside docker</a></li>
+      </ul>
+    </li>
+    <li><a href="#iii-dot-ingesting-web-data-into-elasticsearch-with-honeypot-httpd">III. Ingesting Web Data into Elasticsearch with HoneyPot HTTPD</a>
+      <ul>
+        <li><a href="#explanation-of-how-to-use-the-honeyhttpd-command-line-tool-to-ingest-web-data-into-elasticsearch">Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch</a></li>
+        <li><a href="#example-of-how-to-configure-the-honeyhttpd-output-to-match-your-desired-elasticsearch-index-structure">Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure</a></li>
+      </ul>
+    </li>
+    <li><a href="#iv-dot-benefits-and-use-cases">IV. Benefits and Use Cases</a>
+      <ul>
+        <li><a href="#discussion-of-the-benefits-of-using-honeypot-httpd-for-ingesting-web-data-into-elasticsearch--e-dot-g-dot-improved-threat-detection-enhanced-visibility">Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility)</a></li>
+        <li><a href="#real-world-examples-of-use-cases-where-this-setup-can-be-particularly-effective--e-dot-g-dot-logging-web-traffic-monitoring-online-activity">Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity)</a></li>
+      </ul>
+    </li>
+    <li><a href="#v-dot-conclusion">V. Conclusion</a>
+      <ul>
+        <li><a href="#recap-of-key-points-about-using-honeypot-httpd-to-ingest-web-data-into-elasticsearch">Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch***</a></li>
+        <li><a href="#final-thoughts-on-the-value-of-this-setup-for-your-organization-s-threat-hunting-or-security-operations-dot">Final thoughts on the value of this setup for your organization&rsquo;s threat hunting or security operations.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="topbar-breadcrumbs highlightable">
+            HoneyHTTPD
+          </span>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable posts" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+<div class="R-taxonomy taxonomy-tags cstyle tags" title="Tags" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
+  <ul>
+    <li><a class="term-link" href="/tags/honeypot/index.html">Honeypot</a></li>
+    <li><a class="term-link" href="/tags/threathunting/index.html">Threathunting</a></li>
+  </ul>
+</div>
+  </header>
+
+<h1 id="honeyhttpd">HoneyHTTPD</h1>
+
+<ul>
+<li><a href="/posts/honeyhttpd/index.html#i-dot-introduction">I. Introduction</a>
+<ul>
+<li><a href="/posts/honeyhttpd/index.html#brief-overview-of-the-use-case-ingesting-web-data-into-elasticsearch-with-honeypot-httpd">Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD</a></li>
+</ul>
+</li>
+<li><a href="/posts/honeyhttpd/index.html#ii-dot-setting-up-honeypot-httpd-for-web-data-ingestion">II. Setting up HoneyPot HTTPD for Web Data Ingestion</a>
+<ul>
+<li><a href="/posts/honeyhttpd/index.html#containerizing-the-application-to-run-inside-docker">Containerizing the application to run inside docker</a></li>
+</ul>
+</li>
+<li><a href="/posts/honeyhttpd/index.html#iii-dot-ingesting-web-data-into-elasticsearch-with-honeypot-httpd">III.Ingesting Web Data into Elasticsearch with HoneyPot HTTPD</a>
+<ul>
+<li><a href="/posts/honeyhttpd/index.html#explanation-of-how-to-use-the-honeyhttpd-command-line-tool-to-ingest-web-data-into-elasticsearch">Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch</a></li>
+<li><a href="/posts/honeyhttpd/index.html#example-of-how-to-configure-the-honeyhttpd-output-to-match-your-desired-elasticsearch-index-structure">Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure</a></li>
+</ul>
+</li>
+<li><a href="/posts/honeyhttpd/index.html#iv-dot-benefits-and-use-cases">IV. Benefits and Use Cases</a>
+<ul>
+<li><a href="/posts/honeyhttpd/index.html#discussion-of-the-benefits-of-using-honeypot-httpd-for-ingesting-web-data-into-elasticsearch--e-dot-g-dot-improved-threat-detection-enhanced-visibility">Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility)</a></li>
+<li><a href="/posts/honeyhttpd/index.html#real-world-examples-of-use-cases-where-this-setup-can-be-particularly-effective--e-dot-g-dot-logging-web-traffic-monitoring-online-activity">Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity)</a></li>
+</ul>
+</li>
+<li><a href="/posts/honeyhttpd/index.html#v-dot-conclusion">V. Conclusion</a>
+<ul>
+<li><a href="/posts/honeyhttpd/index.html#recap-of-key-points-about-using-honeypot-httpd-to-ingest-web-data-into-elasticsearch">Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch***</a></li>
+<li><a href="/posts/honeyhttpd/index.html#final-thoughts-on-the-value-of-this-setup-for-your-organization-s-threat-hunting-or-security-operations-dot">Final thoughts on the value of this setup for your organization&rsquo;s threat hunting or security operations.</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="i-dot-introduction">I. Introduction</h2>
+<h3 id="brief-overview-of-the-use-case-ingesting-web-data-into-elasticsearch-with-honeypot-httpd">Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD</h3>
+<p>I recently set out to ingest web traffic data into our SIEM solution,
+which requires data to be ingested in a specific format. After
+researching various options, I sought an easy-to-use solution that could
+integrate with our existing Elasticsearch setup. One tool that caught my
+attention was HoneyPot HTTPD.</p>
+<!-- raw HTML omitted -->
+<p>&lt;!&ndash;more&ndash;&gt;</p>
+<!-- raw HTML omitted -->
+<p>As I researched potential solutions, I realized that many of them
+required manual configuration and scripting to ingest web data into
+Elasticsearch. However, HoneyPot HTTPD offered a simple and elegant way
+to do so through its built-in ingestion feature. This was especially
+appealing since I wanted to integrate the web traffic data with our
+existing SIEM setup that utilized Elasticsearch.</p>
+<!-- raw HTML omitted -->
+<p>&lt;!&ndash;more&ndash;&gt;</p>
+<!-- raw HTML omitted -->
+<p>In particular, I needed a tool that could collect web traffic data and
+forward it to a centralized location for analysis and processing.
+HoneyPot HTTPD&rsquo;s ability to ingest web data into Elasticsearch made it
+an attractive choice, as it would allow me to leverage our existing
+Elasticsearch infrastructure and integrate the data with our SIEM
+solution seamlessly.</p>
+<!-- raw HTML omitted -->
+<p>&lt;!&ndash;more&ndash;&gt;</p>
+<!-- raw HTML omitted -->
+<p>With this in mind, I set out to explore how to use HoneyPot HTTPD to
+ingest web traffic data into Elasticsearch. In the following sections,
+I&rsquo;ll walk you through the steps I took to configure HoneyPot HTTPD for
+ingestion, including the Dockerfile used to build the container and any
+additional configuration settings required.</p>
+<h2 id="ii-dot-setting-up-honeypot-httpd-for-web-data-ingestion">II. Setting up HoneyPot HTTPD for Web Data Ingestion</h2>
+<h3 id="containerizing-the-application-to-run-inside-docker">Containerizing the application to run inside docker</h3>
+<!-- raw HTML omitted -->
+<p>&lt;!&ndash;list-separator&ndash;&gt;</p>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p>Creating a Dockerfile</p>
+<p>I started by creating a Dockerfile that would build the HoneHTTPD
+image. The Dockerfile included the following instructions:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>FROM ubuntu:latest
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install necessary dependencies</span>
+</span></span><span style="display:flex;"><span>RUN apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get install -y python3-pip
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install required packages</span>
+</span></span><span style="display:flex;"><span>RUN pip3 install honeyhttpd
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set working directory to /usr/local/bin</span>
+</span></span><span style="display:flex;"><span>WORKDIR /usr/local/bin
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expose port 80 for HTTP traffic</span>
+</span></span><span style="display:flex;"><span>EXPOSE <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Copy configuration file</span>
+</span></span><span style="display:flex;"><span>COPY config.yaml /etc/honeyhttpd/
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run HoneyPot HTTPD</span>
+</span></span><span style="display:flex;"><span>CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;honeyhttpd&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;/etc/honeyhttpd/config.yaml&#34;</span><span style="color:#f92672">]</span></span></span></code></pre></div>
+<p>In this Dockerfile, I:</p>
+<ul>
+<li>Used the official Ubuntu image as the base image</li>
+<li>Installed necessary dependencies, including Python and pip</li>
+<li>Installed the required packages, including HoneyPot HTTPD</li>
+<li>Set the working directory to /usr/local/bin to run the application
+from</li>
+<li>Exposed port 80 for HTTP traffic</li>
+<li>Copied the configuration file (config.yaml) into the container</li>
+<li>Specified the command to run HoneyPot HTTPD with the -c option,
+which points</li>
+<li>to the configuration file</li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<p>&lt;!&ndash;list-separator&ndash;&gt;</p>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p>Building and Running the Container</p>
+<p>Once I had created the Dockerfile, I built the image by running the
+following command:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker build -t honeyhttpd .</span></span></code></pre></div>
+<p>This command told Docker to create an image with the tag honeyhttpd
+using the instructions in the Dockerfile.To run the container, I used
+the following command:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>docker run -p 80:80 honeyhttpd</span></span></code></pre></div>
+<p>This command started a new container from the honeyhttpd image and
+mapped port 80 on the host machine to port 80 in the container.</p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<p>&lt;!&ndash;list-separator&ndash;&gt;</p>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p>Configuring the Container</p>
+<p>To configure the container, I updated the config.yaml file to point to
+my Elasticsearch instance. Here&rsquo;s an example of what the configuration
+file might look like:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>-ingest:
+</span></span><span style="display:flex;"><span>es_host: <span style="color:#e6db74">&#34;localhost:9200&#34;</span>
+</span></span><span style="display:flex;"><span>es_index: <span style="color:#e6db74">&#34;logstash-2019.04&#34;</span>
+</span></span><span style="display:flex;"><span>es_type: <span style="color:#e6db74">&#34;log&#34;</span></span></span></code></pre></div>
+<p>This configuration told HoneyPot HTTPD to forward web traffic data to
+my Elasticsearch instance, where it could be processed and stored.</p>
+<p>With the container running and configured, I was now ready to test
+HoneyPot HTTPD&rsquo;s ability to ingest web traffic data into
+Elasticsearch.</p>
+</li>
+</ul>
+<h2 id="iii-dot-ingesting-web-data-into-elasticsearch-with-honeypot-httpd">III. Ingesting Web Data into Elasticsearch with HoneyPot HTTPD</h2>
+<h3 id="explanation-of-how-to-use-the-honeyhttpd-command-line-tool-to-ingest-web-data-into-elasticsearch">Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch</h3>
+<h3 id="example-of-how-to-configure-the-honeyhttpd-output-to-match-your-desired-elasticsearch-index-structure">Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure</h3>
+<h2 id="iv-dot-benefits-and-use-cases">IV. Benefits and Use Cases</h2>
+<h3 id="discussion-of-the-benefits-of-using-honeypot-httpd-for-ingesting-web-data-into-elasticsearch--e-dot-g-dot-improved-threat-detection-enhanced-visibility">Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility)</h3>
+<h3 id="real-world-examples-of-use-cases-where-this-setup-can-be-particularly-effective--e-dot-g-dot-logging-web-traffic-monitoring-online-activity">Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity)</h3>
+<h2 id="v-dot-conclusion">V. Conclusion</h2>
+<h3 id="recap-of-key-points-about-using-honeypot-httpd-to-ingest-web-data-into-elasticsearch">Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch***</h3>
+<h3 id="final-thoughts-on-the-value-of-this-setup-for-your-organization-s-threat-hunting-or-security-operations-dot">Final thoughts on the value of this setup for your organization&rsquo;s threat hunting or security operations.</h3>
+
+  <footer class="footline">
+              <i class='fa-fw fas fa-calendar'></i> Jan 11, 2019
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="/index.html">
+            <div class="logo-title">Forensic wheels</div>
+          </a>
+        </div>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="parent " data-nav-id="/posts/index.html"><a class="padding" href="/posts/index.html">Forensic wheels</a><ul id="R-subsections-b4e55eb7e39db1aee6d02808a2267090" class="collapsible-menu">
+            <li class="" data-nav-id="/posts/sans_for608/index.html"><a class="padding" href="/posts/sans_for608/index.html">SANS FOR608</a></li>
+            <li class="" data-nav-id="/posts/about/index.html"><a class="padding" href="/posts/about/index.html">About</a></li>
+            <li class="" data-nav-id="/posts/openbsdzen/index.html"><a class="padding" href="/posts/openbsdzen/index.html">OpenBSD and Zen</a></li>
+            <li class="active " data-nav-id="/posts/honeyhttpd/index.html"><a class="padding" href="/posts/honeyhttpd/index.html">HoneyHTTPD</a></li></ul></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+            <li class="R-variantswitcher">
+              <div class="padding menu-control">
+                <i class="fa-fw fas fa-paint-brush"></i>
+                <span>&nbsp;</span>
+                <div class="control-style">
+                  <label class="a11y-only" for="R-select-variant">Theme</label>
+                  <select id="R-select-variant">
+                    <option id="R-select-variant-auto" value="auto" selected>Auto</option>
+                    <option id="R-select-variant-neon" value="neon">Neon</option>
+                  </select>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <script>window.relearn.markVariant();</script>
+            </li>
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="/js/clipboard/clipboard.min.js?1750759399" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1750759399" defer></script>
+    <script src="/js/theme.js?1750759399" defer></script>
+  </body>
+</html>

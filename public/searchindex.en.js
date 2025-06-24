@@ -63,9 +63,74 @@ var relearn_searchindex = [
     "breadcrumb": "Forensic wheels \u003e  Forensic wheels",
     "content": "Hi! I’m Dirk, a security engineer with a passion for Skateboarding and Forensics. By day, I help my Company safeguard their networks and systems from the ever-evolving threats in the cybersecurity landscape.\nBut when the sun goes down, my true self emerges. Skateboarding is not just my hobby - it’s my passion, my center, and my identity. For me, Skatelife is more than just lifestyle; it’s a way of life that embodies creativity, freedom, and community and Family. I’ve been skating for years, and I still get that same feel every time I’m on my board.\nIn addition to my love for skateboarding, I’m also a big enthusiast of OpenBSD - the most secure, yet accessible operating system out there. I’ve built my own OpenBSD-based router and infrastructure for threat hunting, which allows me to stay one step ahead in the game of cybersecurity. There’s something about the simplicity, elegance, and power of OpenBSD that resonates deeply with me. You can also read about the smilarities I see between OpenBSD and Zen\nAs a nerd, I have to mention my love affair with Emacs - the most flexible, and customizable text editor out there. I’ve been using it for over 12 years now, and I still can’t imagine working without it. Whether I’m writing code, weblogging, or just tinkering with snippets of text, Emacs is always by my side.\nAs I navigate the world of cybersecurity, I’m always looking for ways to improve my skills, stay ahead of the curve, and when I’m not geeking out over security patches or network protocols, you can find me:\nShredding the on my Deck (Skatelife all the way!) Exploring the depths of OpenBSD and building cool stuff Rocking with Emacs (like this hugo blog for example) Writing about my adventures, insights, and projects Stay tuned for more updates on my journey as a security engineer, skateboarder, OpenBSD enthusiast, and Zen student”\nAnd since I am searching for a new employer right now I will update this part soon with a more professional CV like part.",
     "description": "Hi! I’m Dirk, a security engineer with a passion for Skateboarding and Forensics. By day, I help my Company safeguard their networks and systems from the ever-evolving threats in the cybersecurity landscape.\nBut when the sun goes down, my true self emerges. Skateboarding is not just my hobby - it’s my passion, my center, and my identity. For me, Skatelife is more than just lifestyle; it’s a way of life that embodies creativity, freedom, and community and Family. I’ve been skating for years, and I still get that same feel every time I’m on my board.",
-    "tags": [],
+    "tags": [
+      "Personal"
+    ],
     "title": "About",
     "uri": "/posts/about/index.html"
+  },
+  {
+    "breadcrumb": "Forensic wheels \u003e  Tags",
+    "content": "",
+    "description": "",
+    "tags": [],
+    "title": "Tag - Nontechnical",
+    "uri": "/tags/nontechnical/index.html"
+  },
+  {
+    "breadcrumb": "Forensic wheels \u003e  Tags",
+    "content": "",
+    "description": "",
+    "tags": [],
+    "title": "Tag - Openbsd",
+    "uri": "/tags/openbsd/index.html"
+  },
+  {
+    "breadcrumb": "Forensic wheels \u003e  Forensic wheels",
+    "content": "About Simplicity and Clarity Attention to Detail The Power of Consistency The Beauty of Imperfection About As someone who is into security, I’ve always been fascinated by the world of Unix operating systems. Among them, OpenBSD stands out for its commitment to security, stability, and simplicity. But what sets it apart from other OSes? And how does it relate to my journey with Zen meditation?\nAt first glance, OpenBSD and Zen might seem like vastly different concepts. One is a powerful operating system, while the other is a spiritual practice that originated in ancient China. However, as I dived deeper into both worlds, I discovered some intriguing commonalities.\nSimplicity and Clarity OpenBSD’s minimalist approach to software design resonates deeply with the principles of Zen Buddhism. In Zen, simplicity is key to achieving inner clarity and balance. By stripping away unnecessary complexity, OpenBSD aims to create a stable and secure foundation for users. Similarly, in meditation, simplicity helps to quiet the mind and focus on the present moment.\nAttention to Detail Both OpenBSD and Zen emphasize the importance of attention to detail. In software development, this means carefully crafting each line of code to ensure stability and security. In Zen practice, it means paying close attention to one’s breath, posture, and mental state to achieve a state of mindfulness. By focusing on these details, both OpenBSD and Zen strive for perfection.\nThe Power of Consistency OpenBSD’s commitment to consistency is evident in its codebase, where each code change follows a code review. Zen practice, consistency is also crucial, as it helps to establish a sense of routine and stability. By establishing a daily meditation practice, I’ve found that consistency is key to making progress on my spiritual journey.\nThe Beauty of Imperfection Finally, both OpenBSD and Zen recognize the beauty in imperfection. In software development, imperfections can often be corrected or mitigated through careful design and testing. In Zen practice, imperfections are seen as opportunities for growth and self-awareness. By embracing our imperfections, we can cultivate a sense of humility and compassion.\nAs I continue on my journey with OpenBSD and Zen, I’m struck by the ways in which these two seemingly disparate worlds intersect. By embracing simplicity, attention to detail, consistency, and the beauty of imperfection, both OpenBSD and Zen offer unique insights into the nature of software development and personal growth.\nStay tuned for more updates from my adventures in the world of security, coding, and spiritual growth!\nIdeas for future posts:\n“My favorite OpenBSD configuration files and tweaks” “How I use Zen principles to improve my coding workflow” “The intersection of security and spirituality: How both inform each other”",
+    "description": "About Simplicity and Clarity Attention to Detail The Power of Consistency The Beauty of Imperfection About As someone who is into security, I’ve always been fascinated by the world of Unix operating systems. Among them, OpenBSD stands out for its commitment to security, stability, and simplicity. But what sets it apart from other OSes? And how does it relate to my journey with Zen meditation?\nAt first glance, OpenBSD and Zen might seem like vastly different concepts. One is a powerful operating system, while the other is a spiritual practice that originated in ancient China. However, as I dived deeper into both worlds, I discovered some intriguing commonalities.",
+    "tags": [
+      "Openbsd",
+      "Zen",
+      "Nontechnical"
+    ],
+    "title": "OpenBSD and Zen",
+    "uri": "/posts/openbsdzen/index.html"
+  },
+  {
+    "breadcrumb": "Forensic wheels \u003e  Tags",
+    "content": "",
+    "description": "",
+    "tags": [],
+    "title": "Tag - Personal",
+    "uri": "/tags/personal/index.html"
+  },
+  {
+    "breadcrumb": "Forensic wheels \u003e  Tags",
+    "content": "",
+    "description": "",
+    "tags": [],
+    "title": "Tag - Zen",
+    "uri": "/tags/zen/index.html"
+  },
+  {
+    "breadcrumb": "Forensic wheels \u003e  Forensic wheels",
+    "content": "I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD II. Setting up HoneyPot HTTPD for Web Data Ingestion Containerizing the application to run inside docker III.Ingesting Web Data into Elasticsearch with HoneyPot HTTPD Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure IV. Benefits and Use Cases Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility) Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity) V. Conclusion Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch*** Final thoughts on the value of this setup for your organization’s threat hunting or security operations. I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD I recently set out to ingest web traffic data into our SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.\n\u003c!–more–\u003e\nAs I researched potential solutions, I realized that many of them required manual configuration and scripting to ingest web data into Elasticsearch. However, HoneyPot HTTPD offered a simple and elegant way to do so through its built-in ingestion feature. This was especially appealing since I wanted to integrate the web traffic data with our existing SIEM setup that utilized Elasticsearch.\n\u003c!–more–\u003e\nIn particular, I needed a tool that could collect web traffic data and forward it to a centralized location for analysis and processing. HoneyPot HTTPD’s ability to ingest web data into Elasticsearch made it an attractive choice, as it would allow me to leverage our existing Elasticsearch infrastructure and integrate the data with our SIEM solution seamlessly.\n\u003c!–more–\u003e\nWith this in mind, I set out to explore how to use HoneyPot HTTPD to ingest web traffic data into Elasticsearch. In the following sections, I’ll walk you through the steps I took to configure HoneyPot HTTPD for ingestion, including the Dockerfile used to build the container and any additional configuration settings required.\nII. Setting up HoneyPot HTTPD for Web Data Ingestion Containerizing the application to run inside docker \u003c!–list-separator–\u003e\nCreating a Dockerfile\nI started by creating a Dockerfile that would build the HoneHTTPD image. The Dockerfile included the following instructions:\nFROM ubuntu:latest # Install necessary dependencies RUN apt-get update \u0026\u0026 apt-get install -y python3-pip # Install required packages RUN pip3 install honeyhttpd # Set working directory to /usr/local/bin WORKDIR /usr/local/bin # Expose port 80 for HTTP traffic EXPOSE 80 # Copy configuration file COPY config.yaml /etc/honeyhttpd/ # Run HoneyPot HTTPD CMD [\"honeyhttpd\", \"-c\", \"/etc/honeyhttpd/config.yaml\"] In this Dockerfile, I:\nUsed the official Ubuntu image as the base image Installed necessary dependencies, including Python and pip Installed the required packages, including HoneyPot HTTPD Set the working directory to /usr/local/bin to run the application from Exposed port 80 for HTTP traffic Copied the configuration file (config.yaml) into the container Specified the command to run HoneyPot HTTPD with the -c option, which points to the configuration file \u003c!–list-separator–\u003e\nBuilding and Running the Container\nOnce I had created the Dockerfile, I built the image by running the following command:\ndocker build -t honeyhttpd . This command told Docker to create an image with the tag honeyhttpd using the instructions in the Dockerfile.To run the container, I used the following command:\ndocker run -p 80:80 honeyhttpd This command started a new container from the honeyhttpd image and mapped port 80 on the host machine to port 80 in the container.\n\u003c!–list-separator–\u003e\nConfiguring the Container\nTo configure the container, I updated the config.yaml file to point to my Elasticsearch instance. Here’s an example of what the configuration file might look like:\n-ingest: es_host: \"localhost:9200\" es_index: \"logstash-2019.04\" es_type: \"log\" This configuration told HoneyPot HTTPD to forward web traffic data to my Elasticsearch instance, where it could be processed and stored.\nWith the container running and configured, I was now ready to test HoneyPot HTTPD’s ability to ingest web traffic data into Elasticsearch.\nIII. Ingesting Web Data into Elasticsearch with HoneyPot HTTPD Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure IV. Benefits and Use Cases Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility) Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity) V. Conclusion Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch*** Final thoughts on the value of this setup for your organization’s threat hunting or security operations.",
+    "description": "I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD II. Setting up HoneyPot HTTPD for Web Data Ingestion Containerizing the application to run inside docker III.Ingesting Web Data into Elasticsearch with HoneyPot HTTPD Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure IV. Benefits and Use Cases Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility) Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity) V. Conclusion Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch*** Final thoughts on the value of this setup for your organization’s threat hunting or security operations. I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD I recently set out to ingest web traffic data into our SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.",
+    "tags": [
+      "Threathunting",
+      "Honeypot"
+    ],
+    "title": "HoneyHTTPD",
+    "uri": "/posts/honeyhttpd/index.html"
+  },
+  {
+    "breadcrumb": "Forensic wheels \u003e  Tags",
+    "content": "",
+    "description": "",
+    "tags": [],
+    "title": "Tag - Honeypot",
+    "uri": "/tags/honeypot/index.html"
   },
   {
     "breadcrumb": "Forensic wheels",
