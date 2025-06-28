@@ -2,9 +2,9 @@
 title: "OpenBSD and Zen"
 author: ["Dirk"]
 date: 2025-06-28T16:16:00+02:00
-lastmod: 2025-06-28T16:17:18+02:00
-tags: ["forensicwheels"]
-categories: ["personal", "zen", "openbsd"]
+lastmod: 2025-06-28T17:16:51+02:00
+tags: ["forensicwheels", "openbsd", "zen"]
+categories: ["zen"]
 draft: false
 weight: 1002
 ---
@@ -82,10 +82,7 @@ coding, and spiritual growth!
 
 Ideas for future posts:
 
--   "My favorite OpenBSD configuration files and tweaks"
--   "How I use Zen principles to improve my coding workflow"
--   "The intersection of security and spirituality: How both inform each
-    other"
+-   none yet
 
 
 [//]: # "Exported with love from a post written in Org mode"

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Zen - Category - Forensic wheels</title>
-    <link>http://localhost:1313/categories/zen/index.html</link>
+    <title>Zen - Tag - Forensic wheels</title>
+    <link>http://localhost:1313/tags/zen/index.html</link>
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 28 Jun 2025 17:16:51 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/zen/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/zen/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenBSD and Zen</title>
       <link>http://localhost:1313/posts/openbsdzen/index.html</link>

@@ -6,7 +6,7 @@
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Jun 2025 16:17:18 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 28 Jun 2025 16:16:59 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/personal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
@@ -14,13 +14,6 @@
       <pubDate>Sat, 28 Jun 2025 16:16:00 +0200</pubDate>
       <guid>http://localhost:1313/posts/about/index.html</guid>
       <description>Hi! I’m Dirk, a security engineer with a passion for Skateboarding and Forensics. By day, I help my Company safeguard their networks and systems from the ever-evolving threats in the cybersecurity landscape.&#xA;But when the sun goes down, my true self emerges. Skateboarding is not just my hobby - it’s my passion, my center, and my identity. For me, Skatelife is more than just lifestyle; it’s a way of life that embodies creativity, freedom, and community and Family. I’ve been skating for years, and I still get that same feel every time I’m on my board.</description>
-    </item>
-    <item>
-      <title>OpenBSD and Zen</title>
-      <link>http://localhost:1313/posts/openbsdzen/index.html</link>
-      <pubDate>Sat, 28 Jun 2025 16:16:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/openbsdzen/index.html</guid>
-      <description>About Simplicity and Clarity Attention to Detail The Power of Consistency The Beauty of Imperfection About As someone who is into security, I’ve always been fascinated by the world of Unix operating systems. Among them, OpenBSD stands out for its commitment to security, stability, and simplicity. But what sets it apart from other OSes? And how does it relate to my journey with Zen meditation?&#xA;At first glance, OpenBSD and Zen might seem like vastly different concepts. One is a powerful operating system, while the other is a spiritual practice that originated in ancient China. However, as I dived deeper into both worlds, I discovered some intriguing commonalities.</description>
     </item>
   </channel>
 </rss>

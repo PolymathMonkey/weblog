@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Openbsd - Category - Forensic wheels</title>
-    <link>http://localhost:1313/categories/openbsd/index.html</link>
+    <title>Openbsd - Tag - Forensic wheels</title>
+    <link>http://localhost:1313/tags/openbsd/index.html</link>
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Jun 2025 16:17:18 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/openbsd/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Jun 2025 17:16:51 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/openbsd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenBSD and Zen</title>
       <link>http://localhost:1313/posts/openbsdzen/index.html</link>
