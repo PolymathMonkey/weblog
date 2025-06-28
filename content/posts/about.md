@@ -1,10 +1,12 @@
 ---
 title: "About"
 author: ["Dirk"]
-date: 2025-03-16T11:00:00-05:00
-lastmod: 2025-06-24T11:49:27+02:00
-tags: ["personal"]
+date: 2025-06-28T16:16:00+02:00
+lastmod: 2025-06-28T16:16:59+02:00
+tags: ["forensicwheels"]
+categories: ["personal"]
 draft: false
+weight: 1001
 ---
 
 {{< figure src="../img/fine.gif" >}}
@@ -49,3 +51,7 @@ skateboarder, OpenBSD enthusiast, and Zen student”
 
 And since I am searching for a new employer right now I will update this part
 soon with a more professional CV like part.
+
+
+[//]: # "Exported with love from a post written in Org mode"
+[//]: # "- https://github.com/kaushalmodi/ox-hugo"

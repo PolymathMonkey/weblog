@@ -2,9 +2,11 @@
 title: "SANS FOR608"
 author: ["Dirk"]
 date: 2025-05-26T16:21:00-05:00
-lastmod: 2025-06-24T11:49:27+02:00
-tags: ["sans", "forensic", "threathunting"]
-draft: false
+lastmod: 2025-06-28T17:03:50+02:00
+tags: ["forensicwheels", "honeypot", "canarytokens"]
+categories: ["forensic", "threathunting"]
+draft: true
+weight: 1003
 ---
 
 <div class="ox-hugo-toc toc">
@@ -56,6 +58,8 @@ solve cybercrimes and security incidents. In enterprise environments, it
 involves analyzing devices, networks, and cloud storage. Key
 applications include incident response, compliance with regulations,
 investigations, and predictive analytics.
+
+{{< figure src="../img/mfsans.png" >}}
 
 Tools like Timesketch, Velociraptor or Wireshark, and cloud forensics
 platforms aid in the analysis. Collaboration between IT and law
@@ -117,6 +121,8 @@ However, they also discuss common bypass techniques that attackers use
 to evade EDR technology.To aid in this analysis, the
 [Velociraptor](https://docs.velociraptor.app/) tool is introduced as a
 powerful platform for incident response and threat hunting.
+
+{{< figure src="../img/logo.svg" >}}
 
 The chapter shows how [Velociraptor](https://docs.velociraptor.app)
 can collect forensic artifacts from across the enterprise and provide
@@ -371,3 +377,6 @@ industry developments by attending conferences, webinars, or online
 courses that focus on the latest trends and advancements.
 
 [^fn:1]: <https://www.sans.org/cyber-security-courses/enterprise-incident-response-threat-hunting/>
+
+[//]: # "Exported with love from a post written in Org mode"
+[//]: # "- https://github.com/kaushalmodi/ox-hugo"

@@ -18,28 +18,27 @@
     <meta property="og:type" content="article">
     <meta property="article:section" content="Forensic wheels">
     <meta property="article:published_time" content="2019-01-11T16:00:00-05:00">
-    <meta property="article:modified_time" content="2025-06-24T11:49:27+02:00">
-    <meta property="article:tag" content="Threathunting">
-    <meta property="article:tag" content="Honeypot">
+    <meta property="article:modified_time" content="2025-06-28T16:17:28+02:00">
+    <meta property="article:tag" content="Forensicwheels">
     <meta itemprop="name" content="HoneyHTTPD - Forensic wheels">
     <meta itemprop="description" content="I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD II. Setting up HoneyPot HTTPD for Web Data Ingestion Containerizing the application to run inside docker III.Ingesting Web Data into Elasticsearch with HoneyPot HTTPD Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure IV. Benefits and Use Cases Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility) Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity) V. Conclusion Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch*** Final thoughts on the value of this setup for your organization’s threat hunting or security operations. I. Introduction Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD I recently set out to ingest web traffic data into our SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.">
     <meta itemprop="datePublished" content="2019-01-11T16:00:00-05:00">
-    <meta itemprop="dateModified" content="2025-06-24T11:49:27+02:00">
+    <meta itemprop="dateModified" content="2025-06-28T16:17:28+02:00">
     <meta itemprop="wordCount" content="821">
-    <meta itemprop="keywords" content="Threathunting,Honeypot">
+    <meta itemprop="keywords" content="Forensicwheels">
     <title>HoneyHTTPD - Forensic wheels</title>
-    <link href="/images/logo.svg?1750759399" rel="icon" type="image/svg+xml">
-    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1750759399" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1750759399" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1750759399" rel="stylesheet">
-    <link href="/css/theme.css?1750759399" rel="stylesheet">
-    <link href="/css/format-html.css?1750759399" rel="stylesheet" id="R-format-style">
-    <link href="/css/auto-complete/auto-complete.min.css?1750759399" rel="stylesheet">
-    <script src="/js/auto-complete/auto-complete.min.js?1750759399" defer></script>
-    <script src="/js/lunr/lunr.min.js?1750759399" defer></script>
-    <script src="/js/lunr/lunr.stemmer.support.min.js?1750759399" defer></script>
-    <script src="/js/lunr/lunr.multi.min.js?1750759399" defer></script>
-    <script src="/js/lunr/lunr.en.min.js?1750759399" defer></script>
-    <script src="/js/search.js?1750759399" defer></script>
+    <link href="/images/logo.svg?1751123039" rel="icon" type="image/svg+xml">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1751123039" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1751123039" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1751123039" rel="stylesheet">
+    <link href="/css/theme.css?1751123039" rel="stylesheet">
+    <link href="/css/format-html.css?1751123039" rel="stylesheet" id="R-format-style">
+    <link href="/css/auto-complete/auto-complete.min.css?1751123039" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1751123039" defer></script>
+    <script src="/js/lunr/lunr.min.js?1751123039" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1751123039" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1751123039" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1751123039" defer></script>
+    <script src="/js/search.js?1751123039" defer></script>
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -49,7 +48,7 @@
       window.relearn.relBaseUri='..\/..';
       window.relearn.absBaseUri='http:\/\/localhost:1313';
       window.relearn.contentLangs=['en'];
-      window.relearn.index_js_url="/searchindex.en.js?1750759399";
+      window.relearn.index_js_url="/searchindex.en.js?1751123039";
       window.relearn.disableAnchorCopy=false;
       window.relearn.disableAnchorScrolling=false;
       window.relearn.disableInlineCopyToClipboard=false;
@@ -166,8 +165,7 @@
   <header class="headline">
 <div class="R-taxonomy taxonomy-tags cstyle tags" title="Tags" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
   <ul>
-    <li><a class="term-link" href="/tags/honeypot/index.html">Honeypot</a></li>
-    <li><a class="term-link" href="/tags/threathunting/index.html">Threathunting</a></li>
+    <li><a class="term-link" href="/tags/forensicwheels/index.html">Forensicwheels</a></li>
   </ul>
 </div>
   </header>
@@ -324,6 +322,14 @@ Elasticsearch.</p>
 
   <footer class="footline">
               <i class='fa-fw fas fa-calendar'></i> Jan 11, 2019
+<div class="R-taxonomy taxonomy-categories cstyle" title="Categories" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
+  <i class="fa-fw fas fa-layer-group"></i>
+  <ul>
+    <li><a class="term-link" href="/categories/dfir/index.html">DFIR</a></li>
+    <li><a class="term-link" href="/categories/honeypot/index.html">Honeypot</a></li>
+    <li><a class="term-link" href="/categories/threathunting/index.html">Threathunting</a></li>
+  </ul>
+</div>
   </footer>
 </article>
         </div>
@@ -369,9 +375,9 @@ Elasticsearch.</p>
         <div class="R-sidebarmenu R-shortcutmenu-main">
           <ul class="enlarge morespace collapsible-menu">
             <li class="parent " data-nav-id="/posts/index.html"><a class="padding" href="/posts/index.html">Forensic wheels</a><ul id="R-subsections-b4e55eb7e39db1aee6d02808a2267090" class="collapsible-menu">
-            <li class="" data-nav-id="/posts/sans_for608/index.html"><a class="padding" href="/posts/sans_for608/index.html">SANS FOR608</a></li>
             <li class="" data-nav-id="/posts/about/index.html"><a class="padding" href="/posts/about/index.html">About</a></li>
             <li class="" data-nav-id="/posts/openbsdzen/index.html"><a class="padding" href="/posts/openbsdzen/index.html">OpenBSD and Zen</a></li>
+            <li class="" data-nav-id="/posts/sans_for608/index.html"><a class="padding" href="/posts/sans_for608/index.html">SANS FOR608</a></li>
             <li class="active " data-nav-id="/posts/honeyhttpd/index.html"><a class="padding" href="/posts/honeyhttpd/index.html">HoneyHTTPD</a></li></ul></li>
           </ul>
         </div>
@@ -405,8 +411,8 @@ Elasticsearch.</p>
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/js/clipboard/clipboard.min.js?1750759399" defer></script>
-    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1750759399" defer></script>
-    <script src="/js/theme.js?1750759399" defer></script>
+    <script src="/js/clipboard/clipboard.min.js?1751123039" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1751123039" defer></script>
+    <script src="/js/theme.js?1751123039" defer></script>
   </body>
 </html>
