@@ -2,24 +2,24 @@
 title: "HoneyHTTPD"
 author: ["Dirk"]
 date: 2019-01-11T16:00:00-05:00
-lastmod: 2025-06-28T16:17:28+02:00
+lastmod: 2025-06-28T23:15:33+02:00
 tags: ["forensicwheels"]
 categories: ["DFIR", "threathunting", "honeypot"]
 draft: true
 weight: 1004
 ---
 
--   [I. Introduction](#i-dot-introduction)
+-   [Introduction](#i-dot-introduction)
     -   [Brief overview of the use case: ingesting web data into Elasticsearch with HoneyPot HTTPD](#brief-overview-of-the-use-case-ingesting-web-data-into-elasticsearch-with-honeypot-httpd)
--   [II. Setting up HoneyPot HTTPD for Web Data Ingestion](#ii-dot-setting-up-honeypot-httpd-for-web-data-ingestion)
+-   [Setting up HoneyPot HTTPD for Web Data Ingestion](#ii-dot-setting-up-honeypot-httpd-for-web-data-ingestion)
     -   [Containerizing the application to run inside docker](#containerizing-the-application-to-run-inside-docker)
--   [III.Ingesting Web Data into Elasticsearch with HoneyPot HTTPD](#iii-dot-ingesting-web-data-into-elasticsearch-with-honeypot-httpd)
+-   [Ingesting Web Data into Elasticsearch with HoneyPot HTTPD](#iii-dot-ingesting-web-data-into-elasticsearch-with-honeypot-httpd)
     -   [Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch](#explanation-of-how-to-use-the-honeyhttpd-command-line-tool-to-ingest-web-data-into-elasticsearch)
     -   [Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure](#example-of-how-to-configure-the-honeyhttpd-output-to-match-your-desired-elasticsearch-index-structure)
--   [IV. Benefits and Use Cases](#iv-dot-benefits-and-use-cases)
+-   [Benefits and Use Cases](#iv-dot-benefits-and-use-cases)
     -   [Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility)](#discussion-of-the-benefits-of-using-honeypot-httpd-for-ingesting-web-data-into-elasticsearch--e-dot-g-dot-improved-threat-detection-enhanced-visibility)
     -   [Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity)](#real-world-examples-of-use-cases-where-this-setup-can-be-particularly-effective--e-dot-g-dot-logging-web-traffic-monitoring-online-activity)
--   [V. Conclusion](#v-dot-conclusion)
+-   [Conclusion](#v-dot-conclusion)
     -   [Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch\*\*\*](#recap-of-key-points-about-using-honeypot-httpd-to-ingest-web-data-into-elasticsearch)
     -   [Final thoughts on the value of this setup for your organization's threat hunting or security operations.](#final-thoughts-on-the-value-of-this-setup-for-your-organization-s-threat-hunting-or-security-operations-dot)
 
@@ -35,12 +35,6 @@ researching various options, I sought an easy-to-use solution that could
 integrate with our existing Elasticsearch setup. One tool that caught my
 attention was HoneyPot HTTPD.
 
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
-
 As I researched potential solutions, I realized that many of them
 required manual configuration and scripting to ingest web data into
 Elasticsearch. However, HoneyPot HTTPD offered a simple and elegant way
@@ -48,24 +42,12 @@ to do so through its built-in ingestion feature. This was especially
 appealing since I wanted to integrate the web traffic data with our
 existing SIEM setup that utilized Elasticsearch.
 
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
-
 In particular, I needed a tool that could collect web traffic data and
 forward it to a centralized location for analysis and processing.
 HoneyPot HTTPD's ability to ingest web data into Elasticsearch made it
 an attractive choice, as it would allow me to leverage our existing
 Elasticsearch infrastructure and integrate the data with our SIEM
 solution seamlessly.
-
-<div class="html">
-
-&lt;!--more--&gt;
-
-</div>
 
 With this in mind, I set out to explore how to use HoneyPot HTTPD to
 ingest web traffic data into Elasticsearch. In the following sections,
@@ -78,12 +60,6 @@ additional configuration settings required.
 
 
 ### Containerizing the application to run inside docker {#containerizing-the-application-to-run-inside-docker}
-
-<div class="html">
-
-&lt;!--list-separator--&gt;
-
-</div>
 
 -   Creating a Dockerfile
 
@@ -139,12 +115,6 @@ additional configuration settings required.
     This command started a new container from the honeyhttpd image and
     mapped port 80 on the host machine to port 80 in the container.
 
-<div class="html">
-
-&lt;!--list-separator--&gt;
-
-</div>
-
 -   Configuring the Container
 
     To configure the container, I updated the config.yaml file to point to
@@ -185,7 +155,7 @@ additional configuration settings required.
 ## V. Conclusion {#v-dot-conclusion}
 
 
-### Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch\*\*\* {#recap-of-key-points-about-using-honeypot-httpd-to-ingest-web-data-into-elasticsearch}
+### Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch {#recap-of-key-points-about-using-honeypot-httpd-to-ingest-web-data-into-elasticsearch}
 
 
 ### Final thoughts on the value of this setup for your organization's threat hunting or security operations. {#final-thoughts-on-the-value-of-this-setup-for-your-organization-s-threat-hunting-or-security-operations-dot}
