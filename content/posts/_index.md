@@ -1,5 +1,5 @@
 ---
-title: "overview"
+title: "Forensic wheels"
 type: "docs"
 description: "Latest posts"
 author: ["dirk"]
@@ -12,7 +12,6 @@ menu:
 ---
 
 Welcome to my technical blog and knowledge base!  
-Here you'll find guides, notes, and experiments focused on VPNs, WireGuard, OpenBSD, and infrastructure.
 
 <!-- ## Topics
 
@@ -22,15 +21,15 @@ Here you'll find guides, notes, and experiments focused on VPNs, WireGuard, Open
 
 {{< newest-posts >}}
 
-<!-- ## Featured Articles
+<!--## Featured Articles
 
 - [WireGuard on OpenBSD: A Quick Start Guide](/post/wireguard-openbsd/)
 - [Automating Services with `rcctl` on OpenBSD](/post/openbsd-deployment/)
-- [Building a Secure IPsec VPN with IKEv2](/post/ipsec-setup/)
+- [Building a Secure IPsec VPN with IKEv2](/post/ipsec-setup/)-->
 
 ## Get in Touch
 
 Suggestions or feedback?  
-[Contact me here](/contact/) or visit the [project repository](https://github.com/yourrepo).  
-You can also [subscribe via RSS](/index.xml). -->
+[Contact me here](/posts/about/) or visit the [project repository](https://github.com/PolymathMonkey/weblog).  
+You can also [subscribe via RSS](/index.xml).
 

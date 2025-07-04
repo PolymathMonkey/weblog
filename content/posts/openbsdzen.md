@@ -2,19 +2,12 @@
 title: "OpenBSD and Zen"
 author: ["Dirk"]
 date: 2025-06-28T16:16:00+02:00
-lastmod: 2025-06-29T13:12:01+02:00
+lastmod: 2025-07-04T21:54:15+02:00
 tags: ["forensicwheels", "openbsd", "zen"]
-categories: ["zen"]
+categories: ["personal"]
 draft: false
 weight: 1002
 ---
-
--   [About](#about)
--   [Simplicity and Clarity](#simplicity-and-clarity)
--   [Attention to Detail](#attention-to-detail)
--   [The Power of Consistency](#the-power-of-consistency)
--   [The Beauty of Imperfection](#the-beauty-of-imperfection)
-
 
 ## About {#about}
 
