@@ -69,9 +69,17 @@ var relearn_searchindex = [
     "uri": "/categories/forensic/index.html"
   },
   {
+    "breadcrumb": "",
+    "content": "You are not your thoughts, they are just the finger pointing at the moon\nPosts My review of the Sans Enterprise Forensics and Threadhunting Course - SANS FOR608\nDirk – 2025-05-29 Thu Some thoughts and Idears about what OpenBSD and Zen have in Common - OpenBSD and Zen\nDirk – 2025-05-26 Mo This is my intro post for my blog About\nDirk – 2025-05-26 Mo",
+    "description": "You are not your thoughts, they are just the finger pointing at the moon\nPosts My review of the Sans Enterprise Forensics and Threadhunting Course - SANS FOR608\nDirk – 2025-05-29 Thu Some thoughts and Idears about what OpenBSD and Zen have in Common - OpenBSD and Zen\nDirk – 2025-05-26 Mo This is my intro post for my blog About\nDirk – 2025-05-26 Mo",
+    "tags": [],
+    "title": "Forensic wheels",
+    "uri": "/index.html"
+  },
+  {
     "breadcrumb": "Forensic wheels",
-    "content": "##+hugo_section: ./\nYou are not your thoughts, they are just the finger pointing at the moon\nPosts My review of the Sans Enterprise Forensics and Threadhunting Course - SANS FOR608\nDirk – 2025-05-29 Thu Some thoughts and Idears about what OpenBSD and Zen have in Common - OpenBSD and Zen\nDirk – 2025-05-26 Mo This is my intro post for my blog About\nDirk – 2025-05-26 Mo",
-    "description": "##+hugo_section: ./\nYou are not your thoughts, they are just the finger pointing at the moon\nPosts My review of the Sans Enterprise Forensics and Threadhunting Course - SANS FOR608\nDirk – 2025-05-29 Thu Some thoughts and Idears about what OpenBSD and Zen have in Common - OpenBSD and Zen\nDirk – 2025-05-26 Mo This is my intro post for my blog About\nDirk – 2025-05-26 Mo",
+    "content": "You are not your thoughts, they are just the finger pointing at the moon\nPosts My review of the Sans Enterprise Forensics and Threadhunting Course - SANS FOR608\nDirk – 2025-05-29 Thu Some thoughts and Idears about what OpenBSD and Zen have in Common - OpenBSD and Zen\nDirk – 2025-05-26 Mo This is my intro post for my blog About\nDirk – 2025-05-26 Mo",
+    "description": "You are not your thoughts, they are just the finger pointing at the moon\nPosts My review of the Sans Enterprise Forensics and Threadhunting Course - SANS FOR608\nDirk – 2025-05-29 Thu Some thoughts and Idears about what OpenBSD and Zen have in Common - OpenBSD and Zen\nDirk – 2025-05-26 Mo This is my intro post for my blog About\nDirk – 2025-05-26 Mo",
     "tags": [],
     "title": "Forensic wheels",
     "uri": "/posts/index.html"
@@ -147,14 +155,6 @@ var relearn_searchindex = [
     "tags": [],
     "title": "Category - Zen",
     "uri": "/categories/zen/index.html"
-  },
-  {
-    "breadcrumb": "",
-    "content": "You are not your thoughts, they are just the finger pointing at the moon\nPosts My review of the Sans Enterprise Forensics and Threadhunting Course - SANS FOR608\nDirk – 2025-05-29 Thu Some thoughts and Idears about what OpenBSD and Zen have in Common - OpenBSD and Zen\nDirk – 2025-05-26 Mo This is my intro post for my blog About\nDirk – 2025-05-26 Mo",
-    "description": "You are not your thoughts, they are just the finger pointing at the moon\nPosts My review of the Sans Enterprise Forensics and Threadhunting Course - SANS FOR608\nDirk – 2025-05-29 Thu Some thoughts and Idears about what OpenBSD and Zen have in Common - OpenBSD and Zen\nDirk – 2025-05-26 Mo This is my intro post for my blog About\nDirk – 2025-05-26 Mo",
-    "tags": [],
-    "title": "Forensic wheels",
-    "uri": "/index.html"
   },
   {
     "breadcrumb": "Forensic wheels \u003e  Categories",

@@ -4,7 +4,6 @@ author = ["dirk"]
 draft = false
 +++
 
-\##+hugo_section: ./
 
 You are not your thoughts, they are just the finger pointing at the moon
 

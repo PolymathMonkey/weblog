@@ -2,10 +2,10 @@
 title = "Forensic wheels"
 author = ["dirk"]
 draft = false
-date = '2025-06-21T09:19:15+02:00'
 +++
 
 You are not your thoughts, they are just the finger pointing at the moon
+
 
 ## Posts {#posts}
 
@@ -24,5 +24,3 @@ Some thoughts and Idears about what OpenBSD and Zen have in Common - [OpenBSD an
 This is my intro post for my blog [About](about)
 
 -   Dirk -- _2025-05-26 Mo_
-
-

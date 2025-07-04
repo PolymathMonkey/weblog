@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/posts/about/index.html</loc>
-    <lastmod>2025-06-29T18:33:09+02:00</lastmod>
+    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/posts/openbsdzen/index.html</loc>
@@ -22,19 +22,23 @@
   </url>
   <url>
     <loc>http://localhost:1313/categories/index.html</loc>
-    <lastmod>2025-06-30T13:19:17+02:00</lastmod>
+    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/categories/forensic/index.html</loc>
     <lastmod>2025-06-30T13:19:17+02:00</lastmod>
   </url>
   <url>
+    <loc>http://localhost:1313/index.html</loc>
+    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
+  </url>
+  <url>
     <loc>http://localhost:1313/posts/index.html</loc>
-    <lastmod>2025-06-30T13:19:17+02:00</lastmod>
+    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/forensicwheels/index.html</loc>
-    <lastmod>2025-06-30T13:19:17+02:00</lastmod>
+    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/honeypot/index.html</loc>
@@ -42,7 +46,7 @@
   </url>
   <url>
     <loc>http://localhost:1313/tags/index.html</loc>
-    <lastmod>2025-06-30T13:19:17+02:00</lastmod>
+    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/categories/threathunting/index.html</loc>
@@ -54,11 +58,11 @@
   </url>
   <url>
     <loc>http://localhost:1313/tags/personal/index.html</loc>
-    <lastmod>2025-06-29T18:33:09+02:00</lastmod>
+    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/categories/personal/index.html</loc>
-    <lastmod>2025-06-29T18:33:09+02:00</lastmod>
+    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/zen/index.html</loc>
@@ -67,10 +71,6 @@
   <url>
     <loc>http://localhost:1313/categories/zen/index.html</loc>
     <lastmod>2025-06-29T13:12:01+02:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/index.html</loc>
-    <lastmod>2025-06-21T09:19:15+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/categories/dfir/index.html</loc>

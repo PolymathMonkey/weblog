@@ -2,7 +2,7 @@
 title: "About"
 author: ["Dirk"]
 date: 2025-06-28T16:16:00+02:00
-lastmod: 2025-06-29T18:33:09+02:00
+lastmod: 2025-06-30T14:52:04+02:00
 tags: ["forensicwheels", "personal"]
 categories: ["personal"]
 draft: false
@@ -31,7 +31,7 @@ cybersecurity. There's something about the simplicity, elegance, and
 power of OpenBSD that resonates deeply with me. You can also read about
 the smilarities I see between [OpenBSD and Zen](~/../openbsdzen)
 
-As a nerd, I have to mention my love affair with Emacs - the most flexible,
+As a nerd, I have to mention my love affair with [Emacs](https://www.gnu.org/software/emacs/) - the most flexible,
 and customizable text editor out there. I've been using it for over 12 years
 now, and I still can't imagine working without it. Whether I'm writing
 code, weblogging, or just tinkering with snippets of text, Emacs is always
