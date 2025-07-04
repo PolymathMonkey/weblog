@@ -8,12 +8,12 @@
   --SECONDARY-color: rgb(50, 189, 243, 1); /* brand secondary color */
   --ACCENT-color: rgba(255, 215, 0, 1); /* brand accent color, used for search highlights */
 
-  --MAIN-TEXT-color: rgba(224, 224, 224, 1); /* text color of content and h1 titles */
+  --MAIN-TEXT-color: rgba(224, 224, 224, 1); /* text color of content and titles */
   --MAIN-LINK-HOVER-color: rgb(80, 215, 255, 1); /* hovered link color of content */
   --MAIN-BG-color: rgba(16, 16, 16, 1); /* background color of content */
 
   /* optional overwrites for specific headers */
-  --MAIN-TITLES-TEXT-color: rgba(243, 0, 178, 1); /* text color of h2-h6 titles and transparent box titles */
+  --MAIN-TITLES-H2-TEXT-color: rgba(243, 0, 178, 1); /* text color of h2-h6 titles */
   --MAIN-TITLES-H3-TEXT-color: rgba(255, 255, 0, 1); /* text color of h3-h6 titles */
   --MAIN-TITLES-H4-TEXT-color: rgba(154, 111, 255, 1); /* text color of h4-h6 titles */
 
@@ -383,10 +383,10 @@ body .box.cstyle.transparent {
   --SECONDARY-color: rgba(108, 140, 227, 1); /* brand secondary color */
   --ACCENT-color: rgb(255, 102, 78, 1); /* brand accent color, used for search highlights */
 
-  --MAIN-TEXT-color: rgba(224, 224, 224, 1); /* text color of content and h1 titles */
+  --MAIN-TEXT-color: rgba(224, 224, 224, 1); /* text color of content and titles */
   --MAIN-LINK-HOVER-color: rgba(147, 176, 255, 1); /* hovered link color of content */
   --MAIN-BG-color: rgba(32, 32, 32, 1); /* background color of content */
-  --MAIN-TITLES-TEXT-color: rgba(255, 255, 255, 1); /* text color of h2-h6 titles and transparent box titles */
+  --MAIN-TITLES-TEXT-color: rgba(255, 255, 255, 1); /* text color of titles and transparent box titles */
 
   --CODE-theme: relearn-dark; /* name of the chroma stylesheet file */
   --CODE-BLOCK-color: rgba(248, 248, 242, 1); /* fallback text color of block code; should be adjusted to your selected chroma style */
@@ -521,12 +521,12 @@ body .box.cstyle.transparent {
   --SECONDARY-color: rgb(50, 189, 243, 1); /* brand secondary color */
   --ACCENT-color: rgba(255, 215, 0, 1); /* brand accent color, used for search highlights */
 
-  --MAIN-TEXT-color: rgba(224, 224, 224, 1); /* text color of content and h1 titles */
+  --MAIN-TEXT-color: rgba(224, 224, 224, 1); /* text color of content and titles */
   --MAIN-LINK-HOVER-color: rgb(80, 215, 255, 1); /* hovered link color of content */
   --MAIN-BG-color: rgba(16, 16, 16, 1); /* background color of content */
 
   /* optional overwrites for specific headers */
-  --MAIN-TITLES-TEXT-color: rgba(243, 0, 178, 1); /* text color of h2-h6 titles and transparent box titles */
+  --MAIN-TITLES-H2-TEXT-color: rgba(243, 0, 178, 1); /* text color of h2-h6 titles */
   --MAIN-TITLES-H3-TEXT-color: rgba(255, 255, 0, 1); /* text color of h3-h6 titles */
   --MAIN-TITLES-H4-TEXT-color: rgba(154, 111, 255, 1); /* text color of h4-h6 titles */
 
@@ -897,10 +897,10 @@ body .box.cstyle.transparent {
   --SECONDARY-color: rgba(72, 106, 201, 1); /* brand secondary color */
   --ACCENT-color: rgb(255, 102, 78); /* brand accent color, used for search highlights */
 
-  --MAIN-TEXT-color: rgba(0, 0, 0, 1); /* text color of content and h1 titles */
+  --MAIN-TEXT-color: rgba(0, 0, 0, 1); /* text color of content and titles */
   --MAIN-LINK-HOVER-color: rgba(32, 40, 145, 1); /* hovered link color of content */
   --MAIN-BG-color: rgba(255, 255, 255, 1); /* background color of content */
-  --MAIN-TITLES-TEXT-color: rgba(16, 16, 16, 1); /* text color of h2-h6 titles and transparent box titles */
+  --MAIN-TITLES-TEXT-color: rgba(16, 16, 16, 1); /* text color of titles and transparent box titles */
 
   --CODE-theme: relearn-light; /* name of the chroma stylesheet file */
   --CODE-BLOCK-color: rgba(39, 40, 34, 1); /* fallback text color of block code; should be adjusted to your selected chroma style */

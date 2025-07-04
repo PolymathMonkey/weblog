@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/posts/home/index.html</loc>
+  </url>
+  <url>
     <loc>http://localhost:1313/posts/about/index.html</loc>
-    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
+    <lastmod>2025-07-04T08:57:25+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/posts/openbsdzen/index.html</loc>
@@ -17,36 +20,36 @@
     <lastmod>2025-06-28T23:15:33+02:00</lastmod>
   </url>
   <url>
+    <loc>http://localhost:1313/index.html</loc>
+    <lastmod>2025-07-04T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>http://localhost:1313/tags/canarytokens/index.html</loc>
     <lastmod>2025-06-30T13:19:17+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/categories/index.html</loc>
-    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
+    <lastmod>2025-07-04T08:57:25+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/categories/forensic/index.html</loc>
     <lastmod>2025-06-30T13:19:17+02:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/index.html</loc>
-    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/posts/index.html</loc>
-    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
-  </url>
-  <url>
     <loc>http://localhost:1313/tags/forensicwheels/index.html</loc>
-    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
+    <lastmod>2025-07-04T08:57:25+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/honeypot/index.html</loc>
     <lastmod>2025-06-30T13:19:17+02:00</lastmod>
   </url>
   <url>
+    <loc>http://localhost:1313/posts/index.html</loc>
+    <lastmod>2025-07-04T08:57:25+02:00</lastmod>
+  </url>
+  <url>
     <loc>http://localhost:1313/tags/index.html</loc>
-    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
+    <lastmod>2025-07-04T08:57:25+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/categories/threathunting/index.html</loc>
@@ -58,11 +61,11 @@
   </url>
   <url>
     <loc>http://localhost:1313/tags/personal/index.html</loc>
-    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
+    <lastmod>2025-07-04T08:57:25+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/categories/personal/index.html</loc>
-    <lastmod>2025-06-30T14:52:04+02:00</lastmod>
+    <lastmod>2025-07-04T08:57:25+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/zen/index.html</loc>

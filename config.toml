@@ -24,6 +24,24 @@ openapi.errorlevel = 'warning'
 # specific image effect for this showcase;
 imageEffects.purple = false
 
+[outputs]
+home = ["HTML", "RSS"]
+
+[permalinks]
+posts = "/posts/:slug/"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Beiträge"
+    url = "/posts/"
+    weight = 2
 
 [outputs]
   # `print` - activate the themes feature to print whole chapters or leaf pages
@@ -36,10 +54,7 @@ imageEffects.purple = false
   themeVariant = [ "auto", "neon" ]
   disableLandingPageButton = true
   showVisitedLinks=true
-  disableSearch = true
   alwaysopen = false
-  disableSearchIndex = true
-  disableSearchPage = true
   # Optional Params
   # This will match the navbarTitle to the section of the website
   dynamicTitles        = true
