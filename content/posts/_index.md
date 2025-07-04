@@ -1,5 +1,5 @@
 ---
-title: "blog"
+title: "overview"
 type: "docs"
 description: "Latest posts"
 author: ["dirk"]
