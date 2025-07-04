@@ -6,7 +6,6 @@
 /.github/workflows/hugo.yaml~
 /go.mod
 /go.sum
-/layouts/
 /hugo.toml
 /static/
 /content-org/
