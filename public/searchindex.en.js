@@ -1,7 +1,7 @@
 var relearn_searchindex = [
   {
     "breadcrumb": "",
-    "content": "Latest posts About 28.06.2025 OpenBSD and Zen 28.06.2025 SANS FOR608 30.06.2025",
+    "content": "Welcome to my technical blog and knowledge base!\nHere you’ll find guides, notes, and experiments focused on VPNs, WireGuard, OpenBSD, and infrastructure.\nLatest posts About 28.06.2025 OpenBSD and Zen 28.06.2025 SANS FOR608 30.06.2025",
     "description": "Latest posts",
     "tags": [],
     "title": "blog",
@@ -9,7 +9,7 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "blog",
-    "content": "Latest posts About 28.06.2025 OpenBSD and Zen 28.06.2025 SANS FOR608 30.06.2025",
+    "content": "Welcome to my technical blog and knowledge base!\nHere you’ll find guides, notes, and experiments focused on VPNs, WireGuard, OpenBSD, and infrastructure.\nLatest posts About 28.06.2025 OpenBSD and Zen 28.06.2025 SANS FOR608 30.06.2025",
     "description": "Latest posts",
     "tags": [],
     "title": "overview",

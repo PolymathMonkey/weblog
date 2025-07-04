@@ -53,6 +53,5 @@ skateboarder, OpenBSD enthusiast, and Zen student
 And since I am searching for a new employer right now I will update this part
 soon with a more professional CV like part.
 
+{{< giscus >}}
 
-[//]: # "Exported with love from a post written in Org mode"
-[//]: # "- https://github.com/kaushalmodi/ox-hugo"

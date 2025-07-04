@@ -378,5 +378,6 @@ courses that focus on the latest trends and advancements.
 
 [^fn:1]: <https://www.sans.org/cyber-security-courses/enterprise-incident-response-threat-hunting/>
 
-[//]: # "Exported with love from a post written in Org mode"
-[//]: # "- https://github.com/kaushalmodi/ox-hugo"
+
+
+{{< giscus >}}
