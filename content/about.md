@@ -3,14 +3,14 @@ title: "About"
 author: ["Dirk"]
 description: "Short intro about myself"
 date: 2025-06-28T16:16:00+02:00
-lastmod: 2025-07-04T21:54:15+02:00
+lastmod: 2025-07-05T09:15:16+02:00
 tags: ["forensicwheels", "personal"]
 categories: ["personal"]
 draft: false
 weight: 1001
 ---
 
-{{< figure src="../img/fine.gif" >}}
+{{< figure src="../posts/img/fine.gif" >}}
 
 Hi! I'm Dirk, a security engineer with a passion for Skateboarding and
 Forensics. I help my Company safeguard their networks and systems from
@@ -41,7 +41,3 @@ over security patches or network protocols, you can find me:
 
 Stay tuned for more updates on my journey as a security engineer,
 skateboarder, OpenBSD enthusiast, and Zen student
-
-
-[//]: # "Exported with love from a post written in Org mode"
-[//]: # "- https://github.com/kaushalmodi/ox-hugo"

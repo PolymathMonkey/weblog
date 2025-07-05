@@ -2,7 +2,6 @@
 /*~
 /content-org/_index.org~
 /content-org/about.org~
-/content-org/*.org
 /.github/workflows/hugo.yaml~
 /go.mod
 /go.sum
@@ -12,3 +11,4 @@
 /content/_index.md~
 /content/posts/sans_for608.org~
 /content/posts/testout.org~
+/content/cv.md~
