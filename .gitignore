@@ -7,8 +7,15 @@
 /go.sum
 /hugo.toml
 /static/
-/content-org/
 /content/_index.md~
 /content/posts/sans_for608.org~
 /content/posts/testout.org~
 /content/cv.md~
+*.org~
+/content-org/cv.org
+/content-org/template.org
+/content-org/testout.org
+/content/posts/cv.md~
+/layouts/footer.html~
+/layouts/shortcodes/email.html~
+/layouts/shortcodes/giscus.html~

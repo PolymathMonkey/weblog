@@ -1,0 +1,699 @@
+#+hugo_base_dir: ../
+#+hugo_section: ./posts
+#+hugo_weight: auto
+#+hugo_auto_set_lastmod: t
+#+title: Forensic Wheels
+#+seq_todo: TODO DRAFT DONE
+#+FILETAGS: :forensicwheels:
+#+TAGS: @personal @forensic @zen @threathunting
+#+TAGS: openbsd honeypot zen personal canarytokens skateboarding
+
+#+startup: indent
+#+author: Dirk
+
+* DONE OpenBSD and Zen                                                                    :@personal:openbsd:zen:
+CLOSED: [2025-06-28 Sa 16:16]
+:PROPERTIES:
+:EXPORT_AUTHOR: Dirk
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:HUGO_TITLE: openbsdzen
+:HUGO_MENU_TITLE: openbsdzen
+:HUGO_CHAPTER: true
+:HUGO_WEIGHT: 5
+:EXPORT_FILE_NAME: openbsdzen
+:EXPORT_DATE: 2025-03-16T11:00:00-05:00
+:CUSTOM_ID: openbsdzen
+:END:
+*** About
+:PROPERTIES:
+:CUSTOM_ID: about
+:END:
+As someone who is passionate about security and has an interest in
+Unix operating systems, OpenBSD particularly captivates due to its
+dedication to security, stability, and simplicity. In comparison to
+other OSes, what sets OpenBSD apart? And how do these principles
+align with my journey through Zen meditation?
+
+[[../img/puffy77.gif]]
+
+At first glance, OpenBSD and Zen may appear to be vastly disparate
+concepts - one being a potent operating system, while the other is
+a spiritual practice originating from ancient China. However, as I
+delved deeper into both realms, I uncovered some fascinating
+similarities.
+
+*** Simplicity and Clarity
+:PROPERTIES:
+:CUSTOM_ID: simplicity-and-clarity
+:END:
+
+In Zen, simplicity is key to achieving inner clarity and balance.
+By stripping away unnecessary complexity, OpenBSD aims to create a
+stable and secure foundation for users. Similarly, in meditation,
+simplicity helps to quiet the mind and focus on the present moment.
+This alignment between OpenBSD's philosophy and Zen practices extends
+to their shared emphasis on mindfulness and deliberate decision-making,
+fostering an environment of security and tranquility in both realms.
+
+*** Attention to Detail
+:PROPERTIES:
+:CUSTOM_ID: attention-to-detail
+:END:
+
+Both OpenBSD and Zen underscore the significance of attending to detail.
+In software development, this entails meticulously crafting each line of
+code to guarantee stability and security. In Zen practice, it involves
+paying close attention to one's breath, posture, and mental state to
+attain a state of mindfulness. By zeroing in on these details, both
+OpenBSD and Zen strive for perfection.
+
+*** The Power of Consistency
+:PROPERTIES:
+:CUSTOM_ID: the-power-of-consistency
+:END:
+
+OpenBSD's dedication to consistency is manifested in its codebase, where each
+code change undergoes a thorough code review process. Consistency holds equal
+importance in Zen practice, as it fosters a sense of routine and stability.
+By cultivating a consistent daily meditation practice, I have discovered that
+consistency is instrumental in making progress on my spiritual journey.
+OpenBSD's emphasis on consistency mirrors the principles of Zen, emphasizing
+the value of diligence and discipline in both domains.
+
+*** The Beauty of Imperfection
+:PROPERTIES:
+:CUSTOM_ID: the-beauty-of-imperfection
+:END:
+
+Finally, both OpenBSD and Zen acknowledge the elegance in imperfection.
+In software development, imperfections can often be rectified or lessened
+through meticulous design and testing. In Zen practice, imperfections are
+perceived as avenues for growth and self-awareness.
+
+[[../img/enso1.jpg]]
+
+By acknowledging our imperfections, we can nurture humility and compassion.
+As I progress in my journey with OpenBSD and Zen, I am consistently struck
+by the ways in which these two seemingly unrelated realms intersect. By
+embracing simplicity, attention to detail, consistency, and the beauty of
+imperfection, both OpenBSD and Zen provide unique perspectives on the nature
+of software development and personal growth. Stay tuned for further insights
+from my exploration in the realm of security!
+
+* DONE SANS FOR608                                                                        :@forensic:@threathunting:honeypot:canarytokens:@threathunting:
+CLOSED: [2025-06-30 Mo 13:19]
+:PROPERTIES:
+:EXPORT_AUTHOR: Dirk
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:EXPORT_OPTIONS: toc:2
+:HUGO_TITLE: SANS FOR608
+:EXPORT_FILE_NAME: sans_for608
+:EXPORT_DATE: 2025-05-26T16:21:00-05:00
+:CUSTOM_ID: sans_for608
+:END:
+** *Enterprise Threat hunting and Response (FOR608)*
+:PROPERTIES:
+:CUSTOM_ID: enterprise-threat-hunting-and-response--for608
+:END:
+Course description from SANS [fn:1] :
+
+#+begin_quote
+FOR608: Enterprise-Class Incident Response & Threat Hunting focuses on
+identifying and responding to incidents too large to focus on individual
+machines. By using example tools built to operate at enterprise-class
+scale, students learn the techniques to collect focused data for
+incident response and threat hunting, and dig into analysis
+methodologies to learn multiple approaches to understand attacker
+movement and activity across hosts of varying functions and operating
+systems by using an array of analysis techniques.
+#+end_quote
+
+** Introduction
+:PROPERTIES:
+:CUSTOM_ID: introduction
+:END:
+*** Brief overview of forensic analysis and its application
+:PROPERTIES:
+:CUSTOM_ID: brief-overview-of-forensic-analysis-and-its-application
+:END:
+Forensic analysis in computer science investigates digital evidence to
+solve cybercrimes and security incidents. In enterprise environments, it
+involves analyzing devices, networks, and cloud storage. Key
+applications include incident response, compliance with regulations,
+investigations, and predictive analytics.
+
+[[../img/mfsans.png]]
+
+Tools like Timesketch, Velociraptor or Wireshark, and cloud forensics
+platforms aid in the analysis. Collaboration between IT and law
+enforcement is also crucial for successful investigations.
+
+The goal of forensic analysis is to reconstruct events, identify
+perpetrators, and determine damage extent, ensuring organizations can
+respond effectively to security threats and maintain compliance with
+regulations.
+
+** *Course Overview*
+:PROPERTIES:
+:CUSTOM_ID: course-overview
+:END:
+*** Proactive Detection and Response (608.1)
+:PROPERTIES:
+:CUSTOM_ID: proactive-detection-and-response--608-dot-1
+:END:
+The FOR608 course start with discussing current cyber defense concerns
+and the importance of collaboration among incident responders and
+threat hunters. There is a emphasize to use to shared knowledge from
+sources like the [[https://attack.mitre.org/][MITREATT&CK]] framework and further explores the
+concept of active defense, like the use of honeypots, honey tokens,
+and canaries to slow down attackers and facilitate detection.
+
+For case of a compromise, the materials focus on efficiently handling of
+intrusions, by covering topics such as leading the response, managing
+team members, documenting findings, and communicating with stakeholders.
+
+[[https://github.com/cyb3rfox/Aurora-Incident-Response][Aurora]] documentation tool is introduced as a means for tracking
+the investigation phases from initial detection to remediation.
+
+Later chapter dives into a scenario where an alert gets triggered
+in a company network, then in the labs triage data is analyzed
+using [[https://timesketch.org/][Timesketch]], a powerful platform for scalable and collaborative
+analysis of forensic data.
+
+Additionally, techniques are shared for visualising the same data set
+with [[https://www.elastic.co/kibana][Kibana]], which offers capabilities such as creating dashboards and
+saved searches to aid analysis.
+
+The Chapter concludes by examining key threat intelligence concepts,
+including developing and implementing internal threat intelligence.
+External projects like [[https://attack.mitre.org/][MITRE ATT&CK]] and [[https://github.com/SigmaHQ/sigma][Sigma]] are leveraged, and two
+comprehensive threat intel platforms, [[https://www.misp-project.org][MISP]] and [[https://filigran.io/solutions/open-cti/][OpenCTI]], are introduced.
+
+A threat intel report on the adversary targeting Stark Research Labs is
+used for intelligence to kick off the investigation into potential signs
+of intrusion in the company.
+
+*** Scaling Response and Analysis (608.2)
+:PROPERTIES:
+:CUSTOM_ID: scaling-response-and-analysis--608-dot-2
+:END:
+The course continues from chapter 1 by focusing on response actions.
+The Instructors show how to collect evidence at scale to scope a potential
+intrusion by leveraging EDR tooling data from EDR Solutions like [[https://learn.microsoft.com/de-de/sysinternals/downloads/sysmon][Sysmon]].
+
+However, they also discuss common bypass techniques that attackers use
+to evade EDR technology. To aid in this analysis, [[https://docs.velociraptor.app/][Velociraptor]] is introduced
+as a powerful platform for incident response and threat hunting.
+
+[[../img/logo.svg]]
+
+Then the chapter continuses to show how [[https://docs.velociraptor.app][Velociraptor]] can collect forensic
+artifacts from across the enterprise and provide deep-dive capabilities
+into individual hosts of interest. Additionally, [[https://www.elastic.co/elasticsearch][Elasticsearch]] is used to
+ingest and process data from various tools, allowing for fast searches and
+aggregations. I also learned about rapid response options for targeted
+data collections at scale using tools like [[https://docs.velociraptor.app/][Velociraptor]] and [[https://github.com/orlikoski/CyLR][CyLR]].
+Finally, we got solutions shown that are used for quickly processing acquired
+data for analysis in tools like [[https://timesketch.org/][Timesketch]] and individual artifact review.
+
+*** Modern Attacks against Windows and Linux DFIR (608.3)
+:PROPERTIES:
+:CUSTOM_ID: modern-attacks-against-windows-and-linux-dfir--608-dot-3
+:END:
+In the third chapter of the course the focus shifts from network-based
+analysis to classic host-based forensic artifact analysis. The start is to
+discuss modern attack techniques on Windows systems, including
+the infamous ransomware and "[[https://lolbas-project.github.io/#][living-of-the-land]]" (LOTB) attacks that avoid detection
+by using built-in binaries and scripts.
+
+The use of [[https://github.com/SigmaHQ/sigma][Sigma]] rules is highlighted as a way to facilitate rapid
+detection and response.
+
+The chapter covers Linux incident response and analysis too, by starting
+with common vulnerabilities and exploits targeting Linux systems. Then it
+dives into DFIR fundamentals on Linux systems, including key concepts
+such as differences among Linux distributions and filesystems, and
+strategies for handling initial triage and deeper forensic analysis.
+The chapter concludes by providing best practices for hardening Linux
+systems and enhancing logging configurations to aid future investigations.
+
+*** Analyzing macOS and Docker Containers (608.4)
+:PROPERTIES:
+:CUSTOM_ID: analyzing-macos-and-docker-containers--608-dot-4
+:END:
+Now the focus went on to Apple macOS incident response, building on the
+foundation we got established earlier. This part includes understanding
+the history, ecosystem, and details of the Apple Filesystem (APFS),
+file structure, and important file types such as Property List (plist)
+configuration files. A discussion of challenges and opportunities in
+responding to macOS incidents follows, covering topics like acquiring
+disk and triage data, reviewing acquisitions, and identifying suspicious
+activity in logs and artifacts.
+
+This part of the course then transitions to containerized microservices
+and [[https://www.docker.com/][Docker]] analysis, focusing on the architecture and management of [[https://www.docker.com/][Docker]]
+containers and providing a specific triage workflow for quick and effective
+response against individual containers as well as the container host.
+
+*** Cloud Attacks and Response (608.5)
+:PROPERTIES:
+:CUSTOM_ID: cloud-attacks-and-response--608-dot-5
+:END:
+This part focused on incident response in major cloud platforms from
+Microsoft and Amazon, covering log analysis techniques, architecture
+designs, and automation initiatives that can be applied across various
+cloud providers. It highlights unique challenges and opportunities in
+cloud environments, particularly through the use of the
+[[https://attack.mitre.org/matrices/enterprise/cloud/][MITRE ATT&CK framework's Cloud Matrix]].
+
+In-depth discussion follows on Microsoft 365 (M365) and Azure, including
+popular SaaS offerings like Entra ID, Exchange, SharePoint, and Teams,
+as well as common attack scenarios against these platforms. The importance
+of log analysis is emphasized strongly, particularly in identifying suspicious user
+logon and email activity from Unified Audit Logs.
+
+The course then addresses the Recovery phase, covering security enhancements
+to detect or prevent similar attacks in the future for M365 and Azure.
+
+Next, it delves into Amazon Web Services (AWS), covering its general
+architecture and components, as well as numerous logs and services
+providing critical detection and analysis data for responders. Discussions
+focus on architecting for response in the cloud, including setting up
+security accounts for a secure enclave within AWS, using template VMs
+(AMIs) for analysis, and automating IR tasks with AWS Lambda and Step Functions.
+
+*** Capstone: Enterprise-Class IR Challenge
+:PROPERTIES:
+:CUSTOM_ID: capstone-enterprise-class-ir-challenge
+:END:
+The final section of the course is the capstone exercise that allows
+students to apply their knowledge by working on a simulated breach
+scenario. They will receive a dataset from a compromised environment
+that spans multiple host operating systems and cloud environments, and
+use tools and techniques learned throughout the course to uncover the
+steps of the breach.
+
+** *Key Takeaways*
+:PROPERTIES:
+:CUSTOM_ID: key-takeaways
+:END:
+*** Summary of key concepts and skills learned during the course
+:PROPERTIES:
+:CUSTOM_ID: summary-of-key-concepts-and-skills-learned-during-the-course
+:END:
+During the SANS FOR608 course, I learned concepts and skills that
+enabled me to do more effective incident response and coordination,
+including enterprise-level incident detection and to deploy threat
+hunting strategies. The course covered large-scale event correlation
+and timeline analysis techniques to identify patterns and trends in
+incidents, as well as multi-platform artifact analysis for incident
+response.
+
+Specifically, I gained hands-on experience analyzing artifacts from
+various platforms, including Windows devices, Linux systems, macOS
+devices, containerized environments, and cloud-based infrastructure.
+This comprehensive training has equipped me with the knowledge and tools
+needed to detect, analyze, and respond to complex threats in enterprise
+environments.
+
+The most fun was the parts where we learned about Timesketch and Velociraptor,
+I think each of those tools individually is extremely powerful, but when you
+integrate them into your threathunting / Response stack I thing they are
+of great benefit.
+
+*** learning outcomes and their application in real-world scenarios
+:PROPERTIES:
+:CUSTOM_ID: learning-outcomes-and-their-application-in-real-world-scenarios
+:END:
+Based on the provided course materials, I have analyzed my learning
+outcomes and their application in real-world scenarios. Through my
+analysis, I have gained a deeper understanding of the key concepts and
+skills required for effective cloud response and analysis, container
+DFIR fundamentals, detecting modern attacks, enterprise incident
+response management, enterprise visibility and incident scoping,
+foundational cloud concepts, Linux DFIR fundamentals, macOS DFIR
+fundamentals, macOS essentials, rapid response triage at scale.
+
+I have also gained practical knowledge of how to correlate large volumes
+of data to identify patterns and trends in incidents.
+
+In particular, my experience with cloud-based infrastructure has
+highlighted the need for a comprehensive understanding of foundational
+cloud concepts, including popular cloud services that enterprises use to
+support business operations. I have also gained familiarity with common
+data source types in an enterprise environment and strategies to
+aggregate telemetry from disparate resources.
+
+My analysis of learning outcomes suggests that effective application of
+these skills requires a combination of technical expertise, analytical
+thinking, and communication skills. By mastering these skills, I am
+confident in my ability to respond effectively to complex incidents and
+provide value to organizations as a security professional.
+
+** *Conclusion and Recommendations*
+:PROPERTIES:
+:CUSTOM_ID: conclusion-and-recommendations
+:END:
+*** Summary of overall effectiveness of the SANS Forensics course for608
+:PROPERTIES:
+:CUSTOM_ID: summary-of-overall-effectiveness-of-the-sans-forensics-course-for608
+:END:
+SANS FOR608 course is a comprehensive training program which provides
+responders with a strong foundation in incident response, threat hunting,
+and digital forensic analysis. Through its curriculum, the course covers
+concepts and skills related to managing incident response teams,
+detecting threats in enterprise environments using advanced analytics
+tools, correlating large volumes of data to identify patterns and trends
+in incidents, analyzing artifacts from various platforms including
+Windows devices, Linux systems, macOS devices, containerized
+environments, and cloud-based infrastructure.
+
+_Analysis_:
+
+- *Comprehensive coverage*: The course covers a wide range of topics
+  related to incident response and digital forensic analysis, providing
+  students with a comprehensive understanding of the subject matter.
+- *Hands-on experience*: The course includes hands-on labs that
+  allow participants to apply their knowledge in real-world scenarios, which
+  helps to reinforce learning and improve retention.
+- *Practical skills*: The course emphasizes practical skills over
+  theoretical concepts, which is beneficial for security professionals
+  who need to respond to incidents in a timely and effective manner. And
+  I also think that pactical knowledge is more interessting to learn, because
+  you can apply it in the following labs
+- *Real-world relevance*: The course covers topics that are relevant to
+  real-world scenarios responders are confronted with, making it easier
+  for students to apply their   knowledge in practical settings.
+
+Summary:
+
+From my personal opinion the SANS FOR608 course is very  effective for
+providing students with a very well understanding of incident response and
+digital forensic analysis. Through its comprehensive coverage, hands-on
+exercises, and emphasis on practical skills, the course provides
+security professionals with the knowledge and skills needed to respond
+effectively to incidents.
+
+Overall, the course is well-structured,
+engaging, and relevant to real-world scenarios, making it an excellent
+choice for individuals looking to improve their incident response and
+digital forensic analysis skills.
+
+Tho I have to say the on-demand course is way more exhausting I belive than
+the in person class. Also I think in person is more benificial beause you can
+discuss matters with your peers. 
+
+*** Recommendations for future students looking to learn forensic analysis skills
+:PROPERTIES:
+:CUSTOM_ID: recommendations-for-future-students-looking-to-learn-forensic-analysis-skills
+:END:
+**** Gain Practical Experience
+:PROPERTIES:
+:CUSTOM_ID: gain-practical-experience
+:END:
+Before enrolling in a forensic analysis course, try to gain as much
+practical experience as possible for example practicing
+[[https://app.hackthebox.com/sherlocks/][Sherlocks on hack the box]] or try yourself in Malware analysis
+challanges This could also involve setting up your own home lab,
+participating in bug bounty programs, or volunteering to help a
+friend or family member with their computer issues. The more hands-on
+experience you have, the better equipped you'll be to learn and
+apply forensic analysis skills.
+
+**** Develop Your Analytical Skills
+:PROPERTIES:
+:CUSTOM_ID: develop-your-analytical-skills
+:END:
+Forensic analysis requires strong analytical skills, including attention
+to detail, critical thinking, and problem-solving. Practice these skills
+by working on puzzles, brain teasers, or other activities that challenge
+your mind. You can also try analyzing data sets, network traffic logs,
+or system logs to develop your skills.
+
+**** Learn about Cloud Computing
+:PROPERTIES:
+:CUSTOM_ID: learn-about-cloud-computing
+:END:
+As a forensic analyst, it's essential to understand cloud computing and
+how it affects the analysis of digital evidence. Take online courses or
+attend webinars that teach you about cloud security, compliance, and
+investigation techniques. This will help you stay up-to-date with the
+latest trends and technologies.
+
+**** Familiarize Yourself with Linux and macOS
+:PROPERTIES:
+:CUSTOM_ID: familiarize-yourself-with-linux-and-macos
+:END:
+Linux and macOS are popular operating systems used by many
+organizations, including those in the finance, healthcare, and
+government sectors. Take online courses or attend workshops that teach
+you about these operating systems, including their command-line
+interfaces, file systems, and security features.
+
+**** Join Online Communities
+:PROPERTIES:
+:CUSTOM_ID: join-online-communities
+:END:
+Joining online communities, such as Reddit's r/learnprogramming or
+r/netsec, can be a great way to connect with other professionals in the
+field, ask questions, and learn from their experiences. You can also
+participate in online forums, attend webinars, or join online study
+groups to stay updated on the latest forensic analysis techniques.
+
+**** Consider Specializing in a Specific Area
+:PROPERTIES:
+:CUSTOM_ID: consider-specializing-in-a-specific-area
+:END:
+Forensic analysis is a broad field that encompasses many areas,
+including computer forensics, mobile device forensics, and digital
+evidence collection. Consider specializing in a specific area that
+interests you the most, such as incident response or threat hunting.
+This will help you develop deeper knowledge and skills in that area.
+
+**** Stay Up-to-Date with Industry Developments
+:PROPERTIES:
+:CUSTOM_ID: stay-up-to-date-with-industry-developments
+:END:
+The field of forensic analysis is constantly evolving, with new
+technologies and techniques emerging regularly. Stay up-to-date with
+industry developments by attending conferences, webinars, or online
+courses that focus on the latest trends and advancements.
+
+[fn:1] [[https://www.sans.org/cyber-security-courses/enterprise-incident-response-threat-hunting/]]
+
+* DRAFT HoneyHTTPD                                                                        :@DFIR:@threathunting:@honeypot:
+:PROPERTIES:
+:EXPORT_AUTHOR: Dirk
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:HUGO_TITLE: honeyhttpd
+:EXPORT_FILE_NAME: honeyhttpd
+:EXPORT_DATE: 2019-01-11T16:00:00-05:00
+:CUSTOM_ID: honeyhttpd
+:END:
+** Introduction
+:PROPERTIES:
+:CUSTOM_ID: introduction
+:END:
+*** Brief overview of the use case
+:PROPERTIES:
+:CUSTOM_ID: brief-overview-of-the-use-case
+:END:
+I recently set out to ingest web traffic data into my SIEM solution,
+which requires data to be ingested in a specific format. After
+researching various options, I sought an easy-to-use solution that could
+integrate with our existing Elasticsearch setup. One tool that caught my
+attention was HoneyPot HTTPD.
+
+As I researched potential solutions, I realized that many of them
+required manual configuration and scripting to ingest web data into
+Elasticsearch. However, HoneyPot HTTPD offered a simple and elegant way
+to do so through its built-in ingestion feature. This was especially
+appealing since I wanted to integrate the web traffic data with our
+existing SIEM setup that utilized Elasticsearch.
+
+In particular, I needed a tool that could collect web traffic data and
+forward it to a centralized location for analysis and processing.
+HoneyPot HTTPD's ability to ingest web data into Elasticsearch made it
+an attractive choice, as it would allow me to leverage our existing
+Elasticsearch infrastructure and integrate the data with our SIEM
+solution seamlessly.
+
+With this in mind, I set out to explore how to use HoneyPot HTTPD to
+ingest web traffic data into Elasticsearch. In the following sections,
+I'll walk you through the steps I took to configure HoneyPot HTTPD for
+ingestion, including the Dockerfile used to build the container and any
+additional configuration settings required.
+
+** Setting up HoneyPot HTTPD for Web Data Ingestion
+:PROPERTIES:
+:CUSTOM_ID: setting-up-honeypot-httpd-for-web-data-ingestion
+:END:
+*** Containerizing the application to run inside docker
+:PROPERTIES:
+:CUSTOM_ID: containerizing-the-application-to-run-inside-docker
+:END:
+
+- Creating a Dockerfile
+
+  I started by creating a Dockerfile that would build the HoneHTTPD
+  image. The Dockerfile included the following instructions:
+
+  #+begin_src sh
+  FROM ubuntu:latest
+  # Install necessary dependencies
+  RUN apt-get update && apt-get install -y python3-pip
+  # Install required packages
+  RUN pip3 install honeyhttpd
+  # Set working directory to /usr/local/bin
+  WORKDIR /usr/local/bin
+  # Expose port 80 for HTTP traffic
+  EXPOSE 80
+  # Copy configuration file
+  COPY config.yaml /etc/honeyhttpd/
+  # Run HoneyPot HTTPD
+  CMD ["honeyhttpd", "-c", "/etc/honeyhttpd/config.yaml"]
+  #+end_src
+
+  In this Dockerfile, I:
+
+  - Used the official Ubuntu image as the base image
+  - Installed necessary dependencies, including Python and pip
+  - Installed the required packages, including HoneyPot HTTPD
+  - Set the working directory to /usr/local/bin to run the application
+    from
+  - Exposed port 80 for HTTP traffic
+  - Copied the configuration file (config.yaml) into the container
+  - Specified the command to run HoneyPot HTTPD with the -c option,
+    which points
+  - to the configuration file
+
+- Building and Running the Container
+
+  Once I had created the Dockerfile, I built the image by running the
+  following command:
+
+  #+begin_src sh
+  docker build -t honeyhttpd .
+  #+end_src
+
+  This command told Docker to create an image with the tag honeyhttpd
+  using the instructions in the Dockerfile.To run the container, I used
+  the following command:
+
+  #+begin_src sh
+  docker run -p 80:80 honeyhttpd
+  #+end_src
+
+  This command started a new container from the honeyhttpd image and
+  mapped port 80 on the host machine to port 80 in the container.
+
+- Configuring the Container
+
+  To configure the container, I updated the config.yaml file to point to
+  my Elasticsearch instance. Here's an example of what the configuration
+  file might look like:
+
+  #+begin_src sh
+  -ingest:
+  es_host: "localhost:9200"
+  es_index: "logstash-2019.04"
+  es_type: "log"
+  #+end_src
+
+  This configuration told HoneyPot HTTPD to forward web traffic data to
+  my Elasticsearch instance, where it could be processed and stored.
+
+  With the container running and configured, I was now ready to test
+  HoneyPot HTTPD's ability to ingest web traffic data into
+  Elasticsearch.
+
+** Ingesting Web Data into Elasticsearch with HoneyPot HTTPD
+:PROPERTIES:
+:CUSTOM_ID: iii-dot-ingesting-web-data-into-elasticsearch-with-honeypot-httpd
+:END:
+*** Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch
+:PROPERTIES:
+:CUSTOM_ID: explanation-of-how-to-use-the-honeyhttpd-command-line-tool-to-ingest-web-data-into-elasticsearch
+:END:
+*** Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure
+:PROPERTIES:
+:CUSTOM_ID: example-of-how-to-configure-the-honeyhttpd-output-to-match-your-desired-elasticsearch-index-structure
+:END:
+** Benefits and Use Cases
+:PROPERTIES:
+:CUSTOM_ID: iv-dot-benefits-and-use-cases
+:END:
+*** Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility)
+:PROPERTIES:
+:CUSTOM_ID: discussion-of-the-benefits-of-using-honeypot-httpd-for-ingesting-web-data-into-elasticsearch--e-dot-g-dot-improved-threat-detection-enhanced-visibility
+:END:
+*** Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity)
+:PROPERTIES:
+:CUSTOM_ID: real-world-examples-of-use-cases-where-this-setup-can-be-particularly-effective--e-dot-g-dot-logging-web-traffic-monitoring-online-activity
+:END:
+** Conclusion
+:PROPERTIES:
+:CUSTOM_ID: v-dot-conclusion
+:END:
+*** Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch
+:PROPERTIES:
+:CUSTOM_ID: recap-of-key-points-about-using-honeypot-httpd-to-ingest-web-data-into-elasticsearch
+:END:
+*** Final thoughts on the value of this setup for your organization's threat hunting or security operations.
+:PROPERTIES:
+:CUSTOM_ID: final-thoughts-on-the-value-of-this-setup-for-your-organization-s-threat-hunting-or-security-operations-dot
+:END:
+ 
+* DRAFT How I build my Network for Theathunting                                           :@threathunting:honeypot:personal:
+:PROPERTIES:
+:EXPORT_AUTHOR: Dirk
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:EXPORT_OPTIONS: toc:2
+:HUGO_TITLE: Threathunting at home
+:EXPORT_FILE_NAME: sans_for608
+:EXPORT_DATE: 2025-05-26T16:21:00-05:00
+:CUSTOM_ID: theathuntingathome
+:END:
+** Introduction
+*** Why I Built a Home Lab for Threat Hunting
+As a security engineer, staying ahead of emerging threats is not just a job
+requirement—it’s a necessity. The threat landscape is constantly evolving,
+with new attack vectors, tools, and tactics appearing almost daily.
+
+To keep my skills current with real-world threats, I built a home lab dedicated
+to threat hunting. This environment allows me to safely observe attacks,
+I deployed web and shell honeypots, and collect real threat data in a
+controlled setting.
+
+It’s a practical, hands-on way to explore the behavior of adversaries and test
+detection strategies outside of a production environment.
+
+** Network Setup
+*** Basic Topology and Isolation
+*** Hardware and Tools Used
+
+For my setup, I kept things lightweight and affordable by using Raspberry Pi
+devices and open-source tools. The honeypot and ELK stack are both connected
+via a managed switch to the router and live in the same isolated VLAN,
+dedicated solely to threat hunting. This separation ensures that any malicious
+traffic stays contained and doesn't interfere with the rest of my home network.
+
+The honeypot runs on a Raspberry Pi 4 with 8GB of RAM, hosted inside a Docker
+container directly on the Pi. For the ELK stack, I used a Raspberry Pi 5 with
+16GB of RAM, running Debian and the ELK is also running inside docker. The
+stack itself is based on the DShield SIEM project, which I’ve customized to
+better fit my needs. I’ll dive deeper into those modifications and the ELK
+setup in a follow-up article.
+
+** Honeypot in Action
+*** SSH and HTTP Honeypot Setup
+*** Capturing Malicious Activity
+** Logging with ELK
+*** How Data Flows into Elasticsearch
+*** Using Kibana for Visualization
+** What I Learned
+*** Interesting Findings
+*** Challenges and Takeaways
+** Final Thoughts
+*** Future Plans and Improvements
+* DRAFT My travel and stay at buddhas weg                                                 :@personal:
