@@ -48,10 +48,29 @@ Focused on penetration testing methodologies and vulnerability assessment.
 -   Managing infrastructure with Ansible
 
 
+### System EngineerSystem Engineer {#isfourit-system-engineer}
+
+Nov. 2017 – 2019 
+
+- Development and Maintainance of the Monitoring Appliance based on Nagios/Icinga2
+- Customer Support / System debugging
+- Developing automation Scripts with Python and Shellscript
+
+
+
+### Noris Network AG Linux-Administrator {#noris-network-ag-linux-administrator}
+
+2012 – 2014
+
+- Automantion Script development in python
+- Monioring ang Customer Support 
+- System debugging 
+
+
 ## Education &amp; Background {#education-and-background}
 
 
-### 2007 – 2020: From Sysadmin to Security {#2007-2020-from-sysadmin-to-security}
+### 2007 – 2013: Beginnings as Sysadmin  {#2007-2020-from-sysadmin-to-security}
 
 -   Completed apprenticeship as Computer Science Expert at Möbel Fischer GmbH (2007)
 -   Gained experience with Linux Enterprise systems
@@ -68,9 +87,10 @@ Focused on penetration testing methodologies and vulnerability assessment.
 -   Forensic data analysis and tooling
 -   Log analysis and visualization
 -   Network security and compliance
--   Linux/Unix administration and debugging
 -   OpenBSD firewalls and router setup
 -   Scripting (Python, Bash, PowerShell)
+-   Unix/Linux Administration (RHEL, Ubuntu, *BSD) 
+-   Network and System monitoring w. Nagios, Icinga2, monit, prometeus
 
 
 ## Languages {#languages}

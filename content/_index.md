@@ -13,9 +13,10 @@ menu:
 
 Welcome to my technical blog and knowledge base!
 
-<!-- ## Topics
+## Topics
 
-- [🔐 VPN & IPsec](/tags/ipsec/)
+ Coming soon
+<!--- [🔐 VPN & IPsec](/tags/ipsec/)
 - [🧷 WireGuard & Networking](/tags/wireguard/)
 - [🖥 OpenBSD Tutorials](/tags/openbsd/) -->
 

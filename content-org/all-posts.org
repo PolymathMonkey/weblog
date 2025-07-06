@@ -3,16 +3,15 @@
 #+hugo_weight: auto
 #+hugo_auto_set_lastmod: t
 #+title: Forensic Wheels
-#+seq_todo: TODO DRAFT DONE
+#+seq_todo: DRAFT TODO DONE
 #+FILETAGS: :forensicwheels:
 #+TAGS: @personal @forensic @zen @threathunting
-#+TAGS: openbsd honeypot zen personal canarytokens skateboarding
+#+TAGS: openbsd honeypot zen personal canarytokens skateboarding visibility
 
 #+startup: indent
 #+author: Dirk
 
-* DONE OpenBSD and Zen                                                                    :@personal:openbsd:zen:
-CLOSED: [2025-06-28 Sa 16:16]
+* TODO OpenBSD and Zen                                                                    :@personal:openbsd:zen:
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
@@ -100,8 +99,7 @@ imperfection, both OpenBSD and Zen provide unique perspectives on the nature
 of software development and personal growth. Stay tuned for further insights
 from my exploration in the realm of security!
 
-* DONE SANS FOR608                                                                        :@forensic:@threathunting:honeypot:canarytokens:@threathunting:
-CLOSED: [2025-06-30 Mo 13:19]
+* TODO SANS FOR608                                                                        :@forensic:@threathunting:honeypot:canarytokens:@threathunting:
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
@@ -650,11 +648,16 @@ additional configuration settings required.
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
 :EXPORT_OPTIONS: toc:2
 :HUGO_TITLE: Threathunting at home
-:EXPORT_FILE_NAME: sans_for608
+:EXPORT_FILE_NAME: theathuntingnet
 :EXPORT_DATE: 2025-05-26T16:21:00-05:00
 :CUSTOM_ID: theathuntingathome
 :END:
 ** Introduction
+
+In this I will describe the Network setup for my Threathunting Environment,
+More about how I build the honeypots and the ELK Server I will describe in this
+series about threathunting.
+
 *** Why I Built a Home Lab for Threat Hunting
 As a security engineer, staying ahead of emerging threats is not just a job
 requirement—it’s a necessity. The threat landscape is constantly evolving,
@@ -670,6 +673,13 @@ detection strategies outside of a production environment.
 
 ** Network Setup
 *** Basic Topology and Isolation
+The Honeypot and ELK Server are Placed inside the 210 VLAN which is isolated
+from the rest network. The Honeypot gets firewalled completely except for
+traffic coming from the outside to port 22, which is then redirected to port
+2222 on the honeypot. The Honeypot ingests data via filebeat into the ELK Server.
+
+[[../img/mynet.png]]
+
 *** Hardware and Tools Used
 
 For my setup, I kept things lightweight and affordable by using Raspberry Pi
@@ -685,15 +695,10 @@ stack itself is based on the DShield SIEM project, which I’ve customized to
 better fit my needs. I’ll dive deeper into those modifications and the ELK
 setup in a follow-up article.
 
-** Honeypot in Action
-*** SSH and HTTP Honeypot Setup
-*** Capturing Malicious Activity
-** Logging with ELK
-*** How Data Flows into Elasticsearch
-*** Using Kibana for Visualization
 ** What I Learned
 *** Interesting Findings
 *** Challenges and Takeaways
 ** Final Thoughts
 *** Future Plans and Improvements
 * DRAFT My travel and stay at buddhas weg                                                 :@personal:
+* DRAFT Collecting netflow data with pflow(1) and pmacct                                  :@threathunting:openbsd:visibility:

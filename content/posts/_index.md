@@ -13,6 +13,10 @@ menu:
 
 Welcome to my technical blog and knowledge base!  
 
+
+## Topics
+
+ Coming soon
 <!-- ## Topics
 
 - [🔐 VPN & IPsec](/tags/ipsec/)
