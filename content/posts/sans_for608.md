@@ -1,12 +1,12 @@
 ---
 title: "SANS FOR608"
 author: ["Dirk"]
-date: 2025-06-30T13:19:00+02:00
-lastmod: 2025-07-04T21:56:04+02:00
+date: 2025-05-26T16:21:00-05:00
+lastmod: 2025-07-06T08:44:01+02:00
 tags: ["forensicwheels", "honeypot", "canarytokens"]
 categories: ["forensic", "threathunting"]
-draft: false
-weight: 1003
+draft: true
+weight: 1002
 ---
 
 <div class="ox-hugo-toc toc">
@@ -377,8 +377,3 @@ industry developments by attending conferences, webinars, or online
 courses that focus on the latest trends and advancements.
 
 [^fn:1]: <https://www.sans.org/cyber-security-courses/enterprise-incident-response-threat-hunting/>
-
-{{< giscus >}}
-
-[//]: # "Exported with love from a post written in Org mode"
-[//]: # "- https://github.com/kaushalmodi/ox-hugo"

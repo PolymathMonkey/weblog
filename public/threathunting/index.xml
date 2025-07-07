@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Personal - Tag - Forensic wheels</title>
-    <link>http://localhost:1313/tags/personal/index.html</link>
+    <title>Threathuntings - Forensic wheels</title>
+    <link>http://localhost:1313/threathunting/index.html</link>
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Jul 2025 12:38:28 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/personal/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>About</title>
-      <link>http://localhost:1313/about/index.html</link>
-      <pubDate>Sat, 28 Jun 2025 16:16:00 +0200</pubDate>
-      <guid>http://localhost:1313/about/index.html</guid>
-      <description>Short intro about myself</description>
-    </item>
+    <lastBuildDate>Mon, 07 Jul 2025 12:42:59 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/threathunting/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Threathunting I: Network setup</title>
-      <link>http://localhost:1313/posts/threathunting/theathuntingnet/index.html</link>
+      <link>http://localhost:1313/threathunting/theathuntingnet/index.html</link>
       <pubDate>Mon, 26 May 2025 16:21:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/threathunting/theathuntingnet/index.html</guid>
+      <guid>http://localhost:1313/threathunting/theathuntingnet/index.html</guid>
       <description>Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Basic Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.</description>
     </item>
   </channel>

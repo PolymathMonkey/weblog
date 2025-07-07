@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.142.0">
+    <meta name="generator" content="Relearn 7.6.1+81b6d3c32c77aeecc29c4700d2123bd2fb3401c2">
+    <meta name="description" content="Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Basic Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.">
+    <meta name="author" content="Dirk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Threathunting I: Network setup - Forensic wheels">
+    <meta name="twitter:description" content="Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Basic Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.">
+    <meta property="og:url" content="http://localhost:1313/threathunting/theathuntingnet/index.html">
+    <meta property="og:site_name" content="Forensic wheels">
+    <meta property="og:title" content="Threathunting I: Network setup - Forensic wheels">
+    <meta property="og:description" content="Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Basic Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Threathuntings">
+    <meta property="article:published_time" content="2025-05-26T16:21:00-05:00">
+    <meta property="article:modified_time" content="2025-07-07T12:42:59+02:00">
+    <meta property="article:tag" content="Threathunting">
+    <meta property="article:tag" content="Honeypot">
+    <meta property="article:tag" content="Personal">
+    <meta itemprop="name" content="Threathunting I: Network setup - Forensic wheels">
+    <meta itemprop="description" content="Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Basic Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.">
+    <meta itemprop="datePublished" content="2025-05-26T16:21:00-05:00">
+    <meta itemprop="dateModified" content="2025-07-07T12:42:59+02:00">
+    <meta itemprop="wordCount" content="843">
+    <meta itemprop="keywords" content="Threathunting,Honeypot,Personal">
+    <title>Threathunting I: Network setup - Forensic wheels</title>
+    <link href="/images/logo.svg?1751884980" rel="icon" type="image/svg+xml">
+    <link href="/css/auto-complete/auto-complete.min.css?1751884980" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1751884980" defer></script>
+    <script src="/js/search-lunr.js?1751884980" defer></script>
+    <script src="/js/search.js?1751884980" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="/searchindex.en.js?1751884980";
+    </script>
+    <script src="/js/lunr/lunr.min.js?1751884980" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1751884980" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1751884980" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1751884980" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1751884980" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1751884980" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1751884980" rel="stylesheet">
+    <link href="/css/theme.css?1751884980" rel="stylesheet">
+    <link href="/css/format-html.css?1751884980" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/threathunting\/theathuntingnet\/index.html';
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto', 'neon' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/threathunting/theathuntingnet/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#why-i-built-a-home-lab-for-threat-hunting">Why I Built a Home Lab for Threat Hunting  🕵</a></li>
+      </ul>
+    </li>
+    <li><a href="#network-setup">Network Setup</a>
+      <ul>
+        <li><a href="#basic-topology-hardware-and-tools">Basic Topology, Hardware and Tools 🛠</a></li>
+        <li><a href="#firewall-configuration">Firewall configuration🧱 </a></li>
+        <li><a href="#switch-configuration">Switch configuration</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-i-learned">What I Learned</a></li>
+    <li><a href="#whats-next">Whats next</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="topbar-breadcrumbs highlightable">
+            Threathunting I: Network setup
+          </span>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable threathunting" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+<div class="R-taxonomy taxonomy-tags cstyle tags" title="Tags" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
+  <ul>
+    <li><a class="term-link" href="/tags/honeypot/index.html">Honeypot</a></li>
+    <li><a class="term-link" href="/tags/personal/index.html">Personal</a></li>
+    <li><a class="term-link" href="/tags/threathunting/index.html">Threathunting</a></li>
+  </ul>
+</div>
+  </header>
+
+<h1 id="threathunting-i-network-setup">Threathunting I: Network setup</h1>
+
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ul>
+<li><a href="/threathunting/theathuntingnet/index.html#introduction">Introduction</a>
+<ul>
+<li><a href="/threathunting/theathuntingnet/index.html#why-i-built-a-home-lab-for-threat-hunting">Why I Built a Home Lab for Threat Hunting  🕵</a></li>
+</ul>
+</li>
+<li><a href="/threathunting/theathuntingnet/index.html#network-setup">Network Setup</a>
+<ul>
+<li><a href="/threathunting/theathuntingnet/index.html#basic-topology-hardware-and-tools">Basic Topology, Hardware and Tools 🛠</a></li>
+<li><a href="/threathunting/theathuntingnet/index.html#firewall-configuration">Firewall configuration🧱 </a></li>
+<li><a href="/threathunting/theathuntingnet/index.html#switch-configuration">Switch configuration</a></li>
+</ul>
+</li>
+<li><a href="/threathunting/theathuntingnet/index.html#what-i-learned">What I Learned</a></li>
+<li><a href="/threathunting/theathuntingnet/index.html#whats-next">Whats next</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="introduction">Introduction</h2>
+<p>This is a small series I wanted to start, where I write about my small
+threathunting setup and describe a little what I build and what I am doing
+with it.</p>
+<p>In this part, I will describe the Network setup for my Environment, more about
+how I build the honeypots and the ELK Server I will describe in the follow up
+articles about threathunting.</p>
+<p>Keep in mind this is for Education and fun, no serious stuff going on here.</p>
+<h3 id="why-i-built-a-home-lab-for-threat-hunting">Why I Built a Home Lab for Threat Hunting  🕵</h3>
+<p>The threat landscape is constantly evolving, with new attack vectors, tools,
+and tactics appearing almost daily.</p>
+<p>And to keep my skills current with real-world threats, I built a home lab dedicated
+to threat hunting. This environment allows me to safely observe attacks and
+develop detection and defense methods. I deployed web and shell honeypots,
+and collect real threat data in a controlled setting.</p>
+<p>It’s a practical, hands-on way to explore the behavior of adversaries and its a
+lot of fun!</p>
+<h2 id="network-setup">Network Setup</h2>
+<h3 id="basic-topology-hardware-and-tools">Basic Topology, Hardware and Tools 🛠</h3>
+<figure><img src="../mynet.png">
+</figure>
+
+<p>For the <strong><strong>hardware setup</strong></strong>, I kept things lightweight and affordable by using
+Raspberry Pi devices and open-source tools. The honeypot is based on the
+well-known <strong><strong>Cowrie SSH honeypot</strong></strong> and the <strong><strong>Honeyhttpd HTTP honeypot</strong></strong>.
+It runs on a <strong><strong>Raspberry Pi 4 with 8GB of RAM</strong></strong>, hosted inside a Docker 🐳
+container. On the honeypot host, <strong><strong>Filebeat</strong></strong> is running to ingest the Cowrie
+logs into the ELK stack.</p>
+<p>For the <strong><strong>ELK stack</strong></strong>, I used a <strong><strong>Raspberry Pi 5 with 16GB of RAM</strong></strong>, running
+Debian. The ELK services are also containerized using Docker. The stack is
+based on the <strong><strong>DShield SIEM project</strong></strong>, which I customized to better fit
+my needs. I’ll dive deeper into those modifications and the ELK setup in
+a follow-up article.</p>
+<p>The network topology is straightforward but deliberately segmented. The router
+is connected to a <strong><strong>managed switch</strong></strong>, which is responsible for handling VLAN
+separation. Both the honeypot and the ELK server are connected to this switch
+and are placed in an <strong><strong>isolated VLAN (VLAN210)</strong></strong>. This VLAN is dedicated
+exclusively to <strong><strong>threat hunting</strong></strong>, ensuring that any potentially malicious
+traffic remains fully contained and cannot interfere with the rest of the
+home network.</p>
+<p>A <strong><strong>client system</strong></strong> 💻 is the only machine allowed to connect <strong><strong>from outside the
+VLAN</strong></strong> to both the ELK server and the honeypot. This connection is strictly
+for <strong><strong>maintenance and administrative purposes</strong></strong>. The ELK server is allowed to
+access the <strong><strong>internet</strong></strong>, primarily to pull <strong><strong>threat intelligence data</strong></strong> from
+external sources and security feeds.</p>
+<p>In contrast, the <strong><strong>honeypot</strong></strong> is completely <strong><strong>blocked from internet access</strong></strong>,
+with the exception of <strong><strong>SSH and HTTP traffic</strong></strong> going in and out of it. These
+are the only services deliberately exposed to simulate vulnerable endpoints.
+Communication between the honeypot and the ELK server is allowed for log
+ingestion and analysis. However, I intend to introduce <strong><strong>stricter controls</strong></strong> on
+this internal traffic in the future to further reduce the attack surface.</p>
+<h3 id="firewall-configuration">Firewall configuration🧱 </h3>
+<p>For the pf(1) configuration It was as always with UNIX fairly easy to get to work:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>match in quick log on egress proto tcp from any to any port <span style="color:#ae81ff">22</span> flags S/SA rdr-to $honeypot port <span style="color:#ae81ff">2222</span></span></span></code></pre></div>
+<p>This rule makes sure any incoming TCP connection attempt to port 22 (SSH) is immediately
+intercepted, logged, and transparently redirected to the $honeypot server
+listening on port 2222.</p>
+<h3 id="switch-configuration">Switch configuration</h3>
+<h2 id="what-i-learned">What I Learned</h2>
+<p>Building and maintaining this lightweight honeypot and monitoring setup on
+Raspberry Pi devices has been an insightful experience. Here are some key takeaways:</p>
+<ul>
+<li>
+<p><strong><strong>Resource Efficiency</strong></strong>: Raspberry Pis provide a surprisingly capable
+platform for running complex services like Cowrie honeypot and the ELK stack
+in Docker containers, keeping costs and power consumption low.</p>
+</li>
+<li>
+<p><strong><strong>Network Segmentation Matters</strong></strong>: Isolating the honeypot and ELK server in a
+dedicated VLAN (VLAN210) effectively contains malicious traffic, protecting
+the rest of the home network from potential threats.</p>
+</li>
+<li>
+<p><strong><strong>Controlled Access Is Crucial</strong></strong>: Restricting external access to only
+authorized    clients and limiting the honeypot&rsquo;s internet connectivity
+reduces the attack surface while still enabling useful data collection.</p>
+</li>
+<li>
+<p><strong><strong>Logging and Data Collection</strong></strong>: Using Filebeat to ship logs from the
+honeypot to the ELK stack provides real-time visibility into attacker
+behavior, which is essential for threat hunting and incident response.</p>
+</li>
+<li>
+<p><strong><strong>Customization Pays Off</strong></strong>: Adapting existing tools and SIEM projects
+(like DShield) to specific needs improves effectiveness and allows for
+tailored threat detection.</p>
+</li>
+<li>
+<p><strong><strong>Future Improvements</strong></strong>: There is always room to tighten internal
+communication rules and harden the setup further to minimize risk and
+improve operational security.</p>
+</li>
+</ul>
+<p>This project highlights the balance between practical constraints and security
+needs, demonstrating that even modest hardware can contribute significantly
+to threat intelligence and network defense.</p>
+<p>I drew inspiration for this setup from the DShield SIEM project by SANS and
+would like to express my gratitude for their valuable work.</p>
+<h2 id="whats-next">Whats next</h2>
+<p>Next I had to build the ssh honeypot and the HTTP honeypot, stay tuned for the
+follow up!</p>
+
+  <footer class="footline">
+              <i class='fa-fw fas fa-calendar'></i> May 26, 2025
+<div class="R-taxonomy taxonomy-categories cstyle" title="Categories" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
+  <i class="fa-fw fas fa-layer-group"></i>
+  <ul>
+    <li><a class="term-link" href="/categories/threathunting/index.html">Threathunting</a></li>
+  </ul>
+</div>
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="/index.html">
+            <div class="logo-title">Forensic wheels</div>
+          </a>
+        </div>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/posts/index.html"><a class="padding" href="/posts/index.html">Forensic wheels</a><ul id="R-subsections-b4e55eb7e39db1aee6d02808a2267090" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/about/index.html"><a class="padding" href="/about/index.html">About</a></li>
+            <li class="parent " data-nav-id="/threathunting/index.html"><a class="padding" href="/threathunting/index.html">Threathuntings</a><ul id="R-subsections-403b5e68e64ebce8d27e0f1f8f6ad8fd" class="collapsible-menu">
+            <li class="active " data-nav-id="/threathunting/theathuntingnet/index.html"><a class="padding" href="/threathunting/theathuntingnet/index.html">Threathunting I: Network setup</a></li></ul></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+            <li class="R-variantswitcher">
+              <div class="padding menu-control">
+                <i class="fa-fw fas fa-paint-brush"></i>
+                <span>&nbsp;</span>
+                <div class="control-style">
+                  <label class="a11y-only" for="R-select-variant">Theme</label>
+                  <select id="R-select-variant">
+                    <option id="R-select-variant-auto" value="auto" selected>Auto</option>
+                    <option id="R-select-variant-neon" value="neon">Neon</option>
+                  </select>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <script>window.relearn.markVariant();</script>
+            </li>
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="/js/clipboard/clipboard.min.js?1751884980" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1751884980" defer></script>
+    <script src="/js/theme.js?1751884980" defer></script>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 var relearn_searchindex = [
   {
     "breadcrumb": "Welcome",
-    "content": "Welcome to my technical blog and knowledge base!\nLatest posts About 28.06.2025 OpenBSD and Zen 28.06.2025 SANS FOR608 30.06.2025 Get in Touch Suggestions or feedback?\nContact me here or visit the project repository.\nYou can also subscribe via RSS.",
+    "content": "Welcome to my technical blog and knowledge base!\nTopics Coming soon\nLatest posts Threathunting I: Network setup 26.05.2025 OpenBSD and Zen 28.06.2025 SANS FOR608 26.05.2025 Get in Touch Suggestions or feedback?\nContact me here or visit the project repository.\nYou can also subscribe via RSS.",
     "description": "Latest posts",
     "tags": [],
     "title": "Forensic wheels",
@@ -9,7 +9,7 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "",
-    "content": "Welcome to my technical blog and knowledge base!\nLatest posts About 28.06.2025 OpenBSD and Zen 28.06.2025 SANS FOR608 30.06.2025 Get in Touch Suggestions or feedback?\nContact me here or visit the project repository.\nYou can also subscribe via RSS.",
+    "content": "Welcome to my technical blog and knowledge base!\nTopics Coming soon\nLatest posts Threathunting I: Network setup 26.05.2025 OpenBSD and Zen 28.06.2025 SANS FOR608 26.05.2025 Get in Touch Suggestions or feedback?\nContact me here or visit the project repository.\nYou can also subscribe via RSS.",
     "description": "Latest posts",
     "tags": [],
     "title": "Welcome",
@@ -17,7 +17,7 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "Welcome",
-    "content": "Intro Hi my Name is Dirk.L I am a Security Engineer with focus on forensics \u0026amp; Incident Response I live in Nuemberg. You can contact me here:    Experience DeepL SE, Köln — Security Engineer Mar. 2021 – Present\nDuring my 4.5-year tenure at DeepL, I developed a strong foundation in endpoint security and forensics. Key achievements include:\nManaging Wazuh EDR on a large scale (900+ hosts, ~900k entries/day) Designing and implementing security incident response playbooks and tools Performing system and user audits (LDAP, firewall, software) Developing Ansible roles and creating forensic PoCs Designing incident response processes and threat monitoring (e.g. honeypots, canary tokens) Conducting phishing simulations with 1000+ employees HiSolutions AG, Berlin — Pentester Jan. 2020 – Jan. 2021\nFocused on penetration testing methodologies and vulnerability assessment.\nConducting web penetration tests using Burp Suite Pro Infrastructure scans with Nessus and Metasploit Performing system audits and risk analyses Writing reports and providing recommendations Managing infrastructure with Ansible Education \u0026 Background 2007 – 2020: From Sysadmin to Security Completed apprenticeship as Computer Science Expert at Möbel Fischer GmbH (2007) Gained experience with Linux Enterprise systems Over 13 years of professional IT experience with a 20+ year passion for security Built skills in automation, problem-solving, and secure infrastructure Self-driven transition into IT Security through collaboration and continuous learning Skills Incident Response Threat Intelligence \u0026 Detection Penetration Testing (Web, Infrastructure, System) Forensic data analysis and tooling Log analysis and visualization Network security and compliance Linux/Unix administration and debugging OpenBSD firewalls and router setup Scripting (Python, Bash, PowerShell) Languages German: native English: fluent",
+    "content": "Intro Hi my Name is Dirk.L I am a Security Engineer with focus on forensics \u0026amp; Incident Response I live in Nuemberg. You can contact me here:    Experience DeepL SE, Köln — Security Engineer Mar. 2021 – Present\nDuring my 4.5-year tenure at DeepL, I developed a strong foundation in endpoint security and forensics. Key achievements include:\nManaging Wazuh EDR on a large scale (900+ hosts, ~900k entries/day) Designing and implementing security incident response playbooks and tools Performing system and user audits (LDAP, firewall, software) Developing Ansible roles and creating forensic PoCs Designing incident response processes and threat monitoring (e.g. honeypots, canary tokens) Conducting phishing simulations with 1000+ employees HiSolutions AG, Berlin — Pentester Jan. 2020 – Jan. 2021\nFocused on penetration testing methodologies and vulnerability assessment.\nConducting web penetration tests using Burp Suite Pro Infrastructure scans with Nessus and Metasploit Performing system audits and risk analyses Writing reports and providing recommendations Managing infrastructure with Ansible System EngineerSystem Engineer Nov. 2017 – 2019\nDevelopment and Maintainance of the Monitoring Appliance based on Nagios/Icinga2 Customer Support / System debugging Developing automation Scripts with Python and Shellscript Noris Network AG Linux-Administrator 2012 – 2014\nAutomantion Script development in python Monioring ang Customer Support System debugging Education \u0026 Background 2007 – 2013: Beginnings as Sysadmin Completed apprenticeship as Computer Science Expert at Möbel Fischer GmbH (2007) Gained experience with Linux Enterprise systems Over 13 years of professional IT experience with a 20+ year passion for security Built skills in automation, problem-solving, and secure infrastructure Self-driven transition into IT Security through collaboration and continuous learning Skills Incident Response Threat Intelligence \u0026 Detection Penetration Testing (Web, Infrastructure, System) Forensic data analysis and tooling Log analysis and visualization Network security and compliance OpenBSD firewalls and router setup Scripting (Python, Bash, PowerShell) Unix/Linux Administration (RHEL, Ubuntu, *BSD) Network and System monitoring w. Nagios, Icinga2, monit, prometeus Languages German: native English: fluent",
     "description": "My Curriculum Vitae",
     "tags": [
       "Forensicwheels"
@@ -26,7 +26,7 @@ var relearn_searchindex = [
     "uri": "/cv/index.html"
   },
   {
-    "breadcrumb": "Welcome \u003e Forensic wheels",
+    "breadcrumb": "Welcome",
     "content": "Hi! I’m Dirk, a security engineer with a passion for Skateboarding and Forensics. I help my Company safeguard their networks and systems from the ever-evolving threats in the cybersecurity landscape.\nSkateboarding is not just my hobby - it’s my passion, my center, and my identity. For me, Skatelife is more than just lifestyle; it’s a way of life that embodies creativity, freedom, and community and Family. I’ve been skating for years, and I still get that same feel every time I’m on my board.\nIn addition to my love for skateboarding, I’m also a big enthusiast of OpenBSD - the most secure, yet accessible operating system out there. I’ve built my own OpenBSD-based router and infrastructure for threat hunting, which allows me to stay one step ahead in the game of cybersecurity. There’s something about the simplicity, elegance, and power of OpenBSD that resonates deeply with me. You can also read about the smilarities I see between OpenBSD and Zen\nAs a nerd, I have to mention my love affair with Emacs - my favorite editor. I’ve been using it for over 12 years now, and I still can’t imagine working without it. Whether I’m writing code, weblogging, or just tinkering with snippets of text, Emacs is always by my side.\nAs I navigate the world of cybersecurity, I’m always looking for ways to improve my skills, stay ahead of the curve, and when I’m not geeking out over security patches or network protocols, you can find me:\nStay tuned for more updates on my journey as a security engineer, skateboarder, OpenBSD enthusiast, and Zen student",
     "description": "Short intro about myself",
     "tags": [
@@ -34,7 +34,19 @@ var relearn_searchindex = [
       "Personal"
     ],
     "title": "About",
-    "uri": "/posts/about/index.html"
+    "uri": "/about/index.html"
+  },
+  {
+    "breadcrumb": "Welcome \u003e Forensic wheels",
+    "content": "Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Basic Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.\nIn this part, I will describe the Network setup for my Environment, more about how I build the honeypots and the ELK Server I will describe in the follow up articles about threathunting.\nKeep in mind this is for Education and fun, no serious stuff going on here.\nWhy I Built a Home Lab for Threat Hunting 🕵 The threat landscape is constantly evolving, with new attack vectors, tools, and tactics appearing almost daily.\nAnd to keep my skills current with real-world threats, I built a home lab dedicated to threat hunting. This environment allows me to safely observe attacks and develop detection and defense methods. I deployed web and shell honeypots, and collect real threat data in a controlled setting.\nIt’s a practical, hands-on way to explore the behavior of adversaries and its a lot of fun!\nNetwork Setup Basic Topology, Hardware and Tools 🛠 For the hardware setup, I kept things lightweight and affordable by using Raspberry Pi devices and open-source tools. The honeypot is based on the well-known Cowrie SSH honeypot and the Honeyhttpd HTTP honeypot. It runs on a Raspberry Pi 4 with 8GB of RAM, hosted inside a Docker 🐳 container. On the honeypot host, Filebeat is running to ingest the Cowrie logs into the ELK stack.\nFor the ELK stack, I used a Raspberry Pi 5 with 16GB of RAM, running Debian. The ELK services are also containerized using Docker. The stack is based on the DShield SIEM project, which I customized to better fit my needs. I’ll dive deeper into those modifications and the ELK setup in a follow-up article.\nThe network topology is straightforward but deliberately segmented. The router is connected to a managed switch, which is responsible for handling VLAN separation. Both the honeypot and the ELK server are connected to this switch and are placed in an isolated VLAN (VLAN210). This VLAN is dedicated exclusively to threat hunting, ensuring that any potentially malicious traffic remains fully contained and cannot interfere with the rest of the home network.\nA client system 💻 is the only machine allowed to connect from outside the VLAN to both the ELK server and the honeypot. This connection is strictly for maintenance and administrative purposes. The ELK server is allowed to access the internet, primarily to pull threat intelligence data from external sources and security feeds.\nIn contrast, the honeypot is completely blocked from internet access, with the exception of SSH and HTTP traffic going in and out of it. These are the only services deliberately exposed to simulate vulnerable endpoints. Communication between the honeypot and the ELK server is allowed for log ingestion and analysis. However, I intend to introduce stricter controls on this internal traffic in the future to further reduce the attack surface.\nFirewall configuration🧱 For the pf(1) configuration It was as always with UNIX fairly easy to get to work:\nmatch in quick log on egress proto tcp from any to any port 22 flags S/SA rdr-to $honeypot port 2222 This rule makes sure any incoming TCP connection attempt to port 22 (SSH) is immediately intercepted, logged, and transparently redirected to the $honeypot server listening on port 2222.\nSwitch configuration What I Learned Building and maintaining this lightweight honeypot and monitoring setup on Raspberry Pi devices has been an insightful experience. Here are some key takeaways:\nResource Efficiency: Raspberry Pis provide a surprisingly capable platform for running complex services like Cowrie honeypot and the ELK stack in Docker containers, keeping costs and power consumption low.\nNetwork Segmentation Matters: Isolating the honeypot and ELK server in a dedicated VLAN (VLAN210) effectively contains malicious traffic, protecting the rest of the home network from potential threats.\nControlled Access Is Crucial: Restricting external access to only authorized clients and limiting the honeypot’s internet connectivity reduces the attack surface while still enabling useful data collection.\nLogging and Data Collection: Using Filebeat to ship logs from the honeypot to the ELK stack provides real-time visibility into attacker behavior, which is essential for threat hunting and incident response.\nCustomization Pays Off: Adapting existing tools and SIEM projects (like DShield) to specific needs improves effectiveness and allows for tailored threat detection.\nFuture Improvements: There is always room to tighten internal communication rules and harden the setup further to minimize risk and improve operational security.\nThis project highlights the balance between practical constraints and security needs, demonstrating that even modest hardware can contribute significantly to threat intelligence and network defense.\nI drew inspiration for this setup from the DShield SIEM project by SANS and would like to express my gratitude for their valuable work.\nWhats next Next I had to build the ssh honeypot and the HTTP honeypot, stay tuned for the follow up!",
+    "description": "Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Basic Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.",
+    "tags": [
+      "Threathunting",
+      "Honeypot",
+      "Personal"
+    ],
+    "title": "Threathunting I: Network setup",
+    "uri": "/posts/threathunting/theathuntingnet/index.html"
   },
   {
     "breadcrumb": "Welcome \u003e Forensic wheels",
@@ -77,44 +89,12 @@ var relearn_searchindex = [
     "uri": "/tags/index.html"
   },
   {
-    "breadcrumb": "Welcome \u003e Tags",
-    "content": "",
-    "description": "",
-    "tags": [],
-    "title": "Tag - Canarytokens",
-    "uri": "/tags/canarytokens/index.html"
-  },
-  {
     "breadcrumb": "Welcome",
     "content": "",
     "description": "",
     "tags": [],
     "title": "Categories",
     "uri": "/categories/index.html"
-  },
-  {
-    "breadcrumb": "Welcome \u003e Categories",
-    "content": "",
-    "description": "",
-    "tags": [],
-    "title": "Category - Forensic",
-    "uri": "/categories/forensic/index.html"
-  },
-  {
-    "breadcrumb": "Welcome \u003e Tags",
-    "content": "",
-    "description": "",
-    "tags": [],
-    "title": "Tag - Honeypot",
-    "uri": "/tags/honeypot/index.html"
-  },
-  {
-    "breadcrumb": "Welcome \u003e Categories",
-    "content": "",
-    "description": "",
-    "tags": [],
-    "title": "Category - Threathunting",
-    "uri": "/categories/threathunting/index.html"
   },
   {
     "breadcrumb": "Welcome \u003e Tags",
@@ -147,5 +127,45 @@ var relearn_searchindex = [
     "tags": [],
     "title": "Tag - Zen",
     "uri": "/tags/zen/index.html"
+  },
+  {
+    "breadcrumb": "Welcome \u003e Tags",
+    "content": "",
+    "description": "",
+    "tags": [],
+    "title": "Tag - Canarytokens",
+    "uri": "/tags/canarytokens/index.html"
+  },
+  {
+    "breadcrumb": "Welcome \u003e Categories",
+    "content": "",
+    "description": "",
+    "tags": [],
+    "title": "Category - Forensic",
+    "uri": "/categories/forensic/index.html"
+  },
+  {
+    "breadcrumb": "Welcome \u003e Tags",
+    "content": "",
+    "description": "",
+    "tags": [],
+    "title": "Tag - Honeypot",
+    "uri": "/tags/honeypot/index.html"
+  },
+  {
+    "breadcrumb": "Welcome \u003e Tags",
+    "content": "",
+    "description": "",
+    "tags": [],
+    "title": "Tag - Threathunting",
+    "uri": "/tags/threathunting/index.html"
+  },
+  {
+    "breadcrumb": "Welcome \u003e Categories",
+    "content": "",
+    "description": "",
+    "tags": [],
+    "title": "Category - Threathunting",
+    "uri": "/categories/threathunting/index.html"
   }
 ]
