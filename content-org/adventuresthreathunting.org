@@ -1,5 +1,5 @@
 #+hugo_base_dir: ../
-#+hugo_section: ./threathunting
+#+hugo_section: ./posts/threathunting
 #+hugo_weight: auto
 #+hugo_auto_set_lastmod: t
 #+title: Adventures in threathunting
