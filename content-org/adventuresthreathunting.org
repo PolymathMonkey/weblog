@@ -8,7 +8,8 @@
 #+TAGS: @personal @forensic @zen @threathunting
 #+TAGS: openbsd honeypot zen personal canarytokens skateboarding visibility
 
-* TODO Threathunting I: Network setup                                                     :@threathunting:honeypot:personal:
+* DONE Threathunting I: Network setup                                                     :@threathunting:honeypot:personal:
+CLOSED: [2025-07-07 Mo 12:54]
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml

@@ -11,7 +11,8 @@
 #+startup: indent
 #+author: Dirk
 
-* TODO OpenBSD and Zen                                                                    :@personal:openbsd:zen:
+* DONE OpenBSD and Zen                                                                    :@personal:openbsd:zen:
+CLOSED: [2025-07-07 Mo 12:48]
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml

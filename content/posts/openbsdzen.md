@@ -1,12 +1,12 @@
 ---
 title: "OpenBSD and Zen"
 author: ["Dirk"]
-date: 2025-06-28T16:16:00+02:00
-lastmod: 2025-07-04T21:54:15+02:00
+date: 2025-07-07T12:48:00+02:00
+lastmod: 2025-07-07T12:48:16+02:00
 tags: ["forensicwheels", "openbsd", "zen"]
 categories: ["personal"]
 draft: false
-weight: 1002
+weight: 1001
 ---
 
 ## About {#about}
@@ -74,8 +74,3 @@ embracing simplicity, attention to detail, consistency, and the beauty of
 imperfection, both OpenBSD and Zen provide unique perspectives on the nature
 of software development and personal growth. Stay tuned for further insights
 from my exploration in the realm of security!
-
-{{< giscus >}}
-
-[//]: # "Exported with love from a post written in Org mode"
-[//]: # "- https://github.com/kaushalmodi/ox-hugo"

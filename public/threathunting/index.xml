@@ -6,12 +6,12 @@
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Jul 2025 12:42:59 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 07 Jul 2025 12:54:45 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/threathunting/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Threathunting I: Network setup</title>
       <link>http://localhost:1313/threathunting/theathuntingnet/index.html</link>
-      <pubDate>Mon, 26 May 2025 16:21:00 -0500</pubDate>
+      <pubDate>Mon, 07 Jul 2025 12:54:00 +0200</pubDate>
       <guid>http://localhost:1313/threathunting/theathuntingnet/index.html</guid>
       <description>Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Basic Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.</description>
     </item>
