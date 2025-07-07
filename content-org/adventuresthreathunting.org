@@ -1,5 +1,5 @@
 #+hugo_base_dir: ../
-#+hugo_section: ./posts/threathunting
+#+hugo_section: ./posts/
 #+hugo_weight: auto
 #+hugo_auto_set_lastmod: t
 #+title: Adventures in threathunting
@@ -46,7 +46,7 @@ lot of fun!
 ** Network Setup
 *** Basic Topology, Hardware and Tools 🛠
 
-[[../mynet.png]]
+[[../img/mynet.png]]
 
 For the **hardware setup**, I kept things lightweight and affordable by using
 Raspberry Pi devices and open-source tools. The honeypot is based on the

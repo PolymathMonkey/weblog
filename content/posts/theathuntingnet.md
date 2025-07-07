@@ -1,11 +1,11 @@
 ---
 title: "Threathunting I: Network setup"
 author: ["Dirk"]
-date: 2025-05-26T16:21:00-05:00
-lastmod: 2025-07-07T12:38:28+02:00
+date: 2025-07-07T12:54:00+02:00
+lastmod: 2025-07-07T13:06:12+02:00
 tags: ["threathunting", "honeypot", "personal"]
 categories: ["threathunting"]
-draft: true
+draft: false
 weight: 1001
 ---
 
@@ -58,7 +58,7 @@ lot of fun!
 
 ### Basic Topology, Hardware and Tools 🛠 {#basic-topology-hardware-and-tools}
 
-{{< figure src="../mynet.png" >}}
+{{< figure src="../img/mynet.png" >}}
 
 For the ****hardware setup****, I kept things lightweight and affordable by using
 Raspberry Pi devices and open-source tools. The honeypot is based on the
@@ -152,5 +152,3 @@ would like to express my gratitude for their valuable work.
 
 Next I had to build the ssh honeypot and the HTTP honeypot, stay tuned for the
 follow up!
-
-{{< giscus >}}
