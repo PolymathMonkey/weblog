@@ -1,11 +1,11 @@
 ---
 title: "Threathunting I: Network setup"
 author: ["Dirk"]
-date: 2025-05-26T16:21:00-05:00
-lastmod: 2025-07-07T14:34:20+02:00
+date: 2025-07-08T09:15:00+02:00
+lastmod: 2025-07-08T09:15:37+02:00
 tags: ["threathunting", "honeypot", "visibility"]
 categories: ["threathunting"]
-draft: true
+draft: false
 weight: 1001
 ---
 
@@ -153,6 +153,5 @@ would like to express my gratitude for their valuable work.
 
 Next I had to build the ssh honeypot and the HTTP honeypot, stay tuned for the
 follow up!
-
 
 {{< giscus >}}
