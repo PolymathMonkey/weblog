@@ -12,7 +12,7 @@
 #+author: Dirk
 
 * DONE OpenBSD and Zen                                                                    :@personal:openbsd:zen:
-CLOSED: [2025-07-07 Mo 12:48]
+CLOSED: [2025-06-28 Sa 12:48]
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
@@ -152,10 +152,31 @@ perpetrators, and determine damage extent, ensuring organizations can
 respond effectively to security threats and maintain compliance with
 regulations.
 
-** *Course Overview*
+** *Course Overview/ Preparing your Index*
 :PROPERTIES:
 :CUSTOM_ID: course-overview
 :END:
+The course was booked by my employer in the on demand version, so I got access
+to the SANS on demand platform, so I could learn self paced. For good
+preparation, I read this guides on how to create a exam index:
+- https://tisiphone.net/2015/08/18/giac-testing/
+- https://www.muratbekgi.com/indexing-giac/
+
+The exams are open book and so you have to create a index for:
+- It helps you quickly locate answers in your official SANS course books.
+- It saves valuable time during the exam.
+- personalized knowledge map
+- It reinforces your understanding while building it
+
+The core of the index is a sorted list of terms, concepts, or attack types,
+with book and page numbers e.g:
+| Term             |  Book | Page |
+| Active Directory | 608.1 |   45 |
+| ARP Spoofing     | 608.2 |  112 |
+| Buffer Overflow  | 608.5 |   16 |
+| XOR Encryption   | 608.4 |  154 |
+
+
 *** Proactive Detection and Response (608.1)
 :PROPERTIES:
 :CUSTOM_ID: proactive-detection-and-response--608-dot-1

@@ -1,11 +1,11 @@
 ---
 title: "Threathunting I: Network setup"
 author: ["Dirk"]
-date: 2025-07-07T12:54:00+02:00
-lastmod: 2025-07-07T13:06:12+02:00
-tags: ["threathunting", "honeypot", "personal"]
+date: 2025-05-26T16:21:00-05:00
+lastmod: 2025-07-07T14:34:20+02:00
+tags: ["threathunting", "honeypot", "visibility"]
 categories: ["threathunting"]
-draft: false
+draft: true
 weight: 1001
 ---
 
@@ -16,7 +16,7 @@ weight: 1001
 - [Introduction](#introduction)
     - [Why I Built a Home Lab for Threat Hunting  🕵](#why-i-built-a-home-lab-for-threat-hunting)
 - [Network Setup](#network-setup)
-    - [Basic Topology, Hardware and Tools 🛠](#basic-topology-hardware-and-tools)
+    - [Topology, Hardware and Tools 🛠](#topology-hardware-and-tools)
     - [Firewall configuration🧱 ](#firewall-configuration)
     - [Switch configuration](#switch-configuration)
 - [What I Learned](#what-i-learned)
@@ -56,42 +56,42 @@ lot of fun!
 ## Network Setup {#network-setup}
 
 
-### Basic Topology, Hardware and Tools 🛠 {#basic-topology-hardware-and-tools}
+### Topology, Hardware and Tools 🛠 {#topology-hardware-and-tools}
 
 {{< figure src="../img/mynet.png" >}}
 
 For the ****hardware setup****, I kept things lightweight and affordable by using
 Raspberry Pi devices and open-source tools. The honeypot is based on the
-well-known ****Cowrie SSH honeypot**** and the ****Honeyhttpd HTTP honeypot****.
+well-known [Cowrie SSH honeypot](https://docs.cowrie.org/en/latest/) and the [honeyhttpd HTTP honeypot](https://github.com/bocajspear1/honeyhttpd) .
 It runs on a ****Raspberry Pi 4 with 8GB of RAM****, hosted inside a Docker 🐳
 container. On the honeypot host, ****Filebeat**** is running to ingest the Cowrie
 logs into the ELK stack.
 
 For the ****ELK stack****, I used a ****Raspberry Pi 5 with 16GB of RAM****, running
 Debian. The ELK services are also containerized using Docker. The stack is
-based on the ****DShield SIEM project****, which I customized to better fit
+based on the [DShield-SIEM](https://github.com/bruneaug/DShield-SIEM) project, which I customized to better fit
 my needs. I’ll dive deeper into those modifications and the ELK setup in
 a follow-up article.
 
 The network topology is straightforward but deliberately segmented. The router
-is connected to a ****managed switch****, which is responsible for handling VLAN
+is connected to a managed switch, which is responsible for handling VLAN
 separation. Both the honeypot and the ELK server are connected to this switch
 and are placed in an ****isolated VLAN (VLAN210)****. This VLAN is dedicated
 exclusively to ****threat hunting****, ensuring that any potentially malicious
 traffic remains fully contained and cannot interfere with the rest of the
 home network.
 
-A ****client system**** 💻 is the only machine allowed to connect ****from outside the
-VLAN**** to both the ELK server and the honeypot. This connection is strictly
-for ****maintenance and administrative purposes****. The ELK server is allowed to
-access the ****internet****, primarily to pull ****threat intelligence data**** from
+My client system 💻 is the only machine allowed to connect from outside the
+VLAN to both the ELK server and the honeypot. This connection is strictly
+for maintenance and administrative purposes. The ELK server is allowed to
+access the internet, primarily to pull threat intelligence data from
 external sources and security feeds.
 
 In contrast, the ****honeypot**** is completely ****blocked from internet access****,
 with the exception of ****SSH and HTTP traffic**** going in and out of it. These
 are the only services deliberately exposed to simulate vulnerable endpoints.
 Communication between the honeypot and the ELK server is allowed for log
-ingestion and analysis. However, I intend to introduce ****stricter controls**** on
+ingestion and analysis. However, I intend to introduce stricter controls on
 this internal traffic in the future to further reduce the attack surface.
 
 
@@ -101,11 +101,12 @@ For the pf(1) configuration It was as always with UNIX fairly easy to get to wor
 
 ```sh
 match in quick log on egress proto tcp from any to any port 22 flags S/SA rdr-to $honeypot port 2222
+match in quick log on egress proto tcp from any to any port 443 flags S/SA rdr-to $honeypot port 4433
 ```
 
-This rule makes sure any incoming TCP connection attempt to port 22 (SSH) is immediately
-intercepted, logged, and transparently redirected to the $honeypot server
-listening on port 2222.
+This rule makes sure any incoming TCP connection attempt to port 22 (SSH) and
+port 443 (HTTPS) is immediately intercepted, logged, and transparently
+redirected to the $honeypot server listening on port 2222 or 4433 for HTTPS Traffic.
 
 
 ### Switch configuration {#switch-configuration}
@@ -152,3 +153,5 @@ would like to express my gratitude for their valuable work.
 
 Next I had to build the ssh honeypot and the HTTP honeypot, stay tuned for the
 follow up!
+
+{{< giscus >}}

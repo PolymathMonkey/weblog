@@ -21,20 +21,20 @@
     <lastmod>2025-07-05T09:15:16+02:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/threathunting/theathuntingnet/index.html</loc>
-    <lastmod>2025-07-07T12:38:28+02:00</lastmod>
+    <loc>http://localhost:1313/posts/theathuntingnet/index.html</loc>
+    <lastmod>2025-07-07T14:34:20+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/posts/sans_for608/index.html</loc>
-    <lastmod>2025-07-06T08:44:01+02:00</lastmod>
+    <lastmod>2025-07-07T14:37:24+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/categories/index.html</loc>
-    <lastmod>2025-07-07T12:48:16+02:00</lastmod>
+    <lastmod>2025-07-07T14:37:24+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/forensicwheels/index.html</loc>
-    <lastmod>2025-07-07T12:48:16+02:00</lastmod>
+    <lastmod>2025-07-07T14:37:24+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/openbsd/index.html</loc>
@@ -46,7 +46,7 @@
   </url>
   <url>
     <loc>http://localhost:1313/tags/index.html</loc>
-    <lastmod>2025-07-07T12:48:16+02:00</lastmod>
+    <lastmod>2025-07-07T14:37:24+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/zen/index.html</loc>
@@ -54,26 +54,30 @@
   </url>
   <url>
     <loc>http://localhost:1313/tags/personal/index.html</loc>
-    <lastmod>2025-07-07T12:38:28+02:00</lastmod>
+    <lastmod>2025-07-05T09:15:16+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/canarytokens/index.html</loc>
-    <lastmod>2025-07-06T08:44:01+02:00</lastmod>
+    <lastmod>2025-07-07T14:37:24+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/categories/forensic/index.html</loc>
-    <lastmod>2025-07-06T08:44:01+02:00</lastmod>
+    <lastmod>2025-07-07T14:37:24+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/honeypot/index.html</loc>
-    <lastmod>2025-07-07T12:38:28+02:00</lastmod>
+    <lastmod>2025-07-07T14:37:24+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/threathunting/index.html</loc>
-    <lastmod>2025-07-07T12:38:28+02:00</lastmod>
+    <lastmod>2025-07-07T14:34:20+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/categories/threathunting/index.html</loc>
-    <lastmod>2025-07-07T12:38:28+02:00</lastmod>
+    <lastmod>2025-07-07T14:37:24+02:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/visibility/index.html</loc>
+    <lastmod>2025-07-07T14:34:20+02:00</lastmod>
   </url>
 </urlset>
