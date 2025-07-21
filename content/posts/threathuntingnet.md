@@ -2,7 +2,7 @@
 title: "Threathunting I: Network setup"
 author: ["Dirk"]
 date: 2025-07-08T09:15:00+02:00
-lastmod: 2025-07-08T09:15:37+02:00
+lastmod: 2025-07-21T12:21:43+02:00
 tags: ["threathunting", "honeypot", "visibility"]
 categories: ["threathunting"]
 draft: false
@@ -112,6 +112,14 @@ redirected to the $honeypot server listening on port 2222 or 4433 for HTTPS Traf
 ### Switch configuration {#switch-configuration}
 
 
+Here you can see my managed switch configuration. Port 5 (honeypot) is only
+assigned to VLAN210 like port 5 too, port 2 is the router it needs to talk
+into both networks and at port 1 is my workstation to access the theathunting
+environment.
+
+{{< figure src="../img/switch.png" >}}
+
+
 ## What I Learned {#what-i-learned}
 
 Building and maintaining this lightweight honeypot and monitoring setup on
@@ -151,7 +159,7 @@ would like to express my gratitude for their valuable work.
 
 ## Whats next {#whats-next}
 
-Next I had to build the ssh honeypot and the HTTP honeypot, stay tuned for the
+Next I had to build the ssh honeypot and the HTTP Honeypot, stay tuned for the
 follow up!
 
 {{< giscus >}}

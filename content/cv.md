@@ -14,7 +14,7 @@ weight: 1001
 
 Hi my Name is Dirk.L I am a Security Engineer with focus on
 forensics &amp;amp; Incident Response I live in Nuemberg.
-You can contact me here: {{< cloakemail "dirk@keksmafia.org">}}
+You can contact me only here over my github profile.
 
 
 ## Experience {#experience}

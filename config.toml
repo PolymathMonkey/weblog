@@ -1,7 +1,8 @@
 baseURL = 'https://polymathmonkey.github.io/'
 languageCode = 'en-us'
 title = 'Forensic wheels'
-theme = ['hugo-cloak-email', 'hugo-theme-relearn']
+#theme = ['hugo-cloak-email', 'hugo-theme-relearn']
+theme = ['hugo-theme-relearn']
 preserveTaxonomyNames = true
 MetaDataFormat = "yaml"
 enableRobotsTXT = true

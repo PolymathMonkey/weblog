@@ -6,7 +6,7 @@ lastmod: 2025-07-07T12:48:16+02:00
 tags: ["forensicwheels", "openbsd", "zen"]
 categories: ["personal"]
 draft: false
-weight: 1001
+weight: 1200
 ---
 
 ## About {#about}
