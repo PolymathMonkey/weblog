@@ -5,50 +5,50 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.142.0">
     <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
-    <meta name="description" content="Introduction What is Cowrie? Key capabilities of Cowrie include: Why Podman over Docker? Install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🔁 Useful Commands 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.">
+    <meta name="description" content="Introduction What is Cowrie? Why Podman over Docker? Install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🔁 Useful Commands 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Whats next Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.">
     <meta name="author" content="Dirk">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Threat hunting II: SSH Honeypot setup - Forensic wheels">
-    <meta name="twitter:description" content="Introduction What is Cowrie? Key capabilities of Cowrie include: Why Podman over Docker? Install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🔁 Useful Commands 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.">
+    <meta name="twitter:description" content="Introduction What is Cowrie? Why Podman over Docker? Install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🔁 Useful Commands 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Whats next Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.">
     <meta property="og:url" content="http://localhost:1313/posts/theathuntinghoneypot/index.html">
     <meta property="og:site_name" content="Forensic wheels">
     <meta property="og:title" content="Threat hunting II: SSH Honeypot setup - Forensic wheels">
-    <meta property="og:description" content="Introduction What is Cowrie? Key capabilities of Cowrie include: Why Podman over Docker? Install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🔁 Useful Commands 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.">
+    <meta property="og:description" content="Introduction What is Cowrie? Why Podman over Docker? Install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🔁 Useful Commands 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Whats next Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Forensic wheels">
     <meta property="article:published_time" content="2025-07-13T07:38:00+02:00">
-    <meta property="article:modified_time" content="2025-07-21T11:53:31+02:00">
+    <meta property="article:modified_time" content="2025-07-21T13:24:22+02:00">
     <meta property="article:tag" content="Threathunting">
     <meta property="article:tag" content="Honeypot">
     <meta itemprop="name" content="Threat hunting II: SSH Honeypot setup - Forensic wheels">
-    <meta itemprop="description" content="Introduction What is Cowrie? Key capabilities of Cowrie include: Why Podman over Docker? Install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🔁 Useful Commands 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.">
+    <meta itemprop="description" content="Introduction What is Cowrie? Why Podman over Docker? Install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🔁 Useful Commands 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Whats next Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.">
     <meta itemprop="datePublished" content="2025-07-13T07:38:00+02:00">
-    <meta itemprop="dateModified" content="2025-07-21T11:53:31+02:00">
-    <meta itemprop="wordCount" content="1064">
+    <meta itemprop="dateModified" content="2025-07-21T13:24:22+02:00">
+    <meta itemprop="wordCount" content="1081">
     <meta itemprop="keywords" content="Threathunting,Honeypot">
     <title>Threat hunting II: SSH Honeypot setup - Forensic wheels</title>
-    <link href="/images/logo.svg?1753094648" rel="icon" type="image/svg+xml">
-    <link href="/css/auto-complete/auto-complete.min.css?1753094648" rel="stylesheet">
-    <script src="/js/auto-complete/auto-complete.min.js?1753094648" defer></script>
-    <script src="/js/search-lunr.js?1753094648" defer></script>
-    <script src="/js/search.js?1753094648" defer></script>
+    <link href="/images/logo.svg?1753097199" rel="icon" type="image/svg+xml">
+    <link href="/css/auto-complete/auto-complete.min.css?1753097199" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1753097199" defer></script>
+    <script src="/js/search-lunr.js?1753097199" defer></script>
+    <script src="/js/search.js?1753097199" defer></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.index_js_url="/searchindex.en.js?1753094648";
+      window.relearn.index_js_url="/searchindex.en.js?1753097199";
     </script>
-    <script src="/js/lunr/lunr.min.js?1753094648" defer></script>
-    <script src="/js/lunr/lunr.stemmer.support.min.js?1753094648" defer></script>
-    <script src="/js/lunr/lunr.multi.min.js?1753094648" defer></script>
-    <script src="/js/lunr/lunr.en.min.js?1753094648" defer></script>
+    <script src="/js/lunr/lunr.min.js?1753097199" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1753097199" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1753097199" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1753097199" defer></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.contentLangs=['en'];
     </script>
-    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1753094648" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1753094648" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1753094648" rel="stylesheet">
-    <link href="/css/theme.css?1753094648" rel="stylesheet">
-    <link href="/css/format-html.css?1753094648" rel="stylesheet" id="R-format-style">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1753097199" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1753097199" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1753097199" rel="stylesheet">
+    <link href="/css/theme.css?1753097199" rel="stylesheet">
+    <link href="/css/format-html.css?1753097199" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -118,11 +118,7 @@
 <nav class="TableOfContents">
   <ul>
     <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#what-is-cowrie">What is Cowrie?</a>
-      <ul>
-        <li><a href="#key-capabilities-of-cowrie-include">Key capabilities of Cowrie include:</a></li>
-      </ul>
-    </li>
+    <li><a href="#what-is-cowrie">What is Cowrie?</a></li>
     <li><a href="#why-podman-over-docker">Why Podman over Docker?</a></li>
     <li><a href="#install-cowrie-as-container-and-adjust-configuration">Install cowrie as container and adjust configuration</a>
       <ul>
@@ -142,6 +138,8 @@
       </ul>
     </li>
     <li><a href="#tl-dr-what-did-we-just-do">🎯 TL;DR – What Did We Just Do?</a></li>
+    <li><a href="#whats-next">Whats next</a></li>
+    <li><a href="#feedback-and-comments">Feedback and Comments</a></li>
   </ul>
 </nav>
                 </div>
@@ -182,11 +180,7 @@
 <!-- raw HTML omitted -->
 <ul>
 <li><a href="/posts/theathuntinghoneypot/index.html#introduction">Introduction</a></li>
-<li><a href="/posts/theathuntinghoneypot/index.html#what-is-cowrie">What is Cowrie?</a>
-<ul>
-<li><a href="/posts/theathuntinghoneypot/index.html#key-capabilities-of-cowrie-include">Key capabilities of Cowrie include:</a></li>
-</ul>
-</li>
+<li><a href="/posts/theathuntinghoneypot/index.html#what-is-cowrie">What is Cowrie?</a></li>
 <li><a href="/posts/theathuntinghoneypot/index.html#why-podman-over-docker">Why Podman over Docker?</a></li>
 <li><a href="/posts/theathuntinghoneypot/index.html#install-cowrie-as-container-and-adjust-configuration">Install cowrie as container and adjust configuration</a>
 <ul>
@@ -206,6 +200,7 @@
 </ul>
 </li>
 <li><a href="/posts/theathuntinghoneypot/index.html#tl-dr-what-did-we-just-do">🎯 TL;DR – What Did We Just Do?</a></li>
+<li><a href="/posts/theathuntinghoneypot/index.html#whats-next">Whats next</a></li>
 </ul>
 <!-- raw HTML omitted -->
 <h2 id="introduction">Introduction</h2>
@@ -218,7 +213,7 @@ strategy.</p>
 real system, capturing attacker behavior in a controlled environment.
 It allows defenders and researchers to observe malicious activity without
 exposing actual infrastructure.</p>
-<h3 id="key-capabilities-of-cowrie-include">Key capabilities of Cowrie include:</h3>
+<p><!-- raw HTML omitted -->Key capabilities of Cowrie include<!-- raw HTML omitted --></p>
 <ul>
 <li>
 <p><strong>Full session logging</strong>: Records all commands entered by the attacker,
@@ -413,9 +408,12 @@ the logs to:</p>
 </ul>
 <p><strong><strong>5. It’s nerdy, useful, and kinda fun.</strong></strong></p>
 <ul>
-<li>Congrats, you built a mini threat intel system.</li>
-<li>Now sit back, sip coffee, and watch the script kiddies play.</li>
+<li>Now I built a mini threat intel system.</li>
+<li>Now I can sit back, sip coffee, and watch the kiddies play.</li>
 </ul>
+<h2 id="whats-next">Whats next</h2>
+<p>Next I had to build the HTTP honeypot, stay tuned for the follow up!</p>
+<h2 id="feedback-and-comments">Feedback and Comments</h2>
 <div id="giscus-comments" style="margin-top: 2rem;">
     <script src="https://giscus.app/client.js"
             data-repo="PolymathMonkey/weblog"
@@ -520,8 +518,8 @@ the logs to:</p>
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/js/clipboard/clipboard.min.js?1753094648" defer></script>
-    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1753094648" defer></script>
-    <script src="/js/theme.js?1753094648" defer></script>
+    <script src="/js/clipboard/clipboard.min.js?1753097199" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1753097199" defer></script>
+    <script src="/js/theme.js?1753097199" defer></script>
   </body>
 </html>

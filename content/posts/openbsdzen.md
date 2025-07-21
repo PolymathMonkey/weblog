@@ -75,4 +75,5 @@ imperfection, both OpenBSD and Zen provide unique perspectives on the nature
 of software development and personal growth. Stay tuned for further insights
 from my exploration in the realm of security!
 
+## Feedback and Comments
 {{< giscus >}}

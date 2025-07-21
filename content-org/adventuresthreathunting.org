@@ -166,7 +166,7 @@ real system, capturing attacker behavior in a controlled environment.
 It allows defenders and researchers to observe malicious activity without
 exposing actual infrastructure.
 
-*** Key capabilities of Cowrie include:
+_Key capabilities of Cowrie include_
 
 - *Full session logging*: Records all commands entered by the attacker,
   along with input/output streams and timing data. Sessions can be saved

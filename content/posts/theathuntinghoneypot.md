@@ -2,7 +2,7 @@
 title: "Threat hunting II: SSH Honeypot setup"
 author: ["Dirk"]
 date: 2025-07-13T07:38:00+02:00
-lastmod: 2025-07-21T11:53:31+02:00
+lastmod: 2025-07-21T13:24:22+02:00
 tags: ["threathunting", "honeypot"]
 categories: ["threathunting"]
 draft: false
@@ -15,7 +15,6 @@ weight: 1002
 
 - [Introduction](#introduction)
 - [What is Cowrie?](#what-is-cowrie)
-    - [Key capabilities of Cowrie include:](#key-capabilities-of-cowrie-include)
 - [Why Podman over Docker?](#why-podman-over-docker)
 - [Install cowrie as container and adjust configuration](#install-cowrie-as-container-and-adjust-configuration)
     - [🐧 Create a Dedicated User for Cowrie (No Login Shell)](#create-a-dedicated-user-for-cowrie--no-login-shell)
@@ -29,6 +28,7 @@ weight: 1002
     - [⚙ Configure and test Filebeat](#configure-and-test-filebeat)
     - [🚀 Start and Enable Filebeat](#start-and-enable-filebeat)
 - [🎯 TL;DR – What Did We Just Do?](#tl-dr-what-did-we-just-do)
+- [Whats next](#whats-next)
 
 </div>
 <!--endtoc-->
@@ -49,8 +49,7 @@ real system, capturing attacker behavior in a controlled environment.
 It allows defenders and researchers to observe malicious activity without
 exposing actual infrastructure.
 
-
-### Key capabilities of Cowrie include: {#key-capabilities-of-cowrie-include}
+<span class="underline">Key capabilities of Cowrie include</span>
 
 -   **Full session logging**: Records all commands entered by the attacker,
     along with input/output streams and timing data. Sessions can be saved
@@ -320,7 +319,13 @@ sudo journalctl -u filebeat -f
 
 ****5. It’s nerdy, useful, and kinda fun.****
 
--   Congrats, you built a mini threat intel system.
--   Now sit back, sip coffee, and watch the script kiddies play.
+-   Now I built a mini threat intel system.
+-   Now I can sit back, sip coffee, and watch the kiddies play.
 
+
+## Whats next {#whats-next}
+
+Next I had to build the HTTP honeypot, stay tuned for the follow up!
+
+## Feedback and Comments
 {{< giscus >}}
