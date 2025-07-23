@@ -1,8 +1,8 @@
-sudo apt-get update---
+---
 title: "Threathunting I: Network setup"
 author: ["Dirk"]
 date: 2025-07-08T09:15:00+02:00
-lastmod: 2025-07-21T12:21:43+02:00
+lastmod: 2025-07-23T09:51:19+02:00
 tags: ["threathunting", "honeypot", "visibility"]
 categories: ["threathunting"]
 draft: false
@@ -117,7 +117,7 @@ assigned to VLAN210 like port 5 too, port 2 is the router it needs to talk
 into both networks and at port 1 is my workstation to access the theathunting
 environment.
 
-{{< figure src="../img/switch.png" >}}
+{{< figure src="../posts/img/switch.png" >}}
 
 
 ## What I Learned {#what-i-learned}
@@ -164,4 +164,3 @@ follow up!
 
 ## Feedback and Comments
 {{< giscus >}}
-
