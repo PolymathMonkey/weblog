@@ -1,4 +1,4 @@
----
+sudo apt-get update---
 title: "Threathunting I: Network setup"
 author: ["Dirk"]
 date: 2025-07-08T09:15:00+02:00
