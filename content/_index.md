@@ -14,8 +14,9 @@ menu:
 Welcome to my technical blog and knowledge base!
 
 ## Topics
+- [🖥 Threathunting Tutorials](/tags/threathunting/)
+- [🖥 All things OpenBSD](/tags/openbsd/)
 
- Coming soon
 <!--- [🔐 VPN & IPsec](/tags/ipsec/)
 - [🧷 WireGuard & Networking](/tags/wireguard/)
 - [🖥 OpenBSD Tutorials](/tags/openbsd/) -->

@@ -15,13 +15,13 @@ Welcome to my technical blog and knowledge base!
 
 
 ## Topics
-
- Coming soon
+- [🖥 Threathunting Tutorials](/tags/threathunting/)
+- [🖥 OpenBSD](/tags/openbsd/) 
 <!-- ## Topics
 
 - [🔐 VPN & IPsec](/tags/ipsec/)
-- [🧷 WireGuard & Networking](/tags/wireguard/)
-- [🖥 OpenBSD Tutorials](/tags/openbsd/) -->
+- [🧷 WireGuard & Networking](/tags/wireguard/) -->
+
 
 {{< newest-posts >}}
 

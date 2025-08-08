@@ -6,7 +6,7 @@ lastmod: 2025-07-07T14:37:24+02:00
 tags: ["forensicwheels", "honeypot", "canarytokens"]
 categories: ["forensic", "threathunting"]
 draft: true
-weight: 1002
+weight: 1006
 ---
 
 <div class="ox-hugo-toc toc">

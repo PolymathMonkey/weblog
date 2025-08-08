@@ -82,7 +82,7 @@ Communication between the honeypot and the ELK server is allowed for log
 ingestion and analysis. However, I intend to introduce stricter controls on
 this internal traffic in the future to further reduce the attack surface.
 
-*** Firewall configuration🧱 @@comment: don't forget to add the HTTP pf rule@@
+*** Firewall configuration🧱 
 For the pf(1) configuration It was as always with UNIX fairly easy to get to work:
 #+begin_src sh
 match in quick log on egress proto tcp from any to any port 22 flags S/SA rdr-to $honeypot port 2222
@@ -100,7 +100,7 @@ assigned to VLAN210 like port 5 too, port 2 is the router it needs to talk
 into both networks and at port 1 is my workstation to access the theathunting
 environment.
 
-[[../posts/img/switch.png]]
+[[../img/switch.png]]
 
 
 ** What I Learned
@@ -139,7 +139,7 @@ I drew inspiration for this setup from the DShield SIEM project by SANS and
 would like to express my gratitude for their valuable work.
 
 ** Whats next
-Next I had to build the ssh honeypot and the HTTP Honeypot, stay tuned for the
+Next I had to build the [[~/../theathuntinghoneypot][ssh honeypot]] and the [[~/../honeyhttpd][HTTP Honeypot]], stay tuned for the
 follow up!
 
 
@@ -220,7 +220,7 @@ After installation, I made sure system is up to date:
 sudo apt update && sudo apt upgrade -y
 #+end_src
 
-*** Podman installed and working:
+*** Podman installed and working
 #+begin_src sh
 # Ubuntu 20.10 and newer
 sudo apt-get -y install podman
@@ -387,7 +387,7 @@ sudo -u cowrie podman run -d --name cowrie \
 - =-v /opt/cowrie/etc= and =/opt/cowrie/var=: Mounts configuration and data volumes from the host with `:Z` to apply correct SELinux labels (optional on systems without SELinux).
 - =-p 2222:2222=: Forwards port 2222 from host to container (Cowrie's SSH honeypot port).
 - =cowrie/cowrie=: The container image name (use latest or specific tag as needed).
-
+  
 **** Benefits:
 
 - **Container runs as non-root on the host:**  
@@ -398,7 +398,7 @@ sudo -u cowrie podman run -d --name cowrie \
 
 - **Avoids root-equivalent risks:**  
   Prevents privilege escalation or access to sensitive host files and devices.
-
+  
 *** 🎯 Operating the Honeypot
 
 - **View logs**
@@ -584,7 +584,6 @@ echo "deb [signed-by=/usr/share/keyrings/elastic.gpg] https://artifacts.elastic.
 
 **2. Update APT and install Filebeat**
 #+begin_src bash
-sudo apt update
 sudo apt install filebeat
 #+end_src
 
@@ -616,7 +615,15 @@ the logs to:
 
 **4. (Optional) Test Filebeat config**
 #+begin_src bash
-sudo filebeat test config
+  sudo filebeat test config
+  logstash: 192.168.210.5:5044...
+  connection...
+    parse host... OK
+    dns lookup... OK
+    addresses: 192.168.210.5
+    dial up... OK
+  TLS... WARN secure connection disabled
+  talk to server... OK
 #+end_src
 
 *** 🚀 Start and Enable Filebeat
@@ -656,7 +663,7 @@ sudo journalctl -u filebeat -f
 - Now I can sit back, sip coffee, and watch the kiddies play.
 
 ** Whats next
-Next I had to build the HTTP honeypot, stay tuned for the follow up!
+Next I build the [[~/../honeyhttpd][HTTP Honeypot]]
 
 * TODO Threathunting III: HTTP Honeypot develop and setup                                 :@threathunting:honeypot:
 :PROPERTIES:
@@ -701,7 +708,7 @@ I'll walk you through the steps I took to configure HoneyPot HTTPD for
 ingestion, including the Dockerfile used to build the container and any
 additional configuration settings required.
 
-** Setting up HoneyPot HTTPD for Web Data Ingestion
+** Setting up HoneyPot HTTPD for Web Data Ingestion and adjust code for our needs
 :PROPERTIES:
 :CUSTOM_ID: setting-up-honeypot-httpd-for-web-data-ingestion
 :END:
@@ -711,7 +718,7 @@ additional configuration settings required.
 :END:
 
 - Creating a Dockerfile
-
+  
   I started by creating a Dockerfile that would build the HoneHTTPD
   image. The Dockerfile included the following instructions:
 
@@ -792,38 +799,47 @@ additional configuration settings required.
   - Specified the command to run HoneyPot HTTPD with the -c option,
     which points
   - to the configuration file
-
+    
 - Building and Running the Container
 
   Once I had created the Dockerfile, I built the image by running the
   following command:
 
   #+begin_src sh
-  docker build -t honeyhttpd .
+    sudo docker build -t honeyhttpd .
   #+end_src
 
   This command told Docker to create an image with the tag honeyhttpd
   using the instructions in the Dockerfile.To run the container, I used
   the following command:
 
-  #+begin_src sh
-  docker run -p 80:80 honeyhttpd
+  #+begin_src sh @@comment: wrong command@@
+    sudo docker run --hostname honeyhttpd -p 8443:8443 -p 8888:8888 -p 8889:8889 honeyhttpd'
   #+end_src
 
   This command started a new container from the honeyhttpd image and
-  mapped port 80 on the host machine to port 80 in the container.
+  mapped port 8443, 8888 and 8889 on the host machine to the ports 8443,8888
+  and 8889 in the container.
+  
+- Configuring the Container @@comment: This is bullshit @@
 
-- Configuring the Container
-
-  To configure the container, I updated the config.yaml file to point to
+  To configure the honeypot, I updated the config.yaml file to point to
   my Elasticsearch instance. Here's an example of what the configuration
   file might look like:
 
-  #+begin_src sh
-  -ingest:
-  es_host: "localhost:9200"
-  es_index: "logstash-2019.04"
-  es_type: "log"
+  #+begin_src json
+    "loggers": {
+        "ElasticSearchLogger": {
+            "active": true,
+            "config": {
+                "server": "https://192.168.210.5:9200",
+                "verify_certs": true, <- honeypot needs the ca.crt to know the self signed cert
+                "username": "elastic",
+                "password": "SecretPassword",
+                "index": "cowrie.webhoneypot", <- this is the index the webhoneypot writes its data to
+                "debug": false
+            }
+        }
   #+end_src
 
   This configuration told HoneyPot HTTPD to forward web traffic data to
@@ -832,6 +848,174 @@ additional configuration settings required.
   With the container running and configured, I was now ready to test
   HoneyPot HTTPD's ability to ingest web traffic data into
   Elasticsearch.
+
+  Which I did with just opening https://tb.home.arpa:8443 in my webbrowser
+*** Code adjustments for our environment
+**** 🔐 Improvements in `ApachePasswordServer.py`: Credential Logging and Header Parsing
+
+This update significantly enhances `ApachePasswordServer.py` by simulating
+Basic Authentication, extracting credentials from the `Authorization` header,
+and enriching log data with structured request and response metadata.
+It also ensures integration with `ElasticSearchLogger` and introduces
+helper functions for safer parsing and decoding.
+
+***** 📊 Summary of Changes
+
+- 1 file changed: `ApachePasswordServer.py`
+- ~120 insertions, ~10 deletions
+- Key improvements:
+  - Basic Auth simulation (401 challenge)
+  - Credential harvesting from Authorization header
+  - Integration with `ElasticSearchLogger`
+  - Structured logging with metadata (IP, method, headers)
+
+---
+
+***** 🆕 Auto-Injection of `ElasticSearchLogger` in `__init__()`
+
+To ensure consistent structured logging, `ElasticSearchLogger` is now injected into the logger stack if not already present.
+
+#+begin_src diff
++ if loggers is None:
++     loggers = []
++ if not any(isinstance(logger, ElasticSearchLogger) for logger in loggers):
++     loggers.append(ElasticSearchLogger())
+#+end_src
+
+This avoids missing logs if the user forgets to pass a logger during instantiation.
+
+---
+
+***** 🔐 New GET Handler Simulates Apache Basic Auth Challenge
+
+The server now returns `401 Unauthorized` and prompts for credentials on common admin paths.
+
+#+begin_src diff
++ def on_GET(self, path, headers):
++     if path in ["/", "/index.php", "/admin"]:
++         return 401, [], 'Basic realm="Secure Area"'
++     return 404, [], ""
+#+end_src
+
+This turns the honeypot into a credential trap for automated brute-forcers and scanners.
+
+---
+
+***** 🧰 New Helper Functions for Header Parsing and Auth Decoding
+
+Two utility functions were introduced:
+
+- `parse_to_json()` transforms header tuples into a JSON dictionary.
+- `decode_basic_auth()` decodes Base64 credentials and validates them.
+
+#+begin_src python
+def parse_to_json(data):
+    return json.dumps({key: value for key, value in data})
+
+def decode_basic_auth(b64_string):
+    try:
+        decoded_bytes = base64.b64decode(b64_string, validate=True)
+        decoded_str = decoded_bytes.decode('utf-8')
+        if ':' in decoded_str:
+            return decoded_str
+        else:
+            return "[invalid format: missing colon]"
+    except Exception as e:
+        return f"[decode error: {e}]"
+#+end_src
+
+These enable safe and consistent parsing for incoming HTTP headers.
+
+---
+
+***** 📦 Structured Request Parsing & Credential Extraction in `on_complete()`
+
+The `on_complete()` method has been completely reworked to:
+
+- Parse the HTTP request line
+- Convert headers to a JSON object
+- Extract relevant metadata and credentials
+- Store all data in `req_dict`, passed to the logger
+
+#+begin_src diff
+-        extra = {}
++        req_dict = {}
+...
++        lines = request.split('\n')
++        first_line = lines[0].strip()
++        parts = first_line.split()
++        requested_url = parts[1] if len(parts) > 1 else ""
++        method = parts[0] if len(parts) > 0 else ""
++        req_dict['request_body'] = requested_url
++        req_dict['method'] = method
++        req_dict['code'] = code
++
++        try:
++            req_output = parse_to_json(req_headers)
++            parsed_req = json.loads(req_output)
++        except Exception as e:
++            parsed_req = {}
++
++        for key in ['Host', 'User-Agent', 'Accept', 'Accept-Language',
++                    'Accept-Encoding', 'Authorization']:
++            req_dict[key] = parsed_req.get(key, '')
++
++        auth = parsed_req.get('Authorization', '')
++        if auth.startswith("Basic "):
++            try:
++                auth_data = auth.split(" ", 1)[1]
++                decoded_creds = encode.decode_base64(auth_data)
++                req_dict['creds'] = decoded_creds
++            except Exception as e:
++                req_dict['creds'] = f"[decode error: {e}]"
+#+end_src
+
+This prepares your logs to include useful hunting metadata for later analysis.
+
+---
+
+***** 🌐 Enriched Connection Metadata Logging
+
+Additional context is logged to `req_dict`, including:
+
+- Remote IP and port
+- SSL usage
+- Listening port
+- HTTP response code
+- Response headers
+
+#+begin_src diff
++        remote_ip = client[0] if isinstance(client, tuple) else ''
++        remote_port = client[1] if isinstance(client, tuple) else ''
++        is_ssl = getattr(self, 'is_ssl', False)
++        port = getattr(self, 'port', '8843')
++
++        req_dict['remote_ip'] = remote_ip
++        req_dict['remote_port'] = remote_port
++        req_dict['is_ssl'] = is_ssl
++        req_dict['port'] = port
++        req_dict['response_headers'] = res_dict
++
++        self.log(client, request, response, res_dict, req_dict)
+#+end_src
+
+This provides rich forensic data for Elasticsearch or Splunk pipelines.
+
+---
+
+***** ✅ Result
+
+These changes turn `ApachePasswordServer` into a more useful honeypot component for DFIR or threat hunting research.
+
+It now supports:
+
+- Credential collection from Basic Auth attacks
+- Well-structured logs for easy ingestion
+- Full IP/session/request context per event
+- Easier extensibility for new headers or paths
+
+You’re now well-positioned to integrate this into a broader threat hunting or research stack.
+
 
 ** Ingesting Web Data into Elasticsearch with HoneyPot HTTPD
 :PROPERTIES:
@@ -870,3 +1054,4 @@ additional configuration settings required.
 :CUSTOM_ID: final-thoughts-on-the-value-of-this-setup-for-your-organization-s-threat-hunting-or-security-operations-dot
 :END:
 * DRAFT Threathunting IV: Setup ELK Server and ingest data                                :@threathunting:visibility:
+* DRAFT Testing webhoneypots with ZAP in server mode                                    :@threathunting:

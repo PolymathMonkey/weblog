@@ -2,7 +2,7 @@
 title: "Threathunting I: Network setup"
 author: ["Dirk"]
 date: 2025-07-08T09:15:00+02:00
-lastmod: 2025-07-23T09:51:19+02:00
+lastmod: 2025-08-04T20:06:47+02:00
 tags: ["threathunting", "honeypot", "visibility"]
 categories: ["threathunting"]
 draft: false
@@ -11,13 +11,13 @@ weight: 1001
 
 <div class="ox-hugo-toc toc">
 
-<div class="heading">Inhaltsverzeichnis</div>
+<div class="heading">Table of Contents</div>
 
 - [Introduction](#introduction)
     - [Why I Built a Home Lab for Threat Hunting  🕵](#why-i-built-a-home-lab-for-threat-hunting)
 - [Network Setup](#network-setup)
     - [Topology, Hardware and Tools 🛠](#topology-hardware-and-tools)
-    - [Firewall configuration🧱 ](#firewall-configuration)
+    - [Firewall configuration🧱](#firewall-configuration)
     - [Switch configuration](#switch-configuration)
 - [What I Learned](#what-i-learned)
 - [Whats next](#whats-next)
@@ -95,7 +95,7 @@ ingestion and analysis. However, I intend to introduce stricter controls on
 this internal traffic in the future to further reduce the attack surface.
 
 
-### Firewall configuration🧱  {#firewall-configuration}
+### Firewall configuration🧱 {#firewall-configuration}
 
 For the pf(1) configuration It was as always with UNIX fairly easy to get to work:
 
@@ -117,7 +117,7 @@ assigned to VLAN210 like port 5 too, port 2 is the router it needs to talk
 into both networks and at port 1 is my workstation to access the theathunting
 environment.
 
-{{< figure src="../posts/img/switch.png" >}}
+{{< figure src="../img/switch.png" >}}
 
 
 ## What I Learned {#what-i-learned}
@@ -159,8 +159,5 @@ would like to express my gratitude for their valuable work.
 
 ## Whats next {#whats-next}
 
-Next I had to build the ssh honeypot and the HTTP Honeypot, stay tuned for the
+Next I had to build the [ssh honeypot](~/../theathuntinghoneypot) and the [HTTP Honeypot](~/../honeyhttpd), stay tuned for the
 follow up!
-
-## Feedback and Comments
-{{< giscus >}}
