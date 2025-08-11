@@ -79,4 +79,7 @@ This is where it begins again. With truth, and with clarity.
 > "The fire that consumed my old world
 > is now the light that guides me forward."
 
+## Feedback and Comments
+{{< giscus >}}
+
 ---

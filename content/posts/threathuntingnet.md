@@ -161,3 +161,6 @@ would like to express my gratitude for their valuable work.
 
 Next I had to build the [ssh honeypot](~/../theathuntinghoneypot) and the [HTTP Honeypot](~/../honeyhttpd), stay tuned for the
 follow up!
+
+## Feedback and Comments
+{{< giscus >}}
