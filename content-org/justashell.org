@@ -8,7 +8,7 @@
 #+TAGS: @personal @forensic @zen @threathunting
 #+TAGS: openbsd honeypot zen personal canarytokens skateboarding visibility
 
-* It Was Just a Shell
+* What Burned Me Built Me
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
