@@ -1,12 +1,12 @@
 +++
 title = "Just a shell"
 author = ["dirk"]
-lastmod = 2025-08-11T10:10:22+02:00
+lastmod = 2025-08-11T10:19:19+02:00
 tags = ["forensicwheels"]
 draft = false
 +++
 
-## What Burned Me Built Me {#justashell}
+## What Burned Me Built Me {#burn}
 
 I used to believe that the place I worked for meant something.
 That our mission was shared. That our values were real.
