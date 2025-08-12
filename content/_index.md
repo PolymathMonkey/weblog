@@ -32,5 +32,5 @@ Welcome to my technical blog and knowledge base!
 ## Get in Touch
 
 Suggestions or feedback?  
-[Contact me here](/posts/about/) or visit the [project repository](https://github.com/PolymathMonkey/weblog).  
+[Contact me here](/about/) or visit the [project repository](https://github.com/PolymathMonkey/weblog).  
 You can also [subscribe via RSS](/index.xml).
