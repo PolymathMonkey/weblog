@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.142.0">
+    <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
+    <meta name="description" content="DONE Threathunting I: Network setup @threathuntinghoneypotvisibility Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.">
+    <meta name="author" content="Dirk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Adventures in threathunting - Forensic wheels">
+    <meta name="twitter:description" content="DONE Threathunting I: Network setup @threathuntinghoneypotvisibility Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.">
+    <meta property="og:url" content="http://localhost:1313/posts/adventuresthreathunting/index.html">
+    <meta property="og:site_name" content="Forensic wheels">
+    <meta property="og:title" content="Adventures in threathunting - Forensic wheels">
+    <meta property="og:description" content="DONE Threathunting I: Network setup @threathuntinghoneypotvisibility Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Forensic wheels">
+    <meta property="article:published_time" content="2025-08-12T11:08:07+02:00">
+    <meta property="article:modified_time" content="2025-08-12T11:08:07+02:00">
+    <meta property="article:tag" content="Threathunting">
+    <meta itemprop="name" content="Adventures in threathunting - Forensic wheels">
+    <meta itemprop="description" content="DONE Threathunting I: Network setup @threathuntinghoneypotvisibility Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.">
+    <meta itemprop="datePublished" content="2025-08-12T11:08:07+02:00">
+    <meta itemprop="dateModified" content="2025-08-12T11:08:07+02:00">
+    <meta itemprop="wordCount" content="4933">
+    <meta itemprop="keywords" content="Threathunting">
+    <title>Adventures in threathunting - Forensic wheels</title>
+    <link href="/images/logo.svg?1754998939" rel="icon" type="image/svg+xml">
+    <link href="/css/auto-complete/auto-complete.min.css?1754998939" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1754998939" defer></script>
+    <script src="/js/search-lunr.js?1754998939" defer></script>
+    <script src="/js/search.js?1754998939" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="/searchindex.en.js?1754998939";
+    </script>
+    <script src="/js/lunr/lunr.min.js?1754998939" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1754998939" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1754998939" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1754998939" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1754998939" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1754998939" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1754998939" rel="stylesheet">
+    <link href="/css/theme.css?1754998939" rel="stylesheet">
+    <link href="/css/format-html.css?1754998939" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/posts\/adventuresthreathunting\/index.html';
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto', 'neon' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/posts/adventuresthreathunting/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#threathuntingnet"><!-- raw HTML omitted -->DONE<!-- raw HTML omitted --> Threathunting I: Network setup <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted -->honeypot<!-- raw HTML omitted --><!-- raw HTML omitted -->visibility<!-- raw HTML omitted --><!-- raw HTML omitted --></a>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#network-setup">Network Setup</a></li>
+        <li><a href="#what-i-learned">What I Learned</a></li>
+        <li><a href="#whats-next">Whats next</a></li>
+      </ul>
+    </li>
+    <li><a href="#theathuntinghoneypot"><!-- raw HTML omitted -->DONE<!-- raw HTML omitted --> Threat hunting II: SSH Honeypot setup <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted -->honeypot<!-- raw HTML omitted --><!-- raw HTML omitted --></a>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#what-is-cowrie">What is Cowrie?</a></li>
+        <li><a href="#why-podman-over-docker">Why Podman over Docker?</a></li>
+        <li><a href="#preconditions-system-setup">Preconditions / System setup</a></li>
+        <li><a href="#setup-environment-install-cowrie-as-container-and-adjust-configuration">Setup environment, install cowrie as container and adjust configuration</a></li>
+        <li><a href="#log-forwarding-with-filebeat">Log Forwarding with Filebeat</a></li>
+        <li><a href="#tl-dr-what-did-we-just-do">🎯 TL;DR – What Did We Just Do?</a></li>
+        <li><a href="#whats-next">Whats next</a></li>
+      </ul>
+    </li>
+    <li><a href="#honeyhttpd"><!-- raw HTML omitted -->TODO<!-- raw HTML omitted --> Threathunting III: HTTP Honeypot develop and setup <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted -->honeypot<!-- raw HTML omitted --><!-- raw HTML omitted --></a>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#setting-up-honeypot-httpd-for-web-data-ingestion">Setting up HoneyPot HTTPD for Web Data Ingestion and adjust code for our needs</a></li>
+      </ul>
+    </li>
+    <li><a href="#threathunting-iv-setup-elk-server-and-ingest-data"><!-- raw HTML omitted -->DRAFT<!-- raw HTML omitted --> Threathunting IV: Setup ELK Server and ingest data <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted -->visibility<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+    <li><a href="#testing-webhoneypots-with-zap-in-server-mode"><!-- raw HTML omitted -->DRAFT<!-- raw HTML omitted --> Testing webhoneypots with ZAP in server mode <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="topbar-breadcrumbs highlightable">
+            Adventures in threathunting
+          </span>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable posts" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+<div class="R-taxonomy taxonomy-tags cstyle tags" title="Tags" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
+  <ul>
+    <li><a class="term-link" href="/tags/threathunting/index.html">Threathunting</a></li>
+  </ul>
+</div>
+  </header>
+
+<h1 id="adventures-in-threathunting">Adventures in threathunting</h1>
+
+<h2 id="threathuntingnet"><!-- raw HTML omitted -->DONE<!-- raw HTML omitted --> Threathunting I: Network setup <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted -->honeypot<!-- raw HTML omitted --><!-- raw HTML omitted -->visibility<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h3 id="introduction">Introduction</h3>
+<p>This is a small series I wanted to start, where I write about my small
+threathunting setup and describe a little what I build and what I am doing
+with it.</p>
+<p>In this part, I will describe the Network setup for my Environment, more about
+how I build the honeypots and the ELK Server I will describe in the follow up
+articles about threathunting.</p>
+<p>Keep in mind this is for Education and fun, no serious stuff going on here.</p>
+<h4 id="why-i-built-a-home-lab-for-threat-hunting">Why I Built a Home Lab for Threat Hunting  🕵</h4>
+<p>The threat landscape is constantly evolving, with new attack vectors, tools,
+and tactics appearing almost daily.</p>
+<p>And to keep my skills current with real-world threats, I built a home lab dedicated
+to threat hunting. This environment allows me to safely observe attacks and
+develop detection and defense methods. I deployed web and shell honeypots,
+and collect real threat data in a controlled setting.</p>
+<p>It’s a practical, hands-on way to explore the behavior of adversaries and its a
+lot of fun!</p>
+<h3 id="network-setup">Network Setup</h3>
+<h4 id="topology-hardware-and-tools">Topology, Hardware and Tools 🛠</h4>
+<figure><img src="../img/mynet.png">
+</figure>
+
+<p>For the <strong><strong>hardware setup</strong></strong>, I kept things lightweight and affordable by using
+Raspberry Pi devices and open-source tools. The honeypot is based on the
+well-known <a href="https://docs.cowrie.org/en/latest/" rel="external" target="_blank">Cowrie SSH honeypot</a> and the <a href="https://github.com/bocajspear1/honeyhttpd" rel="external" target="_blank">honeyhttpd HTTP honeypot</a> .
+It runs on a <strong><strong>Raspberry Pi 4 with 8GB of RAM</strong></strong>, hosted inside a Docker 🐳
+container. On the honeypot host, <strong><strong>Filebeat</strong></strong> is running to ingest the Cowrie
+logs into the ELK stack.</p>
+<p>For the <strong><strong>ELK stack</strong></strong>, I used a <strong><strong>Raspberry Pi 5 with 16GB of RAM</strong></strong>, running
+Debian. The ELK services are also containerized using Docker. The stack is
+based on the <a href="https://github.com/bruneaug/DShield-SIEM" rel="external" target="_blank">DShield-SIEM</a> project, which I customized to better fit
+my needs. I’ll dive deeper into those modifications and the ELK setup in
+a follow-up article.</p>
+<p>The network topology is straightforward but deliberately segmented. The router
+is connected to a managed switch, which is responsible for handling VLAN
+separation. Both the honeypot and the ELK server are connected to this switch
+and are placed in an <strong><strong>isolated VLAN (VLAN210)</strong></strong>. This VLAN is dedicated
+exclusively to <strong><strong>threat hunting</strong></strong>, ensuring that any potentially malicious
+traffic remains fully contained and cannot interfere with the rest of the
+home network.</p>
+<p>My client system 💻 is the only machine allowed to connect from outside the
+VLAN to both the ELK server and the honeypot. This connection is strictly
+for maintenance and administrative purposes. The ELK server is allowed to
+access the internet, primarily to pull threat intelligence data from
+external sources and security feeds.</p>
+<p>In contrast, the <strong><strong>honeypot</strong></strong> is completely <strong><strong>blocked from internet access</strong></strong>,
+with the exception of <strong><strong>SSH and HTTP traffic</strong></strong> going in and out of it. These
+are the only services deliberately exposed to simulate vulnerable endpoints.
+Communication between the honeypot and the ELK server is allowed for log
+ingestion and analysis. However, I intend to introduce stricter controls on
+this internal traffic in the future to further reduce the attack surface.</p>
+<h4 id="firewall-configuration">Firewall configuration🧱</h4>
+<p>For the pf(1) configuration It was as always with UNIX fairly easy to get to work:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>match in quick log on egress proto tcp from any to any port <span style="color:#ae81ff">22</span> flags S/SA rdr-to $honeypot port <span style="color:#ae81ff">2222</span>
+</span></span><span style="display:flex;"><span>match in quick log on egress proto tcp from any to any port <span style="color:#ae81ff">443</span> flags S/SA rdr-to $honeypot port <span style="color:#ae81ff">4433</span></span></span></code></pre></div>
+<p>This rule makes sure any incoming TCP connection attempt to port 22 (SSH) and
+port 443 (HTTPS) is immediately intercepted, logged, and transparently
+redirected to the $honeypot server listening on port 2222 or 4433 for HTTPS Traffic.</p>
+<h4 id="switch-configuration">Switch configuration</h4>
+<p>Here you can see my managed switch configuration. Port 5 (honeypot) is only
+assigned to VLAN210 like port 5 too, port 2 is the router it needs to talk
+into both networks and at port 1 is my workstation to access the theathunting
+environment.</p>
+<figure><img src="../img/switch.png">
+</figure>
+
+<h3 id="what-i-learned">What I Learned</h3>
+<p>Building and maintaining this lightweight honeypot and monitoring setup on
+Raspberry Pi devices has been an insightful experience. Here are some key takeaways:</p>
+<ul>
+<li>
+<p><strong><strong>Resource Efficiency</strong></strong>: Raspberry Pis provide a surprisingly capable
+platform for running complex services like Cowrie honeypot and the ELK stack
+in Docker containers, keeping costs and power consumption low.</p>
+</li>
+<li>
+<p><strong><strong>Network Segmentation Matters</strong></strong>: Isolating the honeypot and ELK server in a
+dedicated VLAN (VLAN210) effectively contains malicious traffic, protecting
+the rest of the home network from potential threats.</p>
+</li>
+<li>
+<p><strong><strong>Controlled Access Is Crucial</strong></strong>: Restricting external access to only
+authorized    clients and limiting the honeypot&rsquo;s internet connectivity
+reduces the attack surface while still enabling useful data collection.</p>
+</li>
+<li>
+<p><strong><strong>Logging and Data Collection</strong></strong>: Using Filebeat to ship logs from the
+honeypot to the ELK stack provides real-time visibility into attacker
+behavior, which is essential for threat hunting and incident response.</p>
+</li>
+<li>
+<p><strong><strong>Customization Pays Off</strong></strong>: Adapting existing tools and SIEM projects
+(like DShield) to specific needs improves effectiveness and allows for
+tailored threat detection.</p>
+</li>
+<li>
+<p><strong><strong>Future Improvements</strong></strong>: There is always room to tighten internal
+communication rules and harden the setup further to minimize risk and
+improve operational security.</p>
+</li>
+</ul>
+<p>This project highlights the balance between practical constraints and security
+needs, demonstrating that even modest hardware can contribute significantly
+to threat intelligence and network defense.</p>
+<p>I drew inspiration for this setup from the DShield SIEM project by SANS and
+would like to express my gratitude for their valuable work.</p>
+<h3 id="whats-next">Whats next</h3>
+<p>Next I had to build the <a href="/posts/theathuntinghoneypot/index.html">ssh honeypot</a> and the <a href="~/../honeyhttpd">HTTP Honeypot</a>, stay tuned for the
+follow up!</p>
+<h2 id="theathuntinghoneypot"><!-- raw HTML omitted -->DONE<!-- raw HTML omitted --> Threat hunting II: SSH Honeypot setup <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted -->honeypot<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h3 id="introduction">Introduction</h3>
+<p>This post provides a brief walkthrough of how to deploy a lightweight,
+containerized SSH honeypot using Cowrie and Podman, with the goal of
+capturing and analyzing malicious activity as part of my threat hunting
+strategy.</p>
+<h3 id="what-is-cowrie">What is Cowrie?</h3>
+<p>Cowrie is an interactive SSH and Telnet honeypot designed to emulate a
+real system, capturing attacker behavior in a controlled environment.
+It allows defenders and researchers to observe malicious activity without
+exposing actual infrastructure.</p>
+<p><!-- raw HTML omitted -->Key capabilities of Cowrie include<!-- raw HTML omitted --></p>
+<ul>
+<li>
+<p><strong>Full session logging</strong>: Records all commands entered by the attacker,
+along with input/output streams and timing data. Sessions can be saved
+as plaintext or in formats suitable for replay.</p>
+</li>
+<li>
+<p><strong>Fake file system and shell environment</strong>: Emulates a basic Linux shell
+with a user-modifiable file system. Attackers can navigate directories,
+read/write fake files, or attempt to download/upload payloads.</p>
+</li>
+<li>
+<p><strong>Command emulation</strong>: Supports a large set of common Unix commands (`ls`,
+`cat`, `wget`, etc.), allowing attackers to interact naturally, as
+if on a real system. And can be extended with more commands</p>
+</li>
+<li>
+<p><strong>Credential logging</strong>: Captures usernames and passwords used in
+brute-force login attempts or interactive logins.</p>
+</li>
+<li>
+<p><strong>File download capture</strong>: Logs and optionally stores any files attackers
+attempt to retrieve via `wget`, `curl`, or similar tools.</p>
+</li>
+<li>
+<p><strong>JSON-formatted logging and integration&rsquo;s</strong>: Outputs structured logs that
+are easy to parse and ingest into systems like ELK, Splunk, or custom
+analysis pipelines.</p>
+</li>
+</ul>
+<p>Cowrie is widely used in research, threat intelligence, and proactive defense
+efforts to gather Indicators of Compromise (IOCs) and understand attacker
+tactics,techniques, and procedures (TTPs).</p>
+<h3 id="why-podman-over-docker">Why Podman over Docker?</h3>
+<p>Podman offers several advantages over Docker, particularly in terms of security
+and system integration. It supports rootless containers, allowing users to run
+containers without elevated privileges, which reduces the attack surface.</p>
+<p>Podman is daemon-less, integrating more seamlessly with systemd and existing
+Linux workflows. Additionally, Podman is fully compatible with the Open
+Container Initiative (OCI) standards, ensuring interoperability and
+flexibility across container ecosystems.</p>
+<h3 id="preconditions-system-setup">Preconditions / System setup</h3>
+<p>Before I proceed with the cowrie setup, I made sure the following preconditions are met:</p>
+<h4 id="ubuntu-installed-on-raspberry-pi-4-plus">Ubuntu Installed on Raspberry Pi 4+</h4>
+<p>I am using a Raspberry Pi 4+ running Ubuntu</p>
+<h4 id="system-fully-updated">System Fully Updated</h4>
+<p>After installation, I made sure system is up to date:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt upgrade -y</span></span></code></pre></div>
+<h4 id="podman-installed-and-working">Podman installed and working</h4>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Ubuntu 20.10 and newer</span>
+</span></span><span style="display:flex;"><span>sudo apt-get -y install podman</span></span></code></pre></div>
+<p>Run the Hello World Container.In this moment I did not had the cowrie user yet
+setup so I used my system user to test</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>podman run hello-world
+</span></span><span style="display:flex;"><span>Trying to pull docker.io/library/hello-world:latest...
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>Hello from Docker!
+</span></span><span style="display:flex;"><span>This message shows that your installation appears to be working correctly.</span></span></code></pre></div>
+<p>tho sometimes the pulling fails like that then I had to put `docker.io` in
+front of the container name like:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>podman run docker.io/hello-world</span></span></code></pre></div>
+<p>then it would work for sure.</p>
+<h4 id="vlan-tagging-configured-on-network-interface">VLAN Tagging Configured on Network Interface</h4>
+<p>In my network setup for threathunting the honeypot requires VLAN tagging to
+configured to reachable from the outside, VLAN210 is my restricted Network.
+Therefore i needed to configure the vlan using <code>nmcli</code> so it&rsquo;s persistent across reboots.</p>
+<ul>
+<li>
+<p>Example: Create a VLAN interface (e.g., VLAN ID 210 on main if)</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nmcli con add type vlan con-name vlan210 dev mainif id <span style="color:#ae81ff">210</span> ip4 192.168.210.3/24 gw4 192.168.210.1
+</span></span><span style="display:flex;"><span>sudo nmcli con up vlan210</span></span></code></pre></div>
+<ul>
+<li><code>con-name vlan210</code>: Name of the new VLAN connection.</li>
+<li><code>dev mainif</code>: Physical interface to tag.</li>
+<li><code>id 210</code>: VLAN ID.</li>
+<li><code>ip4</code>, <code>gw4</code>: Optional IP and gateway assignment.</li>
+</ul>
+<p>This will persist the configuration and activate the VLAN interface
+immediately. Next I moved on to Install the honeypot.</p>
+<hr>
+</li>
+</ul>
+<h3 id="setup-environment-install-cowrie-as-container-and-adjust-configuration">Setup environment, install cowrie as container and adjust configuration</h3>
+<h4 id="create-a-dedicated-user-for-cowrie--no-login-shell">🐧 Create a Dedicated User for Cowrie (No Login Shell)</h4>
+<p>Running the Podman container under a dedicated system user with no login shell
+is a recommended security best practice. Reasons include:</p>
+<ul>
+<li>
+<p><strong><strong>Privilege Separation:</strong></strong>
+Isolates the container from other system processes and users, limiting
+the potential impact of a compromise.</p>
+</li>
+<li>
+<p><strong><strong>Reduced Attack Surface:</strong></strong>
+The user has no login shell (e.g., <code>/usr/sbin/nologin</code>), meaning it can&rsquo;t be
+used to log into the system interactively.</p>
+</li>
+<li>
+<p><strong><strong>Auditing &amp; Logging:</strong></strong>
+Helps distinguish container activity in system logs and process lists,
+making monitoring easier.</p>
+</li>
+<li>
+<p><strong><strong>Least Privilege Principle:</strong></strong>
+The user has only the permissions necessary to run the container — nothing more.</p>
+</li>
+</ul>
+<p><strong><strong>1. Create the &lsquo;cowrie&rsquo; user (no home directory, no login shell)</strong></strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo useradd --system --no-create-home --shell /usr/sbin/nologin cowrie</span></span></code></pre></div>
+<p><strong><strong>2. Create necessary directories and set ownership</strong></strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo mkdir -p /opt/cowrie/etc
+</span></span><span style="display:flex;"><span>sudo mkdir -p /opt/cowrie/var
+</span></span><span style="display:flex;"><span>sudo chown -R cowrie:cowrie /opt/cowrie</span></span></code></pre></div>
+<h4 id="pull-and-configure-cowrie-with-podman">🐳 Pull and Configure Cowrie with Podman</h4>
+<p><strong><strong>3. As the cowrie user, pull the container image</strong></strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo -u cowrie podman pull docker.io/cowrie/cowrie</span></span></code></pre></div>
+<p><strong><strong>4. Copy default config file into persistent volume</strong></strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo -u cowrie podman run --rm cowrie/cowrie <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  cat /cowrie/cowrie-git/etc/cowrie.cfg.dist &gt; /opt/cowrie/etc/cowrie.cfg</span></span></code></pre></div>
+<h4 id="cowrie-dot-cfg-basic-overview">🛠 cowrie.cfg – Basic Overview</h4>
+<p>The `cowrie.cfg` file is the main configuration for <strong><strong>Cowrie</strong></strong>, the SSH/Telnet
+honeypot we use. It uses INI-style syntax and is divided into sections. Each section
+begins with a header like <strong>[section_name]</strong>.</p>
+<ul>
+<li>
+<p>📁 Key Sections &amp; Settings</p>
+<p><strong><strong>[ssh] / [telnet]</strong></strong></p>
+<ul>
+<li>Enable or disable SSH/Telnet and set the port to listen on::
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>enabled <span style="color:#f92672">=</span> true
+</span></span><span style="display:flex;"><span>listen_port <span style="color:#f92672">=</span> <span style="color:#ae81ff">2222</span></span></span></code></pre></div>
+</li>
+</ul>
+<p><strong><strong>[honeypot]</strong></strong></p>
+<ul>
+<li>
+<p>Set honeypot host name and logpath properties:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>hostname <span style="color:#f92672">=</span> cowrie-host
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Directory where to save log files in.</span>
+</span></span><span style="display:flex;"><span>log_path <span style="color:#f92672">=</span> var/log/cowrie</span></span></code></pre></div>
+</li>
+<li>
+<p>Define login behavior:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>auth_class <span style="color:#f92672">=</span> AuthRandom
+</span></span><span style="display:flex;"><span>auth_class_parameters <span style="color:#f92672">=</span> 1, 5, <span style="color:#ae81ff">10</span></span></span></code></pre></div>
+<p>I use AuthRandom here which causes to allow access after &ldquo;randint(2,5)&rdquo;
+attempts. This means the threat actor will fail with some logins and some
+will be logged in immediately.</p>
+</li>
+</ul>
+<p><strong><strong>[output_jsonlog]</strong></strong></p>
+<ul>
+<li>Configure logging and output plugins:
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#f92672">[</span>output_jsonlog<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>enabled <span style="color:#f92672">=</span> true
+</span></span><span style="display:flex;"><span>logfile <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>honeypot:log_path<span style="color:#e6db74">}</span>/cowrie.json
+</span></span><span style="display:flex;"><span>epoch_timestamp <span style="color:#f92672">=</span> false</span></span></code></pre></div>
+This sets the default log location in the file-system, this is important so that file beat later can
+pickup on the juicy honeypot log files.</li>
+</ul>
+<p>This is the whole configuration needed to run the honeypot.</p>
+<p><!-- raw HTML omitted -->📌 Notes<!-- raw HTML omitted --></p>
+<ul>
+<li>Restart Cowrie after configuration changes.</li>
+<li>The configuration can be split across multiple `.cfg` files in `cowrie.cfg.d/` for modular setup.</li>
+</ul>
+</li>
+</ul>
+<h4 id="run-cowrie-container-as-cowrie-user">🚀 Run Cowrie Container as &lsquo;cowrie&rsquo; User</h4>
+<p>Once I had created the dedicated system user (see earlier section), I
+was able to run the Cowrie container with Podman using <code>sudo -u</code> and a secure UID mapping.</p>
+<ul>
+<li>
+<p>Step-by-Step Command explanation</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo -u cowrie podman run -d --name cowrie <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --uidmap 0:<span style="color:#66d9ef">$(</span>id -u cowrie<span style="color:#66d9ef">)</span>:1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v /opt/cowrie/etc:/cowrie/cowrie-git/etc:Z <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v /opt/cowrie/var:/cowrie/cowrie-git/var:Z <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 2222:2222 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  cowrie/cowrie</span></span></code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p>Explanation</p>
+<ul>
+<li><code>sudo -u cowrie</code>: Runs the Podman command as the unprivileged <code>cowrie</code> user.</li>
+<li><code>--uidmap 0:$(id -u cowrie):1</code>: Maps root (UID 0) <strong><strong>inside</strong></strong> the container to the <code>cowrie</code> UID on the host.</li>
+<li><code>-v /opt/cowrie/etc</code> and <code>/opt/cowrie/var</code>: Mounts configuration and data volumes from the host with `:Z` to apply correct SELinux labels (optional on systems without SELinux).</li>
+<li><code>-p 2222:2222</code>: Forwards port 2222 from host to container (Cowrie&rsquo;s SSH honeypot port).</li>
+<li><code>cowrie/cowrie</code>: The container image name (use latest or specific tag as needed).</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>Benefits:</p>
+<ul>
+<li>
+<p><strong><strong>Container runs as non-root on the host:</strong></strong>
+Even if a process inside the container thinks it&rsquo;s root, it&rsquo;s actually limited to the unprivileged <code>cowrie</code> user outside the container.</p>
+</li>
+<li>
+<p><strong><strong>Enhanced security:</strong></strong>
+If the container is compromised, the attacker only gets access as the <code>cowrie</code> user — not real root.</p>
+</li>
+<li>
+<p><strong><strong>Avoids root-equivalent risks:</strong></strong>
+Prevents privilege escalation or access to sensitive host files and devices.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="operating-the-honeypot">🎯 Operating the Honeypot</h4>
+<ul>
+<li>
+<p><strong><strong>View logs</strong></strong>
+I think to know how to debug the container is important so we start first
+with the logs:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo -u cowrie podman logs -f cowrie
+</span></span><span style="display:flex;"><span>...snip...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>HoneyPotSSHTransport,14,10.0.2.100<span style="color:#f92672">]</span> Closing TTY Log: var/lib/cowrie/tty/e52d9c508c502347344d8c07ad91cbd6068afc75ff6292f062a09ca381c89e71 after 0.8 seconds
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>cowrie.ssh.connection.CowrieSSHConnection#info<span style="color:#f92672">]</span> sending close <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>cowrie.ssh.session.HoneyPotSSHSession#info<span style="color:#f92672">]</span> remote close
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>HoneyPotSSHTransport,14,10.0.2.100<span style="color:#f92672">]</span> Got remote error, code <span style="color:#ae81ff">11</span> reason: b<span style="color:#e6db74">&#39;disconnected by user&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>HoneyPotSSHTransport,14,10.0.2.100<span style="color:#f92672">]</span> avatar root logging out
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>cowrie.ssh.transport.HoneyPotSSHTransport#info<span style="color:#f92672">]</span> connection lost
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>HoneyPotSSHTransport,14,10.0.2.100<span style="color:#f92672">]</span> Connection lost after 2.8 seconds
+</span></span><span style="display:flex;"><span>...snip...</span></span></code></pre></div>
+</li>
+<li>
+<p><strong><strong>Restart container</strong></strong>
+If things go left just restart that thing:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo -u cowrie podman restart cowrie</span></span></code></pre></div>
+<p>In the logs you can see that cowrie is running and accepting SSH connections:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>...snip...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>-<span style="color:#f92672">]</span> CowrieSSHFactory starting on <span style="color:#ae81ff">2222</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>cowrie.ssh.factory.CowrieSSHFactory#info<span style="color:#f92672">]</span> Starting factory &lt;cowrie.ssh.factory.CowrieSSHFactory object at 0x7fb66f26d0&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>-<span style="color:#f92672">]</span> Ready to accept SSH connections
+</span></span><span style="display:flex;"><span>...snip...</span></span></code></pre></div>
+<p>When the log says &ldquo;Ready to accept SSH connections&rdquo; I tested if I could login:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ssh 192.168.210.3 -p <span style="color:#ae81ff">2222</span> -l root
+</span></span><span style="display:flex;"><span>root@192.168.210.3 password:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The programs included with the Debian GNU/Linux system are free software;
+</span></span><span style="display:flex;"><span>the exact distribution terms <span style="color:#66d9ef">for</span> each program are described in the
+</span></span><span style="display:flex;"><span>individual files in /usr/share/doc/*/copyright.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+</span></span><span style="display:flex;"><span>permitted by applicable law.
+</span></span><span style="display:flex;"><span>root@svr04:~# uname -a
+</span></span><span style="display:flex;"><span>Linux svr04 3.2.0-4-amd64 <span style="color:#75715e">#1 SMP Debian 3.2.68-1+deb7u1 x86_64 GNU/Linux</span>
+</span></span><span style="display:flex;"><span>root@svr04:~#</span></span></code></pre></div>
+</li>
+<li>
+<p><strong><strong>Stop container</strong></strong>
+Nothing special here:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo -u cowrie podman stop cowrie</span></span></code></pre></div>
+</li>
+</ul>
+<hr>
+<h4 id="automatically-restart-cowrie-podman-container-with-systemd">🔄 Automatically Restart Cowrie Podman Container with systemd</h4>
+<p>To keep your Cowrie container running reliably and restart it if it stops, use a systemd service with restart policies.</p>
+<ul>
+<li>
+<p>Step 1: Generate a systemd Service File</p>
+<p>Create `/etc/systemd/system/cowrie-container.service` with the following content:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Description<span style="color:#f92672">=</span>Cowrie Honeypot Podman Container
+</span></span><span style="display:flex;"><span>After<span style="color:#f92672">=</span>network.target
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>User<span style="color:#f92672">=</span>cowrie
+</span></span><span style="display:flex;"><span>Group<span style="color:#f92672">=</span>cowrie
+</span></span><span style="display:flex;"><span>Restart<span style="color:#f92672">=</span>on-failure
+</span></span><span style="display:flex;"><span>RestartSec<span style="color:#f92672">=</span>10s
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ExecStart<span style="color:#f92672">=</span>/usr/bin/podman run -d --name cowrie <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --uidmap 0:<span style="color:#66d9ef">$(</span>id -u cowrie<span style="color:#66d9ef">)</span>:1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v /opt/cowrie/etc:/cowrie/cowrie-git/etc:Z <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v /opt/cowrie/var:/cowrie/cowrie-git/var:Z <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 2222:2222 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  cowrie/cowrie
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ExecStop<span style="color:#f92672">=</span>/usr/bin/podman stop -t <span style="color:#ae81ff">10</span> cowrie
+</span></span><span style="display:flex;"><span>ExecStopPost<span style="color:#f92672">=</span>/usr/bin/podman rm cowrie
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ExecReload<span style="color:#f92672">=</span>/usr/bin/podman restart cowrie
+</span></span><span style="display:flex;"><span>TimeoutStartSec<span style="color:#f92672">=</span><span style="color:#ae81ff">120</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>WantedBy<span style="color:#f92672">=</span>multi-user.target</span></span></code></pre></div>
+<ul>
+<li>The `&ndash;restart-policy=on-failure` makes systemd restart the container if it exits with a failure.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>Step 2: Enable the Service</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl daemon-reload
+</span></span><span style="display:flex;"><span>sudo systemctl enable --now container-cowrie.service</span></span></code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p>Step 3: (Optional) Add a Health Check Script</p>
+<p>To detect if Cowrie stops accepting connections even if the container is still running, create a health check script running as <code>cowrie</code>:</p>
+<p>Create `/usr/local/bin/check_cowrie.sh`:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> ! nc -z localhost 2222; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;Cowrie not responding, restarting container&#34;</span>
+</span></span><span style="display:flex;"><span>  /usr/bin/podman restart cowrie
+</span></span><span style="display:flex;"><span>  /usr/local/bin/pushover.sh <span style="color:#e6db74">&#34;Cowrie was restarted!&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span></span></span></code></pre></div>
+<p>This restarts the service and sends out a notification via pushover.</p>
+<p>Make it executable:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo chmod +x /usr/local/bin/check_cowrie.sh
+</span></span><span style="display:flex;"><span>sudo chown cowrie:cowrie /usr/local/bin/check_cowrie.sh</span></span></code></pre></div>
+<p>Create systemd service `/etc/systemd/system/check_cowrie.service`:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Check Cowrie honeypot health</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">User</span><span style="color:#f92672">=</span><span style="color:#e6db74">cowrie</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Group</span><span style="color:#f92672">=</span><span style="color:#e6db74">cowrie</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Type</span><span style="color:#f92672">=</span><span style="color:#e6db74">oneshot</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/local/bin/check_cowrie.sh</span></span></span></code></pre></div>
+<p>Create systemd timer `/etc/systemd/system/check_cowrie.timer`:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Run Cowrie health check every minute</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Timer]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">OnBootSec</span><span style="color:#f92672">=</span><span style="color:#e6db74">1min</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">OnUnitActiveSec</span><span style="color:#f92672">=</span><span style="color:#e6db74">1min</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Unit</span><span style="color:#f92672">=</span><span style="color:#e6db74">check_cowrie.service</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Install]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">timers.target</span></span></span></code></pre></div>
+<p>Enable and start the timer:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl daemon-reload
+</span></span><span style="display:flex;"><span>sudo systemctl enable --now check_cowrie.timer</span></span></code></pre></div>
+<hr>
+</li>
+</ul>
+<ul>
+<li>
+<p>Summary</p>
+<ul>
+<li>Used Podman’s systemd integration for automatic restart on container failure.</li>
+<li>Added a health check timer to detect if Cowrie stops accepting connections and restart proactively.</li>
+</ul>
+</li>
+</ul>
+<h4 id="security-notes">🔒 Security Notes</h4>
+<ul>
+<li>
+<p>The `cowrie` user has no login shell (`/usr/sbin/no login`)</p>
+</li>
+<li>
+<p>Running Cowrie isolated via Podman increases containment</p>
+</li>
+<li>
+<p>All files are owned by `cowrie`, no root access required for normal operation</p>
+<hr>
+</li>
+</ul>
+<h3 id="log-forwarding-with-filebeat">Log Forwarding with Filebeat</h3>
+<h4 id="install-filebeat-on-ubuntu">📦 Install Filebeat on Ubuntu</h4>
+<p><strong><strong>1. Add Elastic’s GPG key and repository</strong></strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elastic.gpg
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;deb [signed-by=/usr/share/keyrings/elastic.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main&#34;</span> | <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  sudo tee /etc/apt/sources.list.d/elastic-8.x.list</span></span></code></pre></div>
+<p><strong><strong>2. Update APT and install Filebeat</strong></strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install filebeat</span></span></code></pre></div>
+<h4 id="configure-and-test-filebeat">⚙ Configure and test Filebeat</h4>
+<p><strong><strong>3. Edit Filebeat config</strong></strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mg /etc/filebeat/filebeat.yml</span></span></code></pre></div>
+<p>The filebeat config is straight forward. You have to write a filebeat.input
+block which contains the path where the logfiles are you need to ingest. And
+at the end the log-destination (logstash) so that filebeat knows where to send
+the logs to:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">filebeat.inputs</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">type</span>: <span style="color:#ae81ff">log</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">paths</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/opt/cowrie/var/log/cowrie/cowrie.json</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">json.keys_under_root</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">json.add_error_key</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">fields</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">source</span>: <span style="color:#ae81ff">cowrie</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">fields_under_root</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">output.logstash</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hosts</span>: [<span style="color:#e6db74">&#34;192.168.123.5:5044&#34;</span>]</span></span></code></pre></div>
+<p><strong><strong>4. (Optional) Test Filebeat config</strong></strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo filebeat test config
+</span></span><span style="display:flex;"><span>logstash: 192.168.210.5:5044...
+</span></span><span style="display:flex;"><span>connection...
+</span></span><span style="display:flex;"><span>  parse host... OK
+</span></span><span style="display:flex;"><span>  dns lookup... OK
+</span></span><span style="display:flex;"><span>  addresses: 192.168.210.5
+</span></span><span style="display:flex;"><span>  dial up... OK
+</span></span><span style="display:flex;"><span>TLS... WARN secure connection disabled
+</span></span><span style="display:flex;"><span>talk to server... OK</span></span></code></pre></div>
+<h4 id="start-and-enable-filebeat">🚀 Start and Enable Filebeat</h4>
+<p><strong><strong>5. Enable and start Filebeat</strong></strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable filebeat
+</span></span><span style="display:flex;"><span>sudo systemctl daemon-reload
+</span></span><span style="display:flex;"><span>sudo systemctl start filebeat</span></span></code></pre></div>
+<p><strong><strong>6. Check Filebeat status and logs</strong></strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl status filebeat
+</span></span><span style="display:flex;"><span>sudo journalctl -u filebeat -f</span></span></code></pre></div>
+<hr>
+<h3 id="tl-dr-what-did-we-just-do">🎯 TL;DR – What Did We Just Do?</h3>
+<p><strong><strong>1. We deployed Cowrie like pros.</strong></strong></p>
+<ul>
+<li>Ran it safely in a Podman container under a non-login user.</li>
+<li>No mess, no root, no regrets.</li>
+</ul>
+<p><strong><strong>2. Logs? Sorted.</strong></strong></p>
+<ul>
+<li>Filebeat scooped up Cowrie’s logs and shipped them to Elasticsearch.</li>
+<li>Now we can actually <strong>see</strong> who&rsquo;s knocking on the honeypot door.</li>
+</ul>
+<p><strong><strong>3. Everything’s persistent.</strong></strong></p>
+<ul>
+<li>Configs and logs live outside the container. Cowrie forgets nothing—even after a reboot.</li>
+</ul>
+<p><strong><strong>4. Setup is clean and modular.</strong></strong></p>
+<ul>
+<li>Each part (Cowrie, Filebeat, Elasticsearch) does its job.</li>
+<li>Break one, fix one—no domino disasters.</li>
+</ul>
+<p><strong><strong>5. It’s nerdy, useful, and kinda fun.</strong></strong></p>
+<ul>
+<li>Now I built a mini threat intel system.</li>
+<li>Now I can sit back, sip coffee, and watch the kiddies play.</li>
+</ul>
+<h3 id="whats-next">Whats next</h3>
+<p>Next I build the <a href="~/../honeyhttpd">HTTP Honeypot</a></p>
+<h2 id="honeyhttpd"><!-- raw HTML omitted -->TODO<!-- raw HTML omitted --> Threathunting III: HTTP Honeypot develop and setup <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted -->honeypot<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h3 id="introduction">Introduction</h3>
+<h4 id="brief-overview-of-the-use-case">Brief overview of the use case</h4>
+<p>I recently set out to ingest web traffic data into my SIEM solution,
+which requires data to be ingested in a specific format. After
+researching various options, I sought an easy-to-use solution that could
+integrate with our existing Elasticsearch setup. One tool that caught my
+attention was HoneyPot HTTPD.</p>
+<p>As I researched potential solutions, I realized that many of them
+required manual configuration and scripting to ingest web data into
+Elasticsearch. However, HoneyPot HTTPD offered a simple and elegant way
+to do so through its built-in ingestion feature. This was especially
+appealing since I wanted to integrate the web traffic data with our
+existing SIEM setup that utilized Elasticsearch.</p>
+<p>In particular, I needed a tool that could collect web traffic data and
+forward it to a centralized location for analysis and processing.
+Honeypot HTTPD&rsquo;s ability to ingest web data into Elasticsearch made it
+an attractive choice, as it would allow me to leverage our existing
+Elasticsearch infrastructure and integrate the data with our SIEM
+solution seamlessly.</p>
+<p>With this in mind, I set out to explore how to use HoneyPot HTTPD to
+ingest web traffic data into Elasticsearch. In the following sections,
+I&rsquo;ll walk you through the steps I took to configure HoneyPot HTTPD for
+ingestion, including the Dockerfile used to build the container and any
+additional configuration settings required.</p>
+<h3 id="setting-up-honeypot-httpd-for-web-data-ingestion">Setting up HoneyPot HTTPD for Web Data Ingestion and adjust code for our needs</h3>
+<h4 id="containerizing-the-application-to-run-inside-docker">Containerizing the application to run inside docker</h4>
+<ul>
+<li>
+<p>Creating a Dockerfile</p>
+<p>I started by creating a Dockerfile that would build the HoneHTTPD
+image. The Dockerfile included the following instructions:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Use python base image</span>
+</span></span><span style="display:flex;"><span>FROM python:3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set environment</span>
+</span></span><span style="display:flex;"><span>ARG APP_NAME<span style="color:#f92672">=</span>honeyhttpd
+</span></span><span style="display:flex;"><span>ENV APP_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>APP_NAME<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ARG USER_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10001&#34;</span>
+</span></span><span style="display:flex;"><span>ARG GROUP_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>
+</span></span><span style="display:flex;"><span>ARG HOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/app&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ENV HOME<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create user and environment</span>
+</span></span><span style="display:flex;"><span>RUN groupadd --gid <span style="color:#e6db74">${</span>USER_ID<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    useradd --create-home --uid <span style="color:#e6db74">${</span>USER_ID<span style="color:#e6db74">}</span> --gid <span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span> --home-dir /app <span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install dependencies</span>
+</span></span><span style="display:flex;"><span>RUN apt-get update <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get install -y --no-install-recommends <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        file        <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        gcc         <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        libwww-perl curl unzip <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get autoremove -y <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get clean
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set workdir</span>
+</span></span><span style="display:flex;"><span>WORKDIR <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Copy config files and certs into container</span>
+</span></span><span style="display:flex;"><span>COPY ./requirements.txt .
+</span></span><span style="display:flex;"><span>COPY ./config.json .
+</span></span><span style="display:flex;"><span>COPY ./server*.pem .
+</span></span><span style="display:flex;"><span>COPY ./ca.crt .
+</span></span><span style="display:flex;"><span>COPY honeyhttpd logs servers util .
+</span></span><span style="display:flex;"><span>COPY start.py .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Upgrade python packages and install dependencies</span>
+</span></span><span style="display:flex;"><span>RUN pip3 install --upgrade pip
+</span></span><span style="display:flex;"><span>RUN pip3 install virtualenv
+</span></span><span style="display:flex;"><span>RUN python3 -m virtualenv <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>virtualenv <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>RUN pip3 install --no-cache-dir --upgrade pip setuptools wheel elasticsearch<span style="color:#f92672">==</span>8.13.0 <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>pip3 install --no-cache-dir --upgrade -r ./requirements.txt <span style="color:#f92672">&amp;&amp;</span> pip3 install -r ./requirements.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ADD . <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remove compilers</span>
+</span></span><span style="display:flex;"><span>RUN apt-get remove gcc --purge -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Drop root and change ownership of the application folder to the user</span>
+</span></span><span style="display:flex;"><span>RUN chown -R <span style="color:#e6db74">${</span>USER_ID<span style="color:#e6db74">}</span>:<span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>USER <span style="color:#e6db74">${</span>USER_ID<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expose Honeypot ports to outside world</span>
+</span></span><span style="display:flex;"><span> EXPOSE 8443:8443
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># run cowrie with config</span>
+</span></span><span style="display:flex;"><span>CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;python3&#34;</span>, <span style="color:#e6db74">&#34;start.py&#34;</span>, <span style="color:#e6db74">&#34;--config&#34;</span>, <span style="color:#e6db74">&#34;config.json&#34;</span><span style="color:#f92672">]</span></span></span></code></pre></div>
+<p>In this Dockerfile, I:</p>
+<ul>
+<li>Used the official Ubuntu image as the base image</li>
+<li>Installed necessary dependencies, including Python and pip</li>
+<li>Installed the required packages, including HoneyPot HTTPD</li>
+<li>Set the working directory to /usr/local/bin to run the application
+from</li>
+<li>Exposed port 80 for HTTP traffic</li>
+<li>Copied the configuration file (config.yaml) into the container</li>
+<li>Specified the command to run HoneyPot HTTPD with the -c option,
+which points</li>
+<li>to the configuration file</li>
+</ul>
+</li>
+<li>
+<p>Building and Running the Container</p>
+<p>Once I had created the Dockerfile, I built the image by running the
+following command:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo docker build -t honeyhttpd .</span></span></code></pre></div>
+<p>This command told Docker to create an image with the tag honeyhttpd
+using the instructions in the Dockerfile.To run the container, I used
+the following command:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo docker run --hostname honeyhttpd -p 8443:8443 honeyhttpd</span></span></code></pre></div>
+<p>This command started a new container from the honeyhttpd image and
+mapped port 8443 on the host machine to the port 8443 in the container.</p>
+</li>
+<li>
+<p>Configuring the Container</p>
+<p>To configure the honeypot, I updated the config.yaml file to point to
+my Elasticsearch instance. Here&rsquo;s an example of what the configuration
+file might look like:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;loggers&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ElasticSearchLogger&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;active&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;config&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;server&#34;</span>: <span style="color:#e6db74">&#34;https://192.168.210.95:9200&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;verify_certs&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;elastic&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;SecretPassword&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;index&#34;</span>: <span style="color:#e6db74">&#34;cowrie.webhoneypot&#34;</span>,
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }</span></span></code></pre></div>
+<p>the server config itself is quite simplistic:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;servers&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> [
+</span></span><span style="display:flex;"><span>        {<span style="color:#f92672">&#34;handler&#34;</span>: <span style="color:#e6db74">&#34;ApachePasswordServer&#34;</span>, <span style="color:#f92672">&#34;mode&#34;</span>: <span style="color:#e6db74">&#34;https&#34;</span>, <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">8443</span>, <span style="color:#f92672">&#34;domain&#34;</span>: <span style="color:#e6db74">&#34;cooldomain.com&#34;</span>, <span style="color:#f92672">&#34;timeout&#34;</span>: <span style="color:#ae81ff">10</span>, <span style="color:#f92672">&#34;cert_path&#34;</span>: <span style="color:#e6db74">&#34;server_cert.pem&#34;</span>, <span style="color:#f92672">&#34;key_path&#34;</span>: <span style="color:#e6db74">&#34;server_key.pem&#34;</span>},
+</span></span><span style="display:flex;"><span>    ]<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;user&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;nobody&#34;</span><span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;group&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;nogroup&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span></span></span></code></pre></div>
+<p>This configuration told HoneyPot HTTPD to forward web traffic data to
+my Elasticsearch instance, where it could be processed and stored.</p>
+<p>For the cert_path and key_path we earlier copied the self signed cert and
+key to the container.</p>
+<p>With the container running and configured, I was now ready to test
+HoneyPot HTTPD&rsquo;s ability to ingest web traffic data into
+Elasticsearch.</p>
+<p>Which I did with just opening <a href="https://honeypot.home.arpa:8443" rel="external" target="_blank">https://honeypot.home.arpa:8443</a> in my
+webbrowser. Which gave me the htpasswd auth prompt.</p>
+</li>
+</ul>
+<h4 id="code-adjustments-for-our-environment">🚀 Code adjustments for our environment</h4>
+<p>I started from the original `ApachePasswordServer` in honeyhttpd, which was
+fairly minimal—it simply responded with a 401 on selected paths and captured
+credentials in a rudimentary way. I overhauled it to better structure logging,
+extract metadata, and sanitize inputs before sending logs to Elasticsearch.</p>
+<p>Below, I explain each change with commentary.</p>
+<ul>
+<li>
+<p>🔐 Improvements in `ApachePasswordServer.py`: Credential Logging and Header Parsing</p>
+<p>This update significantly extends the functionality of `ApachePasswordServer.py`.
+It builds on the original honeyhttpd implementation by enhancing its ability to simulate
+Basic Authentication, extract and decode credentials from the `Authorization` header,
+and log structured metadata about each HTTP request and response.</p>
+<p>It now integrates tightly with an `ElasticSearchLogger`, providing enriched, sanitized logs
+for further analysis or visualization. Custom helper functions ensure safe parsing,
+while connection and client metadata offer greater context to the captured events.</p>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p>📊 Summary of Changes</p>
+<ul>
+<li>2 files changed: `ApachePasswordServer.py` and `Elasticsearchlogger.py`</li>
+<li>Key improvements:
+<ul>
+<li>Simulation of Basic Auth (401 challenge on sensitive paths)</li>
+<li>Credential extraction and decoding from `Authorization` header</li>
+<li>Connection metadata collection (IP, port, useragent etc.)</li>
+<li>Header parsing with case-insensitive lookup</li>
+<li>Structured request and response logging</li>
+<li>Integration with `ElasticSearchLogger`</li>
+<li>Safer JSON serialization and error handling</li>
+</ul>
+</li>
+</ul>
+<p>Here I describe how I extended the honeypot server to improve credential
+logging and integrate with Elasticsearch for structured logging.</p>
+<p>Starting from a basic server that simply issued 401 responses,
+I added features to parse HTTP requests, decode Basic Auth headers,
+and enrich logs with request and connection metadata. This makes the
+server far more useful for DFIR research and threat hunting.</p>
+<hr>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>Original baseline from (for reference)</p>
+<p>Big thanks to the great ground wrok from bocajspear1
+over at github with the <a href="https://github.com/bocajspear1/honeyhttpd" rel="external" target="_blank">honeyHTTPD</a> Server. That way
+I did not had to write all from scratch. But I still had to
+make some improvements in order to use the honeypot in my Environment.</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> servers.ApacheServer <span style="color:#f92672">import</span> ApacheServer
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> honeyhttpd.lib.encode <span style="color:#66d9ef">as</span> encode
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ApachePasswordServer</span>(ApacheServer):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_request</span>(self, handler):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>, <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_GET</span>(self, path, headers):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> path <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#f92672">or</span> path <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;/index.php&#34;</span> <span style="color:#f92672">or</span> path <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;/admin&#34;</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">401</span>, [],  <span style="color:#e6db74">&#34;Basic realm=</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">Secure Area</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">404</span>, [], <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_POST</span>(self, path, headers, post_data):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">404</span>, [], <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_error</span>(self, code, headers, message):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> code, [(<span style="color:#e6db74">&#34;Connection&#34;</span>, <span style="color:#e6db74">&#34;close&#34;</span>), (<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;text/html; charset=iso-8859-1&#34;</span>)], message
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_complete</span>(self, client, code, req_headers, res_headers, request, response):
+</span></span><span style="display:flex;"><span>        extra <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> header <span style="color:#f92672">in</span> req_headers:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> header[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>lower() <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;authorization&#34;</span>:
+</span></span><span style="display:flex;"><span>                auth_split <span style="color:#f92672">=</span> header[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> len(auth_split) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>                    auth_data <span style="color:#f92672">=</span> auth_split[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>                    extra[<span style="color:#e6db74">&#39;creds&#39;</span>] <span style="color:#f92672">=</span> encode<span style="color:#f92672">.</span>decode_base64(auth_data)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>log(client, request, response, extra)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">default_headers</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> []</span></span></code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p>🆕 Auto-Injection of `ElasticSearchLogger` in `_<em>init</em>_()`</p>
+<p>To ensure consistent structured logging, `ElasticSearchLogger` is
+now injected into the logger stack if not already present.</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#a6e22e">+ if loggers is None:
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+     loggers = []
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+ if not any(isinstance(logger, ElasticSearchLogger) for logger in loggers):
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+     loggers.append(ElasticSearchLogger())
+</span></span></span></code></pre></div>
+<p>This avoids missing logs if the user forgets to pass a logger during instantiation.</p>
+<hr>
+</li>
+</ul>
+<ul>
+<li>
+<p>🔐 New GET Handler Simulates Apache Basic Auth Challenge</p>
+<p>The server now returns `401 Unauthorized` and prompts for credentials on common admin paths.</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#a6e22e">+ def on_GET(self, path, headers):
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+     if path in [&#34;/&#34;, &#34;/index.php&#34;, &#34;/admin&#34;]:
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+         return 401, [], &#39;Basic realm=&#34;Secure Area&#34;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+     return 404, [], &#34;&#34;
+</span></span></span></code></pre></div>
+<p>This turns the honeypot into a credential trap for automated brute-forcers and scanners.</p>
+<hr>
+</li>
+</ul>
+<ul>
+<li>
+<p>🧰 New Helper Functions for Header Parsing and Auth Decoding</p>
+<p>Two utility functions were introduced:</p>
+<ul>
+<li>`parse_to_json()` transforms header tuples into a JSON dictionary.</li>
+<li>`decode_basic_auth()` decodes Base64 credentials and validates them.</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">parse_to_json</span>(data):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> json<span style="color:#f92672">.</span>dumps({key: value <span style="color:#66d9ef">for</span> key, value <span style="color:#f92672">in</span> data})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decode_basic_auth</span>(b64_string):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        decoded_bytes <span style="color:#f92672">=</span> base64<span style="color:#f92672">.</span>b64decode(b64_string, validate<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>        decoded_str <span style="color:#f92672">=</span> decoded_bytes<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;utf-8&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#f92672">in</span> decoded_str:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> decoded_str
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;[invalid format: missing colon]&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[decode error: </span><span style="color:#e6db74">{</span>e<span style="color:#e6db74">}</span><span style="color:#e6db74">]&#34;</span></span></span></code></pre></div>
+<p>These enable safe and consistent parsing for incoming HTTP headers.</p>
+<hr>
+</li>
+</ul>
+<ul>
+<li>
+<p>📦 Structured Request Parsing &amp; Credential Extraction in `on_complete()`</p>
+<p>The `on_complete()` method has been completely reworked to:</p>
+<ul>
+<li>Parse the HTTP request line</li>
+<li>Convert headers to a JSON object</li>
+<li>Extract relevant metadata and credentials</li>
+<li>Store all data in `req_dict`, passed to the logger</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#f92672">-        extra = {}
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+        req_dict = {}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>...
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        lines = request.split(&#39;\n&#39;)
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        first_line = lines[0].strip()
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        parts = first_line.split()
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        requested_url = parts[1] if len(parts) &gt; 1 else &#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        method = parts[0] if len(parts) &gt; 0 else &#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;request_body&#39;] = requested_url
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;method&#39;] = method
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;code&#39;] = code
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        try:
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            req_output = parse_to_json(req_headers)
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            parsed_req = json.loads(req_output)
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        except Exception as e:
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            parsed_req = {}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        for key in [&#39;Host&#39;, &#39;User-Agent&#39;, &#39;Accept&#39;, &#39;Accept-Language&#39;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                    &#39;Accept-Encoding&#39;, &#39;Authorization&#39;]:
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            req_dict[key] = parsed_req.get(key, &#39;&#39;)
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        auth = parsed_req.get(&#39;Authorization&#39;, &#39;&#39;)
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        if auth.startswith(&#34;Basic &#34;):
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            try:
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                auth_data = auth.split(&#34; &#34;, 1)[1]
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                decoded_creds = encode.decode_base64(auth_data)
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                req_dict[&#39;creds&#39;] = decoded_creds
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            except Exception as e:
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                req_dict[&#39;creds&#39;] = f&#34;[decode error: {e}]&#34;
+</span></span></span></code></pre></div>
+<p>This prepares your logs to include useful hunting metadata for later analysis.</p>
+<hr>
+</li>
+</ul>
+<ul>
+<li>
+<p>🌐 Enriched Connection Metadata Logging</p>
+<p>Additional context is logged to `req_dict`, including:</p>
+<ul>
+<li>Remote IP and port</li>
+<li>SSL usage</li>
+<li>Listening port</li>
+<li>HTTP response code</li>
+<li>Response headers</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#a6e22e">+        remote_ip = client[0] if isinstance(client, tuple) else &#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        remote_port = client[1] if isinstance(client, tuple) else &#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        is_ssl = getattr(self, &#39;is_ssl&#39;, False)
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        port = getattr(self, &#39;port&#39;, &#39;8843&#39;)
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;remote_ip&#39;] = remote_ip
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;remote_port&#39;] = remote_port
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;is_ssl&#39;] = is_ssl
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;port&#39;] = port
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;response_headers&#39;] = res_dict
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        self.log(client, request, response, res_dict, req_dict)
+</span></span></span></code></pre></div>
+<p>This provides rich forensic data for Elasticsearch or Splunk pipelines.</p>
+<hr>
+</li>
+</ul>
+<ul>
+<li>
+<p>🔑 Highlights</p>
+<ul>
+<li>
+<p><strong><strong>🆕 Auto-injection of `ElasticSearchLogger`</strong></strong>
+Ensures logs are never silently dropped, even if no logger is passed explicitly.</p>
+</li>
+<li>
+<p><strong><strong>🔐 Basic Auth Simulation with 401 Challenge</strong></strong>
+Returns `401 Unauthorized` on suspicious paths to bait scanners.</p>
+</li>
+<li>
+<p><strong><strong>🧰 Safe Parsing &amp; Decoding with Helpers</strong></strong>
+New functions `parse_to_json()` and `decode_basic_auth()` added for reliability.</p>
+</li>
+<li>
+<p><strong><strong>📦 Structured Logging in `on_complete()`</strong></strong>
+Fully rewritten to extract metadata, decode credentials, and prepare logs.</p>
+</li>
+<li>
+<p><strong><strong>🌐 Rich Connection Context</strong></strong>
+Logs IP, port, SSL usage, and full response headers for correlation.</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>🧠 Use Case</p>
+<p>These changes upgrade `ApachePasswordServer.py` from a toy honeypot to a serious data source for threat hunting. It can now be safely deployed in research environments, logging attack metadata in structured formats ideal for analysis pipelines like Elasticsearch + Kibana or Splunk.</p>
+</li>
+</ul>
+<h4 id="v-dot-conclusion">📝 Conclusion</h4>
+<ul>
+<li>
+<p>🔑 Key points about using HoneyPotHTTPD to ingest web data into Elasticsearch</p>
+<p>This article detailed how I enhanced `ApachePasswordServer.py` to make the
+simple honeypot into a powerful tool for capturing attacker behavior. By
+simulating Apache Basic Authentication challenges and extracting credentials
+from incoming requests, I enabled my honeypot effectively to bait malicious actors.</p>
+<p>Structured parsing of HTTP requests and responses combined with integration
+into `ElasticSearchLogger` allows me to generate rich, queryable logs,
+complete with client metadata, HTTP headers, and decoded credentials.</p>
+<p>This setup not only captures raw data but also organizes it in a way that
+facilitates downstream analysis using Elasticsearch or similar log management
+platforms.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>💡 Final thoughts</p>
+<p>on the value of this setup for your organization&rsquo;s threat hunting or
+security operations.</p>
+<p>Deploying this enhanced honeypot within your environment equips your security
+team with detailed, actionable insights into attacker tactics and techniques.
+The ability to collect and analyze credential attempts and associated metadatah
+improves detection fidelity and supports incident response efforts.</p>
+<p>By bridging the gap between mere detection and detailed forensic logging, this
+solution empowers proactive threat hunting and accelerates the identification
+of emerging attack patterns. Integrating it into your security operations stack
+can thus significantly boost your organization&rsquo;s defensive capabilities.</p>
+<p>TODO - Extensivce testing of the honeypot, there will be an article coming up
+how to do automated honeypot testing with Zap proxy, stay tuned!</p>
+</li>
+</ul>
+<h2 id="threathunting-iv-setup-elk-server-and-ingest-data"><!-- raw HTML omitted -->DRAFT<!-- raw HTML omitted --> Threathunting IV: Setup ELK Server and ingest data <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted -->visibility<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h2 id="testing-webhoneypots-with-zap-in-server-mode"><!-- raw HTML omitted -->DRAFT<!-- raw HTML omitted --> Testing webhoneypots with ZAP in server mode <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+
+  <footer class="footline">
+              <i class='fa-fw fas fa-calendar'></i> Aug 12, 2025
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="/index.html">
+            <div class="logo-title">Forensic wheels</div>
+          </a>
+        </div>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="parent " data-nav-id="/posts/index.html"><a class="padding" href="/posts/index.html">Forensic wheels</a><ul id="R-subsections-b4e55eb7e39db1aee6d02808a2267090" class="collapsible-menu">
+            <li class="" data-nav-id="/posts/threathuntingnet/index.html"><a class="padding" href="/posts/threathuntingnet/index.html">Threathunting I: Network setup</a></li>
+            <li class="" data-nav-id="/posts/theathuntinghoneypot/index.html"><a class="padding" href="/posts/theathuntinghoneypot/index.html">Threat hunting II: SSH Honeypot setup</a></li>
+            <li class="" data-nav-id="/posts/openbsdzen/index.html"><a class="padding" href="/posts/openbsdzen/index.html">OpenBSD and Zen</a></li>
+            <li class="active " data-nav-id="/posts/adventuresthreathunting/index.html"><a class="padding" href="/posts/adventuresthreathunting/index.html">Adventures in threathunting</a></li></ul></li>
+            <li class="" data-nav-id="/about/index.html"><a class="padding" href="/about/index.html">About</a></li>
+            <li class="" data-nav-id="/justashell/index.html"><a class="padding" href="/justashell/index.html">Just a shell</a></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+            <li class="R-variantswitcher">
+              <div class="padding menu-control">
+                <i class="fa-fw fas fa-paint-brush"></i>
+                <span>&nbsp;</span>
+                <div class="control-style">
+                  <label class="a11y-only" for="R-select-variant">Theme</label>
+                  <select id="R-select-variant">
+                    <option id="R-select-variant-auto" value="auto" selected>Auto</option>
+                    <option id="R-select-variant-neon" value="neon">Neon</option>
+                  </select>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <script>window.relearn.markVariant();</script>
+            </li>
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="/js/clipboard/clipboard.min.js?1754998939" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1754998939" defer></script>
+    <script src="/js/theme.js?1754998939" defer></script>
+  </body>
+</html>

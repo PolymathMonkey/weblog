@@ -766,7 +766,7 @@ additional configuration settings required.
     RUN pip3 install virtualenv
     RUN python3 -m virtualenv ${HOME} && \
     virtualenv ${HOME}
-    RUN pip3 install --no-cache-dir --upgrade pip setuptools wheel elasticsearch && \
+    RUN pip3 install --no-cache-dir --upgrade pip setuptools wheel elasticsearch==8.13.0 && \
     pip3 install --no-cache-dir --upgrade -r ./requirements.txt && pip3 install -r ./requirements.txt
 
     ADD . ${HOME}
@@ -779,9 +779,7 @@ additional configuration settings required.
     USER ${USER_ID}
 
     # Expose Honeypot ports to outside world
-    EXPOSE 8888:8888
-    EXPOSE 8889:8889
-    EXPOSE 8443:8443
+     EXPOSE 8443:8443
 
     # run cowrie with config
     CMD ["python3", "start.py", "--config", "config.json"]
@@ -813,16 +811,15 @@ additional configuration settings required.
   using the instructions in the Dockerfile.To run the container, I used
   the following command:
 
-  #+begin_src sh @@comment: wrong command@@
-    sudo docker run --hostname honeyhttpd -p 8443:8443 -p 8888:8888 -p 8889:8889 honeyhttpd'
+  #+begin_src sh
+    sudo docker run --hostname honeyhttpd -p 8443:8443 honeyhttpd
   #+end_src
 
   This command started a new container from the honeyhttpd image and
-  mapped port 8443, 8888 and 8889 on the host machine to the ports 8443,8888
-  and 8889 in the container.
+  mapped port 8443 on the host machine to the port 8443 in the container.
   
-- Configuring the Container @@comment: This is bullshit @@
-
+- Configuring the Container
+  
   To configure the honeypot, I updated the config.yaml file to point to
   my Elasticsearch instance. Here's an example of what the configuration
   file might look like:
@@ -832,48 +829,123 @@ additional configuration settings required.
         "ElasticSearchLogger": {
             "active": true,
             "config": {
-                "server": "https://192.168.210.5:9200",
-                "verify_certs": true, <- honeypot needs the ca.crt to know the self signed cert
+                "server": "https://192.168.210.95:9200",
+                "verify_certs": true,
                 "username": "elastic",
                 "password": "SecretPassword",
-                "index": "cowrie.webhoneypot", <- this is the index the webhoneypot writes its data to
-                "debug": false
+                "index": "cowrie.webhoneypot",
             }
         }
+  #+end_src
+
+  the server config itself is quite simplistic:
+
+  #+BEGIN_SRC json
+  "servers" : [
+	{"handler": "ApachePasswordServer", "mode": "https", "port": 8443, "domain": "cooldomain.com", "timeout": 10, "cert_path": "server_cert.pem", "key_path": "server_key.pem"},
+    ],
+    "user": "nobody",
+    "group": "nogroup"
+}
   #+end_src
 
   This configuration told HoneyPot HTTPD to forward web traffic data to
   my Elasticsearch instance, where it could be processed and stored.
 
+  For the cert_path and key_path we earlier copied the self signed cert and
+  key to the container. 
+
   With the container running and configured, I was now ready to test
   HoneyPot HTTPD's ability to ingest web traffic data into
   Elasticsearch.
 
-  Which I did with just opening https://tb.home.arpa:8443 in my webbrowser
-*** Code adjustments for our environment
+  Which I did with just opening https://honeypot.home.arpa:8443 in my
+  webbrowser. Which gave me the htpasswd auth prompt. 
+  
+*** 🚀 Code adjustments for our environment
+
+I started from the original `ApachePasswordServer` in honeyhttpd, which was
+fairly minimal—it simply responded with a 401 on selected paths and captured
+credentials in a rudimentary way. I overhauled it to better structure logging,
+extract metadata, and sanitize inputs before sending logs to Elasticsearch.
+
+Below, I explain each change with commentary.
+
 **** 🔐 Improvements in `ApachePasswordServer.py`: Credential Logging and Header Parsing
 
-This update significantly enhances `ApachePasswordServer.py` by simulating
-Basic Authentication, extracting credentials from the `Authorization` header,
-and enriching log data with structured request and response metadata.
-It also ensures integration with `ElasticSearchLogger` and introduces
-helper functions for safer parsing and decoding.
+This update significantly extends the functionality of `ApachePasswordServer.py`.
+It builds on the original honeyhttpd implementation by enhancing its ability to simulate
+Basic Authentication, extract and decode credentials from the `Authorization` header,
+and log structured metadata about each HTTP request and response.
+
+It now integrates tightly with an `ElasticSearchLogger`, providing enriched, sanitized logs
+for further analysis or visualization. Custom helper functions ensure safe parsing,
+while connection and client metadata offer greater context to the captured events.
 
 ***** 📊 Summary of Changes
 
-- 1 file changed: `ApachePasswordServer.py`
-- ~120 insertions, ~10 deletions
+- 2 files changed: `ApachePasswordServer.py` and `Elasticsearchlogger.py`
 - Key improvements:
-  - Basic Auth simulation (401 challenge)
-  - Credential harvesting from Authorization header
+  - Simulation of Basic Auth (401 challenge on sensitive paths)
+  - Credential extraction and decoding from `Authorization` header
+  - Connection metadata collection (IP, port, useragent etc.)
+  - Header parsing with case-insensitive lookup
+  - Structured request and response logging
   - Integration with `ElasticSearchLogger`
-  - Structured logging with metadata (IP, method, headers)
+  - Safer JSON serialization and error handling
+Here I describe how I extended the honeypot server to improve credential
+logging and integrate with Elasticsearch for structured logging.
+
+Starting from a basic server that simply issued 401 responses,
+I added features to parse HTTP requests, decode Basic Auth headers,
+and enrich logs with request and connection metadata. This makes the
+server far more useful for DFIR research and threat hunting.
 
 ---
 
-***** 🆕 Auto-Injection of `ElasticSearchLogger` in `__init__()`
+**** Original baseline from (for reference)
 
-To ensure consistent structured logging, `ElasticSearchLogger` is now injected into the logger stack if not already present.
+Big thanks to the great ground wrok from bocajspear1
+over at github with the [[https://github.com/bocajspear1/honeyhttpd][honeyHTTPD]] Server. That way
+I did not had to write all from scratch. But I still had to
+make some improvements in order to use the honeypot in my Environment.
+#+begin_src python
+from servers.ApacheServer import ApacheServer
+import honeyhttpd.lib.encode as encode
+
+class ApachePasswordServer(ApacheServer):
+    def on_request(self, handler):
+        return None, None
+
+    def on_GET(self, path, headers):
+        if path == "/" or path == "/index.php" or path == "/admin":
+            return 401, [],  "Basic realm=\"Secure Area\""
+        return 404, [], ""
+
+    def on_POST(self, path, headers, post_data):
+        return 404, [], ""
+
+    def on_error(self, code, headers, message):
+        return code, [("Connection", "close"), ("Content-Type", "text/html; charset=iso-8859-1")], message
+
+    def on_complete(self, client, code, req_headers, res_headers, request, response):
+        extra = {}
+        for header in req_headers:
+            if header[0].lower() == "authorization":
+                auth_split = header[1].split(" ")
+                if len(auth_split) > 1:
+                    auth_data = auth_split[1]
+                    extra['creds'] = encode.decode_base64(auth_data)
+        self.log(client, request, response, extra)
+
+    def default_headers(self):
+        return []
+#+end_src
+
+
+**** 🆕 Auto-Injection of `ElasticSearchLogger` in `__init__()`
+To ensure consistent structured logging, `ElasticSearchLogger` is
+now injected into the logger stack if not already present.
 
 #+begin_src diff
 + if loggers is None:
@@ -886,8 +958,7 @@ This avoids missing logs if the user forgets to pass a logger during instantiati
 
 ---
 
-***** 🔐 New GET Handler Simulates Apache Basic Auth Challenge
-
+**** 🔐 New GET Handler Simulates Apache Basic Auth Challenge
 The server now returns `401 Unauthorized` and prompts for credentials on common admin paths.
 
 #+begin_src diff
@@ -901,8 +972,7 @@ This turns the honeypot into a credential trap for automated brute-forcers and s
 
 ---
 
-***** 🧰 New Helper Functions for Header Parsing and Auth Decoding
-
+**** 🧰 New Helper Functions for Header Parsing and Auth Decoding
 Two utility functions were introduced:
 
 - `parse_to_json()` transforms header tuples into a JSON dictionary.
@@ -928,8 +998,7 @@ These enable safe and consistent parsing for incoming HTTP headers.
 
 ---
 
-***** 📦 Structured Request Parsing & Credential Extraction in `on_complete()`
-
+**** 📦 Structured Request Parsing & Credential Extraction in `on_complete()`
 The `on_complete()` method has been completely reworked to:
 
 - Parse the HTTP request line
@@ -974,8 +1043,7 @@ This prepares your logs to include useful hunting metadata for later analysis.
 
 ---
 
-***** 🌐 Enriched Connection Metadata Logging
-
+**** 🌐 Enriched Connection Metadata Logging
 Additional context is logged to `req_dict`, including:
 
 - Remote IP and port
@@ -1003,55 +1071,65 @@ This provides rich forensic data for Elasticsearch or Splunk pipelines.
 
 ---
 
-***** ✅ Result
+**** 🔑 Highlights
 
-These changes turn `ApachePasswordServer` into a more useful honeypot component for DFIR or threat hunting research.
+- **🆕 Auto-injection of `ElasticSearchLogger`**  
+  Ensures logs are never silently dropped, even if no logger is passed explicitly.
 
-It now supports:
+- **🔐 Basic Auth Simulation with 401 Challenge**  
+  Returns `401 Unauthorized` on suspicious paths to bait scanners.
 
-- Credential collection from Basic Auth attacks
-- Well-structured logs for easy ingestion
-- Full IP/session/request context per event
-- Easier extensibility for new headers or paths
+- **🧰 Safe Parsing & Decoding with Helpers**  
+  New functions `parse_to_json()` and `decode_basic_auth()` added for reliability.
 
-You’re now well-positioned to integrate this into a broader threat hunting or research stack.
+- **📦 Structured Logging in `on_complete()`**  
+  Fully rewritten to extract metadata, decode credentials, and prepare logs.
 
+- **🌐 Rich Connection Context**  
+  Logs IP, port, SSL usage, and full response headers for correlation.
 
-** Ingesting Web Data into Elasticsearch with HoneyPot HTTPD
-:PROPERTIES:
-:CUSTOM_ID: iii-dot-ingesting-web-data-into-elasticsearch-with-honeypot-httpd
-:END:
-*** Explanation of how to use the honeyhttpd command-line tool to ingest web data into Elasticsearch
-:PROPERTIES:
-:CUSTOM_ID: explanation-of-how-to-use-the-honeyhttpd-command-line-tool-to-ingest-web-data-into-elasticsearch
-:END:
-*** Example of how to configure the honeyhttpd output to match your desired Elasticsearch index structure
-:PROPERTIES:
-:CUSTOM_ID: example-of-how-to-configure-the-honeyhttpd-output-to-match-your-desired-elasticsearch-index-structure
-:END:
-** Benefits and Use Cases
-:PROPERTIES:
-:CUSTOM_ID: iv-dot-benefits-and-use-cases
-:END:
-*** Discussion of the benefits of using HoneyPot HTTPD for ingesting web data into Elasticsearch (e.g., improved threat detection, enhanced visibility)
-:PROPERTIES:
-:CUSTOM_ID: discussion-of-the-benefits-of-using-honeypot-httpd-for-ingesting-web-data-into-elasticsearch--e-dot-g-dot-improved-threat-detection-enhanced-visibility
-:END:
-*** Real-world examples of use cases where this setup can be particularly effective (e.g., logging web traffic, monitoring online activity)
-:PROPERTIES:
-:CUSTOM_ID: real-world-examples-of-use-cases-where-this-setup-can-be-particularly-effective--e-dot-g-dot-logging-web-traffic-monitoring-online-activity
-:END:
-** Conclusion
+**** 🧠 Use Case
+
+These changes upgrade `ApachePasswordServer.py` from a toy honeypot to a serious data source for threat hunting. It can now be safely deployed in research environments, logging attack metadata in structured formats ideal for analysis pipelines like Elasticsearch + Kibana or Splunk.
+
+*** 📝 Conclusion
 :PROPERTIES:
 :CUSTOM_ID: v-dot-conclusion
 :END:
-*** Recap of key points about using HoneyPot HTTPD to ingest web data into Elasticsearch
+**** 🔑 Key points about using HoneyPotHTTPD to ingest web data into Elasticsearch
 :PROPERTIES:
 :CUSTOM_ID: recap-of-key-points-about-using-honeypot-httpd-to-ingest-web-data-into-elasticsearch
 :END:
-*** Final thoughts on the value of this setup for your organization's threat hunting or security operations.
-:PROPERTIES:
-:CUSTOM_ID: final-thoughts-on-the-value-of-this-setup-for-your-organization-s-threat-hunting-or-security-operations-dot
-:END:
+
+This article detailed how I enhanced `ApachePasswordServer.py` to make the
+simple honeypot into a powerful tool for capturing attacker behavior. By
+simulating Apache Basic Authentication challenges and extracting credentials
+from incoming requests, I enabled my honeypot effectively to bait malicious actors.
+
+Structured parsing of HTTP requests and responses combined with integration
+into `ElasticSearchLogger` allows me to generate rich, queryable logs,
+complete with client metadata, HTTP headers, and decoded credentials.
+
+This setup not only captures raw data but also organizes it in a way that
+facilitates downstream analysis using Elasticsearch or similar log management
+platforms.
+
+**** 💡 Final thoughts
+on the value of this setup for your organization's threat hunting or
+security operations.
+
+Deploying this enhanced honeypot within your environment equips your security
+team with detailed, actionable insights into attacker tactics and techniques.
+The ability to collect and analyze credential attempts and associated metadatah
+improves detection fidelity and supports incident response efforts.
+
+By bridging the gap between mere detection and detailed forensic logging, this
+solution empowers proactive threat hunting and accelerates the identification
+of emerging attack patterns. Integrating it into your security operations stack
+can thus significantly boost your organization's defensive capabilities.
+
+TODO - Extensivce testing of the honeypot, there will be an article coming up
+how to do automated honeypot testing with Zap proxy, stay tuned! 
+
 * DRAFT Threathunting IV: Setup ELK Server and ingest data                                :@threathunting:visibility:
 * DRAFT Testing webhoneypots with ZAP in server mode                                    :@threathunting:
