@@ -2,31 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Threathunting - Tag - Forensic wheels</title>
-    <link>http://localhost:1313/tags/threathunting/index.html</link>
+    <link>http://localhost:44975/tags/threathunting/index.html</link>
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Aug 2025 11:08:07 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/threathunting/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Aug 2025 11:44:02 +0200</lastBuildDate>
+    <atom:link href="http://localhost:44975/tags/threathunting/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Threathunting I: Network setup</title>
-      <link>http://localhost:1313/posts/threathuntingnet/index.html</link>
+      <link>http://localhost:44975/posts/threathuntingnet/index.html</link>
       <pubDate>Tue, 08 Jul 2025 09:15:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/threathuntingnet/index.html</guid>
+      <guid>http://localhost:44975/posts/threathuntingnet/index.html</guid>
       <description>Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.</description>
     </item>
     <item>
       <title>Threat hunting II: SSH Honeypot setup</title>
-      <link>http://localhost:1313/posts/theathuntinghoneypot/index.html</link>
+      <link>http://localhost:44975/posts/theathuntinghoneypot/index.html</link>
       <pubDate>Sun, 13 Jul 2025 07:38:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/theathuntinghoneypot/index.html</guid>
+      <guid>http://localhost:44975/posts/theathuntinghoneypot/index.html</guid>
       <description>Introduction What is Cowrie? Why Podman over Docker? Preconditions / System setup Ubuntu Installed on Raspberry Pi 4+ System Fully Updated Podman installed and working: VLAN Tagging Configured on Network Interface Setup environment, install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🎯 Operating the Honeypot 🔄 Automatically Restart Cowrie Podman Container with systemd 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Whats next Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.</description>
     </item>
     <item>
+      <title>Threathunting III: HTTP Honeypot develop and setup</title>
+      <link>http://localhost:44975/posts/honeyhttpd/index.html</link>
+      <pubDate>Wed, 13 Aug 2025 06:35:00 +0200</pubDate>
+      <guid>http://localhost:44975/posts/honeyhttpd/index.html</guid>
+      <description>Introduction Brief overview of the use case Setting up HoneyPot HTTPD for Web Data Ingestion and adjust code for our needs Containerizing the application to run inside docker 🚀 Code adjustments for our environment 📝 Conclusion Introduction Brief overview of the use case I recently set out to ingest web traffic data into my SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.</description>
+    </item>
+    <item>
       <title>Adventures in threathunting</title>
-      <link>http://localhost:1313/posts/adventuresthreathunting/index.html</link>
-      <pubDate>Tue, 12 Aug 2025 11:08:07 +0200</pubDate>
-      <guid>http://localhost:1313/posts/adventuresthreathunting/index.html</guid>
+      <link>http://localhost:44975/posts/adventuresthreathunting/index.html</link>
+      <pubDate>Tue, 19 Aug 2025 11:44:02 +0200</pubDate>
+      <guid>http://localhost:44975/posts/adventuresthreathunting/index.html</guid>
       <description>DONE Threathunting I: Network setup @threathuntinghoneypotvisibility Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.</description>
     </item>
   </channel>

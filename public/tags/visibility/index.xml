@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Visibility - Tag - Forensic wheels</title>
-    <link>http://localhost:1313/tags/visibility/index.html</link>
+    <link>http://localhost:44975/tags/visibility/index.html</link>
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 04 Aug 2025 20:06:47 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/visibility/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:44975/tags/visibility/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Threathunting I: Network setup</title>
-      <link>http://localhost:1313/posts/threathuntingnet/index.html</link>
+      <link>http://localhost:44975/posts/threathuntingnet/index.html</link>
       <pubDate>Tue, 08 Jul 2025 09:15:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/threathuntingnet/index.html</guid>
+      <guid>http://localhost:44975/posts/threathuntingnet/index.html</guid>
       <description>Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.</description>
     </item>
   </channel>

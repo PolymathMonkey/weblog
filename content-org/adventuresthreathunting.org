@@ -665,15 +665,18 @@ sudo journalctl -u filebeat -f
 ** Whats next
 Next I build the [[~/../honeyhttpd][HTTP Honeypot]]
 
-* TODO Threathunting III: HTTP Honeypot develop and setup                                 :@threathunting:honeypot:
+* DONE Threathunting III: HTTP Honeypot develop and setup                               :honeypot:@forensic:
+CLOSED: [2025-08-13 Mi 06:35]
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
 :HUGO_TITLE: honeyhttpd
+:EXPORT_OPTIONS: toc:2
 :EXPORT_FILE_NAME: honeyhttpd
 :EXPORT_DATE: 2019-01-11T16:00:00-05:00
 :CUSTOM_ID: honeyhttpd
 :END:
+
 ** Introduction
 :PROPERTIES:
 :CUSTOM_ID: introduction
@@ -708,7 +711,7 @@ I'll walk you through the steps I took to configure HoneyPot HTTPD for
 ingestion, including the Dockerfile used to build the container and any
 additional configuration settings required.
 
-** Setting up HoneyPot HTTPD for Web Data Ingestion and adjust code for our needs
+** Setting up HoneyPot HTTPD for Web Data
 :PROPERTIES:
 :CUSTOM_ID: setting-up-honeypot-httpd-for-web-data-ingestion
 :END:
@@ -787,7 +790,6 @@ additional configuration settings required.
 
   In this Dockerfile, I:
 
-  - Used the official Ubuntu image as the base image
   - Installed necessary dependencies, including Python and pip
   - Installed the required packages, including HoneyPot HTTPD
   - Set the working directory to /usr/local/bin to run the application
@@ -797,7 +799,7 @@ additional configuration settings required.
   - Specified the command to run HoneyPot HTTPD with the -c option,
     which points
   - to the configuration file
-    
+
 - Building and Running the Container
 
   Once I had created the Dockerfile, I built the image by running the
@@ -864,16 +866,16 @@ additional configuration settings required.
   
 *** 🚀 Code adjustments for our environment
 
-I started from the original `ApachePasswordServer` in honeyhttpd, which was
+I started from the original ApachePasswordServer in honeyhttpd, which was
 fairly minimal—it simply responded with a 401 on selected paths and captured
 credentials in a rudimentary way. I overhauled it to better structure logging,
 extract metadata, and sanitize inputs before sending logs to Elasticsearch.
 
 Below, I explain each change with commentary.
 
-**** 🔐 Improvements in `ApachePasswordServer.py`: Credential Logging and Header Parsing
+**** 🔐 Improvements in ApachePasswordServer.py:
 
-This update significantly extends the functionality of `ApachePasswordServer.py`.
+This update significantly extends the functionality of ApachePasswordServer.py.
 It builds on the original honeyhttpd implementation by enhancing its ability to simulate
 Basic Authentication, extract and decode credentials from the `Authorization` header,
 and log structured metadata about each HTTP request and response.
@@ -884,7 +886,7 @@ while connection and client metadata offer greater context to the captured event
 
 ***** 📊 Summary of Changes
 
-- 2 files changed: `ApachePasswordServer.py` and `Elasticsearchlogger.py`
+- 2 files changed: ApachePasswordServer.py and Elasticsearchlogger.py
 - Key improvements:
   - Simulation of Basic Auth (401 challenge on sensitive paths)
   - Credential extraction and decoding from `Authorization` header
@@ -903,7 +905,7 @@ server far more useful for DFIR research and threat hunting.
 
 ---
 
-**** Original baseline from (for reference)
+**** Original baseline (for reference)
 
 Big thanks to the great ground wrok from bocajspear1
 over at github with the [[https://github.com/bocajspear1/honeyhttpd][honeyHTTPD]] Server. That way
@@ -943,7 +945,7 @@ class ApachePasswordServer(ApacheServer):
 #+end_src
 
 
-**** 🆕 Auto-Injection of `ElasticSearchLogger` in `__init__()`
+**** 🆕 Auto-Injection of ElasticSearchLogger in __init__()
 To ensure consistent structured logging, `ElasticSearchLogger` is
 now injected into the logger stack if not already present.
 
@@ -973,10 +975,10 @@ This turns the honeypot into a credential trap for automated brute-forcers and s
 ---
 
 **** 🧰 New Helper Functions for Header Parsing and Auth Decoding
-Two utility functions were introduced:
+I had to introduce two utility functions:
 
-- `parse_to_json()` transforms header tuples into a JSON dictionary.
-- `decode_basic_auth()` decodes Base64 credentials and validates them.
+- parse_to_json() transforms header tuples into a JSON dictionary.
+- decode_basic_auth() decodes Base64 credentials and validates them.
 
 #+begin_src python
 def parse_to_json(data):
@@ -998,8 +1000,8 @@ These enable safe and consistent parsing for incoming HTTP headers.
 
 ---
 
-**** 📦 Structured Request Parsing & Credential Extraction in `on_complete()`
-The `on_complete()` method has been completely reworked to:
+**** 📦 Structured Request Parsing & Credential Extraction in on_complete()
+I had to completely rework the on_complete() method to:
 
 - Parse the HTTP request line
 - Convert headers to a JSON object
@@ -1039,15 +1041,15 @@ The `on_complete()` method has been completely reworked to:
 +                req_dict['creds'] = f"[decode error: {e}]"
 #+end_src
 
-This prepares your logs to include useful hunting metadata for later analysis.
+This prepares the logs to include useful hunting metadata for later analysis.
 
 ---
 
 **** 🌐 Enriched Connection Metadata Logging
-Additional context is logged to `req_dict`, including:
+Additional context is logged to req_dict, including:
 
 - Remote IP and port
-- SSL usage
+- SSL usage @@comment: this can be removed as it is not needed@@
 - Listening port
 - HTTP response code
 - Response headers
@@ -1080,34 +1082,36 @@ This provides rich forensic data for Elasticsearch or Splunk pipelines.
   Returns `401 Unauthorized` on suspicious paths to bait scanners.
 
 - **🧰 Safe Parsing & Decoding with Helpers**  
-  New functions `parse_to_json()` and `decode_basic_auth()` added for reliability.
+  New functions parse_to_json() and decode_basic_auth() added for reliability.
 
-- **📦 Structured Logging in `on_complete()`**  
+- **📦 Structured Logging in on_complete()**  
   Fully rewritten to extract metadata, decode credentials, and prepare logs.
 
 - **🌐 Rich Connection Context**  
-  Logs IP, port, SSL usage, and full response headers for correlation.
+  Logs IP, port, and full response headers for correlation.
 
 **** 🧠 Use Case
 
-These changes upgrade `ApachePasswordServer.py` from a toy honeypot to a serious data source for threat hunting. It can now be safely deployed in research environments, logging attack metadata in structured formats ideal for analysis pipelines like Elasticsearch + Kibana or Splunk.
+These changes upgrade ApachePasswordServer.py from a toy honeypot to a serious
+data source for threat hunting. It can now be safely deployed in research
+environments, logging attack metadata in structured formats ideal for analysis
+pipelines like Elasticsearch + Kibana or Splunk.
 
 *** 📝 Conclusion
 :PROPERTIES:
 :CUSTOM_ID: v-dot-conclusion
 :END:
-**** 🔑 Key points about using HoneyPotHTTPD to ingest web data into Elasticsearch
+**** 🔑 Key points about the changes in honeyhttpd
 :PROPERTIES:
 :CUSTOM_ID: recap-of-key-points-about-using-honeypot-httpd-to-ingest-web-data-into-elasticsearch
 :END:
 
-This article detailed how I enhanced `ApachePasswordServer.py` to make the
-simple honeypot into a powerful tool for capturing attacker behavior. By
-simulating Apache Basic Authentication challenges and extracting credentials
-from incoming requests, I enabled my honeypot effectively to bait malicious actors.
+This article detailed how I enhanced ApachePasswordServer.py and
+ElasticSearchLogger to make the simple honeypot into a powerful
+tool for capturing attacker behavior. 
 
-Structured parsing of HTTP requests and responses combined with integration
-into `ElasticSearchLogger` allows me to generate rich, queryable logs,
+I added Structured parsing of HTTP requests and responses combined with
+integration into ElasticSearchLogger allowed to generate rich, queryable logs,
 complete with client metadata, HTTP headers, and decoded credentials.
 
 This setup not only captures raw data but also organizes it in a way that
@@ -1115,21 +1119,29 @@ facilitates downstream analysis using Elasticsearch or similar log management
 platforms.
 
 **** 💡 Final thoughts
-on the value of this setup for your organization's threat hunting or
-security operations.
 
-Deploying this enhanced honeypot within your environment equips your security
-team with detailed, actionable insights into attacker tactics and techniques.
-The ability to collect and analyze credential attempts and associated metadatah
-improves detection fidelity and supports incident response efforts.
+Deploying this enhanced honeypot within your environment equips you with
+detailed, actionable insights into attacker tactics and techniques.
+The ability to collect and analyze credential attempts and associated metadata
+improves detection and supports incident response efforts.
 
 By bridging the gap between mere detection and detailed forensic logging, this
 solution empowers proactive threat hunting and accelerates the identification
 of emerging attack patterns. Integrating it into your security operations stack
-can thus significantly boost your organization's defensive capabilities.
+can thus significantly boost your detection and defense capabilities.
 
-TODO - Extensivce testing of the honeypot, there will be an article coming up
-how to do automated honeypot testing with Zap proxy, stay tuned! 
+_TODO_ - Extensive testing of the honeypot, there will be an article coming up
+how to do automated honeypot testing with Zap proxy, stay tuned!
+
+_TODO_ - Still need to deploy the honeypot to my honeypot server so that I can
+see how it operates in a live scenario. If you faster than me let me know you
+results 
+
+_TODO_ - Upload the new honeyhttpd code to a git repo and ask honeyhttpd author
+if they interessted in a merge request from my code.
+
+Next, we will talk about Setting up the ELK Server and how to ingest data.
+Stay tuned!
 
 * DRAFT Threathunting IV: Setup ELK Server and ingest data                                :@threathunting:visibility:
 * DRAFT Testing webhoneypots with ZAP in server mode                                    :@threathunting:
