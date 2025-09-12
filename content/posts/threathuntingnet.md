@@ -2,7 +2,7 @@
 title: "Threathunting I: Network setup"
 author: ["Dirk"]
 date: 2025-07-08T09:15:00+02:00
-lastmod: 2025-08-04T20:06:47+02:00
+lastmod: 2025-09-12T10:09:48+02:00
 tags: ["threathunting", "honeypot", "visibility"]
 categories: ["threathunting"]
 draft: false
@@ -59,6 +59,10 @@ lot of fun!
 ### Topology, Hardware and Tools 🛠 {#topology-hardware-and-tools}
 
 {{< figure src="../img/mynet.png" >}}
+
+In the Picture you can see the switch setup, port 1 is uplink, port2 my
+admin workstation, port 3 is the cowrie honeypot, port 4 is for home assistant
+and port 5 is for the ELK.
 
 For the ****hardware setup****, I kept things lightweight and affordable by using
 Raspberry Pi devices and open-source tools. The honeypot is based on the
@@ -161,6 +165,3 @@ would like to express my gratitude for their valuable work.
 
 Next I had to build the [ssh honeypot](~/../theathuntinghoneypot) and the [HTTP Honeypot](~/../honeyhttpd), stay tuned for the
 follow up!
-
-## Feedback and Comments
-{{< giscus >}}
