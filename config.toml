@@ -72,4 +72,3 @@ imageEffects.purple = false
 
 [markup.goldmark.renderer]
   unsafe = true
-  

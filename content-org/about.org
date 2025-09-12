@@ -29,32 +29,39 @@ CLOSED: [2025-06-28 Sa 16:16]
 
 [[../posts/img/fine.gif]]
 
-Hi! I'm Dirk, a security engineer with a passion for Skateboarding and
-Forensics. I help my Company safeguard their networks and systems from
-the ever-evolving threats in the cybersecurity landscape.
+Hi, I’m Dirk — a security engineer with a deep passion for skateboarding and
+digital forensics. I help my company protect networks and systems against
+evolving cybersecurity threats through a mix of technical expertise and
+continuous learning.
 
-Skateboarding is not just my hobby - it's my passion, my center,
-and my identity. For me, Skatelife is more than just lifestyle;
-it's a way of life that embodies creativity, freedom, and
-community and Family. I've been skating for years, and I
-still get that same feel every time I'm on my board.
+Skateboarding is more than a hobby to me; it’s a source of creativity, freedom,
+and community. It shapes how I approach challenges — with persistence, balance,
+and a mindset open to innovation.
 
-In addition to my love for skateboarding, I'm also a big enthusiast of
-OpenBSD - the most secure, yet accessible operating system out there.
-I've built my own OpenBSD-based router and infrastructure for threat
-hunting, which allows me to stay one step ahead in the game of
-cybersecurity. There's something about the simplicity, elegance, and
-power of OpenBSD that resonates deeply with me. You can also read about
-the smilarities I see between [[~/../openbsdzen][OpenBSD and Zen]]
+Beyond that, I’m an [[https://www.openbsd.org/][OpenBSD]] enthusiast. I’ve built an OpenBSD-based router and
+threat-hunting infrastructure to stay ahead in cybersecurity. I appreciate
+OpenBSD for its simplicity, security, and elegance — qualities I strive to
+bring to my work.
 
-As a nerd, I have to mention my love affair with [[https://www.gnu.org/software/emacs/][Emacs]] - my favorite editor.
-I've been using it for over 12 years now, and I still can't imagine working
-without it. Whether I'm writing code, weblogging, or just tinkering with
-snippets of text, Emacs is always by my side.
+I’m also a longtime [[https://www.gnu.org/software/emacs/][Emacs]] user, relying on it daily for coding, writing, and
+organizing my thoughts. It’s part of how I stay productive and focused.
 
-As I navigate the world of cybersecurity, I'm always looking for ways to
-improve my skills, stay ahead of the curve, and when I'm not geeking out
-over security patches or network protocols, you can find me:
+In cybersecurity, I’m committed to continuous growth and adapting to new
+challenges. When I’m not working on security projects, you’ll find me skating or
+exploring new ideas inspired by Zen philosophy.
 
-Stay tuned for more updates on my journey as a security engineer,
-skateboarder, OpenBSD enthusiast, and Zen student
+You can download my [[file:~/org/forensicwheels/static/downloads/DirkCV_encrypted.pdf][CV]] as a [[file:~/org/forensicwheels/static/downloads/DirkCV.pdf.sig][signed]] and encrypted PDF for authenticity and
+privacy. If you need the password to decrypt it,
+please send me an [[mailto:polymathmonkey@keksmafia.org][E-mail]]
+
+Stay tuned for updates on my journey as a security engineer, skateboarder, and
+lifelong learner.
+
+- **Key ID**: `0xC2920C559CAD6CB`
+- **Fingerprint**: `40CA 727E 96D3 CC2D 8CBB 1540 0C29 20C5 59CA D6CB` 
+- **SHA-256 Hash**:  
+  `c7359e0e8bd69ed7cee3ea97453c10e327bfe2416822f54c6390efe72b0d6e7a`
+
+[[/downloads/key.asc][publickey]]
+
+

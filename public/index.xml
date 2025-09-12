@@ -6,7 +6,7 @@
     <description>Latest posts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Aug 2025 10:19:19 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 12 Sep 2025 09:00:37 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Forensic wheels</title>
@@ -16,18 +16,11 @@
       <description>Latest posts</description>
     </item>
     <item>
-      <title>About</title>
+      <title>about</title>
       <link>http://localhost:1313/about/index.html</link>
       <pubDate>Sat, 28 Jun 2025 16:16:00 +0200</pubDate>
       <guid>http://localhost:1313/about/index.html</guid>
       <description>Short intro about myself</description>
-    </item>
-    <item>
-      <title>Just a shell</title>
-      <link>http://localhost:1313/justashell/index.html</link>
-      <pubDate>Mon, 11 Aug 2025 10:19:19 +0200</pubDate>
-      <guid>http://localhost:1313/justashell/index.html</guid>
-      <description>What Burned Me Built Me I used to believe that the place I worked for meant something. That our mission was shared. That our values were real. That if you showed up with honesty, effort, and a willingness to carry more than your share — you’d be met with respect. Or at least, fairness.&#xA;I was wrong.&#xA;Disappointment What hurts isn’t the exit itself. What hurts is realizing that the foundation I stood on was never really there at all. That the culture I believed in — the one I helped build — was, in the end, just an image.</description>
     </item>
   </channel>
 </rss>
