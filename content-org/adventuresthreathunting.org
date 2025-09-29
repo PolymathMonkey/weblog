@@ -91,13 +91,14 @@ match in quick log on egress proto tcp from any to any port 443 flags S/SA rdr-t
 
 This rule makes sure any incoming TCP connection attempt to port 22 (SSH) and
 port 443 (HTTPS) is immediately intercepted, logged, and transparently
-redirected to the $honeypot server listening on port 2222 or 4433 for HTTPS Traffic.@@comment: Link to article with full ruleset@@
+redirected to the $honeypot server listening on port 2222 or 4433 for HTTPS
+Traffic.@@comment: Link to article with full ruleset@@
 
 *** Switch configuration
 @@comment: TBD@@
-Here you can see my managed switch configuration. Port 5 (honeypot) is only
-assigned to VLAN210 like port 5 too, port 2 is the router it needs to talk
-into both networks and at port 1 is my workstation to access the theathunting
+Here you can see my managed switch configuration. Port 5 (honeypot) and port 3
+(ELK) is assigned to VLAN210, port 2 is the router it needs to talk into both
+networks and at port 1 is my workstation to access the theathunting
 environment.
 
 [[../img/switch.png]]
@@ -142,9 +143,14 @@ would like to express my gratitude for their valuable work.
 Next I had to build the [[~/../theathuntinghoneypot][ssh honeypot]] and the [[~/../honeyhttpd][HTTP Honeypot]], stay tuned for the
 follow up!
 
+#+BEGIN_EXPORT md
+{{< giscus >}}
+#+END_EXPORT
 
-* DONE Threat hunting II: SSH Honeypot setup                                              :@threathunting:honeypot:
-CLOSED: [2025-07-13 So 07:38]
+
+
+* DONE Threat hunting II: SSH Honeypot setup                                            :@threathunting:honeypot:
+CLOSED: [2025-09-29 Mo 07:18]
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
@@ -295,9 +301,10 @@ sudo useradd --system --no-create-home --shell /usr/sbin/nologin cowrie
 
 **2. Create necessary directories and set ownership**
 #+begin_src sh
-sudo mkdir -p /opt/cowrie/etc
-sudo mkdir -p /opt/cowrie/var
-sudo chown -R cowrie:cowrie /opt/cowrie
+  sudo mkdir -p /opt/cowrie/etc
+  sudo mkdir -p /opt/cowrie/var
+  sudo mkdir -p /opt/cowrie/var/log/cowrie
+  sudo chown -R cowrie:cowrie /opt/cowrie
 #+end_src
 
 *** 🐳 Pull and Configure Cowrie with Podman
@@ -309,7 +316,7 @@ sudo -u cowrie podman pull docker.io/cowrie/cowrie
 
 **4. Copy default config file into persistent volume**
 #+begin_src bash
-sudo -u cowrie podman run --rm cowrie/cowrie \
+sudo -u cowrie podman run --rm localhost/cowrie_honeypot:latest \
   cat /cowrie/cowrie-git/etc/cowrie.cfg.dist > /opt/cowrie/etc/cowrie.cfg
 #+end_src
 
@@ -321,7 +328,7 @@ honeypot we use. It uses INI-style syntax and is divided into sections. Each sec
 begins with a header like *[section_name]*.
 
 ***** 📁 Key Sections & Settings
-**[ssh] / [telnet]**
+**[ssh]**
 - Enable or disable SSH/Telnet and set the port to listen on::
   #+begin_src sh
   enabled = true
@@ -367,13 +374,13 @@ _📌 Notes_
 *** 🚀 Run Cowrie Container as 'cowrie' User
 
 Once I had created the dedicated system user (see earlier section), I
-was able to run the Cowrie container with Podman using =sudo -u= and a secure UID mapping.
+was able to run the Cowrie container with Podman using =sudo -u= and UID mapping.
 
 **** Step-by-Step Command explanation
 
 #+begin_src bash
 sudo -u cowrie podman run -d --name cowrie \
-  --uidmap 0:$(id -u cowrie):1 \
+  --uidmap 0:999:1001 \
   -v /opt/cowrie/etc:/cowrie/cowrie-git/etc:Z \
   -v /opt/cowrie/var:/cowrie/cowrie-git/var:Z \
   -p 2222:2222 \
@@ -383,7 +390,7 @@ sudo -u cowrie podman run -d --name cowrie \
 **** Explanation
 
 - =sudo -u cowrie=: Runs the Podman command as the unprivileged =cowrie= user.
-- =--uidmap 0:$(id -u cowrie):1=: Maps root (UID 0) **inside** the container to the =cowrie= UID on the host.
+- =--uidmap 0:999:1001=: Maps root (UID 0) **inside** the container to the =cowrie= UID on the host.
 - =-v /opt/cowrie/etc= and =/opt/cowrie/var=: Mounts configuration and data volumes from the host with `:Z` to apply correct SELinux labels (optional on systems without SELinux).
 - =-p 2222:2222=: Forwards port 2222 from host to container (Cowrie's SSH honeypot port).
 - =cowrie/cowrie=: The container image name (use latest or specific tag as needed).
@@ -458,44 +465,53 @@ sudo -u cowrie podman run -d --name cowrie \
 *** 🔄 Automatically Restart Cowrie Podman Container with systemd
 
 To keep your Cowrie container running reliably and restart it if it stops, use a systemd service with restart policies.
+Please make sure to double check this part on your side as I am no systemd
+expert at all, for me this just worked.
 
 **** Step 1: Generate a systemd Service File
 
-Create `/etc/systemd/system/cowrie-container.service` with the following content:
+Create `/etc/systemd/system/cowrie-container.service` with the following
+content:
+You can create the systemd file with the command:
 #+begin_src sh
-[Unit]
-Description=Cowrie Honeypot Podman Container
-After=network.target
+sudo -u cowrie podman generate systemd --name cowrie --files --restart-policy=on-failure  
+#+END_SRC
 
-[Service]
-User=cowrie
-Group=cowrie
-Restart=on-failure
-RestartSec=10s
+The resulting file looks somewhat like this
+#+begin_src sh
+  # container-cowrie.service
+  # autogenerated by Podman 4.3.1
+  # Fri Sep 19 10:27:47 CEST 2025
 
-ExecStart=/usr/bin/podman run -d --name cowrie \
-  --uidmap 0:$(id -u cowrie):1 \
-  -v /opt/cowrie/etc:/cowrie/cowrie-git/etc:Z \
-  -v /opt/cowrie/var:/cowrie/cowrie-git/var:Z \
-  -p 2222:2222 \
-  cowrie/cowrie
+  [Unit]
+  Description=Podman container-cowrie.service
+  Documentation=man:podman-generate-systemd(1)
+  Wants=network-online.target
+  After=network-online.target
+  RequiresMountsFor=/run/user/1001/containers
 
-ExecStop=/usr/bin/podman stop -t 10 cowrie
-ExecStopPost=/usr/bin/podman rm cowrie
+  [Service]
+  User=cowrie
+  Group=cowrie
+  Restart=on-failure
+  Environment=PODMAN_SYSTEMD_UNIT=%n
+  Restart=on-failure
+  TimeoutStopSec=70
+  ExecStart=/usr/bin/podman start -a cowrie
+  ExecStop=/usr/bin/podman stop -t 10 cowrie
+  ExecStopPost=/usr/bin/podman stop -t 10 cowrie
+  Type=forking
 
-ExecReload=/usr/bin/podman restart cowrie
-TimeoutStartSec=120
-
-[Install]
-WantedBy=multi-user.target
+  [Install]
+  WantedBy=default.target
 #+end_src
 
 - The `--restart-policy=on-failure` makes systemd restart the container if it exits with a failure.
 
 **** Step 2: Enable the Service
 #+begin_src bash
-sudo systemctl daemon-reload
-sudo systemctl enable --now container-cowrie.service
+  sudo systemctl daemon-reload
+  sudo systemctl enable --now cowrie-container.service
 #+end_src
 
 **** Step 3: (Optional) Add a Health Check Script
@@ -664,6 +680,11 @@ sudo journalctl -u filebeat -f
 
 ** Whats next
 Next I build the [[~/../honeyhttpd][HTTP Honeypot]]
+
+#+BEGIN_EXPORT md
+{{< giscus >}}
+#+END_EXPORT
+
 
 * DONE Threathunting III: HTTP Honeypot develop and setup                               :honeypot:@forensic:
 CLOSED: [2025-08-13 Mi 06:35]
