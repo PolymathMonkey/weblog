@@ -2,7 +2,7 @@
 title: "Threathunting I: Network setup"
 author: ["Dirk"]
 date: 2025-07-08T09:15:00+02:00
-lastmod: 2025-09-12T10:15:45+02:00
+lastmod: 2025-09-14T12:58:22+02:00
 tags: ["threathunting", "honeypot", "visibility"]
 categories: ["threathunting"]
 draft: false
@@ -106,15 +106,16 @@ match in quick log on egress proto tcp from any to any port 443 flags S/SA rdr-t
 
 This rule makes sure any incoming TCP connection attempt to port 22 (SSH) and
 port 443 (HTTPS) is immediately intercepted, logged, and transparently
-redirected to the $honeypot server listening on port 2222 or 4433 for HTTPS Traffic.
+redirected to the $honeypot server listening on port 2222 or 4433 for HTTPS
+Traffic.
 
 
 ### Switch configuration {#switch-configuration}
 
 
-Here you can see my managed switch configuration. Port 5 (honeypot) is only
-assigned to VLAN210 like port 5 too, port 2 is the router it needs to talk
-into both networks and at port 1 is my workstation to access the theathunting
+Here you can see my managed switch configuration. Port 5 (honeypot) and port 3
+(ELK) is assigned to VLAN210, port 2 is the router it needs to talk into both
+networks and at port 1 is my workstation to access the theathunting
 environment.
 
 {{< figure src="../img/switch.png" >}}
@@ -161,3 +162,5 @@ would like to express my gratitude for their valuable work.
 
 Next I had to build the [ssh honeypot](~/../theathuntinghoneypot) and the [HTTP Honeypot](~/../honeyhttpd), stay tuned for the
 follow up!
+
+{{< giscus >}}

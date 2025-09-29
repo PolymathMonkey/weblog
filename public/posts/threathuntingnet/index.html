@@ -18,38 +18,38 @@
     <meta property="og:type" content="article">
     <meta property="article:section" content="Forensic wheels">
     <meta property="article:published_time" content="2025-07-08T09:15:00+02:00">
-    <meta property="article:modified_time" content="2025-09-12T10:15:45+02:00">
+    <meta property="article:modified_time" content="2025-09-14T12:58:22+02:00">
     <meta property="article:tag" content="Threathunting">
     <meta property="article:tag" content="Honeypot">
     <meta property="article:tag" content="Visibility">
     <meta itemprop="name" content="Threathunting I: Network setup - Forensic wheels">
     <meta itemprop="description" content="Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.">
     <meta itemprop="datePublished" content="2025-07-08T09:15:00+02:00">
-    <meta itemprop="dateModified" content="2025-09-12T10:15:45+02:00">
-    <meta itemprop="wordCount" content="914">
+    <meta itemprop="dateModified" content="2025-09-14T12:58:22+02:00">
+    <meta itemprop="wordCount" content="913">
     <meta itemprop="keywords" content="Threathunting,Honeypot,Visibility">
     <title>Threathunting I: Network setup - Forensic wheels</title>
-    <link href="/images/logo.svg?1757664945" rel="icon" type="image/svg+xml">
-    <link href="/css/auto-complete/auto-complete.min.css?1757664945" rel="stylesheet">
-    <script src="/js/auto-complete/auto-complete.min.js?1757664945" defer></script>
-    <script src="/js/search-lunr.js?1757664945" defer></script>
-    <script src="/js/search.js?1757664945" defer></script>
+    <link href="/images/logo.svg?1759115978" rel="icon" type="image/svg+xml">
+    <link href="/css/auto-complete/auto-complete.min.css?1759115978" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1759115978" defer></script>
+    <script src="/js/search-lunr.js?1759115978" defer></script>
+    <script src="/js/search.js?1759115978" defer></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.index_js_url="/searchindex.en.js?1757664945";
+      window.relearn.index_js_url="/searchindex.en.js?1759115978";
     </script>
-    <script src="/js/lunr/lunr.min.js?1757664945" defer></script>
-    <script src="/js/lunr/lunr.stemmer.support.min.js?1757664945" defer></script>
-    <script src="/js/lunr/lunr.multi.min.js?1757664945" defer></script>
-    <script src="/js/lunr/lunr.en.min.js?1757664945" defer></script>
+    <script src="/js/lunr/lunr.min.js?1759115978" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1759115978" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1759115978" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1759115978" defer></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.contentLangs=['en'];
     </script>
-    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1757664945" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1757664945" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1757664945" rel="stylesheet">
-    <link href="/css/theme.css?1757664945" rel="stylesheet">
-    <link href="/css/format-html.css?1757664945" rel="stylesheet" id="R-format-style">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1759115978" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1759115978" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1759115978" rel="stylesheet">
+    <link href="/css/theme.css?1759115978" rel="stylesheet">
+    <link href="/css/format-html.css?1759115978" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -245,11 +245,12 @@ this internal traffic in the future to further reduce the attack surface.</p>
 </span></span><span style="display:flex;"><span>match in quick log on egress proto tcp from any to any port <span style="color:#ae81ff">443</span> flags S/SA rdr-to $honeypot port <span style="color:#ae81ff">4433</span></span></span></code></pre></div>
 <p>This rule makes sure any incoming TCP connection attempt to port 22 (SSH) and
 port 443 (HTTPS) is immediately intercepted, logged, and transparently
-redirected to the $honeypot server listening on port 2222 or 4433 for HTTPS Traffic.</p>
+redirected to the $honeypot server listening on port 2222 or 4433 for HTTPS
+Traffic.</p>
 <h3 id="switch-configuration">Switch configuration</h3>
-<p>Here you can see my managed switch configuration. Port 5 (honeypot) is only
-assigned to VLAN210 like port 5 too, port 2 is the router it needs to talk
-into both networks and at port 1 is my workstation to access the theathunting
+<p>Here you can see my managed switch configuration. Port 5 (honeypot) and port 3
+(ELK) is assigned to VLAN210, port 2 is the router it needs to talk into both
+networks and at port 1 is my workstation to access the theathunting
 environment.</p>
 <figure><img src="../img/switch.png">
 </figure>
@@ -295,8 +296,21 @@ to threat intelligence and network defense.</p>
 <p>I drew inspiration for this setup from the DShield SIEM project by SANS and
 would like to express my gratitude for their valuable work.</p>
 <h2 id="whats-next">Whats next</h2>
-<p>Next I had to build the <a href="~/../theathuntinghoneypot">ssh honeypot</a> and the <a href="~/../honeyhttpd">HTTP Honeypot</a>, stay tuned for the
+<p>Next I had to build the <a href="/posts/theathuntinghoneypot/index.html">ssh honeypot</a> and the <a href="~/../honeyhttpd">HTTP Honeypot</a>, stay tuned for the
 follow up!</p>
+<div id="giscus-comments" style="margin-top: 2rem;">
+    <script src="https://giscus.app/client.js"
+            data-repo="PolymathMonkey/weblog"
+            data-repo-id="R_kgDOOvWS_g"
+            data-category="General"
+            data-category-id="DIC_kwDOOvWS_s4CsdWD"
+            data-mapping="pathname"
+            data-theme="dark"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
 
   <footer class="footline">
               <i class='fa-fw fas fa-calendar'></i> Jul 8, 2025
@@ -351,7 +365,8 @@ follow up!</p>
         <div class="R-sidebarmenu R-shortcutmenu-main">
           <ul class="enlarge morespace collapsible-menu">
             <li class="parent " data-nav-id="/posts/index.html"><a class="padding" href="/posts/index.html">Forensic wheels</a><ul id="R-subsections-b4e55eb7e39db1aee6d02808a2267090" class="collapsible-menu">
-            <li class="active " data-nav-id="/posts/threathuntingnet/index.html"><a class="padding" href="/posts/threathuntingnet/index.html">Threathunting I: Network setup</a></li></ul></li>
+            <li class="active " data-nav-id="/posts/threathuntingnet/index.html"><a class="padding" href="/posts/threathuntingnet/index.html">Threathunting I: Network setup</a></li>
+            <li class="" data-nav-id="/posts/theathuntinghoneypot/index.html"><a class="padding" href="/posts/theathuntinghoneypot/index.html">Threat hunting II: SSH Honeypot setup</a></li></ul></li>
             <li class="" data-nav-id="/about/index.html"><a class="padding" href="/about/index.html">about</a></li>
           </ul>
         </div>
@@ -385,8 +400,8 @@ follow up!</p>
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/js/clipboard/clipboard.min.js?1757664945" defer></script>
-    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1757664945" defer></script>
-    <script src="/js/theme.js?1757664945" defer></script>
+    <script src="/js/clipboard/clipboard.min.js?1759115978" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1759115978" defer></script>
+    <script src="/js/theme.js?1759115978" defer></script>
   </body>
 </html>
