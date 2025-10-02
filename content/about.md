@@ -3,7 +3,7 @@ title: "about"
 author: ["Dirk"]
 description: "Short intro about myself"
 date: 2025-06-28T16:16:00+02:00
-lastmod: 2025-09-12T09:00:37+02:00
+lastmod: 2025-10-02T09:51:12+02:00
 tags: ["forensicwheels", "personal"]
 categories: ["personal"]
 draft: false
@@ -13,9 +13,7 @@ weight: 1001
 {{< figure src="../posts/img/fine.gif" >}}
 
 Hi, I’m Dirk — a security engineer with a deep passion for skateboarding and
-digital forensics. I help my company protect networks and systems against
-evolving cybersecurity threats through a mix of technical expertise and
-continuous learning.
+digital forensics.
 
 Skateboarding is more than a hobby to me; it’s a source of creativity, freedom,
 and community. It shapes how I approach challenges — with persistence, balance,
