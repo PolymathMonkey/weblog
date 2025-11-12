@@ -756,3 +756,237 @@ Just don't forget to:
 - Monitor your shard health
 - Disable replicas if you only have one node
 - Automate where you can
+* DONE Rescue to the softraid                                                             :personal:@forensic:openbsd:
+CLOSED: [2025-11-12 Mi 15:03]
+:PROPERTIES:
+:EXPORT_AUTHOR: Dirk
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:HUGO_TITLE: Rescue failing encrypted Softraid on OpenBSD
+:HUGO_MENU_TITLE: Rescue to the softraid 
+:HUGO_CHAPTER: true
+:HUGO_WEIGHT: 5
+:EXPORT_FILE_NAME: rescuetotheraid 
+:EXPORT_DATE: 2025-10-24T11:00:00-05:00
+:CUSTOM_ID: rescuetotheraid
+:END:
+** Introduction
+So I had this USB Disk attached to my OpenBSD Router used as storage, one saturday when I was walking by
+I noticed the weird clicking sounds from the disk. So I knew my time was running before the disc would fail.
+
+Curiously, when I plugged the same drive into a Linux box, it *was* detected — and even
+showed a valid OpenBSD partition table. That gave me a glimmer of hope:
+maybe the hardware wasn’t completely dead yet.
+
+So, for fun (and a little bit of stubborn curiosity), I decided to spend
+the weekend seeing how much I could rescue from it.
+
+This post documents the process — part forensic experiment, part recovery attempt,
+and part “let’s see what happens if I do this.”
+
+** Phase 1: Identifying the Disk under Linux
+
+Before doing anything risky, I wanted to be sure I was imaging the *right* disk.  
+The idea was to identify the OpenBSD partition and dump it to an image file.
+
+*** Listing block devices
+
+#+begin_src sh
+lsblk -o NAME,SIZE,FSTYPE,TYPE,LABEL,UUID
+#+end_src
+
+That gives a good overview — which disks are present, how large they are, and what filesystems they contain.  
+Sure enough, my external USB drive showed up as `/dev/sda`.
+
+*** Inspecting partition table
+
+#+begin_src sh
+sudo fdisk -l /dev/sda
+#+end_src
+
+Example output:
+
+#+begin_example
+Disk /dev/sda: 931.5 GiB, 1000204883968 bytes, 1953525164 sectors
+Disk model: External USB 3.0
+Sector size: 512 bytes
+Disklabel type: dos
+Device     Boot Start        End    Sectors   Size Id Type
+/dev/sda4  *       64 1953525163 1953525100 931.5G a6 OpenBSD
+#+end_example
+
+Perfect. The OpenBSD partition was still there (`/dev/sda4`), and it even reported the correct size.
+
+- The *Start sector* (64) is important later for offset calculations.
+- Type *a6 OpenBSD* confirmed the filesystem was OpenBSD-specific (likely softraid).
+- Knowing the *sector size* (512 bytes) ensured that later tools like `dd` or `ddrescue` wouldn’t misalign reads.
+
+At this point, the goal was to make a *bit-for-bit copy* of that partition, compress it, and work
+on the image rather than risk further damage to the actual disk.
+
+** Phase 2: Creating a Compressed Disk Image
+
+For imaging, I decided to use GNU ~ddrescue~ — it’s great for
+flaky disks and can retry sectors intelligently.
+
+*** Installing ddrescue
+
+On Fedora, installation was trivial:
+
+#+begin_src sh
+sudo dnf install ddrescue
+#+end_src
+
+*** First Attempt (Quick and Dirty)
+
+I tried a fast, one-shot dump — not ideal for a failing disk, but I wanted to see if it would work at all:
+
+#+begin_src sh
+sudo ddrescue -d -r3 /dev/sda4 - - | xz -T0 -c > openbsd_sda4.img.xz
+#+end_src
+
+That command streams data directly from the device, compresses it with ~xz~, and writes the result.  
+It works — *if the disk is healthy*. Mine wasn’t, so it failed partway through.
+
+*** Second Attempt (Proper Forensic Mode)
+
+So I switched to the safer, resumable method:
+
+#+begin_src sh
+sudo ddrescue -d -r3 /dev/sda4 openbsd_sda4.img openbsd_sda4.log
+xz -T0 openbsd_sda4.img
+sha256sum openbsd_sda4.img > openbsd_sda4.img.sha256
+#+end_src
+
+This time, ddrescue created a detailed log file so I could resume later if the system froze or the disk disconnected.  
+It took most of the night, but eventually I had a clean (or mostly clean) image.
+
+_Explanation of parameters_
+
+- ~-r3~ retries each bad block 3 times  
+- ~-d~ enables direct disk I/O  
+- The `.log` file lets you stop and restart without losing progress  
+- ~xz -T0~ uses all CPU cores for compression  
+
+After the dump, I verified the output:
+
+#+begin_src sh
+ls -lh openbsd_sda4.img.xz
+xz -t openbsd_sda4.img.xz   # test integrity
+sha256sum openbsd_sda4.img.xz > openbsd_sda4.img.xz.sha256
+#+end_src
+
+Everything checked out — a ~450 GB compressed image file safely sitting on my main system.
+
+** Phase 3: Simulating Disk Damage (For Fun and Testing)
+
+Since the real disk was unstable, I wanted a safe way to experiment.  
+So I created a *copy of the image* and simulated damage to practice recovery techniques.
+
+*** Creating the test image
+
+#+begin_src sh
+sudo dd if=/dev/sda4 of=openbsd_sda4.img bs=4M status=progress
+#+end_src
+
+*** Simulating corruption
+
+To emulate bad sectors:
+
+#+begin_src sh
+dd if=/dev/zero of=openbsd_sda4.img bs=512 count=10 seek=1000 conv=notrunc
+#+end_src
+
+Now the image contained 10 intentionally corrupted sectors — perfect for testing.
+
+*** Recovering from the damaged image
+
+#+begin_src sh
+ddrescue -d -r3 openbsd_sda4.img openbsd_sda4_recovered.img openbsd_sda4_recovery.log
+#+end_src
+
+And just like that, I could practice recovery without touching the actual hardware again.
+
+*** Optional Compression
+
+#+begin_src sh
+xz -T0 openbsd_sda4.img
+#+end_src
+
+It’s amazing how much you can still do with raw disk images and a few classic Unix tools.
+
+** Phase 4: Performance Tuning and System Stability
+
+During the rescue, I learned (the hard way) that ~ddrescue~ can saturate I/O and make your system lag like crazy.  
+So I ended up using this combination for a gentler approach:
+
+#+begin_src sh
+sudo ionice -c2 -n7 nice -n19 ddrescue -b 4096 -B 4096 /dev/sda4 openbsd_sda4.img
+#+end_src
+
+And, for long operations, running it inside ~tmux~:
+
+#+begin_src sh
+tmux new-session -s rescue
+sudo ddrescue -d -r3 /dev/sda4 openbsd_sda4.img openbsd_sda4.log
+# Detach with Ctrl-B D
+#+end_src
+
+Later, I could simply:
+
+#+begin_src sh
+tmux attach -t rescue
+#+end_src
+
+That setup saved me more than once when I accidentally closed an SSH session.
+
+** Phase 5: Next Steps — Future Analysis
+
+Once I had a full image, the plan was to:
+
+1. Decompress it (~unxz openbsd_sda4.img.xz~)
+2. Attach it as a loopback device under Linux, or use ~vnconfig~ under OpenBSD
+3. Attempt to reassemble the ~softraid~ volume using ~bioctl~
+4. If all goes well — mount the decrypted filesystem and access my old data
+
+That’s a topic for another weekend. But getting to this
+point already felt like a small victory.
+
+** Conclusion
+
+What started as a “let’s see if I can still read this disk” experiment turned into
+a proper mini-forensics exercise. Even though the original USB drive was dying,
+I managed to preserve most of its data and learned a ton in the process.
+
+Allover it was quite fun to do something forensics related on a OpenBSD target, I guess it is
+something you don't come across everyday but when you do its good to be prepared I think.
+
+Key takeaways:
+
+- ~ddrescue~ is your friend for unstable media  
+- Always work on *images*, not the original device  
+- Compression and checksums are cheap insurance  
+- And most importantly: never underestimate what you can recover with a bit of patience and Unix philosophy
+
+Not a bad way to spend a weekend.
+
+** Appendix
+
+*** Device summary
+- Device: /dev/sda  
+- Partition: /dev/sda4  
+- Size: ~931 GiB  
+- Partition type: a6 (OpenBSD)  
+- Start sector: 64  
+- Sector size: 512 bytes  
+
+*** Estimated time and storage
+Depending on USB speed:
+- Imaging took about 2–3 hours
+- Compressed image size: ~40–60% of original
+
+*** Tools used
+- ~dd~, ~ddrescue~, ~xz~  
+- ~fdisk~, ~lsblk~, ~sha256sum~  
+- ~tmux~, ~ionice~, ~dstat~, ~iotop~
+
+---
