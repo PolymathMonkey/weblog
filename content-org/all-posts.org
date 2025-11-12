@@ -638,3 +638,121 @@ Not the tricks.
 Not the footage.  
 But the fact that no matter what happens—  
 *you never really leave.*
+* DONE Fixing Yellow Shards in Elasticsearch
+CLOSED: [2025-11-12 Mi 11:07]
+:PROPERTIES:
+:EXPORT_AUTHOR: Dirk
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:HUGO_TITLE: Fixing Yellow Shards in Elasticsearch 
+:HUGO_MENU_TITLE: Fixing Yellow Shards in Elasticsearch
+:HUGO_CHAPTER: true
+:HUGO_WEIGHT: 5
+:EXPORT_FILE_NAME: yellowshardsinelastic
+:EXPORT_DATE: 2025-11-12T11:00:00-05:00
+:CUSTOM_ID: yellowshardsinelastic
+:END:
+
+** Introduction
+If you're running Elasticsearch on a single node — like a Raspberry Pi or small lab setup like I am —
+you might notice some indices appear with a =yellow= health status.
+
+This show article explains what that means and how to fix it, especially in resource-constrained, *single-node* environments.
+
+** What Does "Yellow" Mean?
+In Elasticsearch:
+
+- =green=: All primary and replica shards are assigned and active.
+- =yellow=: All primary shards are active, but at least one *replica shard* is unassigned.
+- =red=: At least one *primary shard* is missing → critical!
+
+** Why Yellow Happens on Single Nodes
+In single-node clusters, Elasticsearch cannot assign replica shards (because replicas must be on a different node).  
+So any index with replicas will *always* be yellow unless:
+
+- You add more nodes (not ideal on a Raspberry Pi)
+- Or: You disable replicas (=number_of_replicas: 0=)
+
+** Step-by-Step: Diagnose Yellow Shards
+
+*** 1. List all yellow indices
+#+begin_src sh
+GET _cat/indices?v&health=yellow
+#+end_src
+
+*** 2. See why a shard is unassigned
+#+begin_src sh
+GET _cluster/allocation/explain
+#+end_src
+
+*** 3. Inspect shard assignment of a specific index
+#+begin_src sh
+GET _cat/shards/.monitoring-beats-7-2025.08.06?v
+#+end_src
+
+Example output:
+
+#+begin_example
+index                              shard prirep state      docs store ip        node
+.monitoring-beats-7-2025.08.06     0     p      STARTED    7790 5.9mb 127.0.0.1 mynode
+.monitoring-beats-7-2025.08.06     0     r      UNASSIGNED
+#+end_example
+
+→ The =r= (replica) is unassigned → =yellow= status.
+
+** How to Fix It
+
+*** A. Fix an individual index
+Set replicas to zero:
+
+#+begin_src sh
+PUT .monitoring-beats-7-2025.08.06/_settings
+{
+  "index" : {
+    "number_of_replicas" : 0
+  }
+}
+#+end_src
+
+This changes the index health from =yellow= to =green=.
+
+*** B. Automatically fix all yellow indices
+If you want to *automate* the fix, use this (Kibana Dev Tools):
+
+#+begin_src js
+GET _cat/indices?health=yellow&format=json
+#+end_src
+
+Then for each index in the result:
+
+#+begin_src js
+POST <your_index>/_settings
+{
+  "index": {
+    "number_of_replicas": 0
+  }
+}
+#+end_src
+
+*** C. Prevent future yellow indices
+Disable replicas by default using an index template:
+
+#+begin_src json
+PUT _template/no-replica-default
+{
+  "index_patterns": ["*"],
+  "settings": {
+    "number_of_replicas": 0
+  }
+}
+#+end_src
+
+> ⚠️ This applies to *all* future indices. _Only do this in single-node environments_.
+
+** Conclusion
+Yellow indices aren't dangerous by default — they just mean you're missing redundancy.  
+In small environments, it's perfectly safe to run with zero replicas.
+
+Just don't forget to:
+- Monitor your shard health
+- Disable replicas if you only have one node
+- Automate where you can

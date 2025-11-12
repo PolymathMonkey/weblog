@@ -6,7 +6,7 @@
     <description>Latest posts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Sep 2025 07:12:38 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 12 Nov 2025 11:07:19 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Threathunting I: Network setup</title>
@@ -21,6 +21,13 @@
       <pubDate>Sun, 13 Jul 2025 07:38:00 +0200</pubDate>
       <guid>http://localhost:1313/posts/theathuntinghoneypot/index.html</guid>
       <description>Introduction What is Cowrie? Why Podman over Docker? Preconditions / System setup Ubuntu Installed on Raspberry Pi 4+ System Fully Updated Podman installed and working VLAN Tagging Configured on Network Interface Setup environment, install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🎯 Operating the Honeypot 🔄 Automatically Restart Cowrie Podman Container with systemd 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Whats next Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.</description>
+    </item>
+    <item>
+      <title>Fixing Yellow Shards in Elasticsearch</title>
+      <link>http://localhost:1313/posts/yellowshardsinelastic/index.html</link>
+      <pubDate>Wed, 12 Nov 2025 11:07:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/yellowshardsinelastic/index.html</guid>
+      <description>Introduction If you’re running Elasticsearch on a single node — like a Raspberry Pi or small lab setup — you might notice some indices appear with a yellow health status.&#xA;This article explains what that means and how to fix it, especially in resource-constrained, single-node environments.&#xA;What Does “Yellow” Mean? In Elasticsearch:&#xA;green: All primary and replica shards are assigned and active. yellow: All primary shards are active, but at least one replica shard is unassigned. red: At least one primary shard is missing → critical! Why Yellow Happens on Single Nodes In single-node clusters, Elasticsearch cannot assign replica shards (because replicas must be on a different node). So any index with replicas will always be yellow unless:</description>
     </item>
   </channel>
 </rss>

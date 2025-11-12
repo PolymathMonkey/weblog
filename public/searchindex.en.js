@@ -1,7 +1,7 @@
 var relearn_searchindex = [
   {
     "breadcrumb": "Welcome",
-    "content": "Welcome to my technical blog and knowledge base!\nTopics 🖥 Threathunting Tutorials 🖥 OpenBSD Latest posts Threathunting I: Network setup 08.07.2025 Threat hunting II: SSH Honeypot setup 13.07.2025 Get in Touch Suggestions or feedback?\nContact me here or visit the project repository.\nYou can also subscribe via RSS.",
+    "content": "Welcome to my technical blog and knowledge base!\nTopics 🖥 Threathunting Tutorials 🖥 OpenBSD Latest posts Threathunting I: Network setup 08.07.2025 Threat hunting II: SSH Honeypot setup 13.07.2025 Fixing Yellow Shards in Elasticsearch 12.11.2025 Get in Touch Suggestions or feedback?\nContact me here or visit the project repository.\nYou can also subscribe via RSS.",
     "description": "Latest posts",
     "tags": [],
     "title": "Forensic wheels",
@@ -9,7 +9,7 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "",
-    "content": "Welcome to my technical blog and knowledge base!\nTopics 🖥 Threathunting Tutorials 🖥 All things OpenBSD Latest posts Threathunting I: Network setup 08.07.2025 Threat hunting II: SSH Honeypot setup 13.07.2025 Get in Touch Suggestions or feedback?\nContact me here or visit the project repository.\nYou can also subscribe via RSS.",
+    "content": "Welcome to my technical blog and knowledge base!\nTopics 🖥 Threathunting Tutorials 🖥 All things OpenBSD Latest posts Threathunting I: Network setup 08.07.2025 Threat hunting II: SSH Honeypot setup 13.07.2025 Fixing Yellow Shards in Elasticsearch 12.11.2025 Get in Touch Suggestions or feedback?\nContact me here or visit the project repository.\nYou can also subscribe via RSS.",
     "description": "Latest posts",
     "tags": [],
     "title": "Welcome",
@@ -29,7 +29,7 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "Welcome",
-    "content": "Hi, I’m Dirk — a security engineer with a deep passion for skateboarding and digital forensics. I help my company protect networks and systems against evolving cybersecurity threats through a mix of technical expertise and continuous learning.\nSkateboarding is more than a hobby to me; it’s a source of creativity, freedom, and community. It shapes how I approach challenges — with persistence, balance, and a mindset open to innovation.\nBeyond that, I’m an OpenBSD enthusiast. I’ve built an OpenBSD-based router and threat-hunting infrastructure to stay ahead in cybersecurity. I appreciate OpenBSD for its simplicity, security, and elegance — qualities I strive to bring to my work.\nI’m also a longtime Emacs user, relying on it daily for coding, writing, and organizing my thoughts. It’s part of how I stay productive and focused.\nIn cybersecurity, I’m committed to continuous growth and adapting to new challenges. When I’m not working on security projects, you’ll find me skating or exploring new ideas inspired by Zen philosophy.\nYou can download my CV as a signed and encrypted PDF for authenticity and privacy. If you need the password to decrypt it, please send me an E-mail\nStay tuned for updates on my journey as a security engineer, skateboarder, and lifelong learner.\nKey ID: `0xC2920C559CAD6CB` Fingerprint: `40CA 727E 96D3 CC2D 8CBB 1540 0C29 20C5 59CA D6CB` SHA-256 Hash: `c7359e0e8bd69ed7cee3ea97453c10e327bfe2416822f54c6390efe72b0d6e7a` publickey",
+    "content": "Hi, I’m Dirk — a security engineer with a deep passion for skateboarding and digital forensics.\nSkateboarding is more than a hobby to me; it’s a source of creativity, freedom, and community. It shapes how I approach challenges — with persistence, balance, and a mindset open to innovation.\nBeyond that, I’m an OpenBSD enthusiast. I’ve built an OpenBSD-based router and threat-hunting infrastructure to stay ahead in cybersecurity. I appreciate OpenBSD for its simplicity, security, and elegance — qualities I strive to bring to my work.\nI’m also a longtime Emacs user, relying on it daily for coding, writing, and organizing my thoughts. It’s part of how I stay productive and focused.\nIn cybersecurity, I’m committed to continuous growth and adapting to new challenges. When I’m not working on security projects, you’ll find me skating or exploring new ideas inspired by Zen philosophy.\nYou can download my CV as a signed and encrypted PDF for authenticity and privacy. If you need the password to decrypt it, please send me an E-mail\nStay tuned for updates on my journey as a security engineer, skateboarder, and lifelong learner.\nKey ID: `0xC2920C559CAD6CB` Fingerprint: `40CA 727E 96D3 CC2D 8CBB 1540 0C29 20C5 59CA D6CB` SHA-256 Hash: `c7359e0e8bd69ed7cee3ea97453c10e327bfe2416822f54c6390efe72b0d6e7a` publickey",
     "description": "Short intro about myself",
     "tags": [
       "Forensicwheels",
@@ -50,6 +50,32 @@ var relearn_searchindex = [
     "uri": "/posts/theathuntinghoneypot/index.html"
   },
   {
+    "breadcrumb": "Welcome \u003e Forensic wheels",
+    "content": "Introduction If you’re running Elasticsearch on a single node — like a Raspberry Pi or small lab setup — you might notice some indices appear with a yellow health status.\nThis article explains what that means and how to fix it, especially in resource-constrained, single-node environments.\nWhat Does “Yellow” Mean? In Elasticsearch:\ngreen: All primary and replica shards are assigned and active. yellow: All primary shards are active, but at least one replica shard is unassigned. red: At least one primary shard is missing → critical! Why Yellow Happens on Single Nodes In single-node clusters, Elasticsearch cannot assign replica shards (because replicas must be on a different node). So any index with replicas will always be yellow unless:\nYou add more nodes (not ideal on a Raspberry Pi) Or: You disable replicas (number_of_replicas: 0) Step-by-Step: Diagnose Yellow Shards 1. List all yellow indices GET _cat/indices?v\u0026health=yellow 2. See why a shard is unassigned GET _cluster/allocation/explain 3. Inspect shard assignment of a specific index GET _cat/shards/.monitoring-beats-7-2025.08.06?v Example output:\nindex shard prirep state docs store ip node .monitoring-beats-7-2025.08.06 0 p STARTED 7790 5.9mb 127.0.0.1 mynode .monitoring-beats-7-2025.08.06 0 r UNASSIGNED → The r (replica) is unassigned → yellow status.\nHow to Fix It A. Fix an individual index Set replicas to zero:\nPUT .monitoring-beats-7-2025.08.06/_settings { \"index\" : { \"number_of_replicas\" : 0 } } This changes the index health from yellow to green.\nB. Automatically fix all yellow indices If you want to automate the fix, use this (Kibana Dev Tools):\nGET _cat/indices?health=yellow\u0026format=json Then for each index in the result:\nPOST \u003cyour_index\u003e/_settings { \"index\": { \"number_of_replicas\": 0 } } C. Prevent future yellow indices Disable replicas by default using an index template:\nPUT _template/no-replica-default { \"index_patterns\": [\"*\"], \"settings\": { \"number_of_replicas\": 0 } } \u003e ⚠️ This applies to all future indices. Only do this in single-node environments.\nConclusion Yellow indices aren’t dangerous by default — they just mean you’re missing redundancy. In small environments, it’s perfectly safe to run with zero replicas.\nJust remember:\nMonitor your shard health Disable replicas if you only have one node Automate where you can Happy clustering!",
+    "description": "Introduction If you’re running Elasticsearch on a single node — like a Raspberry Pi or small lab setup — you might notice some indices appear with a yellow health status.\nThis article explains what that means and how to fix it, especially in resource-constrained, single-node environments.\nWhat Does “Yellow” Mean? In Elasticsearch:\ngreen: All primary and replica shards are assigned and active. yellow: All primary shards are active, but at least one replica shard is unassigned. red: At least one primary shard is missing → critical! Why Yellow Happens on Single Nodes In single-node clusters, Elasticsearch cannot assign replica shards (because replicas must be on a different node). So any index with replicas will always be yellow unless:",
+    "tags": [
+      "Forensicwheels"
+    ],
+    "title": "Fixing Yellow Shards in Elasticsearch",
+    "uri": "/posts/yellowshardsinelastic/index.html"
+  },
+  {
+    "breadcrumb": "Welcome \u003e Tags",
+    "content": "",
+    "description": "",
+    "tags": [],
+    "title": "Tag - Forensicwheels",
+    "uri": "/tags/forensicwheels/index.html"
+  },
+  {
+    "breadcrumb": "Welcome",
+    "content": "",
+    "description": "",
+    "tags": [],
+    "title": "Tags",
+    "uri": "/tags/index.html"
+  },
+  {
     "breadcrumb": "Welcome",
     "content": "",
     "description": "",
@@ -64,14 +90,6 @@ var relearn_searchindex = [
     "tags": [],
     "title": "Tag - Honeypot",
     "uri": "/tags/honeypot/index.html"
-  },
-  {
-    "breadcrumb": "Welcome",
-    "content": "",
-    "description": "",
-    "tags": [],
-    "title": "Tags",
-    "uri": "/tags/index.html"
   },
   {
     "breadcrumb": "Welcome \u003e Tags",
@@ -96,14 +114,6 @@ var relearn_searchindex = [
     "tags": [],
     "title": "Tag - Visibility",
     "uri": "/tags/visibility/index.html"
-  },
-  {
-    "breadcrumb": "Welcome \u003e Tags",
-    "content": "",
-    "description": "",
-    "tags": [],
-    "title": "Tag - Forensicwheels",
-    "uri": "/tags/forensicwheels/index.html"
   },
   {
     "breadcrumb": "Welcome \u003e Tags",
