@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Forensic wheels</title>
+    <link>http://localhost:1313/posts/index.html</link>
+    <description>Latest posts</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Nov 2025 15:17:52 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Threathunting I: Network setup</title>
+      <link>http://localhost:1313/posts/threathuntingnet/index.html</link>
+      <pubDate>Tue, 08 Jul 2025 09:15:00 +0200</pubDate>
+      <guid>http://localhost:1313/posts/threathuntingnet/index.html</guid>
+      <description>Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.</description>
+    </item>
+    <item>
+      <title>Threat hunting II: SSH Honeypot setup</title>
+      <link>http://localhost:1313/posts/theathuntinghoneypot/index.html</link>
+      <pubDate>Sun, 13 Jul 2025 07:38:00 +0200</pubDate>
+      <guid>http://localhost:1313/posts/theathuntinghoneypot/index.html</guid>
+      <description>Introduction What is Cowrie? Why Podman over Docker? Preconditions / System setup Ubuntu Installed on Raspberry Pi 4+ System Fully Updated Podman installed and working VLAN Tagging Configured on Network Interface Setup environment, install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🎯 Operating the Honeypot 🔄 Automatically Restart Cowrie Podman Container with systemd 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Whats next Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.</description>
+    </item>
+    <item>
+      <title>Fixing Yellow Shards in Elasticsearch</title>
+      <link>http://localhost:1313/posts/yellowshardsinelastic/index.html</link>
+      <pubDate>Wed, 12 Nov 2025 11:07:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/yellowshardsinelastic/index.html</guid>
+      <description>Introduction If you’re running Elasticsearch on a single node — like a Raspberry Pi or small lab setup like I am — you might notice some indices appear with a yellow health status.&#xA;This show article explains what that means and how to fix it, especially in resource-constrained, single-node environments.&#xA;What Does “Yellow” Mean? In Elasticsearch:&#xA;green: All primary and replica shards are assigned and active. yellow: All primary shards are active, but at least one replica shard is unassigned. red: At least one primary shard is missing → critical! Why Yellow Happens on Single Nodes In single-node clusters, Elasticsearch cannot assign replica shards (because replicas must be on a different node). So any index with replicas will always be yellow unless:</description>
+    </item>
+    <item>
+      <title>Rescue to the softraid</title>
+      <link>http://localhost:1313/posts/rescuetotheraid/index.html</link>
+      <pubDate>Wed, 12 Nov 2025 15:03:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/rescuetotheraid/index.html</guid>
+      <description>Introduction So I had this USB Disk attached to my OpenBSD Router used as storage, one saturday when I was walking by I noticed the weird clicking sounds from the disk. So I knew my time was running before the disc would fail.&#xA;Curiously, when I plugged the same drive into a Linux box, it was detected — and even showed a valid OpenBSD partition table. That gave me a glimmer of hope: maybe the hardware wasn’t completely dead yet.</description>
+    </item>
+    <item>
+      <title>Putting my gpg key on my yubikey</title>
+      <link>http://localhost:1313/posts/gpgonmyyubi/index.html</link>
+      <pubDate>Wed, 12 Nov 2025 15:17:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/gpgonmyyubi/index.html</guid>
+      <description>Why GPG? In an age where digital identities are easily faked and impersonation is just a few clicks away, I decided to take a step forward in securing mine. GPG (GNU Privacy Guard) provides a robust way to authenticate, encrypt, and sign digital content. In this post, I’ll walk you through how I:&#xA;Created a GPG key pair Set up subkeys and stored them on my YubiKey Published my public key on my website Signed and encrypted personal documents for secure public sharing Configured email signing using GPG Step 1: Installing GPG To start, I made sure GPG was installed. Here’s how I did it on each of my systems:</description>
+    </item>
+  </channel>
+</rss>
