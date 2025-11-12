@@ -2,7 +2,7 @@
 title: "Putting my gpg key on my yubikey"
 author: ["Dirk"]
 date: 2025-10-29T12:17:00+01:00
-lastmod: 2025-11-12T15:19:01+01:00
+lastmod: 2025-11-12T15:21:34+01:00
 tags: ["forensicwheels"]
 draft: false
 weight: 1007
@@ -163,21 +163,17 @@ Before moving entirely to the YubiKey, I backed up the master key offline:
 gpg --export-secret-keys --armor > masterkey-backup.asc
 ```
 
-I stored it on an encrypted USB drive using:
+I stored it on an encrypted USB drive with either one:
 
 -   ****LUKS**** (on Linux)
--   ****VeraCrypt**** (cross-platform)
 -   ****OpenBSD softraid(4)**** encryption
-
-I then removed the master key from my online machine after subkeys were in place.
 
 
 ## Conclusion {#conclusion}
 
-Rolling out GPG was empowering. With my identity cryptographically verifiable, email signing in place, and secure document sharing live on my site, I now have a strong, decentralized identity system.
-
-🔑 Want to reach out securely?
-→ Grab my public key and shoot me a signed or encrypted message.
+Rolling out GPG was super easy. With my identity cryptographically verifiable, email
+signing in place, and secure document sharing live on my site, I now
+have a strong, decentralized identity system.
 
 
 ## Useful Links {#useful-links}

@@ -21,37 +21,37 @@ Created a GPG key pair Set up subkeys and stored them on my YubiKey Published my
     <meta property="og:type" content="article">
     <meta property="article:section" content="Forensic wheels">
     <meta property="article:published_time" content="2025-10-29T12:17:00+01:00">
-    <meta property="article:modified_time" content="2025-11-12T15:19:01+01:00">
+    <meta property="article:modified_time" content="2025-11-12T15:21:34+01:00">
     <meta property="article:tag" content="Forensicwheels">
     <meta itemprop="name" content="Putting my gpg key on my yubikey - Forensic wheels">
     <meta itemprop="description" content="Why GPG? In an age where digital identities are easily faked and impersonation is just a few clicks away, I decided to take a step forward in securing mine. GPG (GNU Privacy Guard) provides a robust way to authenticate, encrypt, and sign digital content. In this post, I’ll walk you through how I:
 Created a GPG key pair Set up subkeys and stored them on my YubiKey Published my public key on my website Signed and encrypted personal documents for secure public sharing Configured email signing using GPG Step 1: Installing GPG To start, I made sure GPG was installed. Here’s how I did it on each of my systems:">
     <meta itemprop="datePublished" content="2025-10-29T12:17:00+01:00">
-    <meta itemprop="dateModified" content="2025-11-12T15:19:01+01:00">
-    <meta itemprop="wordCount" content="679">
+    <meta itemprop="dateModified" content="2025-11-12T15:21:34+01:00">
+    <meta itemprop="wordCount" content="646">
     <meta itemprop="keywords" content="Forensicwheels">
     <title>Putting my gpg key on my yubikey - Forensic wheels</title>
-    <link href="/images/logo.svg?1762957142" rel="icon" type="image/svg+xml">
-    <link href="/css/auto-complete/auto-complete.min.css?1762957142" rel="stylesheet">
-    <script src="/js/auto-complete/auto-complete.min.js?1762957142" defer></script>
-    <script src="/js/search-lunr.js?1762957142" defer></script>
-    <script src="/js/search.js?1762957142" defer></script>
+    <link href="/images/logo.svg?1762957294" rel="icon" type="image/svg+xml">
+    <link href="/css/auto-complete/auto-complete.min.css?1762957294" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1762957294" defer></script>
+    <script src="/js/search-lunr.js?1762957294" defer></script>
+    <script src="/js/search.js?1762957294" defer></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.index_js_url="/searchindex.en.js?1762957142";
+      window.relearn.index_js_url="/searchindex.en.js?1762957294";
     </script>
-    <script src="/js/lunr/lunr.min.js?1762957142" defer></script>
-    <script src="/js/lunr/lunr.stemmer.support.min.js?1762957142" defer></script>
-    <script src="/js/lunr/lunr.multi.min.js?1762957142" defer></script>
-    <script src="/js/lunr/lunr.en.min.js?1762957142" defer></script>
+    <script src="/js/lunr/lunr.min.js?1762957294" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1762957294" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1762957294" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1762957294" defer></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.contentLangs=['en'];
     </script>
-    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1762957142" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1762957142" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1762957142" rel="stylesheet">
-    <link href="/css/theme.css?1762957142" rel="stylesheet">
-    <link href="/css/format-html.css?1762957142" rel="stylesheet" id="R-format-style">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1762957294" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1762957294" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1762957294" rel="stylesheet">
+    <link href="/css/theme.css?1762957294" rel="stylesheet">
+    <link href="/css/format-html.css?1762957294" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -253,17 +253,15 @@ Created a GPG key pair Set up subkeys and stored them on my YubiKey Published my
 <h2 id="step-7-offline-backup-of-my-master-key">Step 7: Offline Backup of My Master Key</h2>
 <p>Before moving entirely to the YubiKey, I backed up the master key offline:</p>
 <div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gpg --export-secret-keys --armor &gt; masterkey-backup.asc</span></span></code></pre></div>
-<p>I stored it on an encrypted USB drive using:</p>
+<p>I stored it on an encrypted USB drive with either one:</p>
 <ul>
 <li><strong><strong>LUKS</strong></strong> (on Linux)</li>
-<li><strong><strong>VeraCrypt</strong></strong> (cross-platform)</li>
 <li><strong><strong>OpenBSD softraid(4)</strong></strong> encryption</li>
 </ul>
-<p>I then removed the master key from my online machine after subkeys were in place.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Rolling out GPG was empowering. With my identity cryptographically verifiable, email signing in place, and secure document sharing live on my site, I now have a strong, decentralized identity system.</p>
-<p>🔑 Want to reach out securely?
-→ Grab my public key and shoot me a signed or encrypted message.</p>
+<p>Rolling out GPG was super easy. With my identity cryptographically verifiable, email
+signing in place, and secure document sharing live on my site, I now
+have a strong, decentralized identity system.</p>
 <h2 id="useful-links">Useful Links</h2>
 <ul>
 <li><a href="https://www.gnupg.org/" rel="external" target="_blank">GnuPG Official Website</a></li>
@@ -357,8 +355,8 @@ Created a GPG key pair Set up subkeys and stored them on my YubiKey Published my
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/js/clipboard/clipboard.min.js?1762957142" defer></script>
-    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1762957142" defer></script>
-    <script src="/js/theme.js?1762957142" defer></script>
+    <script src="/js/clipboard/clipboard.min.js?1762957294" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1762957294" defer></script>
+    <script src="/js/theme.js?1762957294" defer></script>
   </body>
 </html>

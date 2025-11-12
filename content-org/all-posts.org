@@ -1136,18 +1136,14 @@ Before moving entirely to the YubiKey, I backed up the master key offline:
 gpg --export-secret-keys --armor > masterkey-backup.asc
 #+END_SRC
 
-I stored it on an encrypted USB drive using:
+I stored it on an encrypted USB drive with either one:
 - **LUKS** (on Linux)
-- **VeraCrypt** (cross-platform)
 - **OpenBSD softraid(4)** encryption
 
-I then removed the master key from my online machine after subkeys were in place.
-
 ** Conclusion
-Rolling out GPG was empowering. With my identity cryptographically verifiable, email signing in place, and secure document sharing live on my site, I now have a strong, decentralized identity system.
-
-🔑 Want to reach out securely?  
-→ Grab my public key and shoot me a signed or encrypted message.
+Rolling out GPG was super easy. With my identity cryptographically verifiable, email
+signing in place, and secure document sharing live on my site, I now
+have a strong, decentralized identity system.
 
 ** Useful Links
 - [[https://www.gnupg.org/][GnuPG Official Website]]
