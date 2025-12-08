@@ -1,7 +1,7 @@
 var relearn_searchindex = [
   {
     "breadcrumb": "Welcome",
-    "content": "Welcome to my technical blog and knowledge base!\nTopics 🖥 Threathunting Tutorials 🖥 OpenBSD Latest posts Threathunting I: Network setup 08.07.2025 Threat hunting II: SSH Honeypot setup 13.07.2025 Fixing Yellow Shards in Elasticsearch 12.11.2025 Rescue to the softraid 12.11.2025 Putting my gpg key on my yubikey 12.11.2025 Get in Touch Suggestions or feedback?\nContact me here or visit the project repository.\nYou can also subscribe via RSS.",
+    "content": "Welcome to my technical blog and knowledge base!\nTopics 🖥 Threathunting Tutorials 🖥 OpenBSD Latest posts Threathunting I: Network setup 08.07.2025 Threat hunting II: SSH Honeypot setup 13.07.2025 Fixing Yellow Shards in Elasticsearch 12.11.2025 Rescue to the softraid 12.11.2025 Putting my gpg key on my yubikey 29.10.2025 Get in Touch Suggestions or feedback?\nContact me here or visit the project repository.\nYou can also subscribe via RSS.",
     "description": "Latest posts",
     "tags": [],
     "title": "Forensic wheels",
@@ -9,7 +9,7 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "",
-    "content": "Welcome to my technical blog and knowledge base!\nTopics 🖥 Threathunting Tutorials 🖥 All things OpenBSD Latest posts Threathunting I: Network setup 08.07.2025 Threat hunting II: SSH Honeypot setup 13.07.2025 Fixing Yellow Shards in Elasticsearch 12.11.2025 Rescue to the softraid 12.11.2025 Putting my gpg key on my yubikey 12.11.2025 Get in Touch Suggestions or feedback?\nContact me here or visit the project repository.\nYou can also subscribe via RSS.",
+    "content": "Welcome to my technical blog and knowledge base!\nTopics 🖥 Threathunting Tutorials 🖥 All things OpenBSD Latest posts Threathunting I: Network setup 08.07.2025 Threat hunting II: SSH Honeypot setup 13.07.2025 Fixing Yellow Shards in Elasticsearch 12.11.2025 Rescue to the softraid 12.11.2025 Putting my gpg key on my yubikey 29.10.2025 Get in Touch Suggestions or feedback?\nContact me here or visit the project repository.\nYou can also subscribe via RSS.",
     "description": "Latest posts",
     "tags": [],
     "title": "Welcome",
@@ -73,29 +73,13 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "Welcome \u003e Forensic wheels",
-    "content": "Why GPG? In an age where digital identities are easily faked and impersonation is just a few clicks away, I decided to take a step forward in securing mine. GPG (GNU Privacy Guard) provides a robust way to authenticate, encrypt, and sign digital content. In this post, I’ll walk you through how I:\nCreated a GPG key pair Set up subkeys and stored them on my YubiKey Published my public key on my website Signed and encrypted personal documents for secure public sharing Configured email signing using GPG Step 1: Installing GPG To start, I made sure GPG was installed. Here’s how I did it on each of my systems:\nOn Ubuntu/Debian:\nsudo apt update \u0026\u0026 sudo apt install gnupg On Fedora 40:\nsudo dnf install gnupg2 On OpenBSD 7.6:\ndoas pkg_add gnupg Check your installation:\ngpg --version Step 2: Creating My GPG Key Pair I created a new key using:\ngpg --full-generate-key Here’s what I chose:\nKey type: ed25519 (modern and compact) or RSA and RSA (widely compatible) Key length: 4096 bits (if RSA) Expiration: 2 years (I can always renew) My real name or handle My preferred contact email A strong passphrase, saved in a password manager After generating the key, I listed it and saved the fingerprint:\ngpg --list-keys --fingerprint gpg: \"Trust-DB\" wird überprüft gpg: marginals needed: 3 completes needed: 1 trust model: pgp gpg: Tiefe: 0 gültig: 1 signiert: 0 Vertrauen: 0-, 0q, 0n, 0m, 0f, 1u gpg: nächste \"Trust-DB\"-Pflichtüberprüfung am 2026-08-04 [keyboxd] --------- pub ed25519 2025-08-04 [SC] [verfällt: 2026-08-04] A371 9309 4ED4 B0E6 AD2E 5022 D7D6 4842 8DBD 39FD uid [ ultimativ ] Dirk.L (Dirk.L's official key) \u003cpolymathmonkey@keksmafia.org\u003e Step 3: Creating Subkeys and Moving Them to My YubiKey I created subkeys for:\nSigning Encryption Authentication Then, I moved the subkeys to my YubiKey using GPG’s interactive editor:\ngpg --edit-key Dirk.L gpg\u003e addkey \u003c- once for signing, engryption, auth gpg\u003e keytocard gpg\u003e save ⚠️ Be cautious: Once moved to the YubiKey, the subkey no longer exists on disk.\nMore guidance: YubiKey + GPG official instructions\nStep 4: Publishing My Public Key I exported my key in ASCII format so others could import it easily:\ngpg --export --armor you@example.com \u003e publickey.asc I uploaded publickey.asc to my website and linked it like this:\n\u003ca href=\"/publickey.asc\"\u003e🔑 Download my GPG public key\u003c/a\u003e Additionally, I displayed my key’s fingerprint on the page so that people can verify its authenticity manually.\nStep 5: Email Signing and Encryption I configured email signing using my GPG key.\nFor Thunderbird (Linux, OpenBSD, Windows):\nOpenPGP support is built-in. I enabled signing for all outgoing mail. The key lives on the YubiKey, so no key is stored on disk. For Mutt / CLI mailers:\nI used `gpg-agent` for passphrase and key handling. Configured .muttrc to sign and/or encrypt automatically. Signing ensures message authenticity. If recipients have my key, they can encrypt replies.\nStep 6: Signing and Encrypting Documents for the Public To safely share personal certificates and private files, I signed and optionally encrypted them:\n# Sign only (adds signature block) gpg --sign --armor diploma.pdf # Sign and encrypt with a password (no public key needed) gpg --symmetric --armor --cipher-algo AES256 diploma.pdf This way, the document is verifiably mine and only decryptable with the shared password.\nThe encrypted .asc files can be uploaded to the website, with instructions for downloading and decrypting.\nStep 7: Offline Backup of My Master Key Before moving entirely to the YubiKey, I backed up the master key offline:\ngpg --export-secret-keys --armor \u003e masterkey-backup.asc I stored it on an encrypted USB drive using:\nLUKS (on Linux) VeraCrypt (cross-platform) OpenBSD softraid(4) encryption I then removed the master key from my online machine after subkeys were in place.\nConclusion Rolling out GPG was empowering. With my identity cryptographically verifiable, email signing in place, and secure document sharing live on my site, I now have a strong, decentralized identity system.\n🔑 Want to reach out securely? → Grab my public key and shoot me a signed or encrypted message.\nUseful Links GnuPG Official Website FSF’s Email Self-Defense Guide YubiKey GPG Configuration OpenPGP Public Key Directory",
+    "content": "Why GPG? In an age where digital identities are easily faked and impersonation is just a few clicks away, I decided to take a step forward in securing mine. GPG (GNU Privacy Guard) provides a robust way to authenticate, encrypt, and sign digital content. In this post, I’ll walk you through how I:\nCreated a GPG key pair Set up subkeys and stored them on my YubiKey Published my public key on my website Signed and encrypted personal documents for secure public sharing Configured email signing using GPG Step 1: Installing GPG To start, I made sure GPG was installed. Here’s how I did it on each of my systems:\nOn Ubuntu/Debian:\nsudo apt update \u0026\u0026 sudo apt install gnupg On Fedora 40:\nsudo dnf install gnupg2 On OpenBSD 7.6:\ndoas pkg_add gnupg Check your installation:\ngpg --version Step 2: Creating My GPG Key Pair I created a new key using:\ngpg --full-generate-key Here’s what I chose:\nKey type: ed25519 (modern and compact) or RSA and RSA (widely compatible) Key length: 4096 bits (if RSA) Expiration: 2 years (I can always renew) My real name or handle My preferred contact email A strong passphrase, saved in a password manager After generating the key, I listed it and saved the fingerprint:\ngpg --list-keys --fingerprint gpg: \"Trust-DB\" wird überprüft gpg: marginals needed: 3 completes needed: 1 trust model: pgp gpg: Tiefe: 0 gültig: 1 signiert: 0 Vertrauen: 0-, 0q, 0n, 0m, 0f, 1u gpg: nächste \"Trust-DB\"-Pflichtüberprüfung am 2026-08-04 [keyboxd] --------- pub ed25519 2025-08-04 [SC] [verfällt: 2026-08-04] A371 9309 4ED4 B0E6 AD2E 5022 D7D6 4842 8DBD 39FD uid [ ultimativ ] Dirk.L (Dirk.L's official key) \u003cpolymathmonkey@keksmafia.org\u003e Step 3: Creating Subkeys and Moving Them to My YubiKey I created subkeys for:\nSigning Encryption Authentication Then, I moved the subkeys to my YubiKey using GPG’s interactive editor:\ngpg --edit-key Dirk.L gpg\u003e addkey \u003c- once for signing, engryption, auth gpg\u003e keytocard gpg\u003e save ⚠️ Be cautious: Once moved to the YubiKey, the subkey no longer exists on disk.\nMore guidance: YubiKey + GPG official instructions\nStep 4: Publishing My Public Key I exported my key in ASCII format so others could import it easily:\ngpg --export --armor you@example.com \u003e publickey.asc I uploaded publickey.asc to my website and linked it like this:\n\u003ca href=\"/publickey.asc\"\u003e🔑 Download my GPG public key\u003c/a\u003e Additionally, I displayed my key’s fingerprint on the page so that people can verify its authenticity manually.\nStep 5: Email Signing and Encryption I configured email signing using my GPG key.\nFor Thunderbird (Linux, OpenBSD, Windows):\nOpenPGP support is built-in. I enabled signing for all outgoing mail. The key lives on the YubiKey, so no key is stored on disk. For Mutt / CLI mailers:\nI used `gpg-agent` for passphrase and key handling. Configured .muttrc to sign and/or encrypt automatically. Signing ensures message authenticity. If recipients have my key, they can encrypt replies.\nStep 6: Signing and Encrypting Documents for the Public To safely share personal certificates and private files, I signed and optionally encrypted them:\n# Sign only (adds signature block) gpg --sign --armor diploma.pdf # Sign and encrypt with a password (no public key needed) gpg --symmetric --armor --cipher-algo AES256 diploma.pdf This way, the document is verifiably mine and only decryptable with the shared password.\nThe encrypted .asc files can be uploaded to the website, with instructions for downloading and decrypting.\nStep 7: Offline Backup of My Master Key Before moving entirely to the YubiKey, I backed up the master key offline:\ngpg --export-secret-keys --armor \u003e masterkey-backup.asc I stored it on an encrypted USB drive with either one:\nLUKS (on Linux) OpenBSD softraid(4) encryption Conclusion Rolling out GPG was super easy. With my identity cryptographically verifiable, email signing in place, and secure document sharing live on my site, I now have a strong, decentralized identity system.\nUseful Links GnuPG Official Website FSF’s Email Self-Defense Guide YubiKey GPG Configuration OpenPGP Public Key Directory",
     "description": "Why GPG? In an age where digital identities are easily faked and impersonation is just a few clicks away, I decided to take a step forward in securing mine. GPG (GNU Privacy Guard) provides a robust way to authenticate, encrypt, and sign digital content. In this post, I’ll walk you through how I:\nCreated a GPG key pair Set up subkeys and stored them on my YubiKey Published my public key on my website Signed and encrypted personal documents for secure public sharing Configured email signing using GPG Step 1: Installing GPG To start, I made sure GPG was installed. Here’s how I did it on each of my systems:",
     "tags": [
       "Forensicwheels"
     ],
     "title": "Putting my gpg key on my yubikey",
     "uri": "/posts/gpgonmyyubi/index.html"
-  },
-  {
-    "breadcrumb": "Welcome \u003e Tags",
-    "content": "",
-    "description": "",
-    "tags": [],
-    "title": "Tag - Forensicwheels",
-    "uri": "/tags/forensicwheels/index.html"
-  },
-  {
-    "breadcrumb": "Welcome",
-    "content": "",
-    "description": "",
-    "tags": [],
-    "title": "Tags",
-    "uri": "/tags/index.html"
   },
   {
     "breadcrumb": "Welcome",
@@ -118,6 +102,14 @@ var relearn_searchindex = [
     "content": "",
     "description": "",
     "tags": [],
+    "title": "Tag - Forensicwheels",
+    "uri": "/tags/forensicwheels/index.html"
+  },
+  {
+    "breadcrumb": "Welcome \u003e Tags",
+    "content": "",
+    "description": "",
+    "tags": [],
     "title": "Tag - Openbsd",
     "uri": "/tags/openbsd/index.html"
   },
@@ -128,6 +120,14 @@ var relearn_searchindex = [
     "tags": [],
     "title": "Tag - Personal",
     "uri": "/tags/personal/index.html"
+  },
+  {
+    "breadcrumb": "Welcome",
+    "content": "",
+    "description": "",
+    "tags": [],
+    "title": "Tags",
+    "uri": "/tags/index.html"
   },
   {
     "breadcrumb": "Welcome \u003e Tags",

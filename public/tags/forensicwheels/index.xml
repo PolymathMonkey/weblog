@@ -6,7 +6,7 @@
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Nov 2025 15:17:52 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 12 Nov 2025 15:21:34 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/forensicwheels/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>about</title>
@@ -32,7 +32,7 @@
     <item>
       <title>Putting my gpg key on my yubikey</title>
       <link>http://localhost:1313/posts/gpgonmyyubi/index.html</link>
-      <pubDate>Wed, 12 Nov 2025 15:17:00 +0100</pubDate>
+      <pubDate>Wed, 29 Oct 2025 12:17:00 +0100</pubDate>
       <guid>http://localhost:1313/posts/gpgonmyyubi/index.html</guid>
       <description>Why GPG? In an age where digital identities are easily faked and impersonation is just a few clicks away, I decided to take a step forward in securing mine. GPG (GNU Privacy Guard) provides a robust way to authenticate, encrypt, and sign digital content. In this post, I’ll walk you through how I:&#xA;Created a GPG key pair Set up subkeys and stored them on my YubiKey Published my public key on my website Signed and encrypted personal documents for secure public sharing Configured email signing using GPG Step 1: Installing GPG To start, I made sure GPG was installed. Here’s how I did it on each of my systems:</description>
     </item>
