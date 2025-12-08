@@ -2,10 +2,10 @@
 title: "Fixing Yellow Shards in Elasticsearch"
 author: ["Dirk"]
 date: 2025-11-12T11:07:00+01:00
-lastmod: 2025-11-12T11:09:54+01:00
+lastmod: 2025-12-08T11:52:33+01:00
 tags: ["forensicwheels"]
 draft: false
-weight: 1005
+weight: 1006
 ---
 
 ## Introduction {#introduction}
@@ -134,3 +134,5 @@ Just don't forget to:
 -   Monitor your shard health
 -   Disable replicas if you only have one node
 -   Automate where you can
+
+{{< giscus >}}

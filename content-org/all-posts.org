@@ -11,7 +11,7 @@
 #+startup: indent
 #+author: Dirk
 
-* DONE Open BSD and Zen                                                                    :@personal:openbsd:zen:
+* DONE Open BSD and Zen                                                                   :@personal:openbsd:zen:
 CLOSED: [2025-06-28 Sa 12:48]
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
@@ -99,6 +99,10 @@ embracing simplicity, attention to detail, consistency, and the beauty of
 imperfection, both OpenBSD and Zen provide unique perspectives on the nature
 of software development and personal growth. Stay tuned for further insights
 from my exploration in the realm of security!
+
+#+BEGIN_EXPORT md
+{{< giscus >}}
+#+END_EXPORT
 
 * TODO SANS FOR608                                                                        :@forensic:@threathunting:honeypot:canarytokens:@threathunting:
 :PROPERTIES:
@@ -910,6 +914,10 @@ Pushover provides instant alerts with almost no configuration or overhead.
 For a home router or small business network, this combination gives you
 semi professional-grade monitoring with minimal effort.
 
+#+BEGIN_EXPORT md
+{{< giscus >}}
+#+END_EXPORT
+
 * DRAFT Why Some Never Quit – A Few Words on Lifetime Skaters
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
@@ -1084,6 +1092,11 @@ Just don't forget to:
 - Monitor your shard health
 - Disable replicas if you only have one node
 - Automate where you can
+
+#+BEGIN_EXPORT md
+{{< giscus >}}
+#+END_EXPORT
+
 * DONE Rescue to the softraid                                                             :personal:@forensic:openbsd:
 CLOSED: [2025-10-15 Mi 19:03]
 :PROPERTIES:
@@ -1318,6 +1331,10 @@ Depending on USB speed:
 - ~tmux~, ~ionice~, ~dstat~, ~iotop~
 
 ---
+#+BEGIN_EXPORT md
+{{< giscus >}}
+#+END_EXPORT
+
 * DONE Putting my gpg key on my yubikey
 CLOSED: [2025-10-29 Mi 12:17]
 :PROPERTIES:
@@ -1478,4 +1495,9 @@ have a strong, decentralized identity system.
 - [[https://emailselfdefense.fsf.org/en/][FSF's Email Self-Defense Guide]]
 - [[https://developers.yubico.com/PGP/][YubiKey GPG Configuration]]
 - [[https://keys.openpgp.org/][OpenPGP Public Key Directory]]
+
+#+BEGIN_EXPORT md
+{{< giscus >}}
+#+END_EXPORT
+
 

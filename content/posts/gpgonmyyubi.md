@@ -2,10 +2,10 @@
 title: "Putting my gpg key on my yubikey"
 author: ["Dirk"]
 date: 2025-10-29T12:17:00+01:00
-lastmod: 2025-11-12T15:21:34+01:00
+lastmod: 2025-12-08T11:52:42+01:00
 tags: ["forensicwheels"]
 draft: false
-weight: 1007
+weight: 1008
 ---
 
 ## Why GPG? {#why-gpg}
@@ -182,3 +182,5 @@ have a strong, decentralized identity system.
 -   [FSF's Email Self-Defense Guide](https://emailselfdefense.fsf.org/en/)
 -   [YubiKey GPG Configuration](https://developers.yubico.com/PGP/)
 -   [OpenPGP Public Key Directory](https://keys.openpgp.org/)
+
+{{< giscus >}}

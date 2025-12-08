@@ -1,12 +1,12 @@
 ---
 title: "Rescue to the softraid"
 author: ["Dirk"]
-date: 2025-11-12T15:03:00+01:00
-lastmod: 2025-11-12T15:04:07+01:00
+date: 2025-10-15T19:03:00+02:00
+lastmod: 2025-12-08T11:52:38+01:00
 tags: ["forensicwheels", "personal", "openbsd"]
 categories: ["forensic"]
 draft: false
-weight: 1006
+weight: 1007
 ---
 
 ## Introduction {#introduction}
@@ -254,3 +254,5 @@ Depending on USB speed:
 -   `tmux`, `ionice`, `dstat`, `iotop`
 
 ---
+
+{{< giscus >}}

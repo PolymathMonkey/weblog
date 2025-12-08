@@ -2,7 +2,7 @@
 title: "How to monitor systems with monit"
 author: ["Dirk"]
 date: 2025-12-08T11:40:00+01:00
-lastmod: 2025-12-08T11:43:16+01:00
+lastmod: 2025-12-08T11:52:28+01:00
 tags: ["forensicwheels", "openbsd", "personal", "visibility"]
 draft: false
 weight: 1004
@@ -342,3 +342,5 @@ Pushover provides instant alerts with almost no configuration or overhead.
 
 For a home router or small business network, this combination gives you
 semi professional-grade monitoring with minimal effort.
+
+{{< giscus >}}

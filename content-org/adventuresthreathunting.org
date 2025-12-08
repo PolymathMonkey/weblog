@@ -1164,5 +1164,10 @@ if they interessted in a merge request from my code.
 Next, we will talk about Setting up the ELK Server and how to ingest data.
 Stay tuned!
 
+#+BEGIN_EXPORT md
+{{< giscus >}}
+#+END_EXPORT
+
+
 * DRAFT Threathunting IV: Setup ELK Server and ingest data                                :@threathunting:visibility:
 * DRAFT Testing webhoneypots with ZAP in server mode                                    :@threathunting:
