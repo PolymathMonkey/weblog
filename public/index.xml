@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Welcome - Forensic wheels</title>
+    <link>http://localhost:1313/index.html</link>
+    <description>Latest posts</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Oct 2025 09:51:12 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Forensic wheels</title>
+      <link>http://localhost:1313/posts/index.html</link>
+      <pubDate>Fri, 04 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/index.html</guid>
+      <description>Latest posts</description>
+    </item>
+    <item>
+      <title>about</title>
+      <link>http://localhost:1313/about/index.html</link>
+      <pubDate>Sat, 28 Jun 2025 16:16:00 +0200</pubDate>
+      <guid>http://localhost:1313/about/index.html</guid>
+      <description>Short intro about myself</description>
+    </item>
+  </channel>
+</rss>

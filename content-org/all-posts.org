@@ -1459,7 +1459,7 @@ _Explanation of parameters_
 
 - ~-r3~ retries each bad block 3 times  
 - ~-d~ enables direct disk I/O  
-- The `.log` file lets you stop and restart without losing progress  
+- The *.log* file lets you stop and restart without losing progress  
 - ~xz -T0~ uses all CPU cores for compression  
 
 After the dump, I verified the output:

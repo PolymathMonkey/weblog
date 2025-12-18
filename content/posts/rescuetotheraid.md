@@ -2,7 +2,7 @@
 title: "Rescue to the softraid"
 author: ["Dirk"]
 date: 2025-10-15T19:03:00+02:00
-lastmod: 2025-12-18T12:24:04+01:00
+lastmod: 2025-12-18T12:36:40+01:00
 tags: ["forensicwheels", "personal", "openbsd"]
 categories: ["forensic"]
 draft: false
@@ -111,7 +111,7 @@ It took most of the night, but eventually I had a clean (or mostly clean) image.
 
 -   `-r3` retries each bad block 3 times
 -   `-d` enables direct disk I/O
--   The \`.log\` file lets you stop and restart without losing progress
+-   The **.log** file lets you stop and restart without losing progress
 -   `xz -T0` uses all CPU cores for compression
 
 After the dump, I verified the output:

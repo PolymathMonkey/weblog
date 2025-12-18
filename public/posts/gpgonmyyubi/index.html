@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.142.0">
+    <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
+    <meta name="description" content="Why GPG? In an age where digital identities are easily faked and impersonation is just a few clicks away, I decided to take a step forward in securing mine. GPG (GNU Privacy Guard) provides a robust way to authenticate, encrypt, and sign digital content. In this post, I’ll walk you through how I:
+Created a GPG key pair Set up subkeys and stored them on my YubiKey Published my public key on my website Signed and encrypted personal documents for secure public sharing Configured email signing using GPG Step 1: Installing GPG To start, I made sure GPG was installed. Here’s how I did it on each of my systems:">
+    <meta name="author" content="Dirk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Putting my gpg key on my yubikey - Forensic wheels">
+    <meta name="twitter:description" content="Why GPG? In an age where digital identities are easily faked and impersonation is just a few clicks away, I decided to take a step forward in securing mine. GPG (GNU Privacy Guard) provides a robust way to authenticate, encrypt, and sign digital content. In this post, I’ll walk you through how I:
+Created a GPG key pair Set up subkeys and stored them on my YubiKey Published my public key on my website Signed and encrypted personal documents for secure public sharing Configured email signing using GPG Step 1: Installing GPG To start, I made sure GPG was installed. Here’s how I did it on each of my systems:">
+    <meta property="og:url" content="http://localhost:1313/posts/gpgonmyyubi/index.html">
+    <meta property="og:site_name" content="Forensic wheels">
+    <meta property="og:title" content="Putting my gpg key on my yubikey - Forensic wheels">
+    <meta property="og:description" content="Why GPG? In an age where digital identities are easily faked and impersonation is just a few clicks away, I decided to take a step forward in securing mine. GPG (GNU Privacy Guard) provides a robust way to authenticate, encrypt, and sign digital content. In this post, I’ll walk you through how I:
+Created a GPG key pair Set up subkeys and stored them on my YubiKey Published my public key on my website Signed and encrypted personal documents for secure public sharing Configured email signing using GPG Step 1: Installing GPG To start, I made sure GPG was installed. Here’s how I did it on each of my systems:">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Forensic wheels">
+    <meta property="article:published_time" content="2025-10-29T12:17:00+01:00">
+    <meta property="article:modified_time" content="2025-12-08T11:52:42+01:00">
+    <meta property="article:tag" content="Forensicwheels">
+    <meta itemprop="name" content="Putting my gpg key on my yubikey - Forensic wheels">
+    <meta itemprop="description" content="Why GPG? In an age where digital identities are easily faked and impersonation is just a few clicks away, I decided to take a step forward in securing mine. GPG (GNU Privacy Guard) provides a robust way to authenticate, encrypt, and sign digital content. In this post, I’ll walk you through how I:
+Created a GPG key pair Set up subkeys and stored them on my YubiKey Published my public key on my website Signed and encrypted personal documents for secure public sharing Configured email signing using GPG Step 1: Installing GPG To start, I made sure GPG was installed. Here’s how I did it on each of my systems:">
+    <meta itemprop="datePublished" content="2025-10-29T12:17:00+01:00">
+    <meta itemprop="dateModified" content="2025-12-08T11:52:42+01:00">
+    <meta itemprop="wordCount" content="646">
+    <meta itemprop="keywords" content="Forensicwheels">
+    <title>Putting my gpg key on my yubikey - Forensic wheels</title>
+    <link href="/images/logo.svg?1766057818" rel="icon" type="image/svg+xml">
+    <link href="/css/auto-complete/auto-complete.min.css?1766057818" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1766057818" defer></script>
+    <script src="/js/search-lunr.js?1766057818" defer></script>
+    <script src="/js/search.js?1766057818" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="/searchindex.en.js?1766057818";
+    </script>
+    <script src="/js/lunr/lunr.min.js?1766057818" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1766057818" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1766057818" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1766057818" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1766057818" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1766057818" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1766057818" rel="stylesheet">
+    <link href="/css/theme.css?1766057818" rel="stylesheet">
+    <link href="/css/format-html.css?1766057818" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/posts\/gpgonmyyubi\/index.html';
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto', 'neon' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/posts/gpgonmyyubi/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#why-gpg">Why GPG?</a></li>
+    <li><a href="#step-1-installing-gpg">Step 1: Installing GPG</a></li>
+    <li><a href="#step-2-creating-my-gpg-key-pair">Step 2: Creating My GPG Key Pair</a></li>
+    <li><a href="#step-3-creating-subkeys-and-moving-them-to-my-yubikey">Step 3: Creating Subkeys and Moving Them to My YubiKey</a></li>
+    <li><a href="#step-4-publishing-my-public-key">Step 4: Publishing My Public Key</a></li>
+    <li><a href="#step-5-email-signing-and-encryption">Step 5: Email Signing and Encryption</a></li>
+    <li><a href="#step-6-signing-and-encrypting-documents-for-the-public">Step 6: Signing and Encrypting Documents for the Public</a></li>
+    <li><a href="#step-7-offline-backup-of-my-master-key">Step 7: Offline Backup of My Master Key</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#useful-links">Useful Links</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="topbar-breadcrumbs highlightable">
+            Putting my gpg key on my yubikey
+          </span>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable posts" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+<div class="R-taxonomy taxonomy-tags cstyle tags" title="Tags" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
+  <ul>
+    <li><a class="term-link" href="/tags/forensicwheels/index.html">Forensicwheels</a></li>
+  </ul>
+</div>
+  </header>
+
+<h1 id="putting-my-gpg-key-on-my-yubikey">Putting my gpg key on my yubikey</h1>
+
+<h2 id="why-gpg">Why GPG?</h2>
+<p>In an age where digital identities are easily faked and impersonation is just a few clicks away, I decided to take a step forward in securing mine. GPG (GNU Privacy Guard) provides a robust way to authenticate, encrypt, and sign digital content. In this post, I’ll walk you through how I:</p>
+<ul>
+<li>Created a GPG key pair</li>
+<li>Set up subkeys and stored them on my YubiKey</li>
+<li>Published my public key on my website</li>
+<li>Signed and encrypted personal documents for secure public sharing</li>
+<li>Configured email signing using GPG</li>
+</ul>
+<h2 id="step-1-installing-gpg">Step 1: Installing GPG</h2>
+<p>To start, I made sure GPG was installed. Here&rsquo;s how I did it on each of my systems:</p>
+<p><strong><strong>On Ubuntu/Debian:</strong></strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt install gnupg</span></span></code></pre></div>
+<p><strong><strong>On Fedora 40:</strong></strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo dnf install gnupg2</span></span></code></pre></div>
+<p><strong><strong>On OpenBSD 7.6:</strong></strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>doas pkg_add gnupg</span></span></code></pre></div>
+<p>Check your installation:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gpg --version</span></span></code></pre></div>
+<h2 id="step-2-creating-my-gpg-key-pair">Step 2: Creating My GPG Key Pair</h2>
+<p>I created a new key using:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gpg --full-generate-key</span></span></code></pre></div>
+<p>Here’s what I chose:</p>
+<ul>
+<li>Key type: <code>ed25519</code> (modern and compact) or <code>RSA and RSA</code> (widely compatible)</li>
+<li>Key length: 4096 bits (if RSA)</li>
+<li>Expiration: 2 years (I can always renew)</li>
+<li>My real name or handle</li>
+<li>My preferred contact email</li>
+<li>A strong passphrase, saved in a password manager</li>
+</ul>
+<p>After generating the key, I listed it and saved the fingerprint:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gpg --list-keys --fingerprint
+</span></span><span style="display:flex;"><span>gpg: <span style="color:#e6db74">&#34;Trust-DB&#34;</span> wird überprüft
+</span></span><span style="display:flex;"><span>gpg: marginals needed: <span style="color:#ae81ff">3</span>  completes needed: <span style="color:#ae81ff">1</span>  trust model: pgp
+</span></span><span style="display:flex;"><span>gpg: Tiefe: <span style="color:#ae81ff">0</span>  gültig:   <span style="color:#ae81ff">1</span>  signiert:   <span style="color:#ae81ff">0</span>  Vertrauen: 0-, 0q, 0n, 0m, 0f, 1u
+</span></span><span style="display:flex;"><span>gpg: nächste <span style="color:#e6db74">&#34;Trust-DB&#34;</span>-Pflichtüberprüfung am 2026-08-04
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>keyboxd<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>---------
+</span></span><span style="display:flex;"><span>pub   ed25519 2025-08-04 <span style="color:#f92672">[</span>SC<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>verfällt: 2026-08-04<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    A371 <span style="color:#ae81ff">9309</span> 4ED4 B0E6 AD2E  <span style="color:#ae81ff">5022</span> D7D6 <span style="color:#ae81ff">4842</span> 8DBD 39FD
+</span></span><span style="display:flex;"><span>uid        <span style="color:#f92672">[</span> ultimativ <span style="color:#f92672">]</span> Dirk.L <span style="color:#f92672">(</span>Dirk.L<span style="color:#960050;background-color:#1e0010">&#39;</span>s official key<span style="color:#f92672">)</span> &lt;polymathmonkey@keksmafia.org&gt;</span></span></code></pre></div>
+<h2 id="step-3-creating-subkeys-and-moving-them-to-my-yubikey">Step 3: Creating Subkeys and Moving Them to My YubiKey</h2>
+<p>I created subkeys for:</p>
+<ul>
+<li>Signing</li>
+<li>Encryption</li>
+<li>Authentication</li>
+</ul>
+<p>Then, I moved the subkeys to my YubiKey using GPG’s interactive editor:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gpg --edit-key Dirk.L
+</span></span><span style="display:flex;"><span>gpg&gt; addkey &lt;- once <span style="color:#66d9ef">for</span> signing, engryption, auth
+</span></span><span style="display:flex;"><span>gpg&gt; keytocard
+</span></span><span style="display:flex;"><span>gpg&gt; save</span></span></code></pre></div>
+<p>⚠️ <strong>Be cautious:</strong> Once moved to the YubiKey, the subkey <strong>no longer exists</strong> on disk.</p>
+<p>More guidance: <a href="https://developers.yubico.com/PGP/" rel="external" target="_blank">YubiKey + GPG official instructions</a></p>
+<h2 id="step-4-publishing-my-public-key">Step 4: Publishing My Public Key</h2>
+<p>I exported my key in ASCII format so others could import it easily:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gpg --export --armor you@example.com &gt; publickey.asc</span></span></code></pre></div>
+<p>I uploaded <code>publickey.asc</code> to my website and linked it like this:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/publickey.asc&#34;</span>&gt;🔑 Download my GPG public key&lt;/<span style="color:#f92672">a</span>&gt;</span></span></code></pre></div>
+<p>Additionally, I displayed my key’s fingerprint on the page so that people can verify its authenticity manually.</p>
+<h2 id="step-5-email-signing-and-encryption">Step 5: Email Signing and Encryption</h2>
+<p>I configured email signing using my GPG key.</p>
+<p><strong><strong>For Thunderbird (Linux, OpenBSD, Windows):</strong></strong></p>
+<ul>
+<li>OpenPGP support is built-in.</li>
+<li>I enabled signing for all outgoing mail.</li>
+<li>The key lives on the YubiKey, so no key is stored on disk.</li>
+</ul>
+<p><strong><strong>For Mutt / CLI mailers:</strong></strong></p>
+<ul>
+<li>I used `gpg-agent` for passphrase and key handling.</li>
+<li>Configured <code>.muttrc</code> to sign and/or encrypt automatically.</li>
+</ul>
+<p>Signing ensures message authenticity. If recipients have my key, they can encrypt replies.</p>
+<h2 id="step-6-signing-and-encrypting-documents-for-the-public">Step 6: Signing and Encrypting Documents for the Public</h2>
+<p>To safely share personal certificates and private files, I signed and optionally encrypted them:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># Sign only (adds signature block)</span>
+</span></span><span style="display:flex;"><span>gpg --sign --armor diploma.pdf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Sign and encrypt with a password (no public key needed)</span>
+</span></span><span style="display:flex;"><span>gpg --symmetric --armor --cipher-algo AES256 diploma.pdf</span></span></code></pre></div>
+<p>This way, the document is verifiably mine and only decryptable with the shared password.</p>
+<p>The encrypted <code>.asc</code> files can be uploaded to the website, with instructions for downloading and decrypting.</p>
+<h2 id="step-7-offline-backup-of-my-master-key">Step 7: Offline Backup of My Master Key</h2>
+<p>Before moving entirely to the YubiKey, I backed up the master key offline:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gpg --export-secret-keys --armor &gt; masterkey-backup.asc</span></span></code></pre></div>
+<p>I stored it on an encrypted USB drive with either one:</p>
+<ul>
+<li><strong><strong>LUKS</strong></strong> (on Linux)</li>
+<li><strong><strong>OpenBSD softraid(4)</strong></strong> encryption</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Rolling out GPG was super easy. With my identity cryptographically verifiable, email
+signing in place, and secure document sharing live on my site, I now
+have a strong, decentralized identity system.</p>
+<h2 id="useful-links">Useful Links</h2>
+<ul>
+<li><a href="https://www.gnupg.org/" rel="external" target="_blank">GnuPG Official Website</a></li>
+<li><a href="https://emailselfdefense.fsf.org/en/" rel="external" target="_blank">FSF&rsquo;s Email Self-Defense Guide</a></li>
+<li><a href="https://developers.yubico.com/PGP/" rel="external" target="_blank">YubiKey GPG Configuration</a></li>
+<li><a href="https://keys.openpgp.org/" rel="external" target="_blank">OpenPGP Public Key Directory</a></li>
+</ul>
+<div id="giscus-comments" style="margin-top: 2rem;">
+    <script src="https://giscus.app/client.js"
+            data-repo="PolymathMonkey/weblog"
+            data-repo-id="R_kgDOOvWS_g"
+            data-category="General"
+            data-category-id="DIC_kwDOOvWS_s4CsdWD"
+            data-mapping="pathname"
+            data-theme="dark"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+
+  <footer class="footline">
+              <i class='fa-fw fas fa-calendar'></i> Oct 29, 2025
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="/index.html">
+            <div class="logo-title">Forensic wheels</div>
+          </a>
+        </div>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="parent " data-nav-id="/posts/index.html"><a class="padding" href="/posts/index.html">Forensic wheels</a><ul id="R-subsections-b4e55eb7e39db1aee6d02808a2267090" class="collapsible-menu">
+            <li class="" data-nav-id="/posts/threathuntingnet/index.html"><a class="padding" href="/posts/threathuntingnet/index.html">Threathunting I: Network setup</a></li>
+            <li class="" data-nav-id="/posts/openbsdzen/index.html"><a class="padding" href="/posts/openbsdzen/index.html">Open BSD and Zen</a></li>
+            <li class="" data-nav-id="/posts/theathuntinghoneypot/index.html"><a class="padding" href="/posts/theathuntinghoneypot/index.html">Threat hunting II: SSH Honeypot setup</a></li>
+            <li class="" data-nav-id="/posts/monitmon/index.html"><a class="padding" href="/posts/monitmon/index.html">How to monitor systems with monit</a></li>
+            <li class="" data-nav-id="/posts/yellowshardsinelastic/index.html"><a class="padding" href="/posts/yellowshardsinelastic/index.html">Fixing Yellow Shards in Elasticsearch</a></li>
+            <li class="active " data-nav-id="/posts/gpgonmyyubi/index.html"><a class="padding" href="/posts/gpgonmyyubi/index.html">Putting my gpg key on my yubikey</a></li>
+            <li class="" data-nav-id="/posts/rescuetotheraid/index.html"><a class="padding" href="/posts/rescuetotheraid/index.html">Rescue to the softraid</a></li></ul></li>
+            <li class="" data-nav-id="/about/index.html"><a class="padding" href="/about/index.html">about</a></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+            <li class="R-variantswitcher">
+              <div class="padding menu-control">
+                <i class="fa-fw fas fa-paint-brush"></i>
+                <span>&nbsp;</span>
+                <div class="control-style">
+                  <label class="a11y-only" for="R-select-variant">Theme</label>
+                  <select id="R-select-variant">
+                    <option id="R-select-variant-auto" value="auto" selected>Auto</option>
+                    <option id="R-select-variant-neon" value="neon">Neon</option>
+                  </select>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <script>window.relearn.markVariant();</script>
+            </li>
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="/js/clipboard/clipboard.min.js?1766057818" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1766057818" defer></script>
+    <script src="/js/theme.js?1766057818" defer></script>
+  </body>
+</html>

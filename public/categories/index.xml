@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories - Forensic wheels</title>
+    <link>http://localhost:1313/categories/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Dec 2025 12:36:40 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Category - Forensic</title>
+      <link>http://localhost:1313/categories/forensic/index.html</link>
+      <pubDate>Wed, 15 Oct 2025 19:03:00 +0200</pubDate>
+      <guid>http://localhost:1313/categories/forensic/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Category - Threathunting</title>
+      <link>http://localhost:1313/categories/threathunting/index.html</link>
+      <pubDate>Sun, 13 Jul 2025 07:38:00 +0200</pubDate>
+      <guid>http://localhost:1313/categories/threathunting/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Category - Personal</title>
+      <link>http://localhost:1313/categories/personal/index.html</link>
+      <pubDate>Sat, 28 Jun 2025 16:16:00 +0200</pubDate>
+      <guid>http://localhost:1313/categories/personal/index.html</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
