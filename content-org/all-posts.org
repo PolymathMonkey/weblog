@@ -147,8 +147,7 @@ Not the tricks.
 Not the footage.  
 But the fact that no matter what happens—  
 *you never really leave.*
-* DONE The unseen hero of OpenBSD, talking about OpenBSD's malloc                         :openbsd:
-CLOSED: [2025-12-09 Di 08:51]
+* DRAFT The unseen hero of OpenBSD, talking about OpenBSD's malloc                        :openbsd:
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
