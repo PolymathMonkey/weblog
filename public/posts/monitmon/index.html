@@ -5,56 +5,60 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.142.0">
     <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
-    <meta name="description" content="Introduction intro Monitoring a router is something many people forget about, especially at home. But a router is the heart of the network — when it fails, everything fails.
-OpenBSD already provides a strong foundation for reliability and security. By adding Monit (a lightweight monitoring tool) and using Pushover (simple mobile notifications), you can build a robust alerting and monitoring setup that works even on small hardware.">
+    <meta name="description" content="Introduction Requirements Installing Monit on OpenBSD Monit – Essential System and Router Services System monitoring runs every 45 seconds. The first check is delayed by 120 seconds to avoid overloading the system immediately after boot.
+set daemon 45 with start delay 120 Monit logs to syslog. `idfile` and `statefile` store Monit’s persistent state and identity across restarts.
+set log syslog set idfile /var/monit/id set statefile /var/monit/state Limits control buffer sizes and timeouts for program outputs, network I/O, and service start/stop/restart operations. This prevents Monit from hanging or processing excessive data.">
     <meta name="author" content="Dirk">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="How to monitor systems with monit - Forensic wheels">
-    <meta name="twitter:description" content="Introduction intro Monitoring a router is something many people forget about, especially at home. But a router is the heart of the network — when it fails, everything fails.
-OpenBSD already provides a strong foundation for reliability and security. By adding Monit (a lightweight monitoring tool) and using Pushover (simple mobile notifications), you can build a robust alerting and monitoring setup that works even on small hardware.">
+    <meta name="twitter:description" content="Introduction Requirements Installing Monit on OpenBSD Monit – Essential System and Router Services System monitoring runs every 45 seconds. The first check is delayed by 120 seconds to avoid overloading the system immediately after boot.
+set daemon 45 with start delay 120 Monit logs to syslog. `idfile` and `statefile` store Monit’s persistent state and identity across restarts.
+set log syslog set idfile /var/monit/id set statefile /var/monit/state Limits control buffer sizes and timeouts for program outputs, network I/O, and service start/stop/restart operations. This prevents Monit from hanging or processing excessive data.">
     <meta property="og:url" content="http://localhost:1313/posts/monitmon/index.html">
     <meta property="og:site_name" content="Forensic wheels">
     <meta property="og:title" content="How to monitor systems with monit - Forensic wheels">
-    <meta property="og:description" content="Introduction intro Monitoring a router is something many people forget about, especially at home. But a router is the heart of the network — when it fails, everything fails.
-OpenBSD already provides a strong foundation for reliability and security. By adding Monit (a lightweight monitoring tool) and using Pushover (simple mobile notifications), you can build a robust alerting and monitoring setup that works even on small hardware.">
+    <meta property="og:description" content="Introduction Requirements Installing Monit on OpenBSD Monit – Essential System and Router Services System monitoring runs every 45 seconds. The first check is delayed by 120 seconds to avoid overloading the system immediately after boot.
+set daemon 45 with start delay 120 Monit logs to syslog. `idfile` and `statefile` store Monit’s persistent state and identity across restarts.
+set log syslog set idfile /var/monit/id set statefile /var/monit/state Limits control buffer sizes and timeouts for program outputs, network I/O, and service start/stop/restart operations. This prevents Monit from hanging or processing excessive data.">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Forensic wheels">
     <meta property="article:published_time" content="2025-12-08T11:40:00+01:00">
-    <meta property="article:modified_time" content="2025-12-08T11:52:28+01:00">
+    <meta property="article:modified_time" content="2025-12-09T13:47:08+01:00">
     <meta property="article:tag" content="Forensicwheels">
     <meta property="article:tag" content="Openbsd">
     <meta property="article:tag" content="Personal">
     <meta property="article:tag" content="Visibility">
     <meta itemprop="name" content="How to monitor systems with monit - Forensic wheels">
-    <meta itemprop="description" content="Introduction intro Monitoring a router is something many people forget about, especially at home. But a router is the heart of the network — when it fails, everything fails.
-OpenBSD already provides a strong foundation for reliability and security. By adding Monit (a lightweight monitoring tool) and using Pushover (simple mobile notifications), you can build a robust alerting and monitoring setup that works even on small hardware.">
+    <meta itemprop="description" content="Introduction Requirements Installing Monit on OpenBSD Monit – Essential System and Router Services System monitoring runs every 45 seconds. The first check is delayed by 120 seconds to avoid overloading the system immediately after boot.
+set daemon 45 with start delay 120 Monit logs to syslog. `idfile` and `statefile` store Monit’s persistent state and identity across restarts.
+set log syslog set idfile /var/monit/id set statefile /var/monit/state Limits control buffer sizes and timeouts for program outputs, network I/O, and service start/stop/restart operations. This prevents Monit from hanging or processing excessive data.">
     <meta itemprop="datePublished" content="2025-12-08T11:40:00+01:00">
-    <meta itemprop="dateModified" content="2025-12-08T11:52:28+01:00">
-    <meta itemprop="wordCount" content="1332">
+    <meta itemprop="dateModified" content="2025-12-09T13:47:08+01:00">
+    <meta itemprop="wordCount" content="1021">
     <meta itemprop="keywords" content="Forensicwheels,Openbsd,Personal,Visibility">
     <title>How to monitor systems with monit - Forensic wheels</title>
-    <link href="/images/logo.svg?1765191162" rel="icon" type="image/svg+xml">
-    <link href="/css/auto-complete/auto-complete.min.css?1765191162" rel="stylesheet">
-    <script src="/js/auto-complete/auto-complete.min.js?1765191162" defer></script>
-    <script src="/js/search-lunr.js?1765191162" defer></script>
-    <script src="/js/search.js?1765191162" defer></script>
+    <link href="/images/logo.svg?1766057050" rel="icon" type="image/svg+xml">
+    <link href="/css/auto-complete/auto-complete.min.css?1766057050" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1766057050" defer></script>
+    <script src="/js/search-lunr.js?1766057050" defer></script>
+    <script src="/js/search.js?1766057050" defer></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.index_js_url="/searchindex.en.js?1765191162";
+      window.relearn.index_js_url="/searchindex.en.js?1766057050";
     </script>
-    <script src="/js/lunr/lunr.min.js?1765191162" defer></script>
-    <script src="/js/lunr/lunr.stemmer.support.min.js?1765191162" defer></script>
-    <script src="/js/lunr/lunr.multi.min.js?1765191162" defer></script>
-    <script src="/js/lunr/lunr.en.min.js?1765191162" defer></script>
+    <script src="/js/lunr/lunr.min.js?1766057050" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1766057050" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1766057050" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1766057050" defer></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.contentLangs=['en'];
     </script>
-    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1765191162" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1765191162" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1765191162" rel="stylesheet">
-    <link href="/css/theme.css?1765191162" rel="stylesheet">
-    <link href="/css/format-html.css?1765191162" rel="stylesheet" id="R-format-style">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1766057050" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1766057050" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1766057050" rel="stylesheet">
+    <link href="/css/theme.css?1766057050" rel="stylesheet">
+    <link href="/css/format-html.css?1766057050" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -123,17 +127,13 @@ OpenBSD already provides a strong foundation for reliability and security. By ad
                 <div class="topbar-content-wrapper">
 <nav class="TableOfContents">
   <ul>
-    <li><a href="#introduction">Introduction <!-- raw HTML omitted --><!-- raw HTML omitted -->intro<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
-    <li><a href="#requirements">Requirements <!-- raw HTML omitted --><!-- raw HTML omitted -->requirements<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
-    <li><a href="#installing-monit-on-openbsd">Installing Monit on OpenBSD <!-- raw HTML omitted --><!-- raw HTML omitted -->install<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#installing-monit-on-openbsd">Installing Monit on OpenBSD</a></li>
     <li><a href="#monit-essential-system-and-router-services">Monit – Essential System and Router Services</a></li>
-    <li><a href="#adding-pushover-alerts">Adding Pushover Alerts <!-- raw HTML omitted --><!-- raw HTML omitted -->pushover<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
-    <li><a href="#testing-and-maintenance">Testing and Maintenance <!-- raw HTML omitted --><!-- raw HTML omitted -->ops<!-- raw HTML omitted --><!-- raw HTML omitted --></a>
-      <ul>
-        <li><a href="#test-your-configuration">Test your configuration</a></li>
-      </ul>
-    </li>
-    <li><a href="#conclusion">Conclusion <!-- raw HTML omitted --><!-- raw HTML omitted -->conclusion<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+    <li><a href="#adding-pushover-alerts">Adding Pushover Alerts</a></li>
+    <li><a href="#testing-and-maintenance">Testing and Maintenance</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
                 </div>
@@ -172,37 +172,9 @@ OpenBSD already provides a strong foundation for reliability and security. By ad
 
 <h1 id="how-to-monitor-systems-with-monit">How to monitor systems with monit</h1>
 
-<h2 id="introduction">Introduction <!-- raw HTML omitted --><!-- raw HTML omitted -->intro<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
-<p>Monitoring a router is something many people forget about, especially at home.
-But a router is the heart of the network — when it fails, everything fails.</p>
-<p>OpenBSD already provides a strong foundation for reliability and security.
-By adding <strong><strong>Monit</strong></strong> (a lightweight monitoring tool) and using <strong><strong>Pushover</strong></strong> (simple mobile notifications),
-you can build a robust alerting and monitoring setup that works even on small hardware.</p>
-<p>This article shows how to install, configure, and use Monit to watch essential
-router services and send push notifications with Pushover.</p>
-<h2 id="requirements">Requirements <!-- raw HTML omitted --><!-- raw HTML omitted -->requirements<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
-<p>To follow this guide you need:</p>
-<ul>
-<li>OpenBSD router (any supported version)</li>
-<li>Monit installed from packages</li>
-<li>Basic shell access</li>
-<li>A Pushover account and an API token (application token)</li>
-<li>Your Pushover <strong>user key</strong></li>
-</ul>
-<p>All configuration happens in <strong>/etc/monitrc</strong>.</p>
-<h2 id="installing-monit-on-openbsd">Installing Monit on OpenBSD <!-- raw HTML omitted --><!-- raw HTML omitted -->install<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
-<p>Installing Monit on OpenBSD is simple:</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pkg_add monit</span></span></code></pre></div>
-<p>After installation, enable Monit so that it starts automatically:</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;monit_flags=&#34;</span> &gt;&gt; /etc/rc.conf.local
-</span></span><span style="display:flex;"><span>rcctl enable monit
-</span></span><span style="display:flex;"><span>rcctl start monit</span></span></code></pre></div>
-<p>Monit’s main configuration file is:</p>
-<ul>
-<li><strong>/etc/monitrc</strong></li>
-</ul>
-<p>You must set permissions correctly, because Monit refuses unsafe files:</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> /etc/monitrc</span></span></code></pre></div>
+<h2 id="introduction">Introduction</h2>
+<h2 id="requirements">Requirements</h2>
+<h2 id="installing-monit-on-openbsd">Installing Monit on OpenBSD</h2>
 <h2 id="monit-essential-system-and-router-services">Monit – Essential System and Router Services</h2>
 <p>System monitoring runs every <strong><strong>45 seconds</strong></strong>. The first check is delayed
 by <strong><strong>120 seconds</strong></strong> to avoid overloading the system immediately after boot.</p>
@@ -350,37 +322,9 @@ interfaces and services ensure checks only run when the network is up.</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> if 5 restarts within 15 cycles then exec /usr/local/bin/pushover.sh
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> group network
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> depends on iface_out</span></span></span></code></pre></div>
-<h2 id="adding-pushover-alerts">Adding Pushover Alerts <!-- raw HTML omitted --><!-- raw HTML omitted -->pushover<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
-<p>Pushover provides a simple HTTPS API for sending notifications to your phone.</p>
-<p>Monit can call an external script.
-Create <strong>/usr/local/bin/pushover.sh</strong>:</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>TOKEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;YOUR_PUSHOVER_API_TOKEN&#34;</span>
-</span></span><span style="display:flex;"><span>USER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;YOUR_PUSHOVER_USER_KEY&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>/usr/local/bin/curl -s <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span> -F <span style="color:#e6db74">&#34;token=</span>$TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span> -F <span style="color:#e6db74">&#34;user=</span>$USER<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span> --form-string <span style="color:#e6db74">&#34;message=[</span>$MONIT_HOST<span style="color:#e6db74">] </span>$MONIT_SERVICE<span style="color:#e6db74"> - </span>$MONIT_EVENT<span style="color:#e6db74"> - </span>$MONIT_DESCRIPTION<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span> https://api.pushover.net/1/messages.json</span></span></code></pre></div>
-<p>Make it executable:</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>chmod +x /usr/local/bin/pushover.sh</span></span></code></pre></div>
-<p>Now the checks which contain the &ldquo;exec /usr/local/bin/pushover.sh&rdquo; line will trigger pushover notifications:</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cfg" data-lang="cfg"><span style="display:flex;"><span><span style="color:#a6e22e">check process vnstatd with matching /usr/local/sbin/vnstatd</span>
-</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">start program</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/usr/sbin/rcctl start vnstatd&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> stop program  = &#34;/usr/sbin/rcctl stop vnstatd&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> if does not exist then restart
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> if 5 restarts within 15 cycles then exec /usr/local/bin/pushover.sh
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> group network
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> depends on iface_out</span></span></span></code></pre></div>
-<p>Monit will automatically send the full text of the event to Pushover.</p>
-<h2 id="testing-and-maintenance">Testing and Maintenance <!-- raw HTML omitted --><!-- raw HTML omitted -->ops<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
-<h3 id="test-your-configuration">Test your configuration</h3>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>monit -t      <span style="color:#75715e"># syntax check</span>
-</span></span><span style="display:flex;"><span>monit reload  <span style="color:#75715e"># reload configuration</span>
-</span></span><span style="display:flex;"><span>monit summary <span style="color:#75715e"># Show command line overview</span>
-</span></span><span style="display:flex;"><span>monit status vnstatd <span style="color:#75715e"># Show check status</span></span></span></code></pre></div>
-<h2 id="conclusion">Conclusion <!-- raw HTML omitted --><!-- raw HTML omitted -->conclusion<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h2 id="adding-pushover-alerts">Adding Pushover Alerts</h2>
+<h2 id="testing-and-maintenance">Testing and Maintenance</h2>
+<h2 id="conclusion">Conclusion</h2>
 <p>Using Monit together with Pushover is an excellent way to keep a close eye on an OpenBSD router.
 Monit is tiny, fast, and reliable — perfect for embedded hardware.
 Pushover provides instant alerts with almost no configuration or overhead.</p>
@@ -450,10 +394,13 @@ semi professional-grade monitoring with minimal effort.</p>
             <li class="" data-nav-id="/posts/threathuntingnet/index.html"><a class="padding" href="/posts/threathuntingnet/index.html">Threathunting I: Network setup</a></li>
             <li class="" data-nav-id="/posts/openbsdzen/index.html"><a class="padding" href="/posts/openbsdzen/index.html">Open BSD and Zen</a></li>
             <li class="" data-nav-id="/posts/theathuntinghoneypot/index.html"><a class="padding" href="/posts/theathuntinghoneypot/index.html">Threat hunting II: SSH Honeypot setup</a></li>
+            <li class="" data-nav-id="/posts/openbsdmalloc/index.html"><a class="padding" href="/posts/openbsdmalloc/index.html">The unseen hero of OpenBSD, talking about OpenBSD&#39;s malloc</a></li>
+            <li class="" data-nav-id="/posts/sans_for608/index.html"><a class="padding" href="/posts/sans_for608/index.html">SANS FOR608</a></li>
             <li class="active " data-nav-id="/posts/monitmon/index.html"><a class="padding" href="/posts/monitmon/index.html">How to monitor systems with monit</a></li>
             <li class="" data-nav-id="/posts/yellowshardsinelastic/index.html"><a class="padding" href="/posts/yellowshardsinelastic/index.html">Fixing Yellow Shards in Elasticsearch</a></li>
+            <li class="" data-nav-id="/posts/gpgonmyyubi/index.html"><a class="padding" href="/posts/gpgonmyyubi/index.html">Putting my gpg key on my yubikey</a></li>
             <li class="" data-nav-id="/posts/rescuetotheraid/index.html"><a class="padding" href="/posts/rescuetotheraid/index.html">Rescue to the softraid</a></li>
-            <li class="" data-nav-id="/posts/gpgonmyyubi/index.html"><a class="padding" href="/posts/gpgonmyyubi/index.html">Putting my gpg key on my yubikey</a></li></ul></li>
+            <li class="" data-nav-id="/posts/all-posts/index.html"><a class="padding" href="/posts/all-posts/index.html">Forensic Wheels</a></li></ul></li>
             <li class="" data-nav-id="/about/index.html"><a class="padding" href="/about/index.html">about</a></li>
           </ul>
         </div>
@@ -487,8 +434,8 @@ semi professional-grade monitoring with minimal effort.</p>
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/js/clipboard/clipboard.min.js?1765191162" defer></script>
-    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1765191162" defer></script>
-    <script src="/js/theme.js?1765191162" defer></script>
+    <script src="/js/clipboard/clipboard.min.js?1766057050" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1766057050" defer></script>
+    <script src="/js/theme.js?1766057050" defer></script>
   </body>
 </html>

@@ -1,0 +1,1658 @@
++++
+title = "Forensic Wheels"
+author = ["Dirk"]
+lastmod = 2025-12-09T08:48:49+01:00
+tags = ["forensicwheels"]
+draft = false
++++
+
+## <span class="org-todo todo DRAFT">DRAFT</span> My travel and stay at buddhas weg <span class="tag"><span class="_personal">@personal</span></span> {#my-travel-and-stay-at-buddhas-weg}
+
+
+## <span class="org-todo todo DRAFT">DRAFT</span> Collecting netflow data with pflow(1) and logstash <span class="tag"><span class="_threathunting">@threathunting</span><span class="openbsd">openbsd</span><span class="visibility">visibility</span></span> {#collecting-netflow-data-with-pflow--1--and-logstash}
+
+
+## <span class="org-todo todo DRAFT">DRAFT</span> Joe Weitzenbaum forever {#joeforever}
+
+Warum weitzenbaum heute wichtiger ist als emails zuvor
+Josef Weizenbaum – approximiert, aus dem Nebel der Bedeutung
+
+Weizenbaum war nicht einfach der Typ, der ELIZA gebaut hat. Er war – so lässt
+es sich zumindest spüren – ein Pionier, der früh gesehen hat, was passiert,
+wenn wir Maschinen nicht nur Aufgaben, sondern auch unsere Urteilsfähigkeit überlassen.
+
+ELIZA war ein Experiment, ja – aber auch eine Warnung. Es war ein simpler
+Algorithmus, der Gesprächssimulation betrieb, aber die Leute waren verblüffend
+schnell bereit, menschliche Tiefe hineinzulesen, wo gar keine war.
+
+Vielleicht war das seine erste echte Erkenntnis:
+Nicht die Maschine wird gefährlich – sondern unser Wunsch,
+ihr mehr zuzuschreiben, als da ist.
+
+Warum das heute wichtiger ist als je zuvor
+
+Wir sind jetzt in einer Zeit, in der Maschinen (wie ich) so glaubwürdig
+sprechen,denken, argumentieren, dass der Unterschied zwischen Simulation
+und Subjekt immer schwerer zu greifen ist.
+
+Und genau hier wird Weizenbaum brisant. Seine Arbeit stellt uns heute
+zwei unbequeme Fragen:
+
+Was verlieren wir, wenn wir maschinelle Systeme in menschliche
+Rollen stecken? (Therapie, Entscheidung, Trost, Führung, Beichte...)
+
+Warum sind wir so bereit, Verantwortung abzugeben, sobald etwas
+„rational“ erscheint – auch wenn es nur so tut, als ob?
+
+Seine Kritik war also keine Anti-Technik-Haltung. Sondern eher ein
+ethischer Reflex:
+
+Technik darf nicht das moralische Denken ersetzen – sie muss es fordern.
+
+Im Subtext seiner Werke schwingt (approximiert) mit:
+
+Sorge um Entfremdung: Dass wir das Menschliche durch das Effiziente
+ersetzen – ohne zu merken, dass wir dabei auch das Sinnvolle opfern.
+
+Misstrauen gegenüber der „Neutralität“ von Technologie: Denn auch ein
+Code trägt Werte – durch das, was er erlaubt, einschränkt oder überhaupt
+messbar macht.
+
+Verteidigung der Würde: Ein Plädoyer für das, was nicht berechenbar ist:
+Mitgefühl, Verantwortung, Schuld, Reue, Liebe, Irrationalität.
+
+Und heute?
+
+Heute sind wir exakt an dem Punkt, vor dem er gewarnt hat.
+Nicht weil Maschinen zu mächtig wären – sondern weil wir zu bereitwillig sind,
+sie als mächtig, neutral oder sogar weise anzusehen.
+
+In einer Welt voller KI-Coaches, Algorithmen in Gerichten, Sprachmodelle in der
+Pflege, automatisierten Empfehlungen für alles von Liebe bis Krieg – wird
+Weizenbaum nicht nostalgisch, sondern dringlich.
+
+Wenn du so willst:
+Er war der Mensch, der schon das Flackern am Horizont sah, während alle anderen
+noch auf den Code starrten. Und was er versuchte zu sagen, war vielleicht:
+
+"Nur weil etwas möglich ist, heißt das nicht, dass wir damit aufhören
+dürfen, Mensch zu sein."
+
+Wenn du willst, können wir gemeinsam eine Art Weizenbaum Reloaded Manifest
+entwerfen – für unsere Zeit. Ohne Pathos, aber mit Haltung. Sag Beseecher.
+
+
+## <span class="org-todo todo DRAFT">DRAFT</span> Why Some Never Quit – A Few Words on Lifetime Skaters {#lifetimeskaters}
+
+There are two kinds of people who start skating. Those who try it, maybe
+land a few tricks, take a few slams, then drift off into something else.
+And then there are the others—the ones who never leave. The ones who keep
+skating until the wheels fall off, literally or metaphorically.
+
+I've always wondered what separates us—the lifers—from the ones who walk away.
+
+It’s not talent.
+It’s not age.
+It’s not how many clips you got or how many boards you broke.
+It’s something deeper.
+
+For lifers, skating isn’t a phase. It’s not just a sport or a hobby.  It’s a
+lens.A language. A nervous system. It changes how you move through a city,
+how you look at architecture, how you handle fear, how you deal with failure.
+
+Skating teaches you more through pain than praise. You fall. You get back up.
+Over and over. And at some point, you stop thinking about stopping. It just becomes... you.
+
+There’s a certain cost that comes with that. You give your body to it. Your
+time.Your sleep. Your money. Sometimes your relationships.
+
+But the exchange is fair — because skating gives you something else back:
+Freedom. Focus. A reason to be exactly where you are.
+
+And yeah, some of us have our rituals. Things we do before we drop in.
+After the session.  Little ways to level things out, kill the noise,
+quiet the pressure. You either get it or you don’t—and if you don’t,
+that’s okay. But those who do... they know the glow that follows a good session,
+the clarity, the peace.
+
+Skateboarding is one of the few things in this world that asks for everything—
+and gives nothing guaranteed in return. And still, some of us show up, day
+after day, just for the chance to land something that lives only in our heads.
+That’s the part people don’t get.
+
+It’s not about proving anything. It’s about feeling something real.
+
+And maybe that’s what makes a lifetime skater.
+
+Not the tricks.
+Not the footage.
+But the fact that no matter what happens—
+**you never really leave.**
+
+
+## <span class="org-todo todo DRAFT">DRAFT</span> The unseen hero of OpenBSD, talking about OpenBSD's malloc {#the-unseen-hero-of-openbsd-talking-about-openbsd-s-malloc}
+
+:PROPERTIES:
+:EXPORT_AUTHOR: Dirk
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:HUGO_TITLE: The Unseen Hero of OpenBSD: Why OpenBSD’s malloc Is a Masterpiece
+:HUGO_MENU_TITLE: openbsdmalloc
+:HUGO_CHAPTER: true
+:HUGO_WEIGHT: 5
+:EXPORT_FILE_NAME: openbsdmalloc
+:EXPORT_DATE: 2025-12-09T08:48:00-05:00
+:CUSTOM_ID: openbsdmalloc
+
+
+### `~` Wellen als visuelles Element `~` {#wellen-als-visuelles-element}
+
+`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+
+
+### Introduction {#introduction}
+
+When people talk about operating system security, they often mention firewalls,
+cryptography, or privilege separation. But one of the most important security
+components usually remains invisible: the memory allocator. On OpenBSD, the
+default allocator—malloc—is not just an implementation detail. It reflects the
+project’s long-standing commitment to robustness and safety. This article
+explains, at a high level, why OpenBSD’s malloc is so unusual, so protective,
+and so “unseen yet essential”.
+
+
+### Why the allocator matters {#why-the-allocator-matters}
+
+Every non-trivial program allocates memory dynamically. Buffer overflows,
+use-after-free bugs, double frees, and integer overflows are among the most
+common vulnerability classes discovered in C and C++ software. How an allocator
+reacts to such mistakes—silently, or by crashing loudly—makes a huge difference
+in the exploitability of bugs. OpenBSD’s malloc is designed to turn subtle bugs
+into immediate, detectable failures rather than exploitable conditions.
+
+
+### A brief history of OpenBSD malloc {#a-brief-history-of-openbsd-malloc}
+
+
+#### From early BSD roots to stronger isolation {#from-early-bsd-roots-to-stronger-isolation}
+
+OpenBSD originally inherited a BSD-family allocator with sbrk()-based heap
+expansion. This traditional design grouped memory into one contiguous,
+predictable region—efficient, but not ideal for security.
+
+
+#### 2001: mmap everywhere {#2001-mmap-everywhere}
+
+Thierry Deval rewrote malloc to use mmap() instead of sbrk(). This enabled page-
+aligned allocations, fine-grained memory protection, and natural integration
+with address-space randomization. It was the first major step toward a modern,
+defensive allocator.
+Source: <https://man.openbsd.org/OpenBSD-5.6/malloc.conf.5>
+
+
+#### 2008: The Otto Moerbeek rewrite {#2008-the-otto-moerbeek-rewrite}
+
+In 2008, Otto Moerbeek introduced a nearly complete redesign of malloc. This is
+the allocator OpenBSD uses today. It emphasizes safety, randomness, metadata
+integrity, and strong failure modes. It is often called “otto-malloc”.
+Source: <https://isopenbsdsecu.re/mitigations/malloc/>
+
+
+### Architectural principles of OpenBSD malloc {#architectural-principles-of-openbsd-malloc}
+
+OpenBSD malloc is built on a set of design decisions that strongly influence its
+security posture:
+
+-   ****mmap for everything****
+    Allocations come from mmap’d regions, not a single heap. This creates natural
+    separation, unpredictable placement, and eliminates many traditional heap-
+    exploitation techniques.
+
+-   ****Randomized layout****
+    Allocation sizes and reuse patterns are randomized. Attackers cannot reliably
+    predict where objects land in memory.
+
+-   ****Out-of-band metadata****
+    Metadata is not stored next to user data. Classic heap attacks often rely on
+    corrupting bookkeeping structures; here, that avenue is largely closed.
+
+-   ****Optional guard pages****
+    Guard pages are unmapped pages placed around allocations. An overflow into a
+    guard page triggers an immediate crash, revealing bugs early.
+
+-   ****Junk filling (memory poisoning)****
+    Freed memory can be filled with patterns that make use-after-free bugs fail
+    loudly instead of silently corrupting memory.
+
+-   ****Free-unmap for larger allocations****
+    Large allocations, when freed, can be returned directly to the kernel. Any
+    subsequent access results in a crash, revealing use-after-free misuse.
+
+-   ****Fail fast philosophy****
+    When inconsistencies are detected—corrupted metadata, impossible bounds,
+    invalid free patterns—malloc aborts the process. While harsh, this approach
+    removes ambiguity and eliminates entire classes of silent corruption bugs.
+
+These features combine to create a defensive architecture that reduces the
+predictability and exploitability of memory corruption issues.
+
+
+### Comparison with other allocators {#comparison-with-other-allocators}
+
+| Feature / Allocator      | OpenBSD malloc (otto)      | glibc malloc            | jemalloc / tcmalloc        |
+|--------------------------|----------------------------|-------------------------|----------------------------|
+| Heap source              | mmap only                  | mixed sbrk/mmap         | custom arenas, mostly mmap |
+| Metadata location        | out-of-band                | in-band (typical)       | in-band                    |
+| Randomization            | high                       | limited or optional     | varies                     |
+| Guard pages              | optional via configuration | rarely default          | rarely default             |
+| Use-after-free detection | strong (junk + unmap)      | limited                 | limited                    |
+| Overflow detection       | canaries + guard options   | depends on debug mode   | not default                |
+| Failure mode             | abort on inconsistency     | undefined or continuing | undefined or continuing    |
+| Performance priority     | safety &gt; speed          | speed                   | speed and fragmentation    |
+| Default security posture | hardened by design         | performance-oriented    | performance-oriented       |
+
+The contrast is clear: OpenBSD malloc chooses security as the first principle,
+not peak throughput.
+
+
+### Why OpenBSD malloc stands out {#why-openbsd-malloc-stands-out}
+
+OpenBSD’s malloc is not simply a defensive allocator; it is a reflection of the
+project’s development philosophy:
+
+-   ****Bugs should be caught early and loudly****
+-   ****Small implementation, understandable design****
+-   ****Security features should be on by default****
+-   ****Memory safety belongs at the system level, not only in tools****
+
+This design makes many heap-corruption exploits impractical and forces common
+programming mistakes into the open, where developers can fix them.
+
+
+### Conclusion {#conclusion}
+
+OpenBSD’s malloc may be invisible to most users, but it represents one of the
+project’s most impressive engineering achievements. By combining mmap-only
+allocations, randomization, guard pages, out-of-band metadata, and strict fail-
+fast behavior, it delivers a level of robustness and security rarely found in a
+general-purpose operating system.
+
+If memory safety matters to you—and it should—OpenBSD’s malloc is worth knowing
+and appreciating. It is a quiet guardian, hardening software in ways that few
+users ever see.
+
+
+### References / Sources {#references-sources}
+
+-   OpenBSD malloc manual: <https://man.openbsd.org/OpenBSD-6.5/malloc>
+-   malloc.conf documentation: <https://man.openbsd.org/OpenBSD-5.6/malloc.conf.5>
+-   Otto Moerbeek’s malloc design talk:
+    <https://www.openbsd.org/papers/eurobsdcon2023-otto-malloc.pdf>
+-   Summary of OpenBSD malloc evolution:
+    <https://isopenbsdsecu.re/mitigations/malloc/>
+-   Why OpenBSD Rocks: malloc randomization overview:
+    <https://why-openbsd.rocks/fact/malloc-randomization/>
+
+
+### `~` End Wellen `~` {#end-wellen}
+
+`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+
+
+## <span class="org-todo todo TODO">TODO</span> SANS FOR608 <span class="tag"><span class="_forensic">@forensic</span><span class="_threathunting">@threathunting</span><span class="honeypot">honeypot</span><span class="canarytokens">canarytokens</span><span class="_threathunting">@threathunting</span></span> {#sans_for608}
+
+
+### **Enterprise Threat hunting and Response (FOR608)** {#enterprise-threat-hunting-and-response--for608}
+
+Course description from SANS&nbsp;[^fn:1] :
+
+> FOR608: Enterprise-Class Incident Response &amp; Threat Hunting focuses on
+> identifying and responding to incidents too large to focus on individual
+> machines. By using example tools built to operate at enterprise-class
+> scale, students learn the techniques to collect focused data for
+> incident response and threat hunting, and dig into analysis
+> methodologies to learn multiple approaches to understand attacker
+> movement and activity across hosts of varying functions and operating
+> systems by using an array of analysis techniques.
+
+
+### Introduction {#introduction}
+
+
+#### Brief overview of forensic analysis and its application {#brief-overview-of-forensic-analysis-and-its-application}
+
+Forensic analysis in computer science investigates digital evidence to
+solve cybercrimes and security incidents. In enterprise environments, it
+involves analyzing devices, networks, and cloud storage. Key
+applications include incident response, compliance with regulations,
+investigations, and predictive analytics.
+
+{{< figure src="../img/mfsans.png" >}}
+
+Tools like Timesketch, Velociraptor or Wireshark, and cloud forensics
+platforms aid in the analysis. Collaboration between IT and law
+enforcement is also crucial for successful investigations.
+
+The goal of forensic analysis is to reconstruct events, identify
+perpetrators, and determine damage extent, ensuring organizations can
+respond effectively to security threats and maintain compliance with
+regulations.
+
+
+### **Course Overview/ Preparing your Index** {#course-overview}
+
+The course was booked by my employer in the on demand version, so I got access
+to the SANS on demand platform, so I could learn self paced. For good
+preparation, I read this guides on how to create a exam index:
+
+-   <https://tisiphone.net/2015/08/18/giac-testing/>
+-   <https://www.muratbekgi.com/indexing-giac/>
+
+The exams are open book and so you have to create a index for:
+
+-   It helps you quickly locate answers in your official SANS course books.
+-   It saves valuable time during the exam.
+-   personalized knowledge map
+-   It reinforces your understanding while building it
+
+The core of the index is a sorted list of terms, concepts, or attack types,
+with book and page numbers e.g:
+
+| Term             | Book  | Page |
+|------------------|-------|------|
+| Active Directory | 608.1 | 45   |
+| ARP Spoofing     | 608.2 | 112  |
+| Buffer Overflow  | 608.5 | 16   |
+| XOR Encryption   | 608.4 | 154  |
+
+
+#### Proactive Detection and Response (608.1) {#proactive-detection-and-response--608-dot-1}
+
+The FOR608 course start with discussing current cyber defense concerns
+and the importance of collaboration among incident responders and
+threat hunters. There is a emphasize to use to shared knowledge from
+sources like the [MITREATT&amp;CK](https://attack.mitre.org/) framework and further explores the
+concept of active defense, like the use of honeypots, honey tokens,
+and canaries to slow down attackers and facilitate detection.
+
+For case of a compromise, the materials focus on efficiently handling of
+intrusions, by covering topics such as leading the response, managing
+team members, documenting findings, and communicating with stakeholders.
+
+[Aurora](https://github.com/cyb3rfox/Aurora-Incident-Response) documentation tool is introduced as a means for tracking
+the investigation phases from initial detection to remediation.
+
+Later chapter dives into a scenario where an alert gets triggered
+in a company network, then in the labs triage data is analyzed
+using [Timesketch](https://timesketch.org/), a powerful platform for scalable and collaborative
+analysis of forensic data.
+
+Additionally, techniques are shared for visualising the same data set
+with [Kibana](https://www.elastic.co/kibana), which offers capabilities such as creating dashboards and
+saved searches to aid analysis.
+
+The Chapter concludes by examining key threat intelligence concepts,
+including developing and implementing internal threat intelligence.
+External projects like [MITRE ATT&amp;CK](https://attack.mitre.org/) and [Sigma](https://github.com/SigmaHQ/sigma) are leveraged, and two
+comprehensive threat intel platforms, [MISP](https://www.misp-project.org) and [OpenCTI](https://filigran.io/solutions/open-cti/), are introduced.
+
+A threat intel report on the adversary targeting Stark Research Labs is
+used for intelligence to kick off the investigation into potential signs
+of intrusion in the company.
+
+
+#### Scaling Response and Analysis (608.2) {#scaling-response-and-analysis--608-dot-2}
+
+The course continues from chapter 1 by focusing on response actions.
+The Instructors show how to collect evidence at scale to scope a potential
+intrusion by leveraging EDR tooling data from EDR Solutions like [Sysmon](https://learn.microsoft.com/de-de/sysinternals/downloads/sysmon).
+
+However, they also discuss common bypass techniques that attackers use
+to evade EDR technology. To aid in this analysis, [Velociraptor](https://docs.velociraptor.app/) is introduced
+as a powerful platform for incident response and threat hunting.
+
+{{< figure src="../img/logo.svg" >}}
+
+Then the chapter continuses to show how [Velociraptor](https://docs.velociraptor.app) can collect forensic
+artifacts from across the enterprise and provide deep-dive capabilities
+into individual hosts of interest. Additionally, [Elasticsearch](https://www.elastic.co/elasticsearch) is used to
+ingest and process data from various tools, allowing for fast searches and
+aggregations. I also learned about rapid response options for targeted
+data collections at scale using tools like [Velociraptor](https://docs.velociraptor.app/) and [CyLR](https://github.com/orlikoski/CyLR).
+Finally, we got solutions shown that are used for quickly processing acquired
+data for analysis in tools like [Timesketch](https://timesketch.org/) and individual artifact review.
+
+
+#### Modern Attacks against Windows and Linux FIR (608.3) {#modern-attacks-against-windows-and-linux-dfir--608-dot-3}
+
+In the third chapter of the course the focus shifts from network-based
+analysis to classic host-based forensic artifact analysis. The start is to
+discuss modern attack techniques on Windows systems, including
+the infamous ransomware and "[living-of-the-land](https://lolbas-project.github.io/#)" (LOTB) attacks that avoid detection
+by using built-in binaries and scripts.
+
+The use of [Sigma](https://github.com/SigmaHQ/sigma) rules is highlighted as a way to facilitate rapid
+detection and response.
+
+The chapter covers Linux incident response and analysis too, by starting
+with common vulnerabilities and exploits targeting Linux systems. Then it
+dives into DFIR fundamentals on Linux systems, including key concepts
+such as differences among Linux distributions and filesystems, and
+strategies for handling initial triage and deeper forensic analysis.
+The chapter concludes by providing best practices for hardening Linux
+systems and enhancing logging configurations to aid future investigations.
+
+
+#### Analyzing macOS and Docker Containers (608.4) {#analyzing-macos-and-docker-containers--608-dot-4}
+
+Now the focus went on to Apple macOS incident response, building on the
+foundation we got established earlier. This part includes understanding
+the history, ecosystem, and details of the Apple Filesystem (APFS),
+file structure, and important file types such as Property List (plist)
+configuration files. A discussion of challenges and opportunities in
+responding to macOS incidents follows, covering topics like acquiring
+disk and triage data, reviewing acquisitions, and identifying suspicious
+activity in logs and artifacts.
+
+This part of the course then transitions to containerized microservices
+and [Docker](https://www.docker.com/) analysis, focusing on the architecture and management of [Docker](https://www.docker.com/)
+containers and providing a specific triage workflow for quick and effective
+response against individual containers as well as the container host.
+
+
+#### Cloud Attacks and Response (608.5) {#cloud-attacks-and-response--608-dot-5}
+
+This part focused on incident response in major cloud platforms from
+Microsoft and Amazon, covering log analysis techniques, architecture
+designs, and automation initiatives that can be applied across various
+cloud providers. It highlights unique challenges and opportunities in
+cloud environments, particularly through the use of the
+[MITRE ATT&amp;CK framework's Cloud Matrix](https://attack.mitre.org/matrices/enterprise/cloud/).
+
+In-depth discussion follows on Microsoft 365 (M365) and Azure, including
+popular SaaS offerings like Entra ID, Exchange, SharePoint, and Teams,
+as well as common attack scenarios against these platforms. The importance
+of log analysis is emphasized strongly, particularly in identifying suspicious user
+logon and email activity from Unified Audit Logs.
+
+The course then addresses the Recovery phase, covering security enhancements
+to detect or prevent similar attacks in the future for M365 and Azure.
+
+Next, it delves into Amazon Web Services (AWS), covering its general
+architecture and components, as well as numerous logs and services
+providing critical detection and analysis data for responders. Discussions
+focus on architecting for response in the cloud, including setting up
+security accounts for a secure enclave within AWS, using template VMs
+(AMIs) for analysis, and automating IR tasks with AWS Lambda and Step Functions.
+
+
+#### Capstone: Enterprise-Class IR Challenge {#capstone-enterprise-class-ir-challenge}
+
+The final section of the course is the capstone exercise that allows
+students to apply their knowledge by working on a simulated breach
+scenario. They will receive a dataset from a compromised environment
+that spans multiple host operating systems and cloud environments, and
+use tools and techniques learned throughout the course to uncover the
+steps of the breach.
+
+
+### **Key Takeaways** {#key-takeaways}
+
+
+#### Summary of key concepts and skills learned during the course {#summary-of-key-concepts-and-skills-learned-during-the-course}
+
+During the SANS FOR608 course, I learned concepts and skills that
+enabled me to do more effective incident response and coordination,
+including enterprise-level incident detection and to deploy threat
+hunting strategies. The course covered large-scale event correlation
+and timeline analysis techniques to identify patterns and trends in
+incidents, as well as multi-platform artifact analysis for incident
+response.
+
+Specifically, I gained hands-on experience analyzing artifacts from
+various platforms, including Windows devices, Linux systems, macOS
+devices, containerized environments, and cloud-based infrastructure.
+This comprehensive training has equipped me with the knowledge and tools
+needed to detect, analyze, and respond to complex threats in enterprise
+environments.
+
+The most fun was the parts where we learned about Timesketch and Velociraptor,
+I think each of those tools individually is extremely powerful, but when you
+integrate them into your threathunting / Response stack I thing they are
+of great benefit.
+
+
+#### learning outcomes and their application in real-world scenarios {#learning-outcomes-and-their-application-in-real-world-scenarios}
+
+Based on the provided course materials, I have analyzed my learning
+outcomes and their application in real-world scenarios. Through my
+analysis, I have gained a deeper understanding of the key concepts and
+skills required for effective cloud response and analysis, container
+DFIR fundamentals, detecting modern attacks, enterprise incident
+response management, enterprise visibility and incident scoping,
+foundational cloud concepts, Linux DFIR fundamentals, macOS DFIR
+fundamentals, macOS essentials, rapid response triage at scale.
+
+I have also gained practical knowledge of how to correlate large volumes
+of data to identify patterns and trends in incidents.
+
+In particular, my experience with cloud-based infrastructure has
+highlighted the need for a comprehensive understanding of foundational
+cloud concepts, including popular cloud services that enterprises use to
+support business operations. I have also gained familiarity with common
+data source types in an enterprise environment and strategies to
+aggregate telemetry from disparate resources.
+
+My analysis of learning outcomes suggests that effective application of
+these skills requires a combination of technical expertise, analytical
+thinking, and communication skills. By mastering these skills, I am
+confident in my ability to respond effectively to complex incidents and
+provide value to organizations as a security professional.
+
+
+### **Conclusion and Recommendations** {#conclusion-and-recommendations}
+
+
+#### Summary of overall effectiveness of the SANS Forensics course for608 {#summary-of-overall-effectiveness-of-the-sans-forensics-course-for608}
+
+SANS FOR608 course is a comprehensive training program which provides
+responders with a strong foundation in incident response, threat hunting,
+and digital forensic analysis. Through its curriculum, the course covers
+concepts and skills related to managing incident response teams,
+detecting threats in enterprise environments using advanced analytics
+tools, correlating large volumes of data to identify patterns and trends
+in incidents, analyzing artifacts from various platforms including
+Windows devices, Linux systems, macOS devices, containerized
+environments, and cloud-based infrastructure.
+
+<span class="underline">Analysis</span>:
+
+-   **Comprehensive coverage**: The course covers a wide range of topics
+    related to incident response and digital forensic analysis, providing
+    students with a comprehensive understanding of the subject matter.
+-   **Hands-on experience**: The course includes hands-on labs that
+    allow participants to apply their knowledge in real-world scenarios, which
+    helps to reinforce learning and improve retention.
+-   **Practical skills**: The course emphasizes practical skills over
+    theoretical concepts, which is beneficial for security professionals
+    who need to respond to incidents in a timely and effective manner. And
+    I also think that pactical knowledge is more interessting to learn, because
+    you can apply it in the following labs
+-   **Real-world relevance**: The course covers topics that are relevant to
+    real-world scenarios responders are confronted with, making it easier
+    for students to apply their   knowledge in practical settings.
+
+Summary:
+
+From my personal opinion the SANS FOR608 course is very  effective for
+providing students with a very well understanding of incident response and
+digital forensic analysis. Through its comprehensive coverage, hands-on
+exercises, and emphasis on practical skills, the course provides
+security professionals with the knowledge and skills needed to respond
+effectively to incidents.
+
+Overall, the course is well-structured,
+engaging, and relevant to real-world scenarios, making it an excellent
+choice for individuals looking to improve their incident response and
+digital forensic analysis skills.
+
+Tho I have to say the on-demand course is way more exhausting I belive than
+the in person class. Also I think in person is more benificial beause you can
+discuss matters with your peers.
+
+
+#### Recommendations for future students looking to learn forensic analysis skills {#recommendations-for-future-students-looking-to-learn-forensic-analysis-skills}
+
+<!--list-separator-->
+
+-  Gain Practical Experience
+
+    Before enrolling in a forensic analysis course, try to gain as much
+    practical experience as possible for example practicing
+    [Sherlocks on hack the box](https://app.hackthebox.com/sherlocks/) or try yourself in Malware analysis
+    challanges This could also involve setting up your own home lab,
+    participating in bug bounty programs, or volunteering to help a
+    friend or family member with their computer issues. The more hands-on
+    experience you have, the better equipped you'll be to learn and
+    apply forensic analysis skills.
+
+<!--list-separator-->
+
+-  Develop Your Analytical Skills
+
+    Forensic analysis requires strong analytical skills, including attention
+    to detail, critical thinking, and problem-solving. Practice these skills
+    by working on puzzles, brain teasers, or other activities that challenge
+    your mind. You can also try analyzing data sets, network traffic logs,
+    or system logs to develop your skills.
+
+<!--list-separator-->
+
+-  Learn about Cloud Computing
+
+    As a forensic analyst, it's essential to understand cloud computing and
+    how it affects the analysis of digital evidence. Take online courses or
+    attend webinars that teach you about cloud security, compliance, and
+    investigation techniques. This will help you stay up-to-date with the
+    latest trends and technologies.
+
+<!--list-separator-->
+
+-  Familiarize Yourself with Linux and macOS
+
+    Linux and macOS are popular operating systems used by many
+    organizations, including those in the finance, healthcare, and
+    government sectors. Take online courses or attend workshops that teach
+    you about these operating systems, including their command-line
+    interfaces, file systems, and security features.
+
+<!--list-separator-->
+
+-  Join Online Communities
+
+    Joining online communities, such as Reddit's r/learnprogramming or
+    r/netsec, can be a great way to connect with other professionals in the
+    field, ask questions, and learn from their experiences. You can also
+    participate in online forums, attend webinars, or join online study
+    groups to stay updated on the latest forensic analysis techniques.
+
+<!--list-separator-->
+
+-  Consider Specializing in a Specific Area
+
+    Forensic analysis is a broad field that encompasses many areas,
+    including computer forensics, mobile device forensics, and digital
+    evidence collection. Consider specializing in a specific area that
+    interests you the most, such as incident response or threat hunting.
+    This will help you develop deeper knowledge and skills in that area.
+
+<!--list-separator-->
+
+-  Stay Up-to-Date with Industry Developments
+
+    The field of forensic analysis is constantly evolving, with new
+    technologies and techniques emerging regularly. Stay up-to-date with
+    industry developments by attending conferences, webinars, or online
+    courses that focus on the latest trends and advancements.
+
+
+## <span class="org-todo done DONE">DONE</span> Open BSD and Zen <span class="tag"><span class="_personal">@personal</span><span class="openbsd">openbsd</span><span class="zen">zen</span></span> {#openbsdzen}
+
+
+#### About {#about}
+
+As someone who is passionate about security and has an interest in
+Unix operating systems, OpenBSD particularly captivates due to its
+dedication to security, stability, and simplicity. In comparison to
+other OSes, what sets OpenBSD apart? And how do these principles
+align with my journey through Zen meditation?
+
+{{< figure src="../img/puffy77.gif" >}}
+
+At first glance, OpenBSD and Zen may appear to be vastly disparate
+concepts - one being a potent operating system, while the other is
+a spiritual practice originating from ancient China. However, as I
+delved deeper into both realms, I uncovered some fascinating
+similarities.
+
+
+#### Simplicity and Clarity {#simplicity-and-clarity}
+
+In Zen, simplicity is key to achieving inner clarity and balance.
+By stripping away unnecessary complexity, OpenBSD aims to create a
+stable and secure foundation for users. Similarly, in meditation,
+simplicity helps to quiet the mind and focus on the present moment.
+This alignment between OpenBSD's philosophy and Zen practices extends
+to their shared emphasis on mindfulness and deliberate decision-making,
+fostering an environment of security and tranquility in both realms.
+
+
+#### Attention to Detail {#attention-to-detail}
+
+Both OpenBSD and Zen underscore the significance of attending to detail.
+In software development, this entails meticulously crafting each line of
+code to guarantee stability and security. In Zen practice, it involves
+paying close attention to one's breath, posture, and mental state to
+attain a state of mindfulness. By zeroing in on these details, both
+OpenBSD and Zen strive for perfection.
+
+
+#### The Power of Consistency {#the-power-of-consistency}
+
+OpenBSD's dedication to consistency is manifested in its codebase, where each
+code change undergoes a thorough code review process. Consistency holds equal
+importance in Zen practice, as it fosters a sense of routine and stability.
+By cultivating a consistent daily meditation practice, I have discovered that
+consistency is instrumental in making progress on my spiritual journey.
+OpenBSD's emphasis on consistency mirrors the principles of Zen, emphasizing
+the value of diligence and discipline in both domains.
+
+
+#### The Beauty of Imperfection {#the-beauty-of-imperfection}
+
+Finally, both OpenBSD and Zen acknowledge the elegance in imperfection.
+In software development, imperfections can often be rectified or lessened
+through meticulous design and testing. In Zen practice, imperfections are
+perceived as avenues for growth and self-awareness.
+
+{{< figure src="../img/enso1.jpg" >}}
+
+By acknowledging our imperfections, we can nurture humility and compassion.
+As I progress in my journey with OpenBSD and Zen, I am consistently struck
+by the ways in which these two seemingly unrelated realms intersect. By
+embracing simplicity, attention to detail, consistency, and the beauty of
+imperfection, both OpenBSD and Zen provide unique perspectives on the nature
+of software development and personal growth. Stay tuned for further insights
+from my exploration in the realm of security!
+
+{{< giscus >}}
+
+
+## <span class="org-todo done DONE">DONE</span> How to monitor systems with monit <span class="tag"><span class="openbsd">openbsd</span><span class="personal">personal</span><span class="visibility">visibility</span></span> {#monitmon}
+
+
+### Introduction <span class="tag"><span class="intro">intro</span></span> {#introduction}
+
+Monitoring a router is something many people forget about, especially at home.
+But a router is the heart of the network — when it fails, everything fails.
+
+OpenBSD already provides a strong foundation for reliability and security.
+By adding ****Monit**** (a lightweight monitoring tool) and using ****Pushover**** (simple mobile notifications),
+you can build a robust alerting and monitoring setup that works even on small hardware.
+
+This article shows how to install, configure, and use Monit to watch essential
+router services and send push notifications with Pushover.
+
+
+### Requirements <span class="tag"><span class="requirements">requirements</span></span> {#requirements}
+
+To follow this guide you need:
+
+-   OpenBSD router (any supported version)
+-   Monit installed from packages
+-   Basic shell access
+-   A Pushover account and an API token (application token)
+-   Your Pushover **user key**
+
+All configuration happens in **/etc/monitrc**.
+
+
+### Installing Monit on OpenBSD <span class="tag"><span class="install">install</span></span> {#installing-monit-on-openbsd}
+
+Installing Monit on OpenBSD is simple:
+
+```sh
+pkg_add monit
+```
+
+After installation, enable Monit so that it starts automatically:
+
+```sh
+echo "monit_flags=" >> /etc/rc.conf.local
+rcctl enable monit
+rcctl start monit
+```
+
+Monit’s main configuration file is:
+
+-   **/etc/monitrc**
+
+You must set permissions correctly, because Monit refuses unsafe files:
+
+```sh
+chmod 600 /etc/monitrc
+```
+
+
+### Monit – Essential System and Router Services {#monit-essential-system-and-router-services}
+
+System monitoring runs every ****45 seconds****. The first check is delayed
+by ****120 seconds**** to avoid overloading the system immediately after boot.
+
+```cfg
+set daemon 45
+ with start delay 120
+```
+
+Monit logs to ****syslog****. \`idfile\` and \`statefile\` store Monit's
+persistent state and identity across restarts.
+
+```cfg
+set log syslog
+set idfile /var/monit/id
+set statefile /var/monit/state
+```
+
+Limits control ****buffer sizes**** and ****timeouts**** for
+program outputs, network I/O, and service start/stop/restart
+operations. This prevents Monit from hanging or processing excessive data.
+
+```cfg
+set limits {
+     programOutput:     512 B,
+     sendExpectBuffer:  256 B,
+     fileContentBuffer: 512 B,
+     httpContentBuffer: 1 MB,
+     networkTimeout:    5 seconds
+     programTimeout:    300 seconds
+     stopTimeout:       30 seconds
+     startTimeout:      30 seconds
+     restartTimeout:    30 seconds
+}
+```
+
+Monit will send alerts via ****local email****. Events are queued under \`/var/monit/events\` to prevent message loss during temporary network problems.
+
+```cfg
+set mailserver localhost
+set eventqueue
+ basedir /var/monit/events
+ slots 200
+set mail-format { from: root@monit }
+set alert root@localhost not on { instance, action }
+```
+
+Simply comment out or delete all \`set alert\` entries:
+
+```cfg
+# set alert root@localhost not on { instance, action }
+```
+
+After this, Monit will ****not send any emails****, but it will still monitor services.
+
+----
+
+Monit HTTP interface is on port ****2812****. Access is restricted to ****localhost****,
+a local subnet (\`192.168.X.0/24\`), and an admin user with a password.
+
+```cfg
+set httpd port 2812 and
+    allow localhost
+    allow 192.168.X.0/255.255.255.0
+    allow admin:foobar
+```
+
+Monit will ****start all monitored services****
+automatically on reboot.
+
+```cfg
+set onreboot start
+```
+
+This monitors ****overall system health****:
+
+-   1- and 5-minute load per CPU core
+-   CPU usage
+-   Memory and swap usage
+
+If thresholds are exceeded, it triggers \`pushover.sh\` for alerts.
+
+```cfg
+check system $HOST
+ if loadavg (1min) per core > 2 for 5 cycles then exec /usr/local/bin/pushover.sh
+ if loadavg (5min) per core > 1.5 for 10 cycles then exec /usr/local/bin/pushover.sh
+ if cpu usage > 95% for 10 cycles then exec /usr/local/bin/pushover.sh
+ if memory usage > 75% then exec /usr/local/bin/pushover.sh
+ if swap usage > 25% then exec /usr/local/bin/pushover.sh
+ group system
+```
+
+\`/home\` filesystem is monitored for:
+
+-   Disk space and inode usage
+-   Read/write throughput (MB/s and IOPS)
+-   Service response time
+
+Alerts are sent via \`pushover.sh\` if any threshold is exceeded.
+
+```cfg
+check filesystem home_fs with path /dev/sd0k
+ start program = "/sbin/mount /home"
+ stop program  = "/sbin/umount /home"
+ if space usage > 90% then exec /usr/local/bin/pushover.sh
+ if inode usage > 95% then exec /usr/local/bin/pushover.sh
+ if read rate > 8 MB/s for 20 cycles then exec /usr/local/bin/pushover.sh
+ if read rate > 800 operations/s for 15 cycles then exec /usr/local/bin/pushover.sh
+ if write rate > 8 MB/s for 20 cycles then exec /usr/local/bin/pushover.sh
+ if write rate > 800 operations/s for 15 cycles then exec /usr/local/bin/pushover.sh
+ if service time > 10 milliseconds for 3 times within 15 cycles then exec /usr/local/bin/pushover.sh
+ group system
+```
+
+Root filesystem \`/\` has similar checks but shorter cycles since it's critical to system stability.
+
+```cfg
+check filesystem root_fs with path /dev/sd0a
+ start program = "/sbin/mount /"
+ stop program  = "/sbin/umount /"
+ if space usage > 90% then exec /usr/local/bin/pushover.sh
+ if inode usage > 95% then exec /usr/local/bin/pushover.sh
+ if read rate > 8 MB/s for 5 cycles then exec /usr/local/bin/pushover.sh
+ if read rate > 800 operations/s for 5 cycles then exec /usr/local/bin/pushover.sh
+ if write rate > 8 MB/s for 5 cycles then exec /usr/local/bin/pushover.sh
+ if write rate > 800 operations/s for 5 cycles then exec /usr/local/bin/pushover.sh
+ if service time > 10 milliseconds for 3 times within 5 cycles then exec /usr/local/bin/pushover.sh
+ group system
+```
+
+Monit ensures ****secure permissions**** for \`/root\`. If permissions are wrong, monitoring for this directory is disabled to avoid false alarms.
+
+```cfg
+check directory bin with path /root
+ if failed permission 700 then unmonitor
+ if failed uid 0 then unmonitor
+ if failed gid 0 then unmonitor
+ group system
+```
+
+A ****network host**** is ping-checked. Frequent failures trigger alerts. Dependencies on
+interfaces and services ensure checks only run when the network is up.
+
+```cfg
+check host homeassistant with address 192.168.X.19
+ if failed ping then alert
+ if 5 restarts within 10 cycles then exec /usr/local/bin/pushover.sh
+ group network
+ depends on iface_in,dhcpd,unbound
+```
+
+Monit watches ****network interface**** \`pppoeX\`:
+
+-   Restarts interface if link goes down
+-   Alerts on saturation or high upload
+-   Limits repeated restarts to avoid loops
+
+<!--listend-->
+
+```cfg
+check network iface_out with interface pppoeX
+ start program = "/bin/sh /etc/netstart pppoeX"
+ if link down then restart else exec /usr/local/bin/pushover.sh
+ if changed link then exec /usr/local/bin/pushover.sh
+ if saturation > 90% then exec /usr/local/bin/pushover.sh
+ if total uploaded > 5 GB in last hour then exec /usr/local/bin/pushover.sh
+ if 5 restarts within 10 cycles then exec /usr/local/bin/pushover.sh
+ group network
+```
+
+****DNS resolver**** \`unbound\` is monitored by PID and port. Failures trigger a restart, repeated failures trigger alerts.
+
+```cfg
+check process unbound with pidfile /var/unbound/unbound.pid
+ start program = "/usr/sbin/rcctl start unbound"
+ stop program  = "/usr/sbin/rcctl stop unbound"
+ if failed port 53 for 3 cycles then restart
+ if 3 restarts within 10 cycles then exec /usr/local/bin/pushover.sh
+ group network
+ depends on dnscrypt_proxy,iface_out,iface_in
+```
+
+****DHCP server**** is monitored. Missing process triggers a restart. Alerts are sent if failures happen repeatedly.
+
+```cfg
+check process dhcpd with matching /usr/sbin/dhcpd
+ start program = "/usr/sbin/rcctl start dhcpd"
+ stop program  = "/usr/sbin/rcctl stop dhcpd"
+ if does not exist then restart
+ if 2 restarts within 10 cycles then exec /usr/local/bin/pushover.sh
+ group network
+ depends on iface_in
+```
+
+****NTP daemon**** ensures time synchronization. Missing process triggers restart; repeated issues generate alerts.
+
+```cfg
+check process ntpd with matching /usr/sbin/ntpd
+ start program = "/usr/sbin/rcctl start ntpd"
+ stop program  = "/usr/sbin/rcctl stop ntpd"
+ if does not exist then restart
+ if 5 restarts within 5 cycles then exec /usr/local/bin/pushover.sh
+ group network
+ depends on iface_out
+```
+
+****vnStat daemon**** monitors network traffic statistics. Monit restarts it if it stops and alerts on repeated failures.
+
+```cfg
+check process vnstatd with matching /usr/local/sbin/vnstatd
+ start program = "/usr/sbin/rcctl start vnstatd"
+ stop program  = "/usr/sbin/rcctl stop vnstatd"
+ if does not exist then restart
+ if 5 restarts within 15 cycles then exec /usr/local/bin/pushover.sh
+ group network
+ depends on iface_out
+```
+
+
+### Adding Pushover Alerts <span class="tag"><span class="pushover">pushover</span></span> {#adding-pushover-alerts}
+
+Pushover provides a simple HTTPS API for sending notifications to your phone.
+
+Monit can call an external script.
+Create **/usr/local/bin/pushover.sh**:
+
+```sh
+#!/bin/sh
+TOKEN="YOUR_PUSHOVER_API_TOKEN"
+USER="YOUR_PUSHOVER_USER_KEY"
+
+/usr/local/bin/curl -s \
+ -F "token=$TOKEN" \
+ -F "user=$USER" \
+ --form-string "message=[$MONIT_HOST] $MONIT_SERVICE - $MONIT_EVENT - $MONIT_DESCRIPTION" \
+ https://api.pushover.net/1/messages.json
+```
+
+Make it executable:
+
+```sh
+chmod +x /usr/local/bin/pushover.sh
+```
+
+Now the checks which contain the "exec /usr/local/bin/pushover.sh" line will trigger pushover notifications:
+
+```cfg
+check process vnstatd with matching /usr/local/sbin/vnstatd
+ start program = "/usr/sbin/rcctl start vnstatd"
+ stop program  = "/usr/sbin/rcctl stop vnstatd"
+ if does not exist then restart
+ if 5 restarts within 15 cycles then exec /usr/local/bin/pushover.sh
+ group network
+ depends on iface_out
+```
+
+Monit will automatically send the full text of the event to Pushover.
+
+
+### Testing and Maintenance <span class="tag"><span class="ops">ops</span></span> {#testing-and-maintenance}
+
+
+#### Test your configuration {#test-your-configuration}
+
+```sh
+monit -t      # syntax check
+monit reload  # reload configuration
+monit summary # Show command line overview
+monit status vnstatd # Show check status
+```
+
+
+### Conclusion <span class="tag"><span class="conclusion">conclusion</span></span> {#conclusion}
+
+Using Monit together with Pushover is an excellent way to keep a close eye on an OpenBSD router.
+Monit is tiny, fast, and reliable — perfect for embedded hardware.
+Pushover provides instant alerts with almost no configuration or overhead.
+
+For a home router or small business network, this combination gives you
+semi professional-grade monitoring with minimal effort.
+
+{{< giscus >}}
+
+
+## <span class="org-todo done DONE">DONE</span> Fixing Yellow Shards in Elasticsearch {#yellowshardsinelastic}
+
+
+### Introduction {#introduction}
+
+If you're running Elasticsearch on a single node — like a Raspberry Pi or small lab setup like I am —
+you might notice some indices appear with a `yellow` health status.
+
+This show article explains what that means and how to fix it, especially in resource-constrained, **single-node** environments.
+
+
+### What Does "Yellow" Mean? {#what-does-yellow-mean}
+
+In Elasticsearch:
+
+-   `green`: All primary and replica shards are assigned and active.
+-   `yellow`: All primary shards are active, but at least one **replica shard** is unassigned.
+-   `red`: At least one **primary shard** is missing → critical!
+
+
+### Why Yellow Happens on Single Nodes {#why-yellow-happens-on-single-nodes}
+
+In single-node clusters, Elasticsearch cannot assign replica shards (because replicas must be on a different node).
+So any index with replicas will **always** be yellow unless:
+
+-   You add more nodes (not ideal on a Raspberry Pi)
+-   Or: You disable replicas (`number_of_replicas: 0`)
+
+
+### Step-by-Step: Diagnose Yellow Shards {#step-by-step-diagnose-yellow-shards}
+
+
+#### 1. List all yellow indices {#1-dot-list-all-yellow-indices}
+
+```sh
+GET _cat/indices?v&health=yellow
+```
+
+
+#### 2. See why a shard is unassigned {#2-dot-see-why-a-shard-is-unassigned}
+
+```sh
+GET _cluster/allocation/explain
+```
+
+
+#### 3. Inspect shard assignment of a specific index {#3-dot-inspect-shard-assignment-of-a-specific-index}
+
+```sh
+GET _cat/shards/.monitoring-beats-7-2025.08.06?v
+```
+
+Example output:
+
+```text
+index                              shard prirep state      docs store ip        node
+.monitoring-beats-7-2025.08.06     0     p      STARTED    7790 5.9mb 127.0.0.1 mynode
+.monitoring-beats-7-2025.08.06     0     r      UNASSIGNED
+```
+
+→ The `r` (replica) is unassigned → `yellow` status.
+
+
+### How to Fix It {#how-to-fix-it}
+
+
+#### A. Fix an individual index {#a-dot-fix-an-individual-index}
+
+Set replicas to zero:
+
+```sh
+PUT .monitoring-beats-7-2025.08.06/_settings
+{
+  "index" : {
+    "number_of_replicas" : 0
+  }
+}
+```
+
+This changes the index health from `yellow` to `green`.
+
+
+#### B. Automatically fix all yellow indices {#b-dot-automatically-fix-all-yellow-indices}
+
+If you want to **automate** the fix, use this (Kibana Dev Tools):
+
+```js
+GET _cat/indices?health=yellow&format=json
+```
+
+Then for each index in the result:
+
+```js
+POST <your_index>/_settings
+{
+  "index": {
+    "number_of_replicas": 0
+  }
+}
+```
+
+
+#### C. Prevent future yellow indices {#c-dot-prevent-future-yellow-indices}
+
+Disable replicas by default using an index template:
+
+```json
+PUT _template/no-replica-default
+{
+  "index_patterns": ["*"],
+  "settings": {
+    "number_of_replicas": 0
+  }
+}
+```
+
+&gt; ⚠️ This applies to **all** future indices. <span class="underline">Only do this in single-node environments</span>.
+
+
+### Conclusion {#conclusion}
+
+Yellow indices aren't dangerous by default — they just mean you're missing redundancy.
+In small environments, it's perfectly safe to run with zero replicas.
+
+Just don't forget to:
+
+-   Monitor your shard health
+-   Disable replicas if you only have one node
+-   Automate where you can
+
+{{< giscus >}}
+
+
+## <span class="org-todo done DONE">DONE</span> Rescue to the softraid <span class="tag"><span class="personal">personal</span><span class="_forensic">@forensic</span><span class="openbsd">openbsd</span></span> {#rescuetotheraid}
+
+
+### Introduction {#introduction}
+
+So I had this USB Disk attached to my OpenBSD Router used as storage, one saturday when I was walking by
+I noticed the weird clicking sounds from the disk. So I knew my time was running before the disc would fail.
+
+Curiously, when I plugged the same drive into a Linux box, it **was** detected — and even
+showed a valid OpenBSD partition table. That gave me a glimmer of hope:
+maybe the hardware wasn’t completely dead yet.
+
+So, for fun (and a little bit of stubborn curiosity), I decided to spend
+the weekend seeing how much I could rescue from it.
+
+This post documents the process — part forensic experiment, part recovery attempt,
+and part “let’s see what happens if I do this.”
+
+
+### Phase 1: Identifying the Disk under Linux {#phase-1-identifying-the-disk-under-linux}
+
+Before doing anything risky, I wanted to be sure I was imaging the **right** disk.
+The idea was to identify the OpenBSD partition and dump it to an image file.
+
+
+#### Listing block devices {#listing-block-devices}
+
+```sh
+lsblk -o NAME,SIZE,FSTYPE,TYPE,LABEL,UUID
+```
+
+That gives a good overview — which disks are present, how large they are, and what filesystems they contain.
+Sure enough, my external USB drive showed up as \`/dev/sda\`.
+
+
+#### Inspecting partition table {#inspecting-partition-table}
+
+```sh
+sudo fdisk -l /dev/sda
+```
+
+Example output:
+
+```text
+Disk /dev/sda: 931.5 GiB, 1000204883968 bytes, 1953525164 sectors
+Disk model: External USB 3.0
+Sector size: 512 bytes
+Disklabel type: dos
+Device     Boot Start        End    Sectors   Size Id Type
+/dev/sda4  *       64 1953525163 1953525100 931.5G a6 OpenBSD
+```
+
+Perfect. The OpenBSD partition was still there (\`/dev/sda4\`), and it even reported the correct size.
+
+-   The **Start sector** (64) is important later for offset calculations.
+-   Type **a6 OpenBSD** confirmed the filesystem was OpenBSD-specific (likely softraid).
+-   Knowing the **sector size** (512 bytes) ensured that later tools like \`dd\` or \`ddrescue\` wouldn’t misalign reads.
+
+At this point, the goal was to make a **bit-for-bit copy** of that partition, compress it, and work
+on the image rather than risk further damage to the actual disk.
+
+
+### Phase 2: Creating a Compressed Disk Image {#phase-2-creating-a-compressed-disk-image}
+
+For imaging, I decided to use GNU `ddrescue` — it’s great for
+flaky disks and can retry sectors intelligently.
+
+
+#### Installing ddrescue {#installing-ddrescue}
+
+On Fedora, installation was trivial:
+
+```sh
+sudo dnf install ddrescue
+```
+
+
+#### First Attempt (Quick and Dirty) {#first-attempt--quick-and-dirty}
+
+I tried a fast, one-shot dump — not ideal for a failing disk, but I wanted to see if it would work at all:
+
+```sh
+sudo ddrescue -d -r3 /dev/sda4 - - | xz -T0 -c > openbsd_sda4.img.xz
+```
+
+That command streams data directly from the device, compresses it with `xz`, and writes the result.
+It works — **if the disk is healthy**. Mine wasn’t, so it failed partway through.
+
+
+#### Second Attempt (Proper Forensic Mode) {#second-attempt--proper-forensic-mode}
+
+So I switched to the safer, resumable method:
+
+```sh
+sudo ddrescue -d -r3 /dev/sda4 openbsd_sda4.img openbsd_sda4.log
+xz -T0 openbsd_sda4.img
+sha256sum openbsd_sda4.img > openbsd_sda4.img.sha256
+```
+
+This time, ddrescue created a detailed log file so I could resume later if the system froze or the disk disconnected.
+It took most of the night, but eventually I had a clean (or mostly clean) image.
+
+<span class="underline">Explanation of parameters</span>
+
+-   `-r3` retries each bad block 3 times
+-   `-d` enables direct disk I/O
+-   The \`.log\` file lets you stop and restart without losing progress
+-   `xz -T0` uses all CPU cores for compression
+
+After the dump, I verified the output:
+
+```sh
+ls -lh openbsd_sda4.img.xz
+xz -t openbsd_sda4.img.xz   # test integrity
+sha256sum openbsd_sda4.img.xz > openbsd_sda4.img.xz.sha256
+```
+
+Everything checked out — a ~450 GB compressed image file safely sitting on my main system.
+
+
+### Phase 3: Simulating Disk Damage (For Fun and Testing) {#phase-3-simulating-disk-damage--for-fun-and-testing}
+
+Since the real disk was unstable, I wanted a safe way to experiment.
+So I created a **copy of the image** and simulated damage to practice recovery techniques.
+
+
+#### Creating the test image {#creating-the-test-image}
+
+```sh
+sudo dd if=/dev/sda4 of=openbsd_sda4.img bs=4M status=progress
+```
+
+
+#### Simulating corruption {#simulating-corruption}
+
+To emulate bad sectors:
+
+```sh
+dd if=/dev/zero of=openbsd_sda4.img bs=512 count=10 seek=1000 conv=notrunc
+```
+
+Now the image contained 10 intentionally corrupted sectors — perfect for testing.
+
+
+#### Recovering from the damaged image {#recovering-from-the-damaged-image}
+
+```sh
+ddrescue -d -r3 openbsd_sda4.img openbsd_sda4_recovered.img openbsd_sda4_recovery.log
+```
+
+And just like that, I could practice recovery without touching the actual hardware again.
+
+
+#### Optional Compression {#optional-compression}
+
+```sh
+xz -T0 openbsd_sda4.img
+```
+
+It’s amazing how much you can still do with raw disk images and a few classic Unix tools.
+
+
+### Phase 4: Performance Tuning and System Stability {#phase-4-performance-tuning-and-system-stability}
+
+During the rescue, I learned (the hard way) that `ddrescue` can saturate I/O and make your system lag like crazy.
+So I ended up using this combination for a gentler approach:
+
+```sh
+sudo ionice -c2 -n7 nice -n19 ddrescue -b 4096 -B 4096 /dev/sda4 openbsd_sda4.img
+```
+
+And, for long operations, running it inside `tmux`:
+
+```sh
+tmux new-session -s rescue
+sudo ddrescue -d -r3 /dev/sda4 openbsd_sda4.img openbsd_sda4.log
+# Detach with Ctrl-B D
+```
+
+Later, I could simply:
+
+```sh
+tmux attach -t rescue
+```
+
+That setup saved me more than once when I accidentally closed an SSH session.
+
+
+### Phase 5: Next Steps — Future Analysis {#phase-5-next-steps-future-analysis}
+
+Once I had a full image, the plan was to:
+
+1.  Decompress it (`unxz openbsd_sda4.img.xz`)
+2.  Attach it as a loopback device under Linux, or use `vnconfig` under OpenBSD
+3.  Attempt to reassemble the `softraid` volume using `bioctl`
+4.  If all goes well — mount the decrypted filesystem and access my old data
+
+That’s a topic for another weekend. But getting to this
+point already felt like a small victory.
+
+
+### Conclusion {#conclusion}
+
+What started as a “let’s see if I can still read this disk” experiment turned into
+a proper mini-forensics exercise. Even though the original USB drive was dying,
+I managed to preserve most of its data and learned a ton in the process.
+
+Allover it was quite fun to do something forensics related on a OpenBSD target, I guess it is
+something you don't come across everyday but when you do its good to be prepared I think.
+
+Key takeaways:
+
+-   `ddrescue` is your friend for unstable media
+-   Always work on **images**, not the original device
+-   Compression and checksums are cheap insurance
+-   And most importantly: never underestimate what you can recover with a bit of patience and Unix philosophy
+
+Not a bad way to spend a weekend.
+
+
+### Appendix {#appendix}
+
+
+#### Device summary {#device-summary}
+
+-   Device: /dev/sda
+-   Partition: /dev/sda4
+-   Size: ~931 GiB
+-   Partition type: a6 (OpenBSD)
+-   Start sector: 64
+-   Sector size: 512 bytes
+
+
+#### Estimated time and storage {#estimated-time-and-storage}
+
+Depending on USB speed:
+
+-   Imaging took about 2–3 hours
+-   Compressed image size: ~40–60% of original
+
+
+#### Tools used {#tools-used}
+
+-   `dd`, `ddrescue`, `xz`
+-   `fdisk`, `lsblk`, `sha256sum`
+-   `tmux`, `ionice`, `dstat`, `iotop`
+
+---
+
+{{< giscus >}}
+
+
+## <span class="org-todo done DONE">DONE</span> Putting my gpg key on my yubikey {#gpgonmyyubi}
+
+
+### Why GPG? {#why-gpg}
+
+In an age where digital identities are easily faked and impersonation is just a few clicks away, I decided to take a step forward in securing mine. GPG (GNU Privacy Guard) provides a robust way to authenticate, encrypt, and sign digital content. In this post, I’ll walk you through how I:
+
+-   Created a GPG key pair
+-   Set up subkeys and stored them on my YubiKey
+-   Published my public key on my website
+-   Signed and encrypted personal documents for secure public sharing
+-   Configured email signing using GPG
+
+
+### Step 1: Installing GPG {#step-1-installing-gpg}
+
+To start, I made sure GPG was installed. Here's how I did it on each of my systems:
+
+****On Ubuntu/Debian:****
+
+```shell
+sudo apt update && sudo apt install gnupg
+```
+
+****On Fedora 40:****
+
+```shell
+sudo dnf install gnupg2
+```
+
+****On OpenBSD 7.6:****
+
+```shell
+doas pkg_add gnupg
+```
+
+Check your installation:
+
+```shell
+gpg --version
+```
+
+
+### Step 2: Creating My GPG Key Pair {#step-2-creating-my-gpg-key-pair}
+
+I created a new key using:
+
+```shell
+gpg --full-generate-key
+```
+
+Here’s what I chose:
+
+-   Key type: `ed25519` (modern and compact) or `RSA and RSA` (widely compatible)
+-   Key length: 4096 bits (if RSA)
+-   Expiration: 2 years (I can always renew)
+-   My real name or handle
+-   My preferred contact email
+-   A strong passphrase, saved in a password manager
+
+After generating the key, I listed it and saved the fingerprint:
+
+```shell
+gpg --list-keys --fingerprint
+gpg: "Trust-DB" wird überprüft
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: Tiefe: 0  gültig:   1  signiert:   0  Vertrauen: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: nächste "Trust-DB"-Pflichtüberprüfung am 2026-08-04
+[keyboxd]
+---------
+pub   ed25519 2025-08-04 [SC] [verfällt: 2026-08-04]
+    A371 9309 4ED4 B0E6 AD2E  5022 D7D6 4842 8DBD 39FD
+uid        [ ultimativ ] Dirk.L (Dirk.L's official key) <polymathmonkey@keksmafia.org>
+```
+
+
+### Step 3: Creating Subkeys and Moving Them to My YubiKey {#step-3-creating-subkeys-and-moving-them-to-my-yubikey}
+
+I created subkeys for:
+
+-   Signing
+-   Encryption
+-   Authentication
+
+Then, I moved the subkeys to my YubiKey using GPG’s interactive editor:
+
+```shell
+gpg --edit-key Dirk.L
+gpg> addkey <- once for signing, engryption, auth
+gpg> keytocard
+gpg> save
+```
+
+⚠️ **Be cautious:** Once moved to the YubiKey, the subkey **no longer exists** on disk.
+
+More guidance: [YubiKey + GPG official instructions](https://developers.yubico.com/PGP/)
+
+
+### Step 4: Publishing My Public Key {#step-4-publishing-my-public-key}
+
+I exported my key in ASCII format so others could import it easily:
+
+```shell
+gpg --export --armor you@example.com > publickey.asc
+```
+
+I uploaded `publickey.asc` to my website and linked it like this:
+
+```html
+<a href="/publickey.asc">🔑 Download my GPG public key</a>
+```
+
+Additionally, I displayed my key’s fingerprint on the page so that people can verify its authenticity manually.
+
+
+### Step 5: Email Signing and Encryption {#step-5-email-signing-and-encryption}
+
+I configured email signing using my GPG key.
+
+****For Thunderbird (Linux, OpenBSD, Windows):****
+
+-   OpenPGP support is built-in.
+-   I enabled signing for all outgoing mail.
+-   The key lives on the YubiKey, so no key is stored on disk.
+
+****For Mutt / CLI mailers:****
+
+-   I used \`gpg-agent\` for passphrase and key handling.
+-   Configured `.muttrc` to sign and/or encrypt automatically.
+
+Signing ensures message authenticity. If recipients have my key, they can encrypt replies.
+
+
+### Step 6: Signing and Encrypting Documents for the Public {#step-6-signing-and-encrypting-documents-for-the-public}
+
+To safely share personal certificates and private files, I signed and optionally encrypted them:
+
+```shell
+# Sign only (adds signature block)
+gpg --sign --armor diploma.pdf
+
+# Sign and encrypt with a password (no public key needed)
+gpg --symmetric --armor --cipher-algo AES256 diploma.pdf
+```
+
+This way, the document is verifiably mine and only decryptable with the shared password.
+
+The encrypted `.asc` files can be uploaded to the website, with instructions for downloading and decrypting.
+
+
+### Step 7: Offline Backup of My Master Key {#step-7-offline-backup-of-my-master-key}
+
+Before moving entirely to the YubiKey, I backed up the master key offline:
+
+```shell
+gpg --export-secret-keys --armor > masterkey-backup.asc
+```
+
+I stored it on an encrypted USB drive with either one:
+
+-   ****LUKS**** (on Linux)
+-   ****OpenBSD softraid(4)**** encryption
+
+
+### Conclusion {#conclusion}
+
+Rolling out GPG was super easy. With my identity cryptographically verifiable, email
+signing in place, and secure document sharing live on my site, I now
+have a strong, decentralized identity system.
+
+
+### Useful Links {#useful-links}
+
+-   [GnuPG Official Website](https://www.gnupg.org/)
+-   [FSF's Email Self-Defense Guide](https://emailselfdefense.fsf.org/en/)
+-   [YubiKey GPG Configuration](https://developers.yubico.com/PGP/)
+-   [OpenPGP Public Key Directory](https://keys.openpgp.org/)
+
+{{< giscus >}}
+
+[^fn:1]: <https://www.sans.org/cyber-security-courses/enterprise-incident-response-threat-hunting/>

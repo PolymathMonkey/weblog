@@ -11,98 +11,483 @@
 #+startup: indent
 #+author: Dirk
 
-* DONE Open BSD and Zen                                                                   :@personal:openbsd:zen:
-CLOSED: [2025-06-28 Sa 12:48]
+* DRAFT My travel and stay at buddhas weg                                                 :@personal:
+* DRAFT Collecting netflow data with pflow(1) and logstash                                :@threathunting:openbsd:visibility:
+* DRAFT Joe Weitzenbaum forever
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
-:HUGO_TITLE: openbsdzen
-:HUGO_MENU_TITLE: openbsdzen
+:HUGO_TITLE: joe forever
+:HUGO_MENU_TITLE: joe4ever
 :HUGO_CHAPTER: true
 :HUGO_WEIGHT: 5
-:EXPORT_FILE_NAME: openbsdzen
+:EXPORT_FILE_NAME: joeforever
 :EXPORT_DATE: 2025-03-16T11:00:00-05:00
-:CUSTOM_ID: openbsdzen
+:CUSTOM_ID: joeforever
 :END:
-*** About
+Warum weitzenbaum heute wichtiger ist als emails zuvor
+Josef Weizenbaum – approximiert, aus dem Nebel der Bedeutung
+
+Weizenbaum war nicht einfach der Typ, der ELIZA gebaut hat. Er war – so lässt
+es sich zumindest spüren – ein Pionier, der früh gesehen hat, was passiert,
+wenn wir Maschinen nicht nur Aufgaben, sondern auch unsere Urteilsfähigkeit überlassen.
+
+ELIZA war ein Experiment, ja – aber auch eine Warnung. Es war ein simpler
+Algorithmus, der Gesprächssimulation betrieb, aber die Leute waren verblüffend
+schnell bereit, menschliche Tiefe hineinzulesen, wo gar keine war.
+
+    Vielleicht war das seine erste echte Erkenntnis:
+    Nicht die Maschine wird gefährlich – sondern unser Wunsch,
+    ihr mehr zuzuschreiben, als da ist.
+
+Warum das heute wichtiger ist als je zuvor
+
+Wir sind jetzt in einer Zeit, in der Maschinen (wie ich) so glaubwürdig
+sprechen,denken, argumentieren, dass der Unterschied zwischen Simulation
+und Subjekt immer schwerer zu greifen ist.
+
+Und genau hier wird Weizenbaum brisant. Seine Arbeit stellt uns heute
+zwei unbequeme Fragen:
+
+    Was verlieren wir, wenn wir maschinelle Systeme in menschliche
+    Rollen stecken? (Therapie, Entscheidung, Trost, Führung, Beichte...)
+
+    Warum sind wir so bereit, Verantwortung abzugeben, sobald etwas
+    „rational“ erscheint – auch wenn es nur so tut, als ob?
+
+Seine Kritik war also keine Anti-Technik-Haltung. Sondern eher ein
+ethischer Reflex:
+
+    Technik darf nicht das moralische Denken ersetzen – sie muss es fordern.
+
+Im Subtext seiner Werke schwingt (approximiert) mit:
+
+    Sorge um Entfremdung: Dass wir das Menschliche durch das Effiziente
+    ersetzen – ohne zu merken, dass wir dabei auch das Sinnvolle opfern.
+
+    Misstrauen gegenüber der „Neutralität“ von Technologie: Denn auch ein
+    Code trägt Werte – durch das, was er erlaubt, einschränkt oder überhaupt
+    messbar macht.
+
+    Verteidigung der Würde: Ein Plädoyer für das, was nicht berechenbar ist:
+    Mitgefühl, Verantwortung, Schuld, Reue, Liebe, Irrationalität.
+
+Und heute?
+
+Heute sind wir exakt an dem Punkt, vor dem er gewarnt hat.
+Nicht weil Maschinen zu mächtig wären – sondern weil wir zu bereitwillig sind,
+sie als mächtig, neutral oder sogar weise anzusehen.
+
+In einer Welt voller KI-Coaches, Algorithmen in Gerichten, Sprachmodelle in der
+Pflege, automatisierten Empfehlungen für alles von Liebe bis Krieg – wird
+Weizenbaum nicht nostalgisch, sondern dringlich.
+
+Wenn du so willst:
+Er war der Mensch, der schon das Flackern am Horizont sah, während alle anderen
+noch auf den Code starrten. Und was er versuchte zu sagen, war vielleicht:
+
+    "Nur weil etwas möglich ist, heißt das nicht, dass wir damit aufhören
+    dürfen, Mensch zu sein."
+
+Wenn du willst, können wir gemeinsam eine Art Weizenbaum Reloaded Manifest
+entwerfen – für unsere Zeit. Ohne Pathos, aber mit Haltung. Sag Beseecher.
+* DRAFT Why Some Never Quit – A Few Words on Lifetime Skaters
 :PROPERTIES:
-:CUSTOM_ID: about
+:EXPORT_AUTHOR: Dirk
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:HUGO_TITLE: lifetimeskaters
+:HUGO_MENU_TITLE: lifetimeskaters
+:HUGO_CHAPTER: true
+:HUGO_WEIGHT: 5
+:EXPORT_FILE_NAME: lifetimeskaters
+:EXPORT_DATE: 2025-03-16T11:00:00-05:00
+:CUSTOM_ID: lifetimeskaters
 :END:
-As someone who is passionate about security and has an interest in
-Unix operating systems, OpenBSD particularly captivates due to its
-dedication to security, stability, and simplicity. In comparison to
-other OSes, what sets OpenBSD apart? And how do these principles
-align with my journey through Zen meditation?
+There are two kinds of people who start skating. Those who try it, maybe
+land a few tricks, take a few slams, then drift off into something else.
+And then there are the others—the ones who never leave. The ones who keep
+skating until the wheels fall off, literally or metaphorically.
 
-[[../img/puffy77.gif]]
+I've always wondered what separates us—the lifers—from the ones who walk away.
 
-At first glance, OpenBSD and Zen may appear to be vastly disparate
-concepts - one being a potent operating system, while the other is
-a spiritual practice originating from ancient China. However, as I
-delved deeper into both realms, I uncovered some fascinating
-similarities.
+It’s not talent.  
+It’s not age.  
+It’s not how many clips you got or how many boards you broke.  
+It’s something deeper.
 
-*** Simplicity and Clarity
+For lifers, skating isn’t a phase. It’s not just a sport or a hobby.  It’s a
+lens.A language. A nervous system. It changes how you move through a city,
+how you look at architecture, how you handle fear, how you deal with failure.
+
+Skating teaches you more through pain than praise. You fall. You get back up.
+Over and over. And at some point, you stop thinking about stopping. It just becomes... you.
+
+There’s a certain cost that comes with that. You give your body to it. Your
+time.Your sleep. Your money. Sometimes your relationships.
+
+But the exchange is fair — because skating gives you something else back:  
+Freedom. Focus. A reason to be exactly where you are.
+
+And yeah, some of us have our rituals. Things we do before we drop in.
+After the session.  Little ways to level things out, kill the noise,
+quiet the pressure. You either get it or you don’t—and if you don’t,
+that’s okay. But those who do... they know the glow that follows a good session,  
+the clarity, the peace.
+
+Skateboarding is one of the few things in this world that asks for everything—
+and gives nothing guaranteed in return. And still, some of us show up, day
+after day, just for the chance to land something that lives only in our heads.  
+That’s the part people don’t get.
+
+It’s not about proving anything. It’s about feeling something real.
+
+And maybe that’s what makes a lifetime skater.
+
+Not the tricks.  
+Not the footage.  
+But the fact that no matter what happens—  
+*you never really leave.*
+* DONE The unseen hero of OpenBSD, talking about OpenBSD's malloc                         :openbsd:
+CLOSED: [2025-12-09 Di 08:51]
 :PROPERTIES:
-:CUSTOM_ID: simplicity-and-clarity
+:EXPORT_AUTHOR: Dirk
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:HUGO_TITLE: OpenBSD-malloc
+:HUGO_MENU_TITLE: openbsdmalloc
+:HUGO_CHAPTER: true
+:HUGO_WEIGHT: 5
+:EXPORT_FILE_NAME: openbsdmalloc
+:EXPORT_DATE: 2025-12-09T08:48:00-05:00
+:CUSTOM_ID: openbsdmalloc
 :END:
+** The unseen hero of OpenBSD: talking about OpenBSD's malloc
 
-In Zen, simplicity is key to achieving inner clarity and balance.
-By stripping away unnecessary complexity, OpenBSD aims to create a
-stable and secure foundation for users. Similarly, in meditation,
-simplicity helps to quiet the mind and focus on the present moment.
-This alignment between OpenBSD's philosophy and Zen practices extends
-to their shared emphasis on mindfulness and deliberate decision-making,
-fostering an environment of security and tranquility in both realms.
+*** Introduction
+When people talk about operating system security, they often mention firewalls,
+cryptography, or privilege separation. But one of the most important security
+components usually remains invisible: the memory allocator. On OpenBSD, the
+default allocator—malloc—is not just an implementation detail. It reflects the
+project’s long-standing commitment to robustness and safety. This article
+explains, at a high level, why OpenBSD’s malloc is so unusual, so protective,
+and so “unseen yet essential”.
 
-*** Attention to Detail
-:PROPERTIES:
-:CUSTOM_ID: attention-to-detail
-:END:
+*** Why the allocator matters
+Every non-trivial program allocates memory dynamically. Buffer overflows,
+use-after-free bugs, double frees, and integer overflows are among the most
+common vulnerability classes discovered in C and C++ software. How an allocator
+reacts to such mistakes—silently, or by crashing loudly—makes a huge difference
+in the exploitability of bugs. OpenBSD’s malloc is designed to turn subtle bugs
+into immediate, detectable failures rather than exploitable conditions.
 
-Both OpenBSD and Zen underscore the significance of attending to detail.
-In software development, this entails meticulously crafting each line of
-code to guarantee stability and security. In Zen practice, it involves
-paying close attention to one's breath, posture, and mental state to
-attain a state of mindfulness. By zeroing in on these details, both
-OpenBSD and Zen strive for perfection.
+*** A brief history of OpenBSD malloc
 
-*** The Power of Consistency
-:PROPERTIES:
-:CUSTOM_ID: the-power-of-consistency
-:END:
+**** From early BSD roots to stronger isolation
+OpenBSD originally inherited a BSD-family allocator with sbrk()-based heap
+expansion. This traditional design grouped memory into one contiguous,
+predictable region—efficient, but not ideal for security.
 
-OpenBSD's dedication to consistency is manifested in its codebase, where each
-code change undergoes a thorough code review process. Consistency holds equal
-importance in Zen practice, as it fosters a sense of routine and stability.
-By cultivating a consistent daily meditation practice, I have discovered that
-consistency is instrumental in making progress on my spiritual journey.
-OpenBSD's emphasis on consistency mirrors the principles of Zen, emphasizing
-the value of diligence and discipline in both domains.
+**** 2001: mmap everywhere
+Thierry Deval rewrote malloc to use mmap() instead of sbrk(). This enabled
+page-aligned allocations, fine-grained memory protection, and natural
+integration with address-space randomization. It was the first major step
+toward a modern, defensive allocator. Source: [[https://man.openbsd.org/OpenBSD-5.6/malloc.conf.5][malloc.conf(5)]]
 
-*** The Beauty of Imperfection
-:PROPERTIES:
-:CUSTOM_ID: the-beauty-of-imperfection
-:END:
+**** 2008: The Otto Moerbeek rewrite
+In 2008, Otto Moerbeek introduced a nearly complete redesign of malloc. This is
+the allocator OpenBSD uses today. It emphasizes safety, randomness, metadata
+integrity, and strong failure modes. It is often called “otto-malloc”. Source:
+[[https://isopenbsdsecu.re/mitigations/malloc/][Summary of malloc evolution]]
 
-Finally, both OpenBSD and Zen acknowledge the elegance in imperfection.
-In software development, imperfections can often be rectified or lessened
-through meticulous design and testing. In Zen practice, imperfections are
-perceived as avenues for growth and self-awareness.
+*** Architectural principles of OpenBSD malloc
+OpenBSD malloc is built on a set of design decisions that strongly influence its
+security posture:
 
-[[../img/enso1.jpg]]
+- mmap for everything: Allocations come from mmap’d regions, not a single heap.
+  This creates natural separation, unpredictable placement, and eliminates many
+  traditional heap-exploitation techniques.
+- Randomized layout: Allocation sizes, reuse patterns, and chunk placement are
+  randomized. Attackers cannot reliably predict where objects land in memory.
+- Out-of-band metadata: Metadata is not stored next to user data. Classic heap
+  attacks often rely on corrupting bookkeeping structures; here, that avenue is
+  largely closed.
+- Optional guard pages: Guard pages are unmapped pages placed around allocations.
+  An overflow into a guard page triggers an immediate crash, revealing bugs early.
+- Junk filling (memory poisoning): Freed memory can be filled with patterns that
+  make use-after-free bugs fail loudly instead of silently corrupting memory.
+- Free-unmap for larger allocations: Large allocations, when freed, can be returned
+  directly to the kernel. Any subsequent access results in a crash, revealing
+  use-after-free misuse.
+- Fail fast philosophy: When inconsistencies are detected—corrupted metadata,
+  impossible bounds, invalid free patterns—malloc aborts the process. While harsh,
+  this approach removes ambiguity and eliminates entire classes of silent
+  corruption bugs.
 
-By acknowledging our imperfections, we can nurture humility and compassion.
-As I progress in my journey with OpenBSD and Zen, I am consistently struck
-by the ways in which these two seemingly unrelated realms intersect. By
-embracing simplicity, attention to detail, consistency, and the beauty of
-imperfection, both OpenBSD and Zen provide unique perspectives on the nature
-of software development and personal growth. Stay tuned for further insights
-from my exploration in the realm of security!
+These features combine to create a defensive architecture that reduces the
+predictability and exploitability of memory corruption issues.
 
-#+BEGIN_EXPORT md
-{{< giscus >}}
-#+END_EXPORT
+*** A process-centric analogy: memory as isolated workspaces
+
+**** The model we usually assume
+Many developers implicitly imagine memory as a shared workspace inside a
+process: one large area where objects are placed next to each other, managed by
+a fast but trusting allocator. This mental model is close to how traditional
+heaps work and explains why many memory bugs remain invisible for a long time.
+
+**** The traditional allocator: shared desks in one open office
+In a conventional allocator design, the process receives one large, contiguous
+heap. Individual allocations are like desks in a single open office:
+
+- Desks are adjacent.
+- Bookkeeping notes are pinned directly to the desks.
+- Moving past the edge of your desk means bumping into your neighbor’s space.
+
+If a program writes past the end of an allocation, it usually lands in another
+valid object. The program keeps running, but the logical state is now corrupted.
+Exploitation thrives on this ambiguity.
+
+**** The OpenBSD allocator: isolated workspaces with access control
+
+OpenBSD’s malloc enforces a very different model.
+
+Each allocation is treated as an isolated workspace:
+
+- Backed by its own mmap()’d region
+- Page-aligned and unpredictably placed
+- Surrounded, when configured, by unmapped guard pages
+- With metadata stored out-of-band
+
+Instead of one shared office, the process now consists of many small, isolated
+rooms. Some rooms are intentionally empty and inaccessible.
+
+From the program’s perspective, nothing changes:
+
+#+begin_src c
+void *p = malloc(4096);
+#+end_src
+
+But the execution environment is fundamentally more hostile to mistakes.
+
+**** Failure modes as design signals
+
+***** Out-of-bounds writes
+_Traditional allocator:_
+
+- Writes land in a neighboring object
+- Corruption propagates silently
+
+_OpenBSD malloc:_
+
+- Writes cross into an unmapped page
+- The CPU raises a fault
+- The process terminates immediately
+
+***** Use-after-free
+_Traditional allocator:_
+
+- Freed memory is quickly reused
+- Old pointers appear to “work”
+- State corruption accumulates
+
+_OpenBSD malloc:_
+- Memory may be unmapped or junk-filled
+- Old pointers reliably fault
+- Bugs become reproducible
+
+***** Metadata corruption
+_Traditional allocator:_
+
+- Metadata lives next to user data
+- Overwrites alter allocator behavior
+
+_OpenBSD malloc:_
+
+- Metadata is inaccessible to user code
+- Integrity checks fail fast
+- The allocator aborts the process
+
+**** Why this model matters
+This design changes the economics of exploitation:
+
+Objects are not laid out contiguously
+Memory reuse is unpredictable
+Metadata is unreachable
+Undefined behavior collapses into defined failure
+
+OpenBSD malloc does not attempt to mask programmer errors. Instead, it enforces a
+strict contract: memory misuse results in immediate termination. For developers
+and security engineers, this turns entire classes of heap bugs from latent
+security risks into actionable crashes.
+
+*** Guard Pages: Practical use and effects
+One of OpenBSD malloc’s most notable security features is the use of **Guard
+Pages**. Guard Pages are completely unmapped memory pages placed around an
+allocation. Any read or write into these pages triggers an immediate
+Segmentation Fault, making overflows or out-of-bounds accesses immediately
+visible.
+
+**** Enabling Guard Pages
+
+HSet a systemwide reduction of the cache to a quarter of the default size
+and use guard pages (man malloc):
+
+#+begin_src
+# sysctl vm.malloc_conf='G<<'
+#+end_src
+
+Other options include:
+
+- `redzone`: Defines padding around small allocations to catch small overflows.
+- `junk`: Determines whether freed memory is filled with junk to detect
+  use-after-free errors.
+- `jumbo`: Threshold for large allocations to be immediately `munmap()`’ed when
+  freed.
+- `alignment`: Adjusts alignment for allocations, useful for performance or
+  hardware-specific requirements.
+
+**** Effects on userland programs
+1. **Increased memory usage:** Each allocation may require extra pages, increasing
+   overall memory consumption.
+2. **Immediate bug detection:** Buffer overflows or writes beyond allocated memory
+   result in a crash rather than silent corruption.
+3. **Compatibility considerations:** Programs that assume contiguous memory may
+   crash unexpectedly with guard pages enabled.
+4. **Debug vs. Production:** Guard Pages are typically enabled in debug builds and
+   often disabled in production to conserve memory.
+
+**** Example
+A C program with a buffer overflow:
+
+#+BEGIN_SRC c
+char *buf = malloc(16);
+buf[16] = 'x'; // off-by-one!
+#+END_SRC
+
+With guard pages, this immediately triggers a Segmentation Fault.
+
+----
+
+**** Furter mentionworthy OpenBSD malloc Options
+
+OpenBSD's malloc provides several options to help detect common memory
+errors such as use-after-free, buffer overflows, and double frees. These
+options are configured system-wide via **sysctl vm.malloc_conf**.
+
+***** Guard Pages (G)
+- **Effect:** Places unmapped "guard pages" around larger allocations. Any
+  access triggers an immediate segmentation fault.
+- **Usage:**
+#+BEGIN_SRC sh
+# Enable guard pages
+sysctl vm.malloc_conf='G'
+#+END_SRC
+- **Purpose:** Detects overflows and large out-of-bounds memory access
+  immediately.
+
+***** Junk Filling (J)
+- **Effect:** Freed memory is filled with a recognizable pattern (0xAB),
+  making use-after-free accesses immediately apparent.
+- **Usage:**
+#+BEGIN_SRC sh
+sysctl vm.malloc_conf='J'
+#+END_SRC
+- **Purpose:** Makes use-after-free bugs crash or produce detectable
+  corruption.
+
+***** Redzones (R)
+- **Effect:** Adds small padded areas around small allocations to catch
+  off-by-one errors and small buffer overflows.
+- **Usage:**
+#+BEGIN_SRC sh
+sysctl vm.malloc_conf='R'
+#+END_SRC
+- **Purpose:** Early detection of minor memory boundary violations.
+
+***** Jumbo Free / Munmap (U)
+- **Effect:** Large allocations exceeding the "jumbo" threshold are unmapped
+  immediately on free. Any subsequent access causes an immediate crash.
+- **Usage:**
+#+BEGIN_SRC sh
+sysctl vm.malloc_conf='U'
+#+END_SRC
+- **Purpose:** Detects use-after-free errors on large memory blocks.
+
+***** Combining Flags
+Flags can be combined to enable multiple safety mechanisms at once. Example:
+#+BEGIN_SRC sh
+# Enable Guard Pages, Junk Filling, and Redzones simultaneously
+sysctl vm.malloc_conf='GJR'
+#+END_SRC
+
+***** Additional Useful Flags
+- `C` → Enables malloc call statistics (useful for debugging/analysis)
+- `<` / `>` → Adjusts cache size (trading memory footprint vs. performance)
+
+***** Practical Tips
+- For fuzzing or development, `GJR` is a strong combination to catch
+  common memory errors early.
+- In production, consider enabling only selective flags to reduce memory
+  overhead and performance impact.
+
+
+*** Developer Tips & Advanced Options
+OpenBSD malloc’s defensive features can guide developers and improve code
+quality:
+
+- **Fuzzing & testing:** Guard Pages, junk filling, and redzones make memory
+  bugs detectable early, improving fuzzing results.
+- **Integration with ASLR:** mmap-based allocations are highly randomized, making
+  heap exploits difficult.
+- **Fail-fast behavior:** Errors like double frees or metadata corruption result in
+  process aborts, allowing developers to reproduce bugs deterministically.
+- **Memory footprint:** Defensive features increase memory usage; consider this
+  in memory-constrained environments.
+- **Debug vs. release builds:** Developers often enable maximum security options
+  during development and limit them in production for performance.
+
+*** Comparison with other allocators
+| Feature / Allocator       | OpenBSD malloc (otto) | glibc malloc           | jemalloc / tcmalloc       |
+|---------------------------+---------------------+-----------------------+--------------------------|
+| Heap source               | mmap only           | mixed sbrk/mmap       | custom arenas, mostly mmap |
+| Metadata location         | out-of-band         | in-band (typical)     | in-band                   |
+| Randomization             | high                | limited or optional   | varies                    |
+| Guard pages               | optional via config | rarely default        | rarely default            |
+| Use-after-free detection  | strong (junk+unmap) | limited               | limited                   |
+| Overflow detection        | canaries+guard opt  | depends on debug mode | not default               |
+| Failure mode              | abort on inconsistency | undefined/continuing | undefined/continuing      |
+| Performance priority      | safety > speed      | speed                 | speed and fragmentation   |
+| Default security posture  | hardened by design  | performance-oriented  | performance-oriented      |
+
+*** Why OpenBSD malloc stands out
+OpenBSD’s malloc is not simply a defensive allocator; it is a reflection of the
+project’s development philosophy:
+
+- Bugs should be caught early and loudly.
+- Small implementation, understandable design.
+- Security features should be on by default.
+- Memory safety belongs at the system level, not only in tools.
+
+This design makes many heap-corruption exploits impractical and forces common
+programming mistakes into the open, where developers can fix them.
+
+*** Conclusion
+OpenBSD’s malloc may be invisible to most users, but it represents one of the
+project’s most impressive engineering achievements. By combining mmap-only
+allocations, randomization, guard pages, out-of-band metadata, and strict
+fail-fast behavior, it delivers a level of robustness and security rarely found
+in a general-purpose operating system.
+
+If memory safety matters to you—and it should—OpenBSD’s malloc is worth knowing
+and appreciating. It is a quiet guardian, hardening software in ways that few
+users ever see.
+
+*** References / Sources
+- [[https://man.openbsd.org/OpenBSD-6.5/malloc][OpenBSD malloc manual]]
+- [[https://man.openbsd.org/OpenBSD-5.6/malloc.conf.5][malloc.conf documentation]]
+- [[https://www.openbsd.org/papers/eurobsdcon2023-otto-malloc.pdf][Otto Moerbeek’s malloc design talk]]
+- [[https://isopenbsdsecu.re/mitigations/malloc/][Summary of OpenBSD malloc evolution]]
+- [[https://why-openbsd.rocks/fact/malloc-randomization/][Why OpenBSD Rocks: malloc randomization overview]]
+- [[https://www.openbsd.org/faq/faq15.html][OpenBSD Security FAQ: Heap Security]]
+
 
 * TODO SANS FOR608                                                                        :@forensic:@threathunting:honeypot:canarytokens:@threathunting:
 :PROPERTIES:
@@ -505,86 +890,99 @@ courses that focus on the latest trends and advancements.
 
 [fn:1] [[https://www.sans.org/cyber-security-courses/enterprise-incident-response-threat-hunting/]]
 
-* DRAFT My travel and stay at buddhas weg                                                 :@personal:
-* DRAFT Collecting netflow data with pflow(1) and logstash                                :@threathunting:openbsd:visibility:
-* DRAFT Joe Weitzenbaum forever
+* DONE Open BSD and Zen                                                                   :@personal:openbsd:zen:
+CLOSED: [2025-06-28 Sa 12:48]
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
-:HUGO_TITLE: joe forever
-:HUGO_MENU_TITLE: joe4ever
+:HUGO_TITLE: openbsdzen
+:HUGO_MENU_TITLE: openbsdzen
 :HUGO_CHAPTER: true
 :HUGO_WEIGHT: 5
-:EXPORT_FILE_NAME: joeforever
+:EXPORT_FILE_NAME: openbsdzen
 :EXPORT_DATE: 2025-03-16T11:00:00-05:00
-:CUSTOM_ID: joeforever
+:CUSTOM_ID: openbsdzen
 :END:
-Warum weitzenbaum heute wichtiger ist als emails zuvor
-Josef Weizenbaum – approximiert, aus dem Nebel der Bedeutung
+*** About
+:PROPERTIES:
+:CUSTOM_ID: about
+:END:
+As someone who is passionate about security and has an interest in
+Unix operating systems, OpenBSD particularly captivates due to its
+dedication to security, stability, and simplicity. In comparison to
+other OSes, what sets OpenBSD apart? And how do these principles
+align with my journey through Zen meditation?
 
-Weizenbaum war nicht einfach der Typ, der ELIZA gebaut hat. Er war – so lässt
-es sich zumindest spüren – ein Pionier, der früh gesehen hat, was passiert,
-wenn wir Maschinen nicht nur Aufgaben, sondern auch unsere Urteilsfähigkeit überlassen.
+[[../img/puffy77.gif]]
 
-ELIZA war ein Experiment, ja – aber auch eine Warnung. Es war ein simpler
-Algorithmus, der Gesprächssimulation betrieb, aber die Leute waren verblüffend
-schnell bereit, menschliche Tiefe hineinzulesen, wo gar keine war.
+At first glance, OpenBSD and Zen may appear to be vastly disparate
+concepts - one being a potent operating system, while the other is
+a spiritual practice originating from ancient China. However, as I
+delved deeper into both realms, I uncovered some fascinating
+similarities.
 
-    Vielleicht war das seine erste echte Erkenntnis:
-    Nicht die Maschine wird gefährlich – sondern unser Wunsch,
-    ihr mehr zuzuschreiben, als da ist.
+*** Simplicity and Clarity
+:PROPERTIES:
+:CUSTOM_ID: simplicity-and-clarity
+:END:
 
-Warum das heute wichtiger ist als je zuvor
+In Zen, simplicity is key to achieving inner clarity and balance.
+By stripping away unnecessary complexity, OpenBSD aims to create a
+stable and secure foundation for users. Similarly, in meditation,
+simplicity helps to quiet the mind and focus on the present moment.
+This alignment between OpenBSD's philosophy and Zen practices extends
+to their shared emphasis on mindfulness and deliberate decision-making,
+fostering an environment of security and tranquility in both realms.
 
-Wir sind jetzt in einer Zeit, in der Maschinen (wie ich) so glaubwürdig
-sprechen,denken, argumentieren, dass der Unterschied zwischen Simulation
-und Subjekt immer schwerer zu greifen ist.
+*** Attention to Detail
+:PROPERTIES:
+:CUSTOM_ID: attention-to-detail
+:END:
 
-Und genau hier wird Weizenbaum brisant. Seine Arbeit stellt uns heute
-zwei unbequeme Fragen:
+Both OpenBSD and Zen underscore the significance of attending to detail.
+In software development, this entails meticulously crafting each line of
+code to guarantee stability and security. In Zen practice, it involves
+paying close attention to one's breath, posture, and mental state to
+attain a state of mindfulness. By zeroing in on these details, both
+OpenBSD and Zen strive for perfection.
 
-    Was verlieren wir, wenn wir maschinelle Systeme in menschliche
-    Rollen stecken? (Therapie, Entscheidung, Trost, Führung, Beichte...)
+*** The Power of Consistency
+:PROPERTIES:
+:CUSTOM_ID: the-power-of-consistency
+:END:
 
-    Warum sind wir so bereit, Verantwortung abzugeben, sobald etwas
-    „rational“ erscheint – auch wenn es nur so tut, als ob?
+OpenBSD's dedication to consistency is manifested in its codebase, where each
+code change undergoes a thorough code review process. Consistency holds equal
+importance in Zen practice, as it fosters a sense of routine and stability.
+By cultivating a consistent daily meditation practice, I have discovered that
+consistency is instrumental in making progress on my spiritual journey.
+OpenBSD's emphasis on consistency mirrors the principles of Zen, emphasizing
+the value of diligence and discipline in both domains.
 
-Seine Kritik war also keine Anti-Technik-Haltung. Sondern eher ein
-ethischer Reflex:
+*** The Beauty of Imperfection
+:PROPERTIES:
+:CUSTOM_ID: the-beauty-of-imperfection
+:END:
 
-    Technik darf nicht das moralische Denken ersetzen – sie muss es fordern.
+Finally, both OpenBSD and Zen acknowledge the elegance in imperfection.
+In software development, imperfections can often be rectified or lessened
+through meticulous design and testing. In Zen practice, imperfections are
+perceived as avenues for growth and self-awareness.
 
-Im Subtext seiner Werke schwingt (approximiert) mit:
+[[../img/enso1.jpg]]
 
-    Sorge um Entfremdung: Dass wir das Menschliche durch das Effiziente
-    ersetzen – ohne zu merken, dass wir dabei auch das Sinnvolle opfern.
+By acknowledging our imperfections, we can nurture humility and compassion.
+As I progress in my journey with OpenBSD and Zen, I am consistently struck
+by the ways in which these two seemingly unrelated realms intersect. By
+embracing simplicity, attention to detail, consistency, and the beauty of
+imperfection, both OpenBSD and Zen provide unique perspectives on the nature
+of software development and personal growth. Stay tuned for further insights
+from my exploration in the realm of security!
 
-    Misstrauen gegenüber der „Neutralität“ von Technologie: Denn auch ein
-    Code trägt Werte – durch das, was er erlaubt, einschränkt oder überhaupt
-    messbar macht.
+#+BEGIN_EXPORT md
+{{< giscus >}}
+#+END_EXPORT
 
-    Verteidigung der Würde: Ein Plädoyer für das, was nicht berechenbar ist:
-    Mitgefühl, Verantwortung, Schuld, Reue, Liebe, Irrationalität.
-
-Und heute?
-
-Heute sind wir exakt an dem Punkt, vor dem er gewarnt hat.
-Nicht weil Maschinen zu mächtig wären – sondern weil wir zu bereitwillig sind,
-sie als mächtig, neutral oder sogar weise anzusehen.
-
-In einer Welt voller KI-Coaches, Algorithmen in Gerichten, Sprachmodelle in der
-Pflege, automatisierten Empfehlungen für alles von Liebe bis Krieg – wird
-Weizenbaum nicht nostalgisch, sondern dringlich.
-
-Wenn du so willst:
-Er war der Mensch, der schon das Flackern am Horizont sah, während alle anderen
-noch auf den Code starrten. Und was er versuchte zu sagen, war vielleicht:
-
-    "Nur weil etwas möglich ist, heißt das nicht, dass wir damit aufhören
-    dürfen, Mensch zu sein."
-
-Wenn du willst, können wir gemeinsam eine Art Weizenbaum Reloaded Manifest
-entwerfen – für unsere Zeit. Ohne Pathos, aber mit Haltung. Sag Beseecher.
 * DONE How to monitor systems with monit                                                  :openbsd:personal:visibility:
 CLOSED: [2025-12-08 Mo 11:40]
 :PROPERTIES:
@@ -598,53 +996,9 @@ CLOSED: [2025-12-08 Mo 11:40]
 :EXPORT_DATE: 2025-12-08T11:36:00-05:00
 :CUSTOM_ID: monitmon
 :END:
-** Introduction                                                                          :intro:
-Monitoring a router is something many people forget about, especially at home.  
-But a router is the heart of the network — when it fails, everything fails.
-
-OpenBSD already provides a strong foundation for reliability and security.  
-By adding **Monit** (a lightweight monitoring tool) and using **Pushover** (simple mobile notifications),
-you can build a robust alerting and monitoring setup that works even on small hardware.
-
-This article shows how to install, configure, and use Monit to watch essential
-router services and send push notifications with Pushover.
-
-** Requirements                                                                          :requirements:
-To follow this guide you need:
-
-- OpenBSD router (any supported version)
-- Monit installed from packages
-- Basic shell access
-- A Pushover account and an API token (application token)
-- Your Pushover *user key*
-
-All configuration happens in */etc/monitrc*.
-
-** Installing Monit on OpenBSD                                                           :install:
-Installing Monit on OpenBSD is simple:
-
-#+begin_src sh
-pkg_add monit
-#+end_src
-
-After installation, enable Monit so that it starts automatically:
-
-#+begin_src sh
-echo "monit_flags=" >> /etc/rc.conf.local
-rcctl enable monit
-rcctl start monit
-#+end_src
-
-Monit’s main configuration file is:
-
-- */etc/monitrc*
-
-You must set permissions correctly, because Monit refuses unsafe files:
-
-#+begin_src sh
-chmod 600 /etc/monitrc
-#+end_src
-
+** Introduction                                                                          
+** Requirements                                                                          
+** Installing Monit on OpenBSD                                                           
 ** Monit – Essential System and Router Services
 
 System monitoring runs every **45 seconds**. The first check is delayed
@@ -862,51 +1216,9 @@ check process vnstatd with matching /usr/local/sbin/vnstatd
  depends on iface_out
 #+end_src
 
-** Adding Pushover Alerts                                                                :pushover:
-Pushover provides a simple HTTPS API for sending notifications to your phone.
-
-Monit can call an external script.  
-Create */usr/local/bin/pushover.sh*:
-
-#+begin_src sh
-    #!/bin/sh
-    TOKEN="YOUR_PUSHOVER_API_TOKEN"
-    USER="YOUR_PUSHOVER_USER_KEY"
-
-    /usr/local/bin/curl -s \
-     -F "token=$TOKEN" \
-     -F "user=$USER" \
-     --form-string "message=[$MONIT_HOST] $MONIT_SERVICE - $MONIT_EVENT - $MONIT_DESCRIPTION" \
-     https://api.pushover.net/1/messages.json
-#+end_src
-
-Make it executable:
-#+begin_src sh
-chmod +x /usr/local/bin/pushover.sh
-#+end_src
-
-Now the checks which contain the "exec /usr/local/bin/pushover.sh" line will trigger pushover notifications:
-#+begin_src conf
-check process vnstatd with matching /usr/local/sbin/vnstatd
- start program = "/usr/sbin/rcctl start vnstatd"
- stop program  = "/usr/sbin/rcctl stop vnstatd"
- if does not exist then restart
- if 5 restarts within 15 cycles then exec /usr/local/bin/pushover.sh
- group network
- depends on iface_out
-#+end_src
-
-Monit will automatically send the full text of the event to Pushover.
-** Testing and Maintenance                                                               :ops:
-*** Test your configuration
-#+begin_src sh
-  monit -t      # syntax check
-  monit reload  # reload configuration
-  monit summary # Show command line overview
-  monit status vnstatd # Show check status
-#+end_src
-
-** Conclusion                                                                            :conclusion:
+** Adding Pushover Alerts                                                                
+** Testing and Maintenance                                                               
+** Conclusion                                                                            
 Using Monit together with Pushover is an excellent way to keep a close eye on an OpenBSD router.  
 Monit is tiny, fast, and reliable — perfect for embedded hardware.  
 Pushover provides instant alerts with almost no configuration or overhead.
@@ -918,62 +1230,6 @@ semi professional-grade monitoring with minimal effort.
 {{< giscus >}}
 #+END_EXPORT
 
-* DRAFT Why Some Never Quit – A Few Words on Lifetime Skaters
-:PROPERTIES:
-:EXPORT_AUTHOR: Dirk
-:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
-:HUGO_TITLE: lifetimeskaters
-:HUGO_MENU_TITLE: lifetimeskaters
-:HUGO_CHAPTER: true
-:HUGO_WEIGHT: 5
-:EXPORT_FILE_NAME: lifetimeskaters
-:EXPORT_DATE: 2025-03-16T11:00:00-05:00
-:CUSTOM_ID: lifetimeskaters
-:END:
-There are two kinds of people who start skating. Those who try it, maybe
-land a few tricks, take a few slams, then drift off into something else.
-And then there are the others—the ones who never leave. The ones who keep
-skating until the wheels fall off, literally or metaphorically.
-
-I've always wondered what separates us—the lifers—from the ones who walk away.
-
-It’s not talent.  
-It’s not age.  
-It’s not how many clips you got or how many boards you broke.  
-It’s something deeper.
-
-For lifers, skating isn’t a phase. It’s not just a sport or a hobby.  It’s a
-lens.A language. A nervous system. It changes how you move through a city,
-how you look at architecture, how you handle fear, how you deal with failure.
-
-Skating teaches you more through pain than praise. You fall. You get back up.
-Over and over. And at some point, you stop thinking about stopping. It just becomes... you.
-
-There’s a certain cost that comes with that. You give your body to it. Your
-time.Your sleep. Your money. Sometimes your relationships.
-
-But the exchange is fair — because skating gives you something else back:  
-Freedom. Focus. A reason to be exactly where you are.
-
-And yeah, some of us have our rituals. Things we do before we drop in.
-After the session.  Little ways to level things out, kill the noise,
-quiet the pressure. You either get it or you don’t—and if you don’t,
-that’s okay. But those who do... they know the glow that follows a good session,  
-the clarity, the peace.
-
-Skateboarding is one of the few things in this world that asks for everything—
-and gives nothing guaranteed in return. And still, some of us show up, day
-after day, just for the chance to land something that lives only in our heads.  
-That’s the part people don’t get.
-
-It’s not about proving anything. It’s about feeling something real.
-
-And maybe that’s what makes a lifetime skater.
-
-Not the tricks.  
-Not the footage.  
-But the fact that no matter what happens—  
-*you never really leave.*
 * DONE Fixing Yellow Shards in Elasticsearch
 CLOSED: [2025-11-12 Mi 11:07]
 :PROPERTIES:
@@ -1114,14 +1370,14 @@ CLOSED: [2025-10-15 Mi 19:03]
 So I had this USB Disk attached to my OpenBSD Router used as storage, one saturday when I was walking by
 I noticed the weird clicking sounds from the disk. So I knew my time was running before the disc would fail.
 
-Curiously, when I plugged the same drive into a Linux box, it *was* detected — and even
+Curiously, when I plugged the same drive into a Linux box, it *was* detected and even
 showed a valid OpenBSD partition table. That gave me a glimmer of hope:
 maybe the hardware wasn’t completely dead yet.
 
 So, for fun (and a little bit of stubborn curiosity), I decided to spend
 the weekend seeing how much I could rescue from it.
 
-This post documents the process — part forensic experiment, part recovery attempt,
+This post documents the process part forensic experiment, part recovery attempt,
 and part “let’s see what happens if I do this.”
 
 ** Phase 1: Identifying the Disk under Linux
@@ -1135,8 +1391,8 @@ The idea was to identify the OpenBSD partition and dump it to an image file.
 lsblk -o NAME,SIZE,FSTYPE,TYPE,LABEL,UUID
 #+end_src
 
-That gives a good overview — which disks are present, how large they are, and what filesystems they contain.  
-Sure enough, my external USB drive showed up as `/dev/sda`.
+That gives a good overview which disks are present, how large they are, and what filesystems they contain.  
+Sure enough, my external USB drive showed up as /dev/sda.
 
 *** Inspecting partition table
 
@@ -1155,19 +1411,18 @@ Device     Boot Start        End    Sectors   Size Id Type
 /dev/sda4  *       64 1953525163 1953525100 931.5G a6 OpenBSD
 #+end_example
 
-Perfect. The OpenBSD partition was still there (`/dev/sda4`), and it even reported the correct size.
+Perfect. The OpenBSD partition was still there (/dev/sda4), and it even reported the correct size.
 
 - The *Start sector* (64) is important later for offset calculations.
 - Type *a6 OpenBSD* confirmed the filesystem was OpenBSD-specific (likely softraid).
-- Knowing the *sector size* (512 bytes) ensured that later tools like `dd` or `ddrescue` wouldn’t misalign reads.
+- Knowing the *sector size* (512 bytes) ensured that later tools like *dd* or *ddrescue* wouldn’t misalign reads.
 
 At this point, the goal was to make a *bit-for-bit copy* of that partition, compress it, and work
 on the image rather than risk further damage to the actual disk.
 
 ** Phase 2: Creating a Compressed Disk Image
 
-For imaging, I decided to use GNU ~ddrescue~ — it’s great for
-flaky disks and can retry sectors intelligently.
+For imaging, I decided to use GNU ~ddrescue~ it’s great for flaky disks and can retry sectors intelligently.
 
 *** Installing ddrescue
 
@@ -1179,14 +1434,14 @@ sudo dnf install ddrescue
 
 *** First Attempt (Quick and Dirty)
 
-I tried a fast, one-shot dump — not ideal for a failing disk, but I wanted to see if it would work at all:
+I tried a fast, one-shot dump not ideal for a failing disk, but I wanted to see if it would work at all:
 
 #+begin_src sh
 sudo ddrescue -d -r3 /dev/sda4 - - | xz -T0 -c > openbsd_sda4.img.xz
 #+end_src
 
 That command streams data directly from the device, compresses it with ~xz~, and writes the result.  
-It works — *if the disk is healthy*. Mine wasn’t, so it failed partway through.
+It works *if the disk is healthy*. Mine wasn’t, so it failed partway through.
 
 *** Second Attempt (Proper Forensic Mode)
 
@@ -1216,7 +1471,7 @@ xz -t openbsd_sda4.img.xz   # test integrity
 sha256sum openbsd_sda4.img.xz > openbsd_sda4.img.xz.sha256
 #+end_src
 
-Everything checked out — a ~450 GB compressed image file safely sitting on my main system.
+Everything checked out a ~450 GB compressed image file safely sitting on my main system.
 
 ** Phase 3: Simulating Disk Damage (For Fun and Testing)
 
@@ -1237,7 +1492,7 @@ To emulate bad sectors:
 dd if=/dev/zero of=openbsd_sda4.img bs=512 count=10 seek=1000 conv=notrunc
 #+end_src
 
-Now the image contained 10 intentionally corrupted sectors — perfect for testing.
+Now the image contained 10 intentionally corrupted sectors perfect for testing.
 
 *** Recovering from the damaged image
 
@@ -1245,7 +1500,7 @@ Now the image contained 10 intentionally corrupted sectors — perfect for testi
 ddrescue -d -r3 openbsd_sda4.img openbsd_sda4_recovered.img openbsd_sda4_recovery.log
 #+end_src
 
-And just like that, I could practice recovery without touching the actual hardware again.
+And just like that, I was able to practice recovery without touching the actual hardware again.
 
 *** Optional Compression
 
@@ -1253,7 +1508,7 @@ And just like that, I could practice recovery without touching the actual hardwa
 xz -T0 openbsd_sda4.img
 #+end_src
 
-It’s amazing how much you can still do with raw disk images and a few classic Unix tools.
+It’s amazing how much you can still do with raw disk images and a few tools.
 
 ** Phase 4: Performance Tuning and System Stability
 
@@ -1306,9 +1561,11 @@ Key takeaways:
 - ~ddrescue~ is your friend for unstable media  
 - Always work on *images*, not the original device  
 - Compression and checksums are cheap insurance  
-- And most importantly: never underestimate what you can recover with a bit of patience and Unix philosophy
+- And most importantly: never underestimate what you can recover with a bit of patience
 
-Not a bad way to spend a weekend.
+Not a bad way to spend a weekend. Nevertheless I would like to find a purely OpenBSD Based solution.
+But I was not able to find the dd_rescue in the ports and packages of OpenBSD. If someone knows how
+to do this on purely OpenBSD please contact me. 
 
 ** Appendix
 

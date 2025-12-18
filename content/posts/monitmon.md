@@ -2,63 +2,19 @@
 title: "How to monitor systems with monit"
 author: ["Dirk"]
 date: 2025-12-08T11:40:00+01:00
-lastmod: 2025-12-08T11:52:28+01:00
+lastmod: 2025-12-09T13:47:08+01:00
 tags: ["forensicwheels", "openbsd", "personal", "visibility"]
 draft: false
-weight: 1004
+weight: 1006
 ---
 
-## Introduction <span class="tag"><span class="intro">intro</span></span> {#introduction}
-
-Monitoring a router is something many people forget about, especially at home.
-But a router is the heart of the network — when it fails, everything fails.
-
-OpenBSD already provides a strong foundation for reliability and security.
-By adding ****Monit**** (a lightweight monitoring tool) and using ****Pushover**** (simple mobile notifications),
-you can build a robust alerting and monitoring setup that works even on small hardware.
-
-This article shows how to install, configure, and use Monit to watch essential
-router services and send push notifications with Pushover.
+## Introduction {#introduction}
 
 
-## Requirements <span class="tag"><span class="requirements">requirements</span></span> {#requirements}
-
-To follow this guide you need:
-
--   OpenBSD router (any supported version)
--   Monit installed from packages
--   Basic shell access
--   A Pushover account and an API token (application token)
--   Your Pushover **user key**
-
-All configuration happens in **/etc/monitrc**.
+## Requirements {#requirements}
 
 
-## Installing Monit on OpenBSD <span class="tag"><span class="install">install</span></span> {#installing-monit-on-openbsd}
-
-Installing Monit on OpenBSD is simple:
-
-```sh
-pkg_add monit
-```
-
-After installation, enable Monit so that it starts automatically:
-
-```sh
-echo "monit_flags=" >> /etc/rc.conf.local
-rcctl enable monit
-rcctl start monit
-```
-
-Monit’s main configuration file is:
-
--   **/etc/monitrc**
-
-You must set permissions correctly, because Monit refuses unsafe files:
-
-```sh
-chmod 600 /etc/monitrc
-```
+## Installing Monit on OpenBSD {#installing-monit-on-openbsd}
 
 
 ## Monit – Essential System and Router Services {#monit-essential-system-and-router-services}
@@ -281,60 +237,13 @@ check process vnstatd with matching /usr/local/sbin/vnstatd
 ```
 
 
-## Adding Pushover Alerts <span class="tag"><span class="pushover">pushover</span></span> {#adding-pushover-alerts}
-
-Pushover provides a simple HTTPS API for sending notifications to your phone.
-
-Monit can call an external script.
-Create **/usr/local/bin/pushover.sh**:
-
-```sh
-#!/bin/sh
-TOKEN="YOUR_PUSHOVER_API_TOKEN"
-USER="YOUR_PUSHOVER_USER_KEY"
-
-/usr/local/bin/curl -s \
- -F "token=$TOKEN" \
- -F "user=$USER" \
- --form-string "message=[$MONIT_HOST] $MONIT_SERVICE - $MONIT_EVENT - $MONIT_DESCRIPTION" \
- https://api.pushover.net/1/messages.json
-```
-
-Make it executable:
-
-```sh
-chmod +x /usr/local/bin/pushover.sh
-```
-
-Now the checks which contain the "exec /usr/local/bin/pushover.sh" line will trigger pushover notifications:
-
-```cfg
-check process vnstatd with matching /usr/local/sbin/vnstatd
- start program = "/usr/sbin/rcctl start vnstatd"
- stop program  = "/usr/sbin/rcctl stop vnstatd"
- if does not exist then restart
- if 5 restarts within 15 cycles then exec /usr/local/bin/pushover.sh
- group network
- depends on iface_out
-```
-
-Monit will automatically send the full text of the event to Pushover.
+## Adding Pushover Alerts {#adding-pushover-alerts}
 
 
-## Testing and Maintenance <span class="tag"><span class="ops">ops</span></span> {#testing-and-maintenance}
+## Testing and Maintenance {#testing-and-maintenance}
 
 
-### Test your configuration {#test-your-configuration}
-
-```sh
-monit -t      # syntax check
-monit reload  # reload configuration
-monit summary # Show command line overview
-monit status vnstatd # Show check status
-```
-
-
-## Conclusion <span class="tag"><span class="conclusion">conclusion</span></span> {#conclusion}
+## Conclusion {#conclusion}
 
 Using Monit together with Pushover is an excellent way to keep a close eye on an OpenBSD router.
 Monit is tiny, fast, and reliable — perfect for embedded hardware.
