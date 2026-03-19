@@ -6,7 +6,7 @@
     <description>Latest posts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Dec 2025 12:36:40 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 10:15:27 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Threathunting I: Network setup</title>
@@ -28,6 +28,13 @@
       <pubDate>Sun, 13 Jul 2025 07:38:00 +0200</pubDate>
       <guid>http://localhost:1313/posts/theathuntinghoneypot/index.html</guid>
       <description>Introduction What is Cowrie? Why Podman over Docker? Preconditions / System setup Ubuntu Installed on Raspberry Pi 4+ System Fully Updated Podman installed and working VLAN Tagging Configured on Network Interface Setup environment, install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🎯 Operating the Honeypot 🔄 Automatically Restart Cowrie Podman Container with systemd 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Whats next Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.</description>
+    </item>
+    <item>
+      <title>SANS FOR608</title>
+      <link>http://localhost:1313/posts/sans_for608/index.html</link>
+      <pubDate>Mon, 26 May 2025 16:21:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/sans_for608/index.html</guid>
+      <description>Enterprise Threat Hunting and Incident Response (FOR608) Preparing for the exam: building an index 608.1 — Proactive Detection and Response 608.2 — Scaling Response and Analysis 608.3 — Modern Attacks against Windows and Linux 608.4 — macOS and Docker Containers 608.5 — Cloud Attacks and Response 608.6 — Capstone What I took away from this Enterprise Threat Hunting and Incident Response (FOR608) My employer booked me onto SANS FOR608 in the on-demand version.</description>
     </item>
     <item>
       <title>How to monitor systems with monit</title>

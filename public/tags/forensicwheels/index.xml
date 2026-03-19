@@ -6,7 +6,7 @@
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Dec 2025 12:36:40 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 10:15:27 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/forensicwheels/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>about</title>
@@ -21,6 +21,13 @@
       <pubDate>Sat, 28 Jun 2025 12:48:00 +0200</pubDate>
       <guid>http://localhost:1313/posts/openbsdzen/index.html</guid>
       <description>About As someone who is passionate about security and has an interest in Unix operating systems, OpenBSD particularly captivates due to its dedication to security, stability, and simplicity. In comparison to other OSes, what sets OpenBSD apart? And how do these principles align with my journey through Zen meditation?&#xA;At first glance, OpenBSD and Zen may appear to be vastly disparate concepts - one being a potent operating system, while the other is a spiritual practice originating from ancient China. However, as I delved deeper into both realms, I uncovered some fascinating similarities.</description>
+    </item>
+    <item>
+      <title>SANS FOR608</title>
+      <link>http://localhost:1313/posts/sans_for608/index.html</link>
+      <pubDate>Mon, 26 May 2025 16:21:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/sans_for608/index.html</guid>
+      <description>Enterprise Threat Hunting and Incident Response (FOR608) Preparing for the exam: building an index 608.1 — Proactive Detection and Response 608.2 — Scaling Response and Analysis 608.3 — Modern Attacks against Windows and Linux 608.4 — macOS and Docker Containers 608.5 — Cloud Attacks and Response 608.6 — Capstone What I took away from this Enterprise Threat Hunting and Incident Response (FOR608) My employer booked me onto SANS FOR608 in the on-demand version.</description>
     </item>
     <item>
       <title>How to monitor systems with monit</title>

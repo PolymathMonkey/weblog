@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Forensic - Category - Forensic wheels</title>
-    <link>http://localhost:1313/categories/forensic/index.html</link>
+    <title>Canarytokens - Tag - Forensic wheels</title>
+    <link>http://localhost:1313/tags/canarytokens/index.html</link>
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 19 Mar 2026 10:15:27 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/forensic/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/canarytokens/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SANS FOR608</title>
       <link>http://localhost:1313/posts/sans_for608/index.html</link>
       <pubDate>Mon, 26 May 2025 16:21:00 -0500</pubDate>
       <guid>http://localhost:1313/posts/sans_for608/index.html</guid>
       <description>Enterprise Threat Hunting and Incident Response (FOR608) Preparing for the exam: building an index 608.1 — Proactive Detection and Response 608.2 — Scaling Response and Analysis 608.3 — Modern Attacks against Windows and Linux 608.4 — macOS and Docker Containers 608.5 — Cloud Attacks and Response 608.6 — Capstone What I took away from this Enterprise Threat Hunting and Incident Response (FOR608) My employer booked me onto SANS FOR608 in the on-demand version.</description>
-    </item>
-    <item>
-      <title>Rescue to the softraid</title>
-      <link>http://localhost:1313/posts/rescuetotheraid/index.html</link>
-      <pubDate>Wed, 15 Oct 2025 19:03:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rescuetotheraid/index.html</guid>
-      <description>Introduction So I had this USB Disk attached to my OpenBSD Router used as storage, one saturday when I was walking by I noticed the weird clicking sounds from the disk. So I knew my time was running before the disc would fail.&#xA;Curiously, when I plugged the same drive into a Linux box, it was detected and even showed a valid OpenBSD partition table. That gave me a glimmer of hope: maybe the hardware wasn’t completely dead yet.</description>
     </item>
   </channel>
 </rss>

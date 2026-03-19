@@ -13,7 +13,7 @@
 
 * DRAFT My travel and stay at buddhas weg                                                 :@personal:
 * DRAFT Collecting netflow data with pflow(1) and logstash                                :@threathunting:openbsd:visibility:
-* DRAFT Joe Weitzenbaum forever
+* DRAFT Joe Weitzenbaum forever                                                           :personal:
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
@@ -91,7 +91,7 @@ noch auf den Code starrten. Und was er versuchte zu sagen, war vielleicht:
 
 Wenn du willst, können wir gemeinsam eine Art Weizenbaum Reloaded Manifest
 entwerfen – für unsere Zeit. Ohne Pathos, aber mit Haltung. Sag Beseecher.
-* DRAFT Why Some Never Quit – A Few Words on Lifetime Skaters
+* DRAFT Why Some Never Quit – A Few Words on Lifetime Skaters                             :personal:
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
@@ -159,336 +159,475 @@ But the fact that no matter what happens—
 :EXPORT_DATE: 2025-12-09T08:48:00-05:00
 :CUSTOM_ID: openbsdmalloc
 :END:
-** The unseen hero of OpenBSD: talking about OpenBSD's malloc
+** The unseen hero of OpenBSD: OpenBSD's malloc
 
-*** Introduction
-When people talk about operating system security, they often mention firewalls,
-cryptography, or privilege separation. But one of the most important security
-components usually remains invisible: the memory allocator. On OpenBSD, the
-default allocator—malloc—is not just an implementation detail. It reflects the
-project’s long-standing commitment to robustness and safety. This article
-explains, at a high level, why OpenBSD’s malloc is so unusual, so protective,
-and so “unseen yet essential”.
+*** What this is about
+This is me working through OpenBSD's malloc in depth.
 
-*** Why the allocator matters
-Every non-trivial program allocates memory dynamically. Buffer overflows,
-use-after-free bugs, double frees, and integer overflows are among the most
-common vulnerability classes discovered in C and C++ software. How an allocator
-reacts to such mistakes—silently, or by crashing loudly—makes a huge difference
-in the exploitability of bugs. OpenBSD’s malloc is designed to turn subtle bugs
-into immediate, detectable failures rather than exploitable conditions.
+Not a surface-level overview.
 
-*** A brief history of OpenBSD malloc
+I want to understand the internals — the data structures, the design decisions,
+and why those decisions make heap exploitation so much harder.
 
-**** From early BSD roots to stronger isolation
-OpenBSD originally inherited a BSD-family allocator with sbrk()-based heap
-expansion. This traditional design grouped memory into one contiguous,
-predictable region—efficient, but not ideal for security.
+If you're reading this: the goal was to understand it well enough to explain it
+to someone I respect.
 
-**** 2001: mmap everywhere
-Thierry Deval rewrote malloc to use mmap() instead of sbrk(). This enabled
-page-aligned allocations, fine-grained memory protection, and natural
-integration with address-space randomization. It was the first major step
-toward a modern, defensive allocator. Source: [[https://man.openbsd.org/OpenBSD-5.6/malloc.conf.5][malloc.conf(5)]]
+-----
 
-**** 2008: The Otto Moerbeek rewrite
-In 2008, Otto Moerbeek introduced a nearly complete redesign of malloc. This is
-the allocator OpenBSD uses today. It emphasizes safety, randomness, metadata
-integrity, and strong failure modes. It is often called “otto-malloc”. Source:
-[[https://isopenbsdsecu.re/mitigations/malloc/][Summary of malloc evolution]]
+*** Start here: what malloc actually does
+Every C program that needs memory at runtime calls =malloc=.
 
-*** Architectural principles of OpenBSD malloc
-OpenBSD malloc is built on a set of design decisions that strongly influence its
-security posture:
+=malloc= is a library function. It's not a syscall — it's a layer between your
+code and the kernel.
 
-- mmap for everything: Allocations come from mmap’d regions, not a single heap.
-  This creates natural separation, unpredictable placement, and eliminates many
-  traditional heap-exploitation techniques.
-- Randomized layout: Allocation sizes, reuse patterns, and chunk placement are
-  randomized. Attackers cannot reliably predict where objects land in memory.
-- Out-of-band metadata: Metadata is not stored next to user data. Classic heap
-  attacks often rely on corrupting bookkeeping structures; here, that avenue is
-  largely closed.
-- Optional guard pages: Guard pages are unmapped pages placed around allocations.
-  An overflow into a guard page triggers an immediate crash, revealing bugs early.
-- Junk filling (memory poisoning): Freed memory can be filled with patterns that
-  make use-after-free bugs fail loudly instead of silently corrupting memory.
-- Free-unmap for larger allocations: Large allocations, when freed, can be returned
-  directly to the kernel. Any subsequent access results in a crash, revealing
-  use-after-free misuse.
-- Fail fast philosophy: When inconsistencies are detected—corrupted metadata,
-  impossible bounds, invalid free patterns—malloc aborts the process. While harsh,
-  this approach removes ambiguity and eliminates entire classes of silent
-  corruption bugs.
-
-These features combine to create a defensive architecture that reduces the
-predictability and exploitability of memory corruption issues.
-
-*** A process-centric analogy: memory as isolated workspaces
-
-**** The model we usually assume
-Many developers implicitly imagine memory as a shared workspace inside a
-process: one large area where objects are placed next to each other, managed by
-a fast but trusting allocator. This mental model is close to how traditional
-heaps work and explains why many memory bugs remain invisible for a long time.
-
-**** The traditional allocator: shared desks in one open office
-In a conventional allocator design, the process receives one large, contiguous
-heap. Individual allocations are like desks in a single open office:
-
-- Desks are adjacent.
-- Bookkeeping notes are pinned directly to the desks.
-- Moving past the edge of your desk means bumping into your neighbor’s space.
-
-If a program writes past the end of an allocation, it usually lands in another
-valid object. The program keeps running, but the logical state is now corrupted.
-Exploitation thrives on this ambiguity.
-
-**** The OpenBSD allocator: isolated workspaces with access control
-
-OpenBSD’s malloc enforces a very different model.
-
-Each allocation is treated as an isolated workspace:
-
-- Backed by its own mmap()’d region
-- Page-aligned and unpredictably placed
-- Surrounded, when configured, by unmapped guard pages
-- With metadata stored out-of-band
-
-Instead of one shared office, the process now consists of many small, isolated
-rooms. Some rooms are intentionally empty and inaccessible.
-
-From the program’s perspective, nothing changes:
+When you write:
 
 #+begin_src c
-void *p = malloc(4096);
+char *buf = malloc(64);
 #+end_src
 
-But the execution environment is fundamentally more hostile to mistakes.
+...you're asking the allocator to find 64 bytes somewhere, hand you a pointer,
+and track that those bytes are in use.
 
-**** Failure modes as design signals
+When you call =free(buf)=, you're telling the allocator those bytes are available
+again.
 
-***** Out-of-bounds writes
-_Traditional allocator:_
+That's the contract. The allocator manages that contract.
 
-- Writes land in a neighboring object
-- Corruption propagates silently
+The question is: what happens when the contract is violated?
 
-_OpenBSD malloc:_
+A buffer overflow writes past the end of =buf=.
+A use-after-free reads from =buf= after it's been freed.
+A double free calls =free(buf)= twice.
 
-- Writes cross into an unmapped page
-- The CPU raises a fault
-- The process terminates immediately
+With a naive allocator, these bugs are often silent. The program keeps running
+with corrupted state. That corrupted state is what attackers exploit.
 
-***** Use-after-free
-_Traditional allocator:_
+OpenBSD's malloc is designed to make these bugs loud — to turn silent corruption
+into immediate, reproducible crashes.
 
-- Freed memory is quickly reused
-- Old pointers appear to “work”
-- State corruption accumulates
+-----
 
-_OpenBSD malloc:_
-- Memory may be unmapped or junk-filled
-- Old pointers reliably fault
-- Bugs become reproducible
+*** A brief history: how we got here
 
-***** Metadata corruption
-_Traditional allocator:_
+**** The original: sbrk() and one big heap
+Early Unix allocators used =sbrk()= — a syscall that extends the process's data
+segment upward.
 
-- Metadata lives next to user data
-- Overwrites alter allocator behavior
+Think of it as a stack of memory growing in one direction.
 
-_OpenBSD malloc:_
+All allocations lived in one contiguous block. Predictable layout.
+Fast. And a security problem, because attackers could reason about where
+things would be in memory.
 
-- Metadata is inaccessible to user code
-- Integrity checks fail fast
-- The allocator aborts the process
+**** 2001: mmap instead of sbrk
+Thierry Deval rewrote OpenBSD's malloc to use =mmap()= instead.
 
-**** Why this model matters
-This design changes the economics of exploitation:
+=mmap()= is a syscall that requests a fresh page of memory from the kernel.
+Unlike =sbrk()=, it doesn't have to extend a single contiguous block.
+Each call can land anywhere in the address space.
 
-Objects are not laid out contiguously
-Memory reuse is unpredictable
-Metadata is unreachable
-Undefined behavior collapses into defined failure
+This was the first major break from the "one big heap" model.
 
-OpenBSD malloc does not attempt to mask programmer errors. Instead, it enforces a
-strict contract: memory misuse results in immediate termination. For developers
-and security engineers, this turns entire classes of heap bugs from latent
-security risks into actionable crashes.
+**** 2008: Otto Moerbeek's rewrite
+Otto Moerbeek did a near-complete redesign.
 
-*** Guard Pages: Practical use and effects
-One of OpenBSD malloc’s most notable security features is the use of **Guard
-Pages**. Guard Pages are completely unmapped memory pages placed around an
-allocation. Any read or write into these pages triggers an immediate
-Segmentation Fault, making overflows or out-of-bounds accesses immediately
-visible.
+This is the allocator OpenBSD ships today. It's called "otto-malloc" informally.
 
-**** Enabling Guard Pages
+The focus: safety, randomness, metadata integrity, and defined failure behavior.
+Not performance. Safety.
 
-HSet a systemwide reduction of the cache to a quarter of the default size
-and use guard pages (man malloc):
+**** After 2008: continued hardening
+The design didn't freeze in 2008. Relevant additions since then:
 
-#+begin_src
-# sysctl vm.malloc_conf='G<<'
+- Chunk canaries — small values that detect when you've written past the end of
+  a small allocation
+- Delayed free lists — freed chunks are held in a queue and checked for
+  double-frees before being recycled
+- Use-after-free protection for large allocations — freed pages get their
+  permissions set to =PROT_NONE= (no read, no write, no execute), so any access
+  through a dangling pointer faults immediately
+- Per-thread pools — each thread gets its own bookkeeping structure, avoiding
+  lock contention and reducing cross-thread information leakage
+- =malloc_readonly= in a read-only mapping — the global configuration becomes
+  unwritable after the dynamic linker finishes, so you can't corrupt it through
+  a write primitive
+
+-----
+
+*** The internal structure
+This is the part I actually wanted to understand.
+
+Here's how the allocator is organized.
+
+**** Everything starts with =struct dir_info=
+Every malloc pool is represented by one =struct dir_info=.
+
+"Pool" here means a collection of memory managed together — one per thread in
+multi-threaded programs.
+
+=dir_info= is the central bookkeeping structure. It tracks:
+- Where all the allocated regions are
+- Which small-allocation slots are free
+- The delayed-free queue
+- A buffer of random bytes used for randomizing slot selection
+- Two canary values that sandwich the struct
+
+Here's the relevant part of the actual source (=malloc.c=, current as of 2025):
+
+#+begin_src c
+struct dir_info {
+    u_int32_t canary1;         /* integrity check — start */
+    int active;                /* is this pool in use? */
+    struct region_info *r;     /* table of all allocated regions */
+    size_t regions_total;      /* how many slots in that table */
+    size_t regions_free;       /* how many are empty */
+    int malloc_junk;           /* junk fill enabled? */
+    int mmap_flag;             /* extra mmap flags */
+
+    /* free lists for small allocations, one per size class */
+    struct chunk_info_list[BUCKETS + 1];
+
+    /* lists of chunk pages that still have free slots */
+    struct chunk_head chunk_dir[BUCKETS + 1][MALLOC_CHUNK_LISTS];
+
+    /* recently freed small chunks, held for double-free checking */
+    void *delayed_chunks[MALLOC_DELAYED_CHUNK_MASK + 1];
+
+    u_char rbytes[32];         /* random bytes for slot selection */
+    /* ... */
+    u_int32_t canary2;         /* integrity check — end */
+};
 #+end_src
 
-Other options include:
+The canaries (=canary1= and =canary2=) are the first and last fields.
 
-- `redzone`: Defines padding around small allocations to catch small overflows.
-- `junk`: Determines whether freed memory is filled with junk to detect
-  use-after-free errors.
-- `jumbo`: Threshold for large allocations to be immediately `munmap()`’ed when
-  freed.
-- `alignment`: Adjusts alignment for allocations, useful for performance or
-  hardware-specific requirements.
+If anything corrupts =dir_info= — for example, by overflowing a buffer that
+happens to be near it in memory — the integrity check fires.
 
-**** Effects on userland programs
-1. **Increased memory usage:** Each allocation may require extra pages, increasing
-   overall memory consumption.
-2. **Immediate bug detection:** Buffer overflows or writes beyond allocated memory
-   result in a crash rather than silent corruption.
-3. **Compatibility considerations:** Programs that assume contiguous memory may
-   crash unexpectedly with guard pages enabled.
-4. **Debug vs. Production:** Guard Pages are typically enabled in debug builds and
-   often disabled in production to conserve memory.
+The allocator calls =wrterror()= and aborts the process.
 
-**** Example
-A C program with a buffer overflow:
+This is intentional. Loud failure over silent corruption.
 
-#+BEGIN_SRC c
-char *buf = malloc(16);
-buf[16] = 'x'; // off-by-one!
-#+END_SRC
+**** The global config lives in read-only memory
+The global configuration — guard page size, junk level, the pool pointers — is
+stored in =struct malloc_readonly=:
 
-With guard pages, this immediately triggers a Segmentation Fault.
+#+begin_src c
+struct malloc_readonly {
+    struct dir_info *malloc_pool[_MALLOC_MUTEXES]; /* one pool per thread */
+    u_int malloc_mutexes;      /* how many pools are active */
+    /* malloc_guard, malloc_junk, etc. */
+    u_int32_t malloc_canary;   /* cross-checked against each pool's canary1 */
+};
 
-----
+static struct malloc_readonly mopts __relro;
+#+end_src
 
-**** Furter mentionworthy OpenBSD malloc Options
+=__relro= means "relocations read-only". After the dynamic linker finishes
+setting up the process, this section becomes read-only at the hardware level.
 
-OpenBSD's malloc provides several options to help detect common memory
-errors such as use-after-free, buffer overflows, and double frees. These
-options are configured system-wide via **sysctl vm.malloc_conf**.
+Any write to =mopts= through a bug or exploit primitive hits a read-only page
+and faults immediately.
 
-***** Guard Pages (G)
-- **Effect:** Places unmapped "guard pages" around larger allocations. Any
-  access triggers an immediate segmentation fault.
-- **Usage:**
-#+BEGIN_SRC sh
-# Enable guard pages
+You can't corrupt the allocator's configuration without crashing the process
+first.
+
+**** The metadata is not next to your data
+This is the key architectural decision.
+
+In glibc's allocator, chunk headers sit immediately before user data.
+The metadata describing an allocation lives at =(ptr - 8)= or similar.
+
+If you overflow your buffer, you can overwrite that metadata.
+Classic heap exploits are built on exactly this.
+
+In otto-malloc, =dir_info= and =chunk_info= live in completely separate =mmap=
+regions. There is no chunk header adjacent to user data.
+
+Running past the end of your buffer hits either another allocation, a guard page,
+or unmapped memory. Not metadata.
+
+**** Small allocations: chunks and buckets
+Allocations smaller than half a page go into chunk pages.
+
+A chunk page is one =mmap='d page divided into uniform slots of the same size.
+
+Size classes run from 16 bytes (=MALLOC_MINSIZE=) up to half a page
+(=MALLOC_MAXCHUNK=), in powers of two. Each size class is a "bucket".
+
+Each chunk page is described by a =struct chunk_info=:
+
+#+begin_src c
+struct chunk_info {
+    LIST_ENTRY(chunk_info) entries; /* linked list of chunk pages */
+    void *page;          /* pointer to the actual page */
+    u_short canary;      /* boundary integrity value */
+    u_short bucket;      /* which size class (16b, 32b, 64b...) */
+    u_short free;        /* how many slots are still free */
+    u_short total;       /* total number of slots on this page */
+    u_short offset;      /* size table offset */
+    u_short bits[...];   /* bitmap: 1 = slot is free */
+};
+#+end_src
+
+The =canary= here is not a stack canary. It's a per-chunk-page value that gets
+checked when a slot is freed. If the boundary between slots has been written
+past, the check fails and the process aborts.
+
+Slot selection within a chunk page uses the =rbytes= pool from =dir_info=.
+
+Which specific slot you get from =malloc= is not deterministic. Two consecutive
+calls to =malloc(64)= don't necessarily give you adjacent addresses.
+
+This breaks a core assumption that heap grooming relies on: predictable relative
+placement between allocations.
+
+**** Large allocations: their own mmap region
+Allocations at or above one page get their own dedicated =mmap= region.
+
+They're tracked as entries in the region table (=dir_info->r=), not in any chunk
+structure.
+
+When freed, they can go back to the kernel via =munmap=. Any dangling pointer
+to that address will fault on the next access — the page no longer exists in the
+process's address space.
+
+The guard page (when enabled) is an unmapped page appended immediately after the
+allocation:
+
+#+begin_src c
+#define MALLOC_GUARD ((size_t)MALLOC_PAGESIZE)
+#+end_src
+
+One byte past the end of your allocation hits this page. Immediate fault.
+
+**** The junk fill values
+Two specific byte patterns matter here:
+
+#+begin_src c
+#define SOME_JUNK      0xdb  /* "deadbeef" — written on fresh allocation */
+#define SOME_FREEJUNK  0xdf  /* "dead, free" — written before free */
+#+end_src
+
+=0xdb= on allocation makes reading uninitialized memory produce garbage that
+almost always causes a crash or detectable bad state.
+
+=0xdf= on free marks the region as dead. Any use-after-free that reads from this
+region will get =0xdf= bytes back. That rarely looks like valid state.
+
+When you see these values in a crash dump, you know immediately what kind of bug
+you're looking at.
+
+-----
+
+*** The defense mechanisms, together
+These features are complementary. Here's the full picture in one place.
+
+**** Guard pages (=G=)
+An unmapped page placed after each page-size-or-larger allocation.
+
+Any access past the end of the allocation hits the guard page and faults.
+
+#+begin_src sh
 sysctl vm.malloc_conf='G'
-#+END_SRC
-- **Purpose:** Detects overflows and large out-of-bounds memory access
-  immediately.
+#+end_src
 
-***** Junk Filling (J)
-- **Effect:** Freed memory is filled with a recognizable pattern (0xAB),
-  making use-after-free accesses immediately apparent.
-- **Usage:**
-#+BEGIN_SRC sh
-sysctl vm.malloc_conf='J'
-#+END_SRC
-- **Purpose:** Makes use-after-free bugs crash or produce detectable
-  corruption.
+The =<= and =>= flags adjust the free page cache size — each =<= halves it,
+each =>= doubles it. Default cache size is 64 single-page allocations.
 
-***** Redzones (R)
-- **Effect:** Adds small padded areas around small allocations to catch
-  off-by-one errors and small buffer overflows.
-- **Usage:**
-#+BEGIN_SRC sh
+To enable guard pages and halve the cache:
+#+begin_src sh
+sysctl vm.malloc_conf='G<'
+#+end_src
+
+**** Junk filling (=J= / =j=)
+Level 1: freed memory gets filled with =0xdf=.
+
+Level 2: freshly allocated memory also gets filled with =0xdb= before being
+handed to the caller.
+
+=J= increments the junk level, =j= decrements it. To reach level 2:
+
+#+begin_src sh
+sysctl vm.malloc_conf='JJ'
+#+end_src
+
+**** Redzones (=R=)
+Small allocations get padding around the requested size.
+
+The canary check on free catches anything written into that padding.
+
+Useful for off-by-one overflows that don't reach a guard page.
+
+#+begin_src sh
 sysctl vm.malloc_conf='R'
-#+END_SRC
-- **Purpose:** Early detection of minor memory boundary violations.
+#+end_src
 
-***** Jumbo Free / Munmap (U)
-- **Effect:** Large allocations exceeding the "jumbo" threshold are unmapped
-  immediately on free. Any subsequent access causes an immediate crash.
-- **Usage:**
-#+BEGIN_SRC sh
-sysctl vm.malloc_conf='U'
-#+END_SRC
-- **Purpose:** Detects use-after-free errors on large memory blocks.
+**** Use-after-free protection (=F=)
+Freed pages get =mprotect='d to =PROT_NONE= before entering the cache.
 
-***** Combining Flags
-Flags can be combined to enable multiple safety mechanisms at once. Example:
-#+BEGIN_SRC sh
-# Enable Guard Pages, Junk Filling, and Redzones simultaneously
-sysctl vm.malloc_conf='GJR'
-#+END_SRC
+Any dangling pointer access faults immediately — even before the page is
+returned to the kernel.
 
-***** Additional Useful Flags
-- `C` → Enables malloc call statistics (useful for debugging/analysis)
-- `<` / `>` → Adjusts cache size (trading memory footprint vs. performance)
+#+begin_src sh
+sysctl vm.malloc_conf='F'
+#+end_src
 
-***** Practical Tips
-- For fuzzing or development, `GJR` is a strong combination to catch
-  common memory errors early.
-- In production, consider enabling only selective flags to reduce memory
-  overhead and performance impact.
+**** Combining flags
+#+begin_src sh
+# Strong development / fuzzing setup
+sysctl vm.malloc_conf='GJJRF'
 
+# Shorthand: all security-relevant options at once
+sysctl vm.malloc_conf='S'
+#+end_src
 
-*** Developer Tips & Advanced Options
-OpenBSD malloc’s defensive features can guide developers and improve code
-quality:
+For production: =GF= is a reasonable baseline. Full =GJJRF= adds measurable
+overhead on allocation-heavy workloads.
 
-- **Fuzzing & testing:** Guard Pages, junk filling, and redzones make memory
-  bugs detectable early, improving fuzzing results.
-- **Integration with ASLR:** mmap-based allocations are highly randomized, making
-  heap exploits difficult.
-- **Fail-fast behavior:** Errors like double frees or metadata corruption result in
-  process aborts, allowing developers to reproduce bugs deterministically.
-- **Memory footprint:** Defensive features increase memory usage; consider this
-  in memory-constrained environments.
-- **Debug vs. release builds:** Developers often enable maximum security options
-  during development and limit them in production for performance.
+-----
+
+*** Why classic heap exploits fail here
+Concrete example: the =unsafe unlink= technique against glibc's ptmalloc.
+
+In ptmalloc, freeing a chunk triggers a doubly-linked list unlink operation on
+in-band metadata. The =fd= and =bk= pointers — "forward" and "back" — sit
+immediately before the user data in memory.
+
+If you can overflow a buffer into those pointers before the free, the unlink
+operation writes an attacker-controlled value to an attacker-controlled address.
+
+That's an arbitrary write primitive. It worked for years across real software.
+
+Here's the minimal C that creates the vulnerable condition:
+
+#+begin_src c
+/*
+ * Vulnerable pattern against ptmalloc (glibc).
+ * Does NOT require any glibc internals to understand —
+ * the point is the predictable layout.
+ */
+
+struct Target {
+    char buf[64];
+    void (*fn)(void);  /* function pointer immediately after the buffer */
+};
+
+struct Target *t = malloc(sizeof(*t));
+t->fn = legit_function;
+
+/*
+ * Attacker controls input. memcpy doesn't check bounds.
+ * 72 bytes overwrites buf (64) plus fn (8 on 64-bit).
+ */
+memcpy(t->buf, attacker_input, 72);
+
+t->fn();  /* now points to attacker-controlled address */
+#+end_src
+
+The exploit works because the layout is deterministic.
+
+=buf= and =fn= are always at the same offset within the struct.
+The struct is always at a predictable distance from other allocations.
+
+Against otto-malloc, this attack runs into several walls at once:
+
+1. *No predictable adjacency between allocations.*
+   Small allocations go into randomly selected slots within chunk pages.
+   Two consecutive =malloc= calls for the same size don't produce adjacent
+   memory. The offset between =t= and anything else in the heap is not fixed.
+
+2. *No in-band metadata to corrupt.*
+   ptmalloc's =fd=/=bk= sit at =(ptr - 16)=. In otto-malloc, there's nothing
+   there. =chunk_info= lives in a separate mapping. Running past the buffer
+   hits either another chunk slot, a guard page, or unmapped memory.
+
+3. *Chunk canary fires on free.*
+   If the overflow crosses a chunk page boundary, the canary check in
+   =chunk_info= fires on the next =free= in that bucket.
+   The process aborts before the corrupted state propagates.
+
+4. *Guard page for large allocations.*
+   If =t= were page-size or larger, any write past its end hits an unmapped page
+   immediately — before =t->fn= is ever called.
+
+None of these individually make exploitation impossible.
+
+Together, they eliminate the determinism exploitation depends on.
+
+Heap grooming — arranging allocations in specific patterns before triggering a
+bug — becomes unreliable when placement is randomized and metadata is
+unreachable.
+
+-----
 
 *** Comparison with other allocators
-| Feature / Allocator       | OpenBSD malloc (otto) | glibc malloc           | jemalloc / tcmalloc       |
-|---------------------------+---------------------+-----------------------+--------------------------|
-| Heap source               | mmap only           | mixed sbrk/mmap       | custom arenas, mostly mmap |
-| Metadata location         | out-of-band         | in-band (typical)     | in-band                   |
-| Randomization             | high                | limited or optional   | varies                    |
-| Guard pages               | optional via config | rarely default        | rarely default            |
-| Use-after-free detection  | strong (junk+unmap) | limited               | limited                   |
-| Overflow detection        | canaries+guard opt  | depends on debug mode | not default               |
-| Failure mode              | abort on inconsistency | undefined/continuing | undefined/continuing      |
-| Performance priority      | safety > speed      | speed                 | speed and fragmentation   |
-| Default security posture  | hardened by design  | performance-oriented  | performance-oriented      |
+| Feature                   | OpenBSD malloc (otto) | glibc malloc           | jemalloc / tcmalloc        |
+|---------------------------+-----------------------+------------------------+----------------------------|
+| Heap source               | mmap only             | mixed sbrk/mmap        | custom arenas, mostly mmap |
+| Metadata location         | out-of-band           | in-band                | in-band                    |
+| Randomization             | high                  | limited or optional    | varies                     |
+| Guard pages               | optional via config   | rarely default         | rarely default             |
+| Use-after-free detection  | strong (junk + unmap) | limited                | limited                    |
+| Overflow detection        | chunk canary + guard  | depends on debug mode  | not default                |
+| Failure mode              | abort on inconsistency| undefined / continuing | undefined / continuing     |
+| Performance priority      | safety > speed        | speed                  | speed and fragmentation    |
+| Default security posture  | hardened by design    | performance-oriented   | performance-oriented       |
 
-*** Why OpenBSD malloc stands out
-OpenBSD’s malloc is not simply a defensive allocator; it is a reflection of the
-project’s development philosophy:
+-----
 
-- Bugs should be caught early and loudly.
-- Small implementation, understandable design.
-- Security features should be on by default.
-- Memory safety belongs at the system level, not only in tools.
+*** Practical notes for development
+- For fuzzing and testing, =GJJRF= is the right combination.
+  Bugs that are latent on glibc often become immediate crashes here.
 
-This design makes many heap-corruption exploits impractical and forces common
-programming mistakes into the open, where developers can fix them.
+- The junk patterns are diagnostic signals.
+  =0xdb= in a crash → uninitialized read.
+  =0xdf= in a crash → use-after-free.
 
-*** Conclusion
-OpenBSD’s malloc may be invisible to most users, but it represents one of the
-project’s most impressive engineering achievements. By combining mmap-only
-allocations, randomization, guard pages, out-of-band metadata, and strict
-fail-fast behavior, it delivers a level of robustness and security rarely found
-in a general-purpose operating system.
+- Guard pages and =F= both increase virtual memory usage.
+  On constrained targets, pair them with =<= to reduce the free page cache.
 
-If memory safety matters to you—and it should—OpenBSD’s malloc is worth knowing
-and appreciating. It is a quiet guardian, hardening software in ways that few
-users ever see.
+- The source is 2700 lines and well-commented. Worth reading directly.
+  [[https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c][openbsd/src: lib/libc/stdlib/malloc.c]]
 
-*** References / Sources
+-----
+
+*** What I took away from this
+The design is coherent. Every decision points in the same direction.
+
+Metadata out-of-band → can't corrupt it through a buffer overflow.
+
+Randomized slot selection → can't predict layout, can't groom the heap reliably.
+
+=__relro= on global config → can't corrupt the allocator's own settings.
+
+Canaries on =dir_info= and chunk boundaries → corruption detected at the point
+it happens, not ten allocations later.
+
+Junk fill → uninitialized reads and use-after-free are immediately visible.
+
+Guard pages → overflows into unmapped memory, immediate fault.
+
+Fail fast on any inconsistency → the bug surfaces where it happened.
+
+None of these are magic. Together, they add up to an allocator that treats
+memory misuse as a hard contract violation rather than undefined behavior you
+get to exploit later.
+
+That's the point.
+
+-----
+
+*** References
 - [[https://man.openbsd.org/OpenBSD-6.5/malloc][OpenBSD malloc manual]]
 - [[https://man.openbsd.org/OpenBSD-5.6/malloc.conf.5][malloc.conf documentation]]
-- [[https://www.openbsd.org/papers/eurobsdcon2023-otto-malloc.pdf][Otto Moerbeek’s malloc design talk]]
+- [[https://www.openbsd.org/papers/eurobsdcon2023-otto-malloc.pdf][Otto Moerbeek's malloc design talk (EuroBSDCon 2023)]]
 - [[https://isopenbsdsecu.re/mitigations/malloc/][Summary of OpenBSD malloc evolution]]
 - [[https://why-openbsd.rocks/fact/malloc-randomization/][Why OpenBSD Rocks: malloc randomization overview]]
 - [[https://www.openbsd.org/faq/faq15.html][OpenBSD Security FAQ: Heap Security]]
-
-
-* TODO SANS FOR608                                                                        :@forensic:@threathunting:honeypot:canarytokens:@threathunting:
+- [[https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c][malloc.c source (openbsd/src on GitHub)]]
+* DRAFT SANS FOR608                                                                     :@forensic:@threathunting:honeypot:canarytokens:@threathunting:
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
@@ -498,11 +637,20 @@ users ever see.
 :EXPORT_DATE: 2025-05-26T16:21:00-05:00
 :CUSTOM_ID: sans_for608
 :END:
-** *Enterprise Threat hunting and Response (FOR608)*
+** Enterprise Threat Hunting and Incident Response (FOR608)
 :PROPERTIES:
 :CUSTOM_ID: enterprise-threat-hunting-and-response--for608
 :END:
-Course description from SANS [fn:1] :
+
+My employer booked me back in 2025 onto SANS FOR608 in the on-demand version.
+
+That means no classroom, no peers to argue with, just me and the material
+at whatever pace I could manage. Harder than it sounds. More on that later.
+
+This is my write-up — part learning journal, part recommendation for anyone
+considering the course.
+
+The official course description[fn:1]:
 
 #+begin_quote
 FOR608: Enterprise-Class Incident Response & Threat Hunting focuses on
@@ -515,380 +663,331 @@ movement and activity across hosts of varying functions and operating
 systems by using an array of analysis techniques.
 #+end_quote
 
-** Introduction
-:PROPERTIES:
-:CUSTOM_ID: introduction
-:END:
-*** Brief overview of forensic analysis and its application
-:PROPERTIES:
-:CUSTOM_ID: brief-overview-of-forensic-analysis-and-its-application
-:END:
-Forensic analysis in computer science investigates digital evidence to
-solve cybercrimes and security incidents. In enterprise environments, it
-involves analyzing devices, networks, and cloud storage. Key
-applications include incident response, compliance with regulations,
-investigations, and predictive analytics.
+-----
 
-[[../img/mfsans.png]]
-
-Tools like Timesketch, Velociraptor or Wireshark, and cloud forensics
-platforms aid in the analysis. Collaboration between IT and law
-enforcement is also crucial for successful investigations.
-
-The goal of forensic analysis is to reconstruct events, identify
-perpetrators, and determine damage extent, ensuring organizations can
-respond effectively to security threats and maintain compliance with
-regulations.
-
-** *Course Overview/ Preparing your Index*
+** Preparing for the exam: building an index
 :PROPERTIES:
 :CUSTOM_ID: course-overview
 :END:
-The course was booked by my employer in the on demand version, so I got access
-to the SANS on demand platform, so I could learn self paced. For good
-preparation, I read this guides on how to create a exam index:
+
+GIAC exams are open book. That sounds easier than it is.
+
+You have your course books in front of you, but you're racing a clock.
+Without a good index, you spend half your time flipping pages instead of
+answering questions.
+
+Before I started the material, I read two guides on how to build a proper
+exam index:
 - https://tisiphone.net/2015/08/18/giac-testing/
 - https://www.muratbekgi.com/indexing-giac/
 
-The exams are open book and so you have to create a index for:
-- It helps you quickly locate answers in your official SANS course books.
-- It saves valuable time during the exam.
-- personalized knowledge map
-- It reinforces your understanding while building it
+The core idea is simple: a sorted list of terms, concepts, and attack types,
+with book and page numbers next to each entry.
 
-The core of the index is a sorted list of terms, concepts, or attack types,
-with book and page numbers e.g:
 | Term             |  Book | Page |
 | Active Directory | 608.1 |   45 |
 | ARP Spoofing     | 608.2 |  112 |
 | Buffer Overflow  | 608.5 |   16 |
 | XOR Encryption   | 608.4 |  154 |
 
+Building the index forced me to actually read the material instead of just
+watching the videos. That's the other benefit nobody talks about: it's a
+second pass through everything, and it reinforces what you learned while
+building it.
 
-*** Proactive Detection and Response (608.1)
+If you skip the index, you're making the exam harder for no reason.
+
+-----
+
+** 608.1 — Proactive Detection and Response
 :PROPERTIES:
 :CUSTOM_ID: proactive-detection-and-response--608-dot-1
 :END:
-The FOR608 course start with discussing current cyber defense concerns
-and the importance of collaboration among incident responders and
-threat hunters. There is a emphasize to use to shared knowledge from
-sources like the [[https://attack.mitre.org/][MITREATT&CK]] framework and further explores the
-concept of active defense, like the use of honeypots, honey tokens,
-and canaries to slow down attackers and facilitate detection.
 
-For case of a compromise, the materials focus on efficiently handling of
-intrusions, by covering topics such as leading the response, managing
-team members, documenting findings, and communicating with stakeholders.
+The course opens with something I didn't expect: a section on how to
+actually run an incident response effort as a human being.
 
-[[https://github.com/cyb3rfox/Aurora-Incident-Response][Aurora]] documentation tool is introduced as a means for tracking
-the investigation phases from initial detection to remediation.
+Not just the technical side — the coordination, the communication with
+stakeholders, the documentation. [[https://github.com/cyb3rfox/Aurora-Incident-Response][Aurora]] gets introduced here as a tool
+for tracking investigation phases from initial detection through
+remediation. It's the kind of thing that looks obvious in retrospect but
+nobody teaches explicitly.
 
-Later chapter dives into a scenario where an alert gets triggered
-in a company network, then in the labs triage data is analyzed
-using [[https://timesketch.org/][Timesketch]], a powerful platform for scalable and collaborative
-analysis of forensic data.
+Then it gets into the detection side: [[https://attack.mitre.org/][MITRE ATT&CK]] as a shared language
+for describing attacker behavior, [[https://github.com/SigmaHQ/sigma][Sigma]] rules for detection, and the
+concept of active defense.
 
-Additionally, techniques are shared for visualising the same data set
-with [[https://www.elastic.co/kibana][Kibana]], which offers capabilities such as creating dashboards and
-saved searches to aid analysis.
+**** Honeypots, honey tokens, and canaries
 
-The Chapter concludes by examining key threat intelligence concepts,
-including developing and implementing internal threat intelligence.
-External projects like [[https://attack.mitre.org/][MITRE ATT&CK]] and [[https://github.com/SigmaHQ/sigma][Sigma]] are leveraged, and two
-comprehensive threat intel platforms, [[https://www.misp-project.org][MISP]] and [[https://filigran.io/solutions/open-cti/][OpenCTI]], are introduced.
+This was one of the sections I found most interesting.
 
-A threat intel report on the adversary targeting Stark Research Labs is
-used for intelligence to kick off the investigation into potential signs
-of intrusion in the company.
+The idea is straightforward: place things in your environment that have
+no legitimate business reason to be touched. If something interacts with
+them, you know immediately that something is wrong.
 
-*** Scaling Response and Analysis (608.2)
+Honeypots are fake systems. Honey tokens are fake credentials, documents,
+or data — things an attacker would find valuable and try to use.
+[[https://canarytokens.org][Canary tokens]] are a practical implementation of this: you generate a
+token (a URL, a document, a DNS name), embed it somewhere, and get an
+alert the moment it's triggered.
+
+What makes this approach interesting from a detection standpoint is that
+it has near-zero false positives. There is no legitimate reason for
+anyone to access a canary token. When it fires, something is wrong.
+
+The chapter concludes with threat intelligence — how to build internal
+intel, and how to consume external sources. [[https://www.misp-project.org][MISP]] and [[https://filigran.io/solutions/open-cti/][OpenCTI]] are both
+covered as platforms for managing and sharing threat intel.
+
+The lab scenario throughout 608.1 involves a compromised environment at
+a fictional company. A threat intel report on the adversary targeting
+them is the starting point for the investigation — which continues
+through the rest of the course.
+
+-----
+
+** 608.2 — Scaling Response and Analysis
 :PROPERTIES:
 :CUSTOM_ID: scaling-response-and-analysis--608-dot-2
 :END:
-The course continues from chapter 1 by focusing on response actions.
-The Instructors show how to collect evidence at scale to scope a potential
-intrusion by leveraging EDR tooling data from EDR Solutions like [[https://learn.microsoft.com/de-de/sysinternals/downloads/sysmon][Sysmon]].
 
-However, they also discuss common bypass techniques that attackers use
-to evade EDR technology. To aid in this analysis, [[https://docs.velociraptor.app/][Velociraptor]] is introduced
-as a powerful platform for incident response and threat hunting.
+This is where the tooling gets serious.
 
-[[../img/logo.svg]]
+The challenge in enterprise IR isn't finding the right artifact on one
+machine. It's collecting the right artifacts across hundreds or thousands
+of machines fast enough to matter, without drowning in noise.
 
-Then the chapter continuses to show how [[https://docs.velociraptor.app][Velociraptor]] can collect forensic
-artifacts from across the enterprise and provide deep-dive capabilities
-into individual hosts of interest. Additionally, [[https://www.elastic.co/elasticsearch][Elasticsearch]] is used to
-ingest and process data from various tools, allowing for fast searches and
-aggregations. I also learned about rapid response options for targeted
-data collections at scale using tools like [[https://docs.velociraptor.app/][Velociraptor]] and [[https://github.com/orlikoski/CyLR][CyLR]].
-Finally, we got solutions shown that are used for quickly processing acquired
-data for analysis in tools like [[https://timesketch.org/][Timesketch]] and individual artifact review.
+608.2 introduces [[https://docs.velociraptor.app/][Velociraptor]] as the primary answer to that problem.
 
-*** Modern Attacks against Windows and Linux FIR (608.3)
+**** Velociraptor
+
+Velociraptor is an endpoint visibility and collection platform. You deploy
+an agent to your endpoints, write queries in its own query language (VQL),
+and collect forensic artifacts at scale — across the entire fleet, or
+targeted at specific hosts.
+
+What makes it stand out is the depth. You're not just pulling logs.
+You can query running processes, parse specific artifact types, hunt for
+IOCs across every machine simultaneously, and drill into individual hosts
+for deeper analysis — all from one interface.
+
+The course also covers [[https://github.com/orlikoski/CyLR][CyLR]] for rapid triage collection, and how to
+ingest that data into [[https://www.elastic.co/elasticsearch][Elasticsearch]] for fast searching and aggregation.
+
+**** Timesketch
+
+Once you have data, you need to make sense of it. That's where
+[[https://timesketch.org/][Timesketch]] comes in.
+
+Timesketch is a platform for collaborative timeline analysis. You load
+forensic artifacts — event logs, filesystem timestamps, network data —
+and it builds a searchable, filterable timeline across all of it.
+
+The collaborative part matters in enterprise IR. Multiple analysts can
+work the same timeline simultaneously, add annotations, tag events, and
+build a shared picture of what happened and when.
+
+Working through the lab scenario in Timesketch was the moment the course
+clicked for me. You go from a pile of artifacts to a coherent sequence of
+attacker actions. The timeline makes the narrative visible.
+
+Velociraptor and Timesketch individually are both powerful tools.
+Integrated — Velociraptor collecting at scale, Timesketch making the
+data navigable — they cover a large part of what enterprise IR actually
+requires.
+
+The chapter also covers EDR data from tools like [[https://learn.microsoft.com/de-de/sysinternals/downloads/sysmon][Sysmon]], and importantly,
+common techniques attackers use to bypass or blind EDR tooling. Knowing
+the evasion techniques is as important as knowing the detection ones.
+
+-----
+
+** 608.3 — Modern Attacks against Windows and Linux
 :PROPERTIES:
 :CUSTOM_ID: modern-attacks-against-windows-and-linux-dfir--608-dot-3
 :END:
-In the third chapter of the course the focus shifts from network-based
-analysis to classic host-based forensic artifact analysis. The start is to
-discuss modern attack techniques on Windows systems, including
-the infamous ransomware and "[[https://lolbas-project.github.io/#][living-of-the-land]]" (LOTB) attacks that avoid detection
-by using built-in binaries and scripts.
 
-The use of [[https://github.com/SigmaHQ/sigma][Sigma]] rules is highlighted as a way to facilitate rapid
-detection and response.
+608.3 moves from the tooling layer to the artifact layer.
 
-The chapter covers Linux incident response and analysis too, by starting
-with common vulnerabilities and exploits targeting Linux systems. Then it
-dives into DFIR fundamentals on Linux systems, including key concepts
-such as differences among Linux distributions and filesystems, and
-strategies for handling initial triage and deeper forensic analysis.
-The chapter concludes by providing best practices for hardening Linux
-systems and enhancing logging configurations to aid future investigations.
+The focus here is on what attackers actually do on Windows and Linux
+systems, and what traces they leave behind.
 
-*** Analyzing macOS and Docker Containers (608.4)
+**** Windows: ransomware and living off the land
+
+The course covers ransomware from an IR perspective — not how it works
+cryptographically, but what artifacts it leaves and how to reconstruct
+the timeline of a ransomware incident.
+
+More interesting to me was the [[https://lolbas-project.github.io/#][Living Off the Land]] (LOTL) section.
+
+LOTL attacks use built-in Windows binaries and scripting capabilities
+to do malicious things — =certutil= for downloads, =wmic= for lateral
+movement, =mshta= for execution. No custom malware to detect, no
+suspicious executables to flag. Just Windows doing what Windows does,
+pointed in the wrong direction.
+
+[[https://github.com/SigmaHQ/sigma][Sigma]] rules get more attention here as a detection layer — a way to
+write detection logic in a vendor-neutral format that can be translated
+to whatever SIEM or detection platform you're running.
+
+**** Linux DFIR
+
+The Linux section starts with common attack vectors and then covers the
+fundamentals of forensic analysis on Linux systems — differences between
+distributions, filesystem considerations, initial triage approach, and
+deeper artifact analysis.
+
+It concludes with hardening and logging recommendations that would
+actually make future investigations easier. That's a useful framing:
+good logging isn't just compliance, it's evidence preservation.
+
+-----
+
+** 608.4 — macOS and Docker Containers
 :PROPERTIES:
 :CUSTOM_ID: analyzing-macos-and-docker-containers--608-dot-4
 :END:
-Now the focus went on to Apple macOS incident response, building on the
-foundation we got established earlier. This part includes understanding
-the history, ecosystem, and details of the Apple Filesystem (APFS),
-file structure, and important file types such as Property List (plist)
-configuration files. A discussion of challenges and opportunities in
-responding to macOS incidents follows, covering topics like acquiring
-disk and triage data, reviewing acquisitions, and identifying suspicious
-activity in logs and artifacts.
 
-This part of the course then transitions to containerized microservices
-and [[https://www.docker.com/][Docker]] analysis, focusing on the architecture and management of [[https://www.docker.com/][Docker]]
-containers and providing a specific triage workflow for quick and effective
-response against individual containers as well as the container host.
+**** macOS
 
-*** Cloud Attacks and Response (608.5)
+The macOS section covers the Apple Filesystem (APFS) and the specific
+artifacts that matter for IR on macOS — property list (plist) files,
+log formats, acquisition approaches.
+
+macOS has its own challenges for IR: Apple's privacy controls affect
+what you can collect, and the forensic tooling ecosystem is narrower
+than on Windows. The course is honest about that.
+
+**** Docker containers
+
+The container section was one I hadn't seen covered well elsewhere.
+
+The approach is a specific triage workflow: how to assess a running
+container quickly, what artifacts are available at the container level
+versus the host level, and how the architecture of Docker affects what
+evidence exists and where.
+
+Container forensics is a different mental model from host forensics.
+The container might be long gone by the time you're investigating.
+Understanding where the evidence persists — in image layers, in host
+logs, in orchestration tooling — is the core skill here.
+
+-----
+
+** 608.5 — Cloud Attacks and Response
 :PROPERTIES:
 :CUSTOM_ID: cloud-attacks-and-response--608-dot-5
 :END:
-This part focused on incident response in major cloud platforms from
-Microsoft and Amazon, covering log analysis techniques, architecture
-designs, and automation initiatives that can be applied across various
-cloud providers. It highlights unique challenges and opportunities in
-cloud environments, particularly through the use of the
-[[https://attack.mitre.org/matrices/enterprise/cloud/][MITRE ATT&CK framework's Cloud Matrix]].
 
-In-depth discussion follows on Microsoft 365 (M365) and Azure, including
-popular SaaS offerings like Entra ID, Exchange, SharePoint, and Teams,
-as well as common attack scenarios against these platforms. The importance
-of log analysis is emphasized strongly, particularly in identifying suspicious user
-logon and email activity from Unified Audit Logs.
+The final technical chapter covers IR in Microsoft Azure / M365 and AWS.
 
-The course then addresses the Recovery phase, covering security enhancements
-to detect or prevent similar attacks in the future for M365 and Azure.
+**** Microsoft 365 and Azure
 
-Next, it delves into Amazon Web Services (AWS), covering its general
-architecture and components, as well as numerous logs and services
-providing critical detection and analysis data for responders. Discussions
-focus on architecting for response in the cloud, including setting up
-security accounts for a secure enclave within AWS, using template VMs
-(AMIs) for analysis, and automating IR tasks with AWS Lambda and Step Functions.
+The M365 section is heavily focused on log analysis — specifically the
+Unified Audit Log, which is the primary source of truth for what happened
+in an M365 environment. Suspicious logon patterns, email forwarding rules,
+OAuth application grants — these are the artifacts that matter in M365
+incidents, and the course walks through how to find and interpret them.
 
-*** Capstone: Enterprise-Class IR Challenge
+The [[https://attack.mitre.org/matrices/enterprise/cloud/][MITRE ATT&CK Cloud Matrix]] is used as a framework throughout,
+which helps map observed activity to known attacker techniques.
+
+Coverage includes Entra ID (formerly Azure AD), Exchange, SharePoint,
+and Teams — the services that appear in most real M365 incidents.
+
+**** AWS
+
+The AWS section covers the general architecture and the specific logs
+and services that matter for IR: CloudTrail, GuardDuty, VPC Flow Logs,
+S3 access logs.
+
+What I found useful here was the discussion of architecting for
+response — setting up a dedicated security account as an isolated enclave,
+using AMIs as analysis templates, and automating IR tasks with Lambda
+and Step Functions. The idea is to design your AWS environment so that
+incident response is faster and more reliable before an incident happens.
+
+-----
+
+** 608.6 — Capstone
 :PROPERTIES:
 :CUSTOM_ID: capstone-enterprise-class-ir-challenge
 :END:
-The final section of the course is the capstone exercise that allows
-students to apply their knowledge by working on a simulated breach
-scenario. They will receive a dataset from a compromised environment
-that spans multiple host operating systems and cloud environments, and
-use tools and techniques learned throughout the course to uncover the
-steps of the breach.
 
-** *Key Takeaways*
+The capstone is a simulated breach across multiple operating systems and
+cloud environments.
+
+You get a dataset from the compromised environment and work through it
+using the tools and techniques from the course to reconstruct what
+happened.
+
+I'm not going to detail the scenario. But the capstone is where you find
+out whether you actually understood the course or just watched it.
+The tools are familiar by that point — the challenge is knowing which
+artifact to look at, in which order, and what it means.
+
+-----
+
+** What I took away from this
 :PROPERTIES:
 :CUSTOM_ID: key-takeaways
 :END:
-*** Summary of key concepts and skills learned during the course
-:PROPERTIES:
-:CUSTOM_ID: summary-of-key-concepts-and-skills-learned-during-the-course
-:END:
-During the SANS FOR608 course, I learned concepts and skills that
-enabled me to do more effective incident response and coordination,
-including enterprise-level incident detection and to deploy threat
-hunting strategies. The course covered large-scale event correlation
-and timeline analysis techniques to identify patterns and trends in
-incidents, as well as multi-platform artifact analysis for incident
-response.
 
-Specifically, I gained hands-on experience analyzing artifacts from
-various platforms, including Windows devices, Linux systems, macOS
-devices, containerized environments, and cloud-based infrastructure.
-This comprehensive training has equipped me with the knowledge and tools
-needed to detect, analyze, and respond to complex threats in enterprise
-environments.
+FOR608 is a good course. It earns that.
 
-The most fun was the parts where we learned about Timesketch and Velociraptor,
-I think each of those tools individually is extremely powerful, but when you
-integrate them into your threathunting / Response stack I thing they are
-of great benefit.
+The breadth is real — Windows, Linux, macOS, containers, two major cloud
+platforms, plus the tooling layer underneath all of it. Covering all of
+that at useful depth in one course is genuinely hard to do.
 
-*** learning outcomes and their application in real-world scenarios
-:PROPERTIES:
-:CUSTOM_ID: learning-outcomes-and-their-application-in-real-world-scenarios
-:END:
-Based on the provided course materials, I have analyzed my learning
-outcomes and their application in real-world scenarios. Through my
-analysis, I have gained a deeper understanding of the key concepts and
-skills required for effective cloud response and analysis, container
-DFIR fundamentals, detecting modern attacks, enterprise incident
-response management, enterprise visibility and incident scoping,
-foundational cloud concepts, Linux DFIR fundamentals, macOS DFIR
-fundamentals, macOS essentials, rapid response triage at scale.
+The two tools I'll actually keep using are Velociraptor and Timesketch.
+Both have steep initial learning curves. Both are worth it. If you're
+building or improving an IR capability, those two together cover a large
+part of what you need for collection and analysis at scale.
 
-I have also gained practical knowledge of how to correlate large volumes
-of data to identify patterns and trends in incidents.
+The honeypot and canary token material from 608.1 is immediately
+applicable with minimal infrastructure. If your environment has none of
+that right now, it's low-effort detection with high signal quality.
+I'd start there.
 
-In particular, my experience with cloud-based infrastructure has
-highlighted the need for a comprehensive understanding of foundational
-cloud concepts, including popular cloud services that enterprises use to
-support business operations. I have also gained familiarity with common
-data source types in an enterprise environment and strategies to
-aggregate telemetry from disparate resources.
+**** On the on-demand format
 
-My analysis of learning outcomes suggests that effective application of
-these skills requires a combination of technical expertise, analytical
-thinking, and communication skills. By mastering these skills, I am
-confident in my ability to respond effectively to complex incidents and
-provide value to organizations as a security professional.
+The on-demand version is harder than the in-person class. I'm confident
+of that even without having done the in-person version.
 
-** *Conclusion and Recommendations*
-:PROPERTIES:
-:CUSTOM_ID: conclusion-and-recommendations
-:END:
-*** Summary of overall effectiveness of the SANS Forensics course for608
-:PROPERTIES:
-:CUSTOM_ID: summary-of-overall-effectiveness-of-the-sans-forensics-course-for608
-:END:
-SANS FOR608 course is a comprehensive training program which provides
-responders with a strong foundation in incident response, threat hunting,
-and digital forensic analysis. Through its curriculum, the course covers
-concepts and skills related to managing incident response teams,
-detecting threats in enterprise environments using advanced analytics
-tools, correlating large volumes of data to identify patterns and trends
-in incidents, analyzing artifacts from various platforms including
-Windows devices, Linux systems, macOS devices, containerized
-environments, and cloud-based infrastructure.
+In a classroom, you can ask a question when something doesn't click.
+You can argue about an approach with someone sitting next to you.
+That back-and-forth is where a lot of real learning happens.
 
-_Analysis_:
+On-demand, you're alone with the material. That requires more
+self-discipline, and some things take longer to click because there's
+no one to pressure-test your understanding against.
 
-- *Comprehensive coverage*: The course covers a wide range of topics
-  related to incident response and digital forensic analysis, providing
-  students with a comprehensive understanding of the subject matter.
-- *Hands-on experience*: The course includes hands-on labs that
-  allow participants to apply their knowledge in real-world scenarios, which
-  helps to reinforce learning and improve retention.
-- *Practical skills*: The course emphasizes practical skills over
-  theoretical concepts, which is beneficial for security professionals
-  who need to respond to incidents in a timely and effective manner. And
-  I also think that pactical knowledge is more interessting to learn, because
-  you can apply it in the following labs
-- *Real-world relevance*: The course covers topics that are relevant to
-  real-world scenarios responders are confronted with, making it easier
-  for students to apply their   knowledge in practical settings.
+If you have the choice, do the in-person version. If you don't, the
+on-demand version is still worth doing — just budget more time than you
+think you need.
 
-Summary:
+**** If you're considering the course
 
-From my personal opinion the SANS FOR608 course is very  effective for
-providing students with a very well understanding of incident response and
-digital forensic analysis. Through its comprehensive coverage, hands-on
-exercises, and emphasis on practical skills, the course provides
-security professionals with the knowledge and skills needed to respond
-effectively to incidents.
+You'll get more out of FOR608 if you come in with some foundation.
 
-Overall, the course is well-structured,
-engaging, and relevant to real-world scenarios, making it an excellent
-choice for individuals looking to improve their incident response and
-digital forensic analysis skills.
+Hands-on experience matters more than certifications here. Working
+through [[https://app.hackthebox.com/sherlocks/][Hack The Box Sherlocks]] before the course is a good way to
+build familiarity with forensic artifact analysis in a low-stakes
+environment. Setting up a home lab with a SIEM and some logging
+infrastructure helps even more — the tooling in the course will make
+more sense if you've wrestled with log ingestion before.
 
-Tho I have to say the on-demand course is way more exhausting I belive than
-the in person class. Also I think in person is more benificial beause you can
-discuss matters with your peers. 
+Linux and macOS fundamentals are worth having before 608.3 and 608.4.
+The course teaches you what to look for; it assumes you know your way
+around the filesystems.
 
-*** Recommendations for future students looking to learn forensic analysis skills
-:PROPERTIES:
-:CUSTOM_ID: recommendations-for-future-students-looking-to-learn-forensic-analysis-skills
-:END:
-**** Gain Practical Experience
-:PROPERTIES:
-:CUSTOM_ID: gain-practical-experience
-:END:
-Before enrolling in a forensic analysis course, try to gain as much
-practical experience as possible for example practicing
-[[https://app.hackthebox.com/sherlocks/][Sherlocks on hack the box]] or try yourself in Malware analysis
-challanges This could also involve setting up your own home lab,
-participating in bug bounty programs, or volunteering to help a
-friend or family member with their computer issues. The more hands-on
-experience you have, the better equipped you'll be to learn and
-apply forensic analysis skills.
+Cloud fundamentals — particularly AWS and Azure architecture — will make
+608.5 easier to follow. You don't need to be a cloud engineer, but
+knowing what CloudTrail is before the course saves time during it.
 
-**** Develop Your Analytical Skills
-:PROPERTIES:
-:CUSTOM_ID: develop-your-analytical-skills
-:END:
-Forensic analysis requires strong analytical skills, including attention
-to detail, critical thinking, and problem-solving. Practice these skills
-by working on puzzles, brain teasers, or other activities that challenge
-your mind. You can also try analyzing data sets, network traffic logs,
-or system logs to develop your skills.
-
-**** Learn about Cloud Computing
-:PROPERTIES:
-:CUSTOM_ID: learn-about-cloud-computing
-:END:
-As a forensic analyst, it's essential to understand cloud computing and
-how it affects the analysis of digital evidence. Take online courses or
-attend webinars that teach you about cloud security, compliance, and
-investigation techniques. This will help you stay up-to-date with the
-latest trends and technologies.
-
-**** Familiarize Yourself with Linux and macOS
-:PROPERTIES:
-:CUSTOM_ID: familiarize-yourself-with-linux-and-macos
-:END:
-Linux and macOS are popular operating systems used by many
-organizations, including those in the finance, healthcare, and
-government sectors. Take online courses or attend workshops that teach
-you about these operating systems, including their command-line
-interfaces, file systems, and security features.
-
-**** Join Online Communities
-:PROPERTIES:
-:CUSTOM_ID: join-online-communities
-:END:
-Joining online communities, such as Reddit's r/learnprogramming or
-r/netsec, can be a great way to connect with other professionals in the
-field, ask questions, and learn from their experiences. You can also
-participate in online forums, attend webinars, or join online study
-groups to stay updated on the latest forensic analysis techniques.
-
-**** Consider Specializing in a Specific Area
-:PROPERTIES:
-:CUSTOM_ID: consider-specializing-in-a-specific-area
-:END:
-Forensic analysis is a broad field that encompasses many areas,
-including computer forensics, mobile device forensics, and digital
-evidence collection. Consider specializing in a specific area that
-interests you the most, such as incident response or threat hunting.
-This will help you develop deeper knowledge and skills in that area.
-
-**** Stay Up-to-Date with Industry Developments
-:PROPERTIES:
-:CUSTOM_ID: stay-up-to-date-with-industry-developments
-:END:
-The field of forensic analysis is constantly evolving, with new
-technologies and techniques emerging regularly. Stay up-to-date with
-industry developments by attending conferences, webinars, or online
-courses that focus on the latest trends and advancements.
+-----
 
 [fn:1] [[https://www.sans.org/cyber-security-courses/enterprise-incident-response-threat-hunting/]]
-
 * DONE Open BSD and Zen                                                                   :@personal:openbsd:zen:
 CLOSED: [2025-06-28 Sa 12:48]
 :PROPERTIES:
@@ -902,86 +1001,149 @@ CLOSED: [2025-06-28 Sa 12:48]
 :EXPORT_DATE: 2025-03-16T11:00:00-05:00
 :CUSTOM_ID: openbsdzen
 :END:
-*** About
+
+*** OpenBSD and Zen
 :PROPERTIES:
 :CUSTOM_ID: about
 :END:
-As someone who is passionate about security and has an interest in
-Unix operating systems, OpenBSD particularly captivates due to its
-dedication to security, stability, and simplicity. In comparison to
-other OSes, what sets OpenBSD apart? And how do these principles
-align with my journey through Zen meditation?
+
+I've been using OpenBSD for a long time.
+
+I've been sitting Zen for about two years, in the tradition of Seungsahn,
+with Ryōkan as a guide.
+
+Nobody asked me to connect these two things. But they kept connecting
+themselves.
 
 [[../img/puffy77.gif]]
 
-At first glance, OpenBSD and Zen may appear to be vastly disparate
-concepts - one being a potent operating system, while the other is
-a spiritual practice originating from ancient China. However, as I
-delved deeper into both realms, I uncovered some fascinating
-similarities.
+This is me trying to say why.
 
-*** Simplicity and Clarity
+-----
+
+*** Less is not a compromise
 :PROPERTIES:
-:CUSTOM_ID: simplicity-and-clarity
+:CUSTOM_ID: less-is-not-a-compromise
 :END:
 
-In Zen, simplicity is key to achieving inner clarity and balance.
-By stripping away unnecessary complexity, OpenBSD aims to create a
-stable and secure foundation for users. Similarly, in meditation,
-simplicity helps to quiet the mind and focus on the present moment.
-This alignment between OpenBSD's philosophy and Zen practices extends
-to their shared emphasis on mindfulness and deliberate decision-making,
-fostering an environment of security and tranquility in both realms.
+OpenBSD ships without a lot of things other systems include by default.
 
-*** Attention to Detail
+That's a choice. Every piece of code that isn't there is a piece of code
+that can't have a vulnerability. Every feature you don't ship is a surface
+you don't have to defend.
+
+The OpenBSD developers call this "correct by default". I'd call it
+knowing what you actually need.
+
+Zen works the same way.
+
+Zazen — sitting meditation — is almost nothing. You sit. You follow your
+breath. You don't try to achieve anything. You don't add anything.
+Whatever arises, you don't chase it.
+
+What's left when you stop adding is not emptiness. It's clarity.
+
+Ryōkan spent most of his life in a small hut on a mountain, owning
+almost nothing, writing poems about moon and rain and loneliness. He
+wasn't poor in spirit. He was clear.
+
+#+begin_quote
+What is there
+I can give you?
+Take this handful of snow.
+— Ryōkan
+#+end_quote
+
+I think about that poem when I look at OpenBSD's base system.
+Take what's here. It's enough.
+
+-----
+
+*** Correctness is not perfectionism
 :PROPERTIES:
-:CUSTOM_ID: attention-to-detail
+:CUSTOM_ID: correctness-is-not-perfectionism
 :END:
 
-Both OpenBSD and Zen underscore the significance of attending to detail.
-In software development, this entails meticulously crafting each line of
-code to guarantee stability and security. In Zen practice, it involves
-paying close attention to one's breath, posture, and mental state to
-attain a state of mindfulness. By zeroing in on these details, both
-OpenBSD and Zen strive for perfection.
+Every commit to OpenBSD goes through code review. Not as a process checkbox
+— as a genuine practice. Someone reads what you wrote. They question it.
+The code changes or it doesn't go in.
 
-*** The Power of Consistency
-:PROPERTIES:
-:CUSTOM_ID: the-power-of-consistency
-:END:
+This is not about perfection. Bugs exist in OpenBSD. Always have.
 
-OpenBSD's dedication to consistency is manifested in its codebase, where each
-code change undergoes a thorough code review process. Consistency holds equal
-importance in Zen practice, as it fosters a sense of routine and stability.
-By cultivating a consistent daily meditation practice, I have discovered that
-consistency is instrumental in making progress on my spiritual journey.
-OpenBSD's emphasis on consistency mirrors the principles of Zen, emphasizing
-the value of diligence and discipline in both domains.
+It's about care. About not shipping something you haven't looked at.
+About taking responsibility for what you put into the world.
 
-*** The Beauty of Imperfection
-:PROPERTIES:
-:CUSTOM_ID: the-beauty-of-imperfection
-:END:
+In Zen, this shows up as attention to the thing in front of you.
 
-Finally, both OpenBSD and Zen acknowledge the elegance in imperfection.
-In software development, imperfections can often be rectified or lessened
-through meticulous design and testing. In Zen practice, imperfections are
-perceived as avenues for growth and self-awareness.
+Not the thing you're planning. Not the thing you finished an hour ago.
+This breath. This step. This line of code.
+
+The enso — the Zen circle, brushed in one stroke — is never geometrically
+perfect. That's not the point. The point is that it's fully committed.
+The brush doesn't hesitate.
 
 [[../img/enso1.jpg]]
 
-By acknowledging our imperfections, we can nurture humility and compassion.
-As I progress in my journey with OpenBSD and Zen, I am consistently struck
-by the ways in which these two seemingly unrelated realms intersect. By
-embracing simplicity, attention to detail, consistency, and the beauty of
-imperfection, both OpenBSD and Zen provide unique perspectives on the nature
-of software development and personal growth. Stay tuned for further insights
-from my exploration in the realm of security!
+A half-committed security decision is worse than no decision.
+A half-present sitting is still a sitting.
+
+The practice is showing up and being honest about what you find.
+
+-----
+
+*** What breaks is information
+:PROPERTIES:
+:CUSTOM_ID: what-breaks-is-information
+:END:
+
+OpenBSD's malloc aborts the process when it detects memory corruption.
+
+Not silently. Not gracefully. It stops.
+
+That sounds harsh. It's actually kind. A crash you can see is a bug you
+can fix. A crash that doesn't happen is a vulnerability waiting to be
+found by someone else.
+
+The system is designed to surface what's wrong rather than paper over it.
+
+Zen does this too, differently.
+
+When you sit long enough, what comes up is not peace. First it's
+restlessness. Then it's the things you've been avoiding thinking about.
+Then, maybe, something quieter.
+
+The discomfort is not the problem. The discomfort is the practice.
+
+Seungsahn used to say: don't know. Not as an excuse — as a posture.
+Hold the question. Don't rush to an answer that makes you comfortable.
+
+I've spent a lot of my career watching people paper over problems.
+Log the error and move on. Silence the alert. Call the risk acceptable.
+
+OpenBSD's default answer to uncertainty is: stop and look.
+
+That's a Zen answer.
+
+-----
+
+*** A note on this comparison
+:PROPERTIES:
+:CUSTOM_ID: a-note-on-this-comparison
+:END:
+
+I'm not saying the OpenBSD developers are Zen practitioners.
+
+I'm not saying Zen is a system design philosophy.
+
+What I'm saying is that I find the same posture in both: take less,
+commit fully, don't hide what breaks.
+
+That's a way of being in the world. I've found it in a terminal and
+on a cushion. That's enough for me.
 
 #+BEGIN_EXPORT md
 {{< giscus >}}
 #+END_EXPORT
-
 * DONE How to monitor systems with monit                                                  :openbsd:personal:visibility:
 CLOSED: [2025-12-08 Mo 11:40]
 :PROPERTIES:
