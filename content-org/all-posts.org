@@ -627,7 +627,8 @@ That's the point.
 - [[https://why-openbsd.rocks/fact/malloc-randomization/][Why OpenBSD Rocks: malloc randomization overview]]
 - [[https://www.openbsd.org/faq/faq15.html][OpenBSD Security FAQ: Heap Security]]
 - [[https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c][malloc.c source (openbsd/src on GitHub)]]
-* DRAFT SANS FOR608                                                                     :@forensic:@threathunting:honeypot:canarytokens:@threathunting:
+* DONE SANS FOR608                                                                      :@forensic:@threathunting:honeypot:canarytokens:@threathunting:
+CLOSED: [2026-03-20 Fr 07:39]
 :PROPERTIES:
 :EXPORT_AUTHOR: Dirk
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
