@@ -2,7 +2,7 @@
 title: "SANS FOR608"
 author: ["Dirk"]
 date: 2026-03-20T07:39:00+01:00
-lastmod: 2026-03-20T07:39:30+01:00
+lastmod: 2026-03-30T13:51:14+02:00
 tags: ["forensicwheels", "honeypot", "canarytokens"]
 categories: ["forensic", "threathunting"]
 draft: false
@@ -34,7 +34,7 @@ My employer booked me back in 2025 onto SANS FOR608 in the on-demand version.
 That means no classroom, no peers to argue with, just me and the material
 at whatever pace I could manage. Harder than it sounds. More on that later.
 
-This is my write-up — part learning journal, part recommendation for anyone
+This is my write-up, part learning journal, part recommendation for anyone
 considering the course.
 
 The official course description[^fn:1]:
@@ -90,7 +90,7 @@ If you skip the index, you're making the exam harder for no reason.
 The course opens with something I didn't expect: a section on how to
 actually run an incident response effort as a human being.
 
-Not just the technical side — the coordination, the communication with
+Not just the technical side, the coordination, the communication with
 stakeholders, the documentation. [Aurora](https://github.com/cyb3rfox/Aurora-Incident-Response) gets introduced here as a tool
 for tracking investigation phases from initial detection through
 remediation. It's the kind of thing that looks obvious in retrospect but
@@ -110,7 +110,7 @@ no legitimate business reason to be touched. If something interacts with
 them, you know immediately that something is wrong.
 
 Honeypots are fake systems. Honey tokens are fake credentials, documents,
-or data — things an attacker would find valuable and try to use.
+or data. Things an attacker would find valuable and try to use.
 [Canary tokens](https://canarytokens.org) are a practical implementation of this: you generate a
 token (a URL, a document, a DNS name), embed it somewhere, and get an
 alert the moment it's triggered.
@@ -119,13 +119,13 @@ What makes this approach interesting from a detection standpoint is that
 it has near-zero false positives. There is no legitimate reason for
 anyone to access a canary token. When it fires, something is wrong.
 
-The chapter concludes with threat intelligence — how to build internal
+The chapter concludes with threat intelligence. How to build internal
 intel, and how to consume external sources. [MISP](https://www.misp-project.org) and [OpenCTI](https://filigran.io/solutions/open-cti/) are both
 covered as platforms for managing and sharing threat intel.
 
 The lab scenario throughout 608.1 involves a compromised environment at
 a fictional company. A threat intel report on the adversary targeting
-them is the starting point for the investigation — which continues
+them is the starting point for the investigation, which continues
 through the rest of the course.
 
 ---
@@ -146,13 +146,13 @@ of machines fast enough to matter, without drowning in noise.
 
 Velociraptor is an endpoint visibility and collection platform. You deploy
 an agent to your endpoints, write queries in its own query language (VQL),
-and collect forensic artifacts at scale — across the entire fleet, or
+and collect forensic artifacts at scale across the entire fleet, or
 targeted at specific hosts.
 
 What makes it stand out is the depth. You're not just pulling logs.
 You can query running processes, parse specific artifact types, hunt for
 IOCs across every machine simultaneously, and drill into individual hosts
-for deeper analysis — all from one interface.
+for deeper analysis, all from one interface.
 
 The course also covers [CyLR](https://github.com/orlikoski/CyLR) for rapid triage collection, and how to
 ingest that data into [Elasticsearch](https://www.elastic.co/elasticsearch) for fast searching and aggregation.
@@ -164,7 +164,7 @@ Once you have data, you need to make sense of it. That's where
 [Timesketch](https://timesketch.org/) comes in.
 
 Timesketch is a platform for collaborative timeline analysis. You load
-forensic artifacts — event logs, filesystem timestamps, network data —
+forensic artifacts event logs, filesystem timestamps, network data
 and it builds a searchable, filterable timeline across all of it.
 
 The collaborative part matters in enterprise IR. Multiple analysts can
@@ -176,8 +176,8 @@ clicked for me. You go from a pile of artifacts to a coherent sequence of
 attacker actions. The timeline makes the narrative visible.
 
 Velociraptor and Timesketch individually are both powerful tools.
-Integrated — Velociraptor collecting at scale, Timesketch making the
-data navigable — they cover a large part of what enterprise IR actually
+Integrated, Velociraptor collecting at scale, Timesketch making the
+data navigable, they cover a large part of what enterprise IR actually
 requires.
 
 The chapter also covers EDR data from tools like [Sysmon](https://learn.microsoft.com/de-de/sysinternals/downloads/sysmon), and importantly,
@@ -197,19 +197,19 @@ systems, and what traces they leave behind.
 
 #### Windows: ransomware and living off the land {#windows-ransomware-and-living-off-the-land}
 
-The course covers ransomware from an IR perspective — not how it works
+The course covers ransomware from an IR perspective, not how it works
 cryptographically, but what artifacts it leaves and how to reconstruct
 the timeline of a ransomware incident.
 
 More interesting to me was the [Living Off the Land](https://lolbas-project.github.io/#) (LOTL) section.
 
 LOTL attacks use built-in Windows binaries and scripting capabilities
-to do malicious things — `certutil` for downloads, `wmic` for lateral
+to do malicious things, `certutil` for downloads, `wmic` for lateral
 movement, `mshta` for execution. No custom malware to detect, no
 suspicious executables to flag. Just Windows doing what Windows does,
 pointed in the wrong direction.
 
-[Sigma](https://github.com/SigmaHQ/sigma) rules get more attention here as a detection layer — a way to
+[Sigma](https://github.com/SigmaHQ/sigma) rules get more attention here as a detection layer, a way to
 write detection logic in a vendor-neutral format that can be translated
 to whatever SIEM or detection platform you're running.
 
@@ -217,7 +217,7 @@ to whatever SIEM or detection platform you're running.
 #### Linux DFIR {#linux-dfir}
 
 The Linux section starts with common attack vectors and then covers the
-fundamentals of forensic analysis on Linux systems — differences between
+fundamentals of forensic analysis on Linux systems, differences between
 distributions, filesystem considerations, initial triage approach, and
 deeper artifact analysis.
 
@@ -234,7 +234,7 @@ good logging isn't just compliance, it's evidence preservation.
 #### macOS {#macos}
 
 The macOS section covers the Apple Filesystem (APFS) and the specific
-artifacts that matter for IR on macOS — property list (plist) files,
+artifacts that matter for IR on macOS, property list (plist) files,
 log formats, acquisition approaches.
 
 macOS has its own challenges for IR: Apple's privacy controls affect
@@ -253,8 +253,8 @@ evidence exists and where.
 
 Container forensics is a different mental model from host forensics.
 The container might be long gone by the time you're investigating.
-Understanding where the evidence persists — in image layers, in host
-logs, in orchestration tooling — is the core skill here.
+Understanding where the evidence persists, in image layers, in host
+logs, in orchestration tooling, is the core skill here.
 
 ---
 
@@ -266,17 +266,17 @@ The final technical chapter covers IR in Microsoft Azure / M365 and AWS.
 
 #### Microsoft 365 and Azure {#microsoft-365-and-azure}
 
-The M365 section is heavily focused on log analysis — specifically the
+The M365 section is heavily focused on log analysis, specifically the
 Unified Audit Log, which is the primary source of truth for what happened
 in an M365 environment. Suspicious logon patterns, email forwarding rules,
-OAuth application grants — these are the artifacts that matter in M365
+OAuth application grants, these are the artifacts that matter in M365
 incidents, and the course walks through how to find and interpret them.
 
 The [MITRE ATT&amp;CK Cloud Matrix](https://attack.mitre.org/matrices/enterprise/cloud/) is used as a framework throughout,
 which helps map observed activity to known attacker techniques.
 
 Coverage includes Entra ID (formerly Azure AD), Exchange, SharePoint,
-and Teams — the services that appear in most real M365 incidents.
+and Teams, the services that appear in most real M365 incidents.
 
 
 #### AWS {#aws}
@@ -286,7 +286,7 @@ and services that matter for IR: CloudTrail, GuardDuty, VPC Flow Logs,
 S3 access logs.
 
 What I found useful here was the discussion of architecting for
-response — setting up a dedicated security account as an isolated enclave,
+response, setting up a dedicated security account as an isolated enclave,
 using AMIs as analysis templates, and automating IR tasks with Lambda
 and Step Functions. The idea is to design your AWS environment so that
 incident response is faster and more reliable before an incident happens.
@@ -305,7 +305,7 @@ happened.
 
 I'm not going to detail the scenario. But the capstone is where you find
 out whether you actually understood the course or just watched it.
-The tools are familiar by that point — the challenge is knowing which
+The tools are familiar by that point, the challenge is knowing which
 artifact to look at, in which order, and what it means.
 
 ---
@@ -315,7 +315,7 @@ artifact to look at, in which order, and what it means.
 
 FOR608 is a good course. It earns that.
 
-The breadth is real — Windows, Linux, macOS, containers, two major cloud
+The breadth is real,  Windows, Linux, macOS, containers, two major cloud
 platforms, plus the tooling layer underneath all of it. Covering all of
 that at useful depth in one course is genuinely hard to do.
 
@@ -344,7 +344,7 @@ self-discipline, and some things take longer to click because there's
 no one to pressure-test your understanding against.
 
 If you have the choice, do the in-person version. If you don't, the
-on-demand version is still worth doing — just budget more time than you
+on-demand version is still worth doing, just budget more time than you
 think you need.
 
 
@@ -356,14 +356,14 @@ Hands-on experience matters more than certifications here. Working
 through [Hack The Box Sherlocks](https://app.hackthebox.com/sherlocks/) before the course is a good way to
 build familiarity with forensic artifact analysis in a low-stakes
 environment. Setting up a home lab with a SIEM and some logging
-infrastructure helps even more — the tooling in the course will make
+infrastructure helps even more, the tooling in the course will make
 more sense if you've wrestled with log ingestion before.
 
 Linux and macOS fundamentals are worth having before 608.3 and 608.4.
 The course teaches you what to look for; it assumes you know your way
 around the filesystems.
 
-Cloud fundamentals — particularly AWS and Azure architecture — will make
+Cloud fundamentals, particularly AWS and Azure architecture, will make
 608.5 easier to follow. You don't need to be a cloud engineer, but
 knowing what CloudTrail is before the course saves time during it.
 
