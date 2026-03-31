@@ -2,7 +2,7 @@
 title: "Open BSD and Zen"
 author: ["Dirk"]
 date: 2025-06-28T12:48:00+02:00
-lastmod: 2026-03-31T09:15:05+02:00
+lastmod: 2026-03-31T09:33:54+02:00
 tags: ["forensicwheels", "openbsd", "zen"]
 categories: ["personal"]
 draft: false
@@ -39,7 +39,7 @@ knowing what you actually need.
 
 Zen works the same way.
 
-Zazen — sitting meditation — is almost nothing. You sit. You follow your
+Zazen, sitting meditation, is almost nothing. You sit. You follow your
 breath. You don't try to achieve anything. You don't add anything.
 Whatever arises, you don't chase it.
 
@@ -62,8 +62,8 @@ Take what's here. It's enough.
 
 ## Correctness is not perfectionism {#correctness-is-not-perfectionism}
 
-Every commit to OpenBSD goes through code review. Not as a process checkbox
-— as a genuine practice. Someone reads what you wrote. They question it.
+Every commit to OpenBSD goes through code review. Not as a process checkbox,
+as a genuine practice. Someone reads what you wrote. They question it.
 The code changes or it doesn't go in.
 
 This is not about perfection. Bugs exist in OpenBSD. Always have.
@@ -76,7 +76,7 @@ In Zen, this shows up as attention to the thing in front of you.
 Not the thing you're planning. Not the thing you finished an hour ago.
 This breath. This step. This line of code.
 
-The enso — the Zen circle, brushed in one stroke — is never geometrically
+The enso, the Zen circle, brushed in one stroke, is never geometrically
 perfect. That's not the point. The point is that it's fully committed.
 The brush doesn't hesitate.
 
@@ -110,7 +110,7 @@ Then, maybe, something quieter.
 
 The discomfort is not the problem. The discomfort is the practice.
 
-Seungsahn used to say: don't know. Not as an excuse — as a posture.
+Seungsahn used to say: don't know. Not as an excuse, as a posture.
 Hold the question. Don't rush to an answer that makes you comfortable.
 
 I've spent a lot of my career watching people paper over problems.
