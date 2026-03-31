@@ -2,7 +2,7 @@
 title: "SANS FOR608"
 author: ["Dirk"]
 date: 2026-03-20T07:39:00+01:00
-lastmod: 2026-03-30T13:51:14+02:00
+lastmod: 2026-03-31T09:15:02+02:00
 tags: ["forensicwheels", "honeypot", "canarytokens"]
 categories: ["forensic", "threathunting"]
 draft: false
@@ -365,8 +365,10 @@ around the filesystems.
 
 Cloud fundamentals, particularly AWS and Azure architecture, will make
 608.5 easier to follow. You don't need to be a cloud engineer, but
-knowing what CloudTrail is before the course saves time during it.
+knowing what CloudTrail is before the course saves time during it.q
 
 ---
 
 [^fn:1]: <https://www.sans.org/cyber-security-courses/enterprise-incident-response-threat-hunting/>
+
+    {{< giscus >}}

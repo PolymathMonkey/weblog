@@ -2,7 +2,7 @@
 title: "Open BSD and Zen"
 author: ["Dirk"]
 date: 2025-06-28T12:48:00+02:00
-lastmod: 2026-03-20T07:40:37+01:00
+lastmod: 2026-03-31T09:15:05+02:00
 tags: ["forensicwheels", "openbsd", "zen"]
 categories: ["personal"]
 draft: false
