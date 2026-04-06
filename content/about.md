@@ -3,7 +3,7 @@ title: "about"
 author: ["Dirk"]
 description: "Short intro about myself"
 date: 2025-06-28T16:16:00+02:00
-lastmod: 2025-10-02T09:51:12+02:00
+lastmod: 2026-04-06T19:50:22+02:00
 tags: ["forensicwheels", "personal"]
 categories: ["personal"]
 draft: false
@@ -31,7 +31,7 @@ In cybersecurity, I’m committed to continuous growth and adapting to new
 challenges. When I’m not working on security projects, you’ll find me skating or
 exploring new ideas inspired by Zen philosophy.
 
-You can download my [CV](/downloads/DirkCV_encrypted.pdf) as a [signed](~/org/forensicwheels/static/downloads/DirkCV.pdf.sig) and encrypted PDF for authenticity and
+You can download my [CV](~/org/forensicwheels/static/weblog/downloads/DirkCV_encrypted.pdf) as a [signed](~/org/forensicwheels/static/downloads/DirkCV.pdf.sig) and encrypted PDF for authenticity and
 privacy. If you need the password to decrypt it,
 please send me an [E-mail](mailto:polymathmonkey@keksmafia.org)
 
