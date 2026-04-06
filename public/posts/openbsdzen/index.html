@@ -5,55 +5,71 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.152.2">
     <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
-    <meta name="description" content="About As someone who is passionate about security and has an interest in Unix operating systems, OpenBSD particularly captivates due to its dedication to security, stability, and simplicity. In comparison to other OSes, what sets OpenBSD apart? And how do these principles align with my journey through Zen meditation?
-At first glance, OpenBSD and Zen may appear to be vastly disparate concepts - one being a potent operating system, while the other is a spiritual practice originating from ancient China. However, as I delved deeper into both realms, I uncovered some fascinating similarities.">
+    <meta name="description" content="OpenBSD and Zen I’ve been using OpenBSD for a long time.
+I’ve been sitting Zen for about two years, in the tradition of Seungsahn, with Ryōkan as a guide.
+Nobody asked me to connect these two things. But they kept connecting themselves.
+This is me trying to say why.
+Less is not a compromise OpenBSD ships without a lot of things other systems include by default.
+That’s a choice. Every piece of code that isn’t there is a piece of code that can’t have a vulnerability. Every feature you don’t ship is a surface you don’t have to defend.">
     <meta name="author" content="Dirk">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Open BSD and Zen - Forensic wheels">
-    <meta name="twitter:description" content="About As someone who is passionate about security and has an interest in Unix operating systems, OpenBSD particularly captivates due to its dedication to security, stability, and simplicity. In comparison to other OSes, what sets OpenBSD apart? And how do these principles align with my journey through Zen meditation?
-At first glance, OpenBSD and Zen may appear to be vastly disparate concepts - one being a potent operating system, while the other is a spiritual practice originating from ancient China. However, as I delved deeper into both realms, I uncovered some fascinating similarities.">
+    <meta name="twitter:description" content="OpenBSD and Zen I’ve been using OpenBSD for a long time.
+I’ve been sitting Zen for about two years, in the tradition of Seungsahn, with Ryōkan as a guide.
+Nobody asked me to connect these two things. But they kept connecting themselves.
+This is me trying to say why.
+Less is not a compromise OpenBSD ships without a lot of things other systems include by default.
+That’s a choice. Every piece of code that isn’t there is a piece of code that can’t have a vulnerability. Every feature you don’t ship is a surface you don’t have to defend.">
     <meta property="og:url" content="http://localhost:1313/posts/openbsdzen/index.html">
     <meta property="og:site_name" content="Forensic wheels">
     <meta property="og:title" content="Open BSD and Zen - Forensic wheels">
-    <meta property="og:description" content="About As someone who is passionate about security and has an interest in Unix operating systems, OpenBSD particularly captivates due to its dedication to security, stability, and simplicity. In comparison to other OSes, what sets OpenBSD apart? And how do these principles align with my journey through Zen meditation?
-At first glance, OpenBSD and Zen may appear to be vastly disparate concepts - one being a potent operating system, while the other is a spiritual practice originating from ancient China. However, as I delved deeper into both realms, I uncovered some fascinating similarities.">
+    <meta property="og:description" content="OpenBSD and Zen I’ve been using OpenBSD for a long time.
+I’ve been sitting Zen for about two years, in the tradition of Seungsahn, with Ryōkan as a guide.
+Nobody asked me to connect these two things. But they kept connecting themselves.
+This is me trying to say why.
+Less is not a compromise OpenBSD ships without a lot of things other systems include by default.
+That’s a choice. Every piece of code that isn’t there is a piece of code that can’t have a vulnerability. Every feature you don’t ship is a surface you don’t have to defend.">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Forensic wheels">
     <meta property="article:published_time" content="2025-06-28T12:48:00+02:00">
-    <meta property="article:modified_time" content="2025-12-08T11:52:22+01:00">
+    <meta property="article:modified_time" content="2026-03-31T09:33:54+02:00">
     <meta property="article:tag" content="Forensicwheels">
     <meta property="article:tag" content="Openbsd">
     <meta property="article:tag" content="Zen">
     <meta itemprop="name" content="Open BSD and Zen - Forensic wheels">
-    <meta itemprop="description" content="About As someone who is passionate about security and has an interest in Unix operating systems, OpenBSD particularly captivates due to its dedication to security, stability, and simplicity. In comparison to other OSes, what sets OpenBSD apart? And how do these principles align with my journey through Zen meditation?
-At first glance, OpenBSD and Zen may appear to be vastly disparate concepts - one being a potent operating system, while the other is a spiritual practice originating from ancient China. However, as I delved deeper into both realms, I uncovered some fascinating similarities.">
+    <meta itemprop="description" content="OpenBSD and Zen I’ve been using OpenBSD for a long time.
+I’ve been sitting Zen for about two years, in the tradition of Seungsahn, with Ryōkan as a guide.
+Nobody asked me to connect these two things. But they kept connecting themselves.
+This is me trying to say why.
+Less is not a compromise OpenBSD ships without a lot of things other systems include by default.
+That’s a choice. Every piece of code that isn’t there is a piece of code that can’t have a vulnerability. Every feature you don’t ship is a surface you don’t have to defend.">
     <meta itemprop="datePublished" content="2025-06-28T12:48:00+02:00">
-    <meta itemprop="dateModified" content="2025-12-08T11:52:22+01:00">
-    <meta itemprop="wordCount" content="426">
+    <meta itemprop="dateModified" content="2026-03-31T09:33:54+02:00">
+    <meta itemprop="wordCount" content="618">
     <meta itemprop="keywords" content="Forensicwheels,Openbsd,Zen">
     <title>Open BSD and Zen - Forensic wheels</title>
-    <link href="/images/logo.svg?1773911736" rel="icon" type="image/svg+xml">
-    <link href="/css/auto-complete/auto-complete.min.css?1773911736" rel="stylesheet">
-    <script src="/js/auto-complete/auto-complete.min.js?1773911736" defer></script>
-    <script src="/js/search-lunr.js?1773911736" defer></script>
-    <script src="/js/search.js?1773911736" defer></script>
+    <link href="/images/logo.svg?1775500263" rel="icon" type="image/svg+xml">
+    <link href="/css/auto-complete/auto-complete.min.css?1775500263" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1775500263" defer></script>
+    <script src="/js/search-lunr.js?1775500263" defer></script>
+    <script src="/js/search.js?1775500263" defer></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.index_js_url="/searchindex.en.js?1773911736";
+      window.relearn.index_js_url="/searchindex.en.js?1775500263";
     </script>
-    <script src="/js/lunr/lunr.min.js?1773911736" defer></script>
-    <script src="/js/lunr/lunr.stemmer.support.min.js?1773911736" defer></script>
-    <script src="/js/lunr/lunr.multi.min.js?1773911736" defer></script>
-    <script src="/js/lunr/lunr.en.min.js?1773911736" defer></script>
+    <script src="/js/lunr/lunr.min.js?1775500263" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1775500263" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1775500263" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1775500263" defer></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.contentLangs=['en'];
     </script>
-    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1773911736" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1773911736" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1773911736" rel="stylesheet">
-    <link href="/css/theme.css?1773911736" rel="stylesheet">
-    <link href="/css/format-html.css?1773911736" rel="stylesheet" id="R-format-style">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1775500263" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1775500263" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1775500263" rel="stylesheet">
+    <link href="/css/theme.css?1775500263" rel="stylesheet">
+    <link href="/css/format-html.css?1775500263" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -122,11 +138,11 @@ At first glance, OpenBSD and Zen may appear to be vastly disparate concepts - on
                 <div class="topbar-content-wrapper">
 <nav class="TableOfContents">
   <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#simplicity-and-clarity">Simplicity and Clarity</a></li>
-    <li><a href="#attention-to-detail">Attention to Detail</a></li>
-    <li><a href="#the-power-of-consistency">The Power of Consistency</a></li>
-    <li><a href="#the-beauty-of-imperfection">The Beauty of Imperfection</a></li>
+    <li><a href="#about">OpenBSD and Zen</a></li>
+    <li><a href="#less-is-not-a-compromise">Less is not a compromise</a></li>
+    <li><a href="#correctness-is-not-perfectionism">Correctness is not perfectionism</a></li>
+    <li><a href="#what-breaks-is-information">What breaks is information</a></li>
+    <li><a href="#a-note-on-this-comparison">A note on this comparison</a></li>
   </ul>
 </nav>
                 </div>
@@ -164,58 +180,87 @@ At first glance, OpenBSD and Zen may appear to be vastly disparate concepts - on
 
 <h1 id="open-bsd-and-zen">Open BSD and Zen</h1>
 
-<h2 id="about">About</h2>
-<p>As someone who is passionate about security and has an interest in
-Unix operating systems, OpenBSD particularly captivates due to its
-dedication to security, stability, and simplicity. In comparison to
-other OSes, what sets OpenBSD apart? And how do these principles
-align with my journey through Zen meditation?</p>
+<h2 id="about">OpenBSD and Zen</h2>
+<p>I&rsquo;ve been using OpenBSD for a long time.</p>
+<p>I&rsquo;ve been sitting Zen for about two years, in the tradition of Seungsahn,
+with Ryōkan as a guide.</p>
+<p>Nobody asked me to connect these two things. But they kept connecting
+themselves.</p>
 <figure><img src="../img/puffy77.gif">
 </figure>
 
-<p>At first glance, OpenBSD and Zen may appear to be vastly disparate
-concepts - one being a potent operating system, while the other is
-a spiritual practice originating from ancient China. However, as I
-delved deeper into both realms, I uncovered some fascinating
-similarities.</p>
-<h2 id="simplicity-and-clarity">Simplicity and Clarity</h2>
-<p>In Zen, simplicity is key to achieving inner clarity and balance.
-By stripping away unnecessary complexity, OpenBSD aims to create a
-stable and secure foundation for users. Similarly, in meditation,
-simplicity helps to quiet the mind and focus on the present moment.
-This alignment between OpenBSD&rsquo;s philosophy and Zen practices extends
-to their shared emphasis on mindfulness and deliberate decision-making,
-fostering an environment of security and tranquility in both realms.</p>
-<h2 id="attention-to-detail">Attention to Detail</h2>
-<p>Both OpenBSD and Zen underscore the significance of attending to detail.
-In software development, this entails meticulously crafting each line of
-code to guarantee stability and security. In Zen practice, it involves
-paying close attention to one&rsquo;s breath, posture, and mental state to
-attain a state of mindfulness. By zeroing in on these details, both
-OpenBSD and Zen strive for perfection.</p>
-<h2 id="the-power-of-consistency">The Power of Consistency</h2>
-<p>OpenBSD&rsquo;s dedication to consistency is manifested in its codebase, where each
-code change undergoes a thorough code review process. Consistency holds equal
-importance in Zen practice, as it fosters a sense of routine and stability.
-By cultivating a consistent daily meditation practice, I have discovered that
-consistency is instrumental in making progress on my spiritual journey.
-OpenBSD&rsquo;s emphasis on consistency mirrors the principles of Zen, emphasizing
-the value of diligence and discipline in both domains.</p>
-<h2 id="the-beauty-of-imperfection">The Beauty of Imperfection</h2>
-<p>Finally, both OpenBSD and Zen acknowledge the elegance in imperfection.
-In software development, imperfections can often be rectified or lessened
-through meticulous design and testing. In Zen practice, imperfections are
-perceived as avenues for growth and self-awareness.</p>
+<p>This is me trying to say why.</p>
+<hr>
+<h2 id="less-is-not-a-compromise">Less is not a compromise</h2>
+<p>OpenBSD ships without a lot of things other systems include by default.</p>
+<p>That&rsquo;s a choice. Every piece of code that isn&rsquo;t there is a piece of code
+that can&rsquo;t have a vulnerability. Every feature you don&rsquo;t ship is a surface
+you don&rsquo;t have to defend.</p>
+<p>The OpenBSD developers call this &ldquo;correct by default&rdquo;. I&rsquo;d call it
+knowing what you actually need.</p>
+<p>Zen works the same way.</p>
+<p>Zazen, sitting meditation, is almost nothing. You sit. You follow your
+breath. You don&rsquo;t try to achieve anything. You don&rsquo;t add anything.
+Whatever arises, you don&rsquo;t chase it.</p>
+<p>What&rsquo;s left when you stop adding is not emptiness. It&rsquo;s clarity.</p>
+<p>Ryōkan spent most of his life in a small hut on a mountain, owning
+almost nothing, writing poems about moon and rain and loneliness. He
+wasn&rsquo;t poor in spirit. He was clear.</p>
+<blockquote>
+<p>What is there
+I can give you?
+Take this handful of snow.
+— Ryōkan</p>
+</blockquote>
+<p>I think about that poem when I look at OpenBSD&rsquo;s base system.
+Take what&rsquo;s here. It&rsquo;s enough.</p>
+<hr>
+<h2 id="correctness-is-not-perfectionism">Correctness is not perfectionism</h2>
+<p>Every commit to OpenBSD goes through code review. Not as a process checkbox,
+as a genuine practice. Someone reads what you wrote. They question it.
+The code changes or it doesn&rsquo;t go in.</p>
+<p>This is not about perfection. Bugs exist in OpenBSD. Always have.</p>
+<p>It&rsquo;s about care. About not shipping something you haven&rsquo;t looked at.
+About taking responsibility for what you put into the world.</p>
+<p>In Zen, this shows up as attention to the thing in front of you.</p>
+<p>Not the thing you&rsquo;re planning. Not the thing you finished an hour ago.
+This breath. This step. This line of code.</p>
+<p>The enso, the Zen circle, brushed in one stroke, is never geometrically
+perfect. That&rsquo;s not the point. The point is that it&rsquo;s fully committed.
+The brush doesn&rsquo;t hesitate.</p>
 <figure><img src="../img/enso1.jpg">
 </figure>
 
-<p>By acknowledging our imperfections, we can nurture humility and compassion.
-As I progress in my journey with OpenBSD and Zen, I am consistently struck
-by the ways in which these two seemingly unrelated realms intersect. By
-embracing simplicity, attention to detail, consistency, and the beauty of
-imperfection, both OpenBSD and Zen provide unique perspectives on the nature
-of software development and personal growth. Stay tuned for further insights
-from my exploration in the realm of security!</p>
+<p>A half-committed security decision is worse than no decision.
+A half-present sitting is still a sitting.</p>
+<p>The practice is showing up and being honest about what you find.</p>
+<hr>
+<h2 id="what-breaks-is-information">What breaks is information</h2>
+<p>OpenBSD&rsquo;s malloc aborts the process when it detects memory corruption.</p>
+<p>Not silently. Not gracefully. It stops.</p>
+<p>That sounds harsh. It&rsquo;s actually kind. A crash you can see is a bug you
+can fix. A crash that doesn&rsquo;t happen is a vulnerability waiting to be
+found by someone else.</p>
+<p>The system is designed to surface what&rsquo;s wrong rather than paper over it.</p>
+<p>Zen does this too, differently.</p>
+<p>When you sit long enough, what comes up is not peace. First it&rsquo;s
+restlessness. Then it&rsquo;s the things you&rsquo;ve been avoiding thinking about.
+Then, maybe, something quieter.</p>
+<p>The discomfort is not the problem. The discomfort is the practice.</p>
+<p>Seungsahn used to say: don&rsquo;t know. Not as an excuse, as a posture.
+Hold the question. Don&rsquo;t rush to an answer that makes you comfortable.</p>
+<p>I&rsquo;ve spent a lot of my career watching people paper over problems.
+Log the error and move on. Silence the alert. Call the risk acceptable.</p>
+<p>OpenBSD&rsquo;s default answer to uncertainty is: stop and look.</p>
+<p>That&rsquo;s a Zen answer.</p>
+<hr>
+<h2 id="a-note-on-this-comparison">A note on this comparison</h2>
+<p>I&rsquo;m not saying the OpenBSD developers are Zen practitioners.</p>
+<p>I&rsquo;m not saying Zen is a system design philosophy.</p>
+<p>What I&rsquo;m saying is that I find the same posture in both: take less,
+commit fully, don&rsquo;t hide what breaks.</p>
+<p>That&rsquo;s a way of being in the world. I&rsquo;ve found it in a terminal and
+on a cushion. That&rsquo;s enough for me.</p>
 <div id="giscus-comments" style="margin-top: 2rem;">
     <script src="https://giscus.app/client.js"
             data-repo="PolymathMonkey/weblog"
@@ -284,9 +329,9 @@ from my exploration in the realm of security!</p>
           <ul class="enlarge morespace collapsible-menu">
             <li class="parent " data-nav-id="/posts/index.html"><a class="padding" href="/posts/index.html">Forensic wheels</a><ul id="R-subsections-b4e55eb7e39db1aee6d02808a2267090" class="collapsible-menu">
             <li class="" data-nav-id="/posts/threathuntingnet/index.html"><a class="padding" href="/posts/threathuntingnet/index.html">Threathunting I: Network setup</a></li>
-            <li class="active " data-nav-id="/posts/openbsdzen/index.html"><a class="padding" href="/posts/openbsdzen/index.html">Open BSD and Zen</a></li>
             <li class="" data-nav-id="/posts/theathuntinghoneypot/index.html"><a class="padding" href="/posts/theathuntinghoneypot/index.html">Threat hunting II: SSH Honeypot setup</a></li>
             <li class="" data-nav-id="/posts/sans_for608/index.html"><a class="padding" href="/posts/sans_for608/index.html">SANS FOR608</a></li>
+            <li class="active " data-nav-id="/posts/openbsdzen/index.html"><a class="padding" href="/posts/openbsdzen/index.html">Open BSD and Zen</a></li>
             <li class="" data-nav-id="/posts/monitmon/index.html"><a class="padding" href="/posts/monitmon/index.html">How to monitor systems with monit</a></li>
             <li class="" data-nav-id="/posts/yellowshardsinelastic/index.html"><a class="padding" href="/posts/yellowshardsinelastic/index.html">Fixing Yellow Shards in Elasticsearch</a></li>
             <li class="" data-nav-id="/posts/gpgonmyyubi/index.html"><a class="padding" href="/posts/gpgonmyyubi/index.html">Putting my gpg key on my yubikey</a></li>
@@ -324,8 +369,8 @@ from my exploration in the realm of security!</p>
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/js/clipboard/clipboard.min.js?1773911736" defer></script>
-    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1773911736" defer></script>
-    <script src="/js/theme.js?1773911736" defer></script>
+    <script src="/js/clipboard/clipboard.min.js?1775500263" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1775500263" defer></script>
+    <script src="/js/theme.js?1775500263" defer></script>
   </body>
 </html>

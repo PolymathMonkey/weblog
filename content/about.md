@@ -31,7 +31,7 @@ In cybersecurity, I’m committed to continuous growth and adapting to new
 challenges. When I’m not working on security projects, you’ll find me skating or
 exploring new ideas inspired by Zen philosophy.
 
-You can download my [CV](/downloads/DirkCV_encrypted.pdf) as a [signed](~/org/forensicwheels/static/downloads/DirkCV.pdf.sig) and encrypted PDF for authenticity and
+You can download my [CV](/weblog/downloads/DirkCV_encrypted.pdf) as a [signed](/weblog/downloads/DirkCV.pdf.sig) and encrypted PDF for authenticity and
 privacy. If you need the password to decrypt it,
 please send me an [E-mail](mailto:polymathmonkey@keksmafia.org)
 
@@ -43,4 +43,4 @@ lifelong learner.
 -   ****SHA-256 Hash****:
     \`c7359e0e8bd69ed7cee3ea97453c10e327bfe2416822f54c6390efe72b0d6e7a\`
 
-[publickey](/downloads/key.asc)
+[publickey](/weblog/downloads/key.asc)

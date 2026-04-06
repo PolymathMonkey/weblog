@@ -6,7 +6,7 @@
     <description>Latest posts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Mar 2026 10:15:27 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2026 09:33:54 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Threathunting I: Network setup</title>
@@ -14,13 +14,6 @@
       <pubDate>Tue, 08 Jul 2025 09:15:00 +0200</pubDate>
       <guid>http://localhost:1313/posts/threathuntingnet/index.html</guid>
       <description>Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.</description>
-    </item>
-    <item>
-      <title>Open BSD and Zen</title>
-      <link>http://localhost:1313/posts/openbsdzen/index.html</link>
-      <pubDate>Sat, 28 Jun 2025 12:48:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/openbsdzen/index.html</guid>
-      <description>About As someone who is passionate about security and has an interest in Unix operating systems, OpenBSD particularly captivates due to its dedication to security, stability, and simplicity. In comparison to other OSes, what sets OpenBSD apart? And how do these principles align with my journey through Zen meditation?&#xA;At first glance, OpenBSD and Zen may appear to be vastly disparate concepts - one being a potent operating system, while the other is a spiritual practice originating from ancient China. However, as I delved deeper into both realms, I uncovered some fascinating similarities.</description>
     </item>
     <item>
       <title>Threat hunting II: SSH Honeypot setup</title>
@@ -32,9 +25,16 @@
     <item>
       <title>SANS FOR608</title>
       <link>http://localhost:1313/posts/sans_for608/index.html</link>
-      <pubDate>Mon, 26 May 2025 16:21:00 -0500</pubDate>
+      <pubDate>Fri, 20 Mar 2026 07:39:00 +0100</pubDate>
       <guid>http://localhost:1313/posts/sans_for608/index.html</guid>
-      <description>Enterprise Threat Hunting and Incident Response (FOR608) Preparing for the exam: building an index 608.1 — Proactive Detection and Response 608.2 — Scaling Response and Analysis 608.3 — Modern Attacks against Windows and Linux 608.4 — macOS and Docker Containers 608.5 — Cloud Attacks and Response 608.6 — Capstone What I took away from this Enterprise Threat Hunting and Incident Response (FOR608) My employer booked me onto SANS FOR608 in the on-demand version.</description>
+      <description>Enterprise Threat Hunting and Incident Response (FOR608) Preparing for the exam: building an index 608.1 — Proactive Detection and Response 608.2 — Scaling Response and Analysis 608.3 — Modern Attacks against Windows and Linux 608.4 — macOS and Docker Containers 608.5 — Cloud Attacks and Response 608.6 — Capstone What I took away from this Enterprise Threat Hunting and Incident Response (FOR608) My employer booked me back in 2025 onto SANS FOR608 in the on-demand version.</description>
+    </item>
+    <item>
+      <title>Open BSD and Zen</title>
+      <link>http://localhost:1313/posts/openbsdzen/index.html</link>
+      <pubDate>Sat, 28 Jun 2025 12:48:00 +0200</pubDate>
+      <guid>http://localhost:1313/posts/openbsdzen/index.html</guid>
+      <description>OpenBSD and Zen I’ve been using OpenBSD for a long time.&#xA;I’ve been sitting Zen for about two years, in the tradition of Seungsahn, with Ryōkan as a guide.&#xA;Nobody asked me to connect these two things. But they kept connecting themselves.&#xA;This is me trying to say why.&#xA;Less is not a compromise OpenBSD ships without a lot of things other systems include by default.&#xA;That’s a choice. Every piece of code that isn’t there is a piece of code that can’t have a vulnerability. Every feature you don’t ship is a surface you don’t have to defend.</description>
     </item>
     <item>
       <title>How to monitor systems with monit</title>
