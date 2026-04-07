@@ -3,7 +3,7 @@ title: "about"
 author: ["Dirk"]
 description: "Short intro about myself"
 date: 2025-06-28T16:16:00+02:00
-lastmod: 2026-04-06T20:26:15+02:00
+lastmod: 2026-04-07T11:42:29+02:00
 tags: ["forensicwheels", "personal"]
 categories: ["personal"]
 draft: false
@@ -12,16 +12,16 @@ weight: 1001
 
 {{< figure src="../posts/img/fine.gif" >}}
 
-Hi, I’m Dirk — a security engineer with a deep passion for skateboarding and
+Hi, I'am a security engineer with a deep passion for skateboarding and
 digital forensics.
 
 Skateboarding is more than a hobby to me; it’s a source of creativity, freedom,
-and community. It shapes how I approach challenges — with persistence, balance,
+and community. It shapes how I approach challenges, with persistence, balance,
 and a mindset open to innovation.
 
 Beyond that, I’m an [OpenBSD](https://www.openbsd.org/) enthusiast. I’ve built an OpenBSD-based router and
 threat-hunting infrastructure to stay ahead in cybersecurity. I appreciate
-OpenBSD for its simplicity, security, and elegance — qualities I strive to
+OpenBSD for its simplicity, security, and elegance, qualities I strive to
 bring to my work.
 
 I’m also a longtime [Emacs](https://www.gnu.org/software/emacs/) user, relying on it daily for coding, writing, and
@@ -43,4 +43,4 @@ lifelong learner.
 -   ****SHA-256 Hash****:
     \`c7359e0e8bd69ed7cee3ea97453c10e327bfe2416822f54c6390efe72b0d6e7a\`
 
-[publickey](/weblog/downloads/key.asc)
+[publickey](/downloads/key.asc)
