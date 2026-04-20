@@ -6,28 +6,35 @@
     <description>Latest posts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Apr 2026 08:41:36 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 10:20:05 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Forensic wheels</title>
-      <link>http://localhost:1313/posts/index.html</link>
+      <title>Artifacts</title>
+      <link>http://localhost:1313/artifacts/index.html</link>
       <pubDate>Fri, 04 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/index.html</guid>
+      <guid>http://localhost:1313/artifacts/index.html</guid>
+      <description>Technical articles and project documentation</description>
+    </item>
+    <item>
+      <title>Essays</title>
+      <link>http://localhost:1313/essays/index.html</link>
+      <pubDate>Fri, 04 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/essays/index.html</guid>
       <description>Latest posts</description>
     </item>
     <item>
-      <title>links</title>
-      <link>http://localhost:1313/links/index.html</link>
-      <pubDate>Fri, 17 Apr 2026 07:24:00 +0200</pubDate>
-      <guid>http://localhost:1313/links/index.html</guid>
-      <description>Links</description>
-    </item>
-    <item>
-      <title>about</title>
+      <title>About</title>
       <link>http://localhost:1313/about/index.html</link>
       <pubDate>Sat, 28 Jun 2025 16:16:00 +0200</pubDate>
       <guid>http://localhost:1313/about/index.html</guid>
       <description>Short intro about myself</description>
+    </item>
+    <item>
+      <title>Links</title>
+      <link>http://localhost:1313/links/index.html</link>
+      <pubDate>Fri, 17 Apr 2026 07:24:00 +0200</pubDate>
+      <guid>http://localhost:1313/links/index.html</guid>
+      <description>Links</description>
     </item>
   </channel>
 </rss>

@@ -10,16 +10,16 @@
     <atom:link href="http://localhost:1313/categories/forensic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SANS FOR608</title>
-      <link>http://localhost:1313/posts/sans_for608/index.html</link>
+      <link>http://localhost:1313/artifacts/sans_for608/index.html</link>
       <pubDate>Fri, 20 Mar 2026 07:39:00 +0100</pubDate>
-      <guid>http://localhost:1313/posts/sans_for608/index.html</guid>
+      <guid>http://localhost:1313/artifacts/sans_for608/index.html</guid>
       <description>Enterprise Threat Hunting and Incident Response (FOR608) Preparing for the exam: building an index 608.1 — Proactive Detection and Response 608.2 — Scaling Response and Analysis 608.3 — Modern Attacks against Windows and Linux 608.4 — macOS and Docker Containers 608.5 — Cloud Attacks and Response 608.6 — Capstone What I took away from this Enterprise Threat Hunting and Incident Response (FOR608) My employer booked me back in 2025 onto SANS FOR608 in the on-demand version.</description>
     </item>
     <item>
       <title>Rescue to the softraid</title>
-      <link>http://localhost:1313/posts/rescuetotheraid/index.html</link>
+      <link>http://localhost:1313/artifacts/rescuetotheraid/index.html</link>
       <pubDate>Wed, 15 Oct 2025 19:03:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rescuetotheraid/index.html</guid>
+      <guid>http://localhost:1313/artifacts/rescuetotheraid/index.html</guid>
       <description>Introduction So I had this USB Disk attached to my OpenBSD Router used as storage, one saturday when I was walking by I noticed the weird clicking sounds from the disk. So I knew my time was running before the disc would fail.&#xA;Curiously, when I plugged the same drive into a Linux box, it was detected and even showed a valid OpenBSD partition table. That gave me a glimmer of hope: maybe the hardware wasn’t completely dead yet.</description>
     </item>
   </channel>

@@ -1,6 +1,7 @@
-<h2>Latest posts</h2>
+<h3>Latest posts</h3>
 <ul>
-  {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
+  {{ $section := .Get "section" | default "posts" }}
+  {{ range first 5 (where .Site.RegularPages "Section" $section) }}
     <li>
       <a href="{{ .RelPermalink }}">{{ .Title }}</a>
       <time datetime="{{ .Date }}">{{ .Date.Format "02.01.2006" }}</time>

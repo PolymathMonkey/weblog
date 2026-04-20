@@ -1,42 +1,34 @@
 ---
-title: "about"
+title: "About"
 author: ["Dirk"]
 description: "Short intro about myself"
 date: 2025-06-28T16:16:00+02:00
-lastmod: 2026-04-17T08:38:44+02:00
+lastmod: 2026-04-20T10:20:05+02:00
 tags: ["forensicwheels", "personal"]
 categories: ["personal"]
 draft: false
-weight: 1001
+weight: 1
 ---
 
-{{< figure src="../posts/img/fine.gif" >}}
+{{< figure src="../artifacts/img/fine.gif" >}}
 
-Hi, I'am a security engineer with a deep passion for skateboarding and
-digital forensics.
+Hi, I'm Dirk.
 
-Skateboarding is more than a hobby to me; it’s a source of creativity, freedom,
-and community. It shapes how I approach challenges, with persistence, balance,
-and a mindset open to innovation.
+Security engineer by trade, skater by default. I've been doing both
+for about twenty years and neither shows signs of stopping.
 
-Beyond that, I’m an [OpenBSD](https://www.openbsd.org/) enthusiast. I’ve built an OpenBSD-based router and
-threat-hunting infrastructure to stay ahead in cybersecurity. I appreciate
-OpenBSD for its simplicity, security, and elegance, qualities I strive to
-bring to my work.
+My work sits at the intersection of offensive and defensive security.
+I've done penetration testing, incident response, EDR operations at
+scale, and threat hunting. I run [OpenBSD](https://www.openbsd.org/) at home because I think the
+way that project makes decisions is worth paying attention to. I use
+[Emacs](https://www.gnu.org/software/emacs/) because it fits how I think.
 
-I’m also a longtime [Emacs](https://www.gnu.org/software/emacs/) user, relying on it daily for coding, writing, and
-organizing my thoughts. It’s part of how I stay productive and focused.
+This blog is where I document what I build and what I figure out. Some
+of it is technical. Some of it is not. I try to be honest about the
+difference between what I know and what I'm guessing.
 
-In cybersecurity, I’m committed to continuous growth and adapting to new
-challenges. When I’m not working on security projects, you’ll find me skating or
-exploring new ideas inspired by Zen philosophy.
-
-You can download my [CV](/downloads/DirkCV_encrypted.pdf) as a [signed](~/org/forensicwheels/static/downloads/DirkCV.pdf.sig) and encrypted PDF for authenticity and
-privacy. If you need the password to decrypt it,
-please send me an [E-mail](mailto:polymathmonkey@keksmafia.org)
-
-Stay tuned for updates on my journey as a security engineer, skateboarder, and
-lifelong learner.
+You can download my [CV](/downloads/DirkCV_encrypted.pdf) as a [signed](~/org/forensicwheels/static/downloads/DirkCV.pdf.sig) and encrypted PDF. If you need the
+password, send me an [email](mailto:polymathmonkey@keksmafia.org).
 
 -   ****Key ID****: \`0xC2920C559CAD6CB\`
 -   ****Fingerprint****: \`40CA 727E 96D3 CC2D 8CBB 1540 0C29 20C5 59CA D6CB\`

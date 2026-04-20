@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Essays - Forensic wheels</title>
+    <link>http://localhost:1313/essays/index.html</link>
+    <description>Latest posts</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Apr 2026 10:24:48 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/essays/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Psychology&#39;s Blind Spot</title>
+      <link>http://localhost:1313/essays/godelpenrosepsychology/index.html</link>
+      <pubDate>Sun, 19 Apr 2026 17:27:00 +0200</pubDate>
+      <guid>http://localhost:1313/essays/godelpenrosepsychology/index.html</guid>
+      <description>There is a problem with how psychology measures people. Not a problem that better tools will fix. A structural one.&#xA;I have been thinking about this for a while, and it got sharper recently when I went through a diagnostic process and the results did not quite fit. Not because the clinician was bad. She was not. But because the instruments have limits that nobody in the room talked about.</description>
+    </item>
+    <item>
+      <title>Open BSD and Zen</title>
+      <link>http://localhost:1313/essays/openbsdzen/index.html</link>
+      <pubDate>Sat, 28 Jun 2025 12:48:00 +0200</pubDate>
+      <guid>http://localhost:1313/essays/openbsdzen/index.html</guid>
+      <description>OpenBSD and Zen I’ve been using OpenBSD for a long time.&#xA;I’ve been sitting Zen for about two years, in the tradition of Seungsahn, with Ryōkan as a guide.&#xA;Nobody asked me to connect these two things. But they kept connecting themselves.&#xA;This is me trying to say why.&#xA;Less is not a compromise OpenBSD ships without a lot of things other systems include by default.&#xA;That’s a choice. Every piece of code that isn’t there is a piece of code that can’t have a vulnerability.</description>
+    </item>
+  </channel>
+</rss>

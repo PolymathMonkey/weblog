@@ -6,8 +6,15 @@
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Apr 2026 07:17:23 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 09:48:44 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/forensicwheels/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>links</title>
+      <link>http://localhost:1313/links/index.html</link>
+      <pubDate>Fri, 17 Apr 2026 07:24:00 +0200</pubDate>
+      <guid>http://localhost:1313/links/index.html</guid>
+      <description>Links</description>
+    </item>
     <item>
       <title>about</title>
       <link>http://localhost:1313/about/index.html</link>
@@ -16,45 +23,66 @@
       <description>Short intro about myself</description>
     </item>
     <item>
+      <title>Joe Weitzenbaum forever</title>
+      <link>http://localhost:1313/essays/joeforever/index.html</link>
+      <pubDate>Sun, 16 Mar 2025 11:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/essays/joeforever/index.html</guid>
+      <description>[… content unchanged …]</description>
+    </item>
+    <item>
+      <title>Why Some Never Quit – A Few Words on Lifetime Skaters</title>
+      <link>http://localhost:1313/essays/lifetimeskaters/index.html</link>
+      <pubDate>Sun, 16 Mar 2025 11:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/essays/lifetimeskaters/index.html</guid>
+      <description>There are two kinds of people who start skating. Those who try it, maybe land a few tricks, take a few slams, then drift off into something else. And then there are the others, the ones who never leave. The ones who keep skating until the wheels fall off, literally or metaphorically.&#xA;I’ve always wondered what separates us, the lifers, from the ones who walk away.&#xA;It’s not talent. It’s not age. It’s not how many clips you got or how many boards you broke. It’s something deeper.</description>
+    </item>
+    <item>
+      <title>What Gödel and Penrose Tell Us About Psychology&#39;s Blind Spot</title>
+      <link>http://localhost:1313/essays/godelpenrosepsychology/index.html</link>
+      <pubDate>Sun, 19 Apr 2026 17:27:00 +0200</pubDate>
+      <guid>http://localhost:1313/essays/godelpenrosepsychology/index.html</guid>
+      <description>There is a problem with how psychology measures people. Not a problem that better tools will fix. A structural one.&#xA;I have been thinking about this for a while, and it got sharper recently when I went through a diagnostic process and the results did not quite fit. Not because the clinician was bad. She was not. But because the instruments have limits that nobody in the room talked about.</description>
+    </item>
+    <item>
       <title>SANS FOR608</title>
-      <link>http://localhost:1313/posts/sans_for608/index.html</link>
+      <link>http://localhost:1313/artifacts/sans_for608/index.html</link>
       <pubDate>Fri, 20 Mar 2026 07:39:00 +0100</pubDate>
-      <guid>http://localhost:1313/posts/sans_for608/index.html</guid>
+      <guid>http://localhost:1313/artifacts/sans_for608/index.html</guid>
       <description>Enterprise Threat Hunting and Incident Response (FOR608) Preparing for the exam: building an index 608.1 — Proactive Detection and Response 608.2 — Scaling Response and Analysis 608.3 — Modern Attacks against Windows and Linux 608.4 — macOS and Docker Containers 608.5 — Cloud Attacks and Response 608.6 — Capstone What I took away from this Enterprise Threat Hunting and Incident Response (FOR608) My employer booked me back in 2025 onto SANS FOR608 in the on-demand version.</description>
     </item>
     <item>
       <title>Open BSD and Zen</title>
-      <link>http://localhost:1313/posts/openbsdzen/index.html</link>
+      <link>http://localhost:1313/essays/openbsdzen/index.html</link>
       <pubDate>Sat, 28 Jun 2025 12:48:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/openbsdzen/index.html</guid>
-      <description>OpenBSD and Zen I’ve been using OpenBSD for a long time.&#xA;I’ve been sitting Zen for about two years, in the tradition of Seungsahn, with Ryōkan as a guide.&#xA;Nobody asked me to connect these two things. But they kept connecting themselves.&#xA;This is me trying to say why.&#xA;Less is not a compromise OpenBSD ships without a lot of things other systems include by default.&#xA;That’s a choice. Every piece of code that isn’t there is a piece of code that can’t have a vulnerability. Every feature you don’t ship is a surface you don’t have to defend.</description>
+      <guid>http://localhost:1313/essays/openbsdzen/index.html</guid>
+      <description>OpenBSD and Zen I’ve been using OpenBSD for a long time.&#xA;I’ve been sitting Zen for about two years, in the tradition of Seungsahn, with Ryōkan as a guide.&#xA;Nobody asked me to connect these two things. But they kept connecting themselves.&#xA;This is me trying to say why.&#xA;Less is not a compromise OpenBSD ships without a lot of things other systems include by default.&#xA;That’s a choice. Every piece of code that isn’t there is a piece of code that can’t have a vulnerability.</description>
     </item>
     <item>
       <title>How to monitor systems with monit</title>
-      <link>http://localhost:1313/posts/monitmon/index.html</link>
+      <link>http://localhost:1313/artifacts/monitmon/index.html</link>
       <pubDate>Mon, 08 Dec 2025 11:40:00 +0100</pubDate>
-      <guid>http://localhost:1313/posts/monitmon/index.html</guid>
+      <guid>http://localhost:1313/artifacts/monitmon/index.html</guid>
       <description>Introduction Requirements Installing Monit on OpenBSD Monit – Essential System and Router Services System monitoring runs every 45 seconds. The first check is delayed by 120 seconds to avoid overloading the system immediately after boot.&#xA;set daemon 45 with start delay 120 Monit logs to syslog. `idfile` and `statefile` store Monit’s persistent state and identity across restarts.&#xA;set log syslog set idfile /var/monit/id set statefile /var/monit/state Limits control buffer sizes and timeouts for program outputs, network I/O, and service start/stop/restart operations. This prevents Monit from hanging or processing excessive data.</description>
     </item>
     <item>
       <title>Fixing Yellow Shards in Elasticsearch</title>
-      <link>http://localhost:1313/posts/yellowshardsinelastic/index.html</link>
+      <link>http://localhost:1313/artifacts/yellowshardsinelastic/index.html</link>
       <pubDate>Wed, 12 Nov 2025 11:07:00 +0100</pubDate>
-      <guid>http://localhost:1313/posts/yellowshardsinelastic/index.html</guid>
+      <guid>http://localhost:1313/artifacts/yellowshardsinelastic/index.html</guid>
       <description>Introduction If you’re running Elasticsearch on a single node — like a Raspberry Pi or small lab setup like I am — you might notice some indices appear with a yellow health status.&#xA;This show article explains what that means and how to fix it, especially in resource-constrained, single-node environments.&#xA;What Does “Yellow” Mean? In Elasticsearch:&#xA;green: All primary and replica shards are assigned and active. yellow: All primary shards are active, but at least one replica shard is unassigned. red: At least one primary shard is missing → critical! Why Yellow Happens on Single Nodes In single-node clusters, Elasticsearch cannot assign replica shards (because replicas must be on a different node). So any index with replicas will always be yellow unless:</description>
     </item>
     <item>
       <title>Putting my gpg key on my yubikey</title>
-      <link>http://localhost:1313/posts/gpgonmyyubi/index.html</link>
+      <link>http://localhost:1313/artifacts/gpgonmyyubi/index.html</link>
       <pubDate>Wed, 29 Oct 2025 12:17:00 +0100</pubDate>
-      <guid>http://localhost:1313/posts/gpgonmyyubi/index.html</guid>
-      <description>Why GPG? In an age where digital identities are easily faked and impersonation is just a few clicks away, I decided to take a step forward in securing mine. GPG (GNU Privacy Guard) provides a robust way to authenticate, encrypt, and sign digital content. In this post, I’ll walk you through how I:&#xA;Created a GPG key pair Set up subkeys and stored them on my YubiKey Published my public key on my website Signed and encrypted personal documents for secure public sharing Configured email signing using GPG Step 1: Installing GPG To start, I made sure GPG was installed. Here’s how I did it on each of my systems:</description>
+      <guid>http://localhost:1313/artifacts/gpgonmyyubi/index.html</guid>
+      <description>[… content unchanged …]</description>
     </item>
     <item>
       <title>Rescue to the softraid</title>
-      <link>http://localhost:1313/posts/rescuetotheraid/index.html</link>
+      <link>http://localhost:1313/artifacts/rescuetotheraid/index.html</link>
       <pubDate>Wed, 15 Oct 2025 19:03:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rescuetotheraid/index.html</guid>
+      <guid>http://localhost:1313/artifacts/rescuetotheraid/index.html</guid>
       <description>Introduction So I had this USB Disk attached to my OpenBSD Router used as storage, one saturday when I was walking by I noticed the weird clicking sounds from the disk. So I knew my time was running before the disc would fail.&#xA;Curiously, when I plugged the same drive into a Linux box, it was detected and even showed a valid OpenBSD partition table. That gave me a glimmer of hope: maybe the hardware wasn’t completely dead yet.</description>
     </item>
   </channel>

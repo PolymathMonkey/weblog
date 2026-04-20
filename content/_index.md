@@ -13,22 +13,21 @@ menu:
 
 Welcome to my technical blog and knowledge base!
 
+## Technical Posts
+
+{{< newest-posts section="artifacts" >}}
+
+---- 
+## Essays
+
+{{< newest-posts section="essays" >}}
+
+---- 
+
 ## Topics
 - [🖥 Threathunting Tutorials](/tags/threathunting/)
 - [🖥 All things OpenBSD](/tags/openbsd/)
-
-<!--- [🔐 VPN & IPsec](/tags/ipsec/)
-- [🧷 WireGuard & Networking](/tags/wireguard/)
-- [🖥 OpenBSD Tutorials](/tags/openbsd/) -->
-
-{{< newest-posts >}}
-
-<!-- ## Featured Articles
-
-- [WireGuard on OpenBSD: A Quick Start Guide](/post/wireguard-openbsd/)
-- [Automating Services with `rcctl` on OpenBSD](/post/openbsd-deployment/)
-- [Building a Secure IPsec VPN with IKEv2](/post/ipsec-setup/)-->
-
+---- 
 ## Get in Touch
 
 Suggestions or feedback?  

@@ -6,14 +6,14 @@
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 Mar 2026 09:33:54 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 09:40:17 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/zen/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Open BSD and Zen</title>
-      <link>http://localhost:1313/posts/openbsdzen/index.html</link>
+      <link>http://localhost:1313/essays/openbsdzen/index.html</link>
       <pubDate>Sat, 28 Jun 2025 12:48:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/openbsdzen/index.html</guid>
-      <description>OpenBSD and Zen I’ve been using OpenBSD for a long time.&#xA;I’ve been sitting Zen for about two years, in the tradition of Seungsahn, with Ryōkan as a guide.&#xA;Nobody asked me to connect these two things. But they kept connecting themselves.&#xA;This is me trying to say why.&#xA;Less is not a compromise OpenBSD ships without a lot of things other systems include by default.&#xA;That’s a choice. Every piece of code that isn’t there is a piece of code that can’t have a vulnerability. Every feature you don’t ship is a surface you don’t have to defend.</description>
+      <guid>http://localhost:1313/essays/openbsdzen/index.html</guid>
+      <description>OpenBSD and Zen I’ve been using OpenBSD for a long time.&#xA;I’ve been sitting Zen for about two years, in the tradition of Seungsahn, with Ryōkan as a guide.&#xA;Nobody asked me to connect these two things. But they kept connecting themselves.&#xA;This is me trying to say why.&#xA;Less is not a compromise OpenBSD ships without a lot of things other systems include by default.&#xA;That’s a choice. Every piece of code that isn’t there is a piece of code that can’t have a vulnerability.</description>
     </item>
   </channel>
 </rss>
