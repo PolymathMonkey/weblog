@@ -2,10 +2,10 @@
 title: "The unseen hero of OpenBSD"
 author: ["Dirk"]
 date: 2026-04-20T17:09:00+02:00
-lastmod: 2026-04-20T17:13:00+02:00
+lastmod: 2026-04-21T06:38:57+02:00
 tags: ["forensicwheels", "openbsd"]
 draft: false
-weight: 1001
+weight: 1005
 ---
 
 ## The unseen hero of OpenBSD: OpenBSD's malloc {#the-unseen-hero-of-openbsd-openbsd-s-malloc}
@@ -190,7 +190,9 @@ The canaries are the first and last fields. If anything corrupts
 };
 ```
 
-I stipped away the MALLOC_STATS, you can find the full struct defintion [here](https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c#L233)
+I stipped away the MALLOC_STATS, you can find the full struct defintion [here](https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c#L233).
+
+Why is this structure in read-only memory? An attacker cannot directly corrupt `dir_info` because the canaries would catch that. However, if `malloc_readonly` were writable, an attacker could disable security features. For example, setting `malloc_freecheck` to zero would silence double-free detection. Setting `malloc_freeunmap` to zero would allow use-after-free bugs to succeed silently. To prevent this, the entire configuration structure lives in a read-only memory region, established via `mprotect(PROT_READ)` after initialization. The kernel will refuse any write attempt to this segment, forcing any exploit to crash rather than succeed.
 
 
 #### The metadata is not next to your data {#the-metadata-is-not-next-to-your-data}
@@ -229,8 +231,9 @@ same size. Each chunk page is described by a `struct chunk_info`.
 };
 ```
 
-Slot selection within a chunk page uses the `rbytes` pool from
-`dir_info`. Which specific slot you get is not deterministic.
+The `bits` member deserves closer attention. It is a bitset composed of three `u_short` elements, totaling 48 bits. Each bit represents one slot within the chunk page. A bit value of 1 means the slot is free and available for allocation. A bit value of 0 means the slot is already allocated. This allows a single `chunk_info` structure to manage up to 48 chunks per page. When the allocator needs to place a new small allocation, it scans the bitset to find a free slot. The comment "number of shorts should add up to 8" refers to a deliberate size constraint. The entire `chunk_info` structure, including canary, bucket, free, total, offset, and the 6 bytes for the bits array, totals exactly 18 bytes. This fixed, predictable size is not an accident. A structure this compact means that any corruption to `chunk_info` will immediately violate the surrounding memory layout expectations, triggering the canary check and causing the allocator to abort.
+
+Slot selection within a chunk page uses the `rbytes` pool from `dir_info`. The allocator does not simply take the first free slot. Instead, it hashes or randomly indexes into the available slots, ensuring that attackers cannot predict where your allocation will land. Which specific slot you get is not deterministic.
 
 
 #### Large allocations: their own mmap region {#large-allocations-their-own-mmap-region}
@@ -250,8 +253,14 @@ pointer to that address will fault on the next access.
 #define SOME_FREEJUNK  0xdf  /* written before free */
 ```
 
-When you see these values in a crash dump, you know immediately what
-kind of bug you're looking at.
+When you see these values in a crash dump or debugger, you know immediately
+what kind of bug you are looking at. The value 0xdb (11011011 in binary) is
+written to freshly allocated memory. The value 0xdf (11011111 in binary) is
+written to memory that has just been freed. Both values have the high bit set
+in each nibble, which makes them immediately suspicious when interpreted as
+pointers, ASCII strings, or integer values. An attacker cannot silently exploit
+these memory regions because the junk values will immediately cause
+dereferencing failures or type confusion that crashes the program.
 
 ---
 
@@ -364,3 +373,7 @@ exploit later.
 -   [Otto Moerbeek's malloc design talk (EuroBSDCon 2023)](https://www.openbsd.org/papers/eurobsdcon2023-otto-malloc.pdf)
 -   [Summary of OpenBSD malloc evolution](https://isopenbsdsecu.re/mitigations/malloc/)
 -   [malloc.c source](https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c)
+
+---
+
+{{< giscus >}}
