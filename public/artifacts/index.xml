@@ -6,7 +6,7 @@
     <description>Technical articles and project documentation</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2026 11:08:05 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 19:54:30 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/artifacts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Threathunting I: Network setup</title>
@@ -21,6 +21,13 @@
       <pubDate>Mon, 29 Sep 2025 07:18:00 +0200</pubDate>
       <guid>http://localhost:1313/artifacts/theathuntinghoneypot/index.html</guid>
       <description>Introduction What is Cowrie? Why Podman over Docker? Preconditions / System setup Ubuntu Installed on Raspberry Pi 4+ System Fully Updated Podman installed and working VLAN Tagging Configured on Network Interface Setup environment, install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🎯 Operating the Honeypot 🔄 Automatically Restart Cowrie Podman Container with systemd 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Whats next Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.</description>
+    </item>
+    <item>
+      <title>The unseen hero of OpenBSD</title>
+      <link>http://localhost:1313/artifacts/openbsdmalloc/index.html</link>
+      <pubDate>Mon, 20 Apr 2026 17:09:00 +0200</pubDate>
+      <guid>http://localhost:1313/artifacts/openbsdmalloc/index.html</guid>
+      <description>The unseen hero of OpenBSD: OpenBSD’s malloc What this is about This is me learning about OpenBSD’s malloc.&#xA;I try not to do a surface-level overview.&#xA;I want to understand the internals better, the data structures, the design decisions, and why those decisions make heap exploitation so much harder.&#xA;Start here: what malloc actually does Every C program that needs memory at runtime calls malloc.&#xA;malloc is a library function. It’s not a syscall – it’s a layer between your code and the kernel.</description>
     </item>
     <item>
       <title>Sans FOR608</title>

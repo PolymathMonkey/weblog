@@ -6,7 +6,7 @@
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2026 09:40:17 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 19:54:30 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/openbsd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Open BSD and Zen</title>
@@ -16,7 +16,14 @@
       <description>OpenBSD and Zen I’ve been using OpenBSD for a long time.&#xA;I’ve been sitting Zen for about two years, in the tradition of Seungsahn, with Ryōkan as a guide.&#xA;Nobody asked me to connect these two things. But they kept connecting themselves.&#xA;This is me trying to say why.&#xA;Less is not a compromise OpenBSD ships without a lot of things other systems include by default.&#xA;That’s a choice. Every piece of code that isn’t there is a piece of code that can’t have a vulnerability.</description>
     </item>
     <item>
-      <title>How to monitor systems with monit</title>
+      <title>The unseen hero of OpenBSD</title>
+      <link>http://localhost:1313/artifacts/openbsdmalloc/index.html</link>
+      <pubDate>Mon, 20 Apr 2026 17:09:00 +0200</pubDate>
+      <guid>http://localhost:1313/artifacts/openbsdmalloc/index.html</guid>
+      <description>The unseen hero of OpenBSD: OpenBSD’s malloc What this is about This is me learning about OpenBSD’s malloc.&#xA;I try not to do a surface-level overview.&#xA;I want to understand the internals better, the data structures, the design decisions, and why those decisions make heap exploitation so much harder.&#xA;Start here: what malloc actually does Every C program that needs memory at runtime calls malloc.&#xA;malloc is a library function. It’s not a syscall – it’s a layer between your code and the kernel.</description>
+    </item>
+    <item>
+      <title>Monitor systems with monit</title>
       <link>http://localhost:1313/artifacts/monitmon/index.html</link>
       <pubDate>Mon, 08 Dec 2025 11:40:00 +0100</pubDate>
       <guid>http://localhost:1313/artifacts/monitmon/index.html</guid>

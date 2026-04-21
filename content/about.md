@@ -27,7 +27,7 @@ This blog is where I document what I build and what I figure out. Some
 of it is technical. Some of it is not. I try to be honest about the
 difference between what I know and what I'm guessing.
 
-You can download my [CV](/downloads/DirkCV_encrypted.pdf) as a [signed](~/org/forensicwheels/static/downloads/DirkCV.pdf.sig) and encrypted PDF. If you need the
+You can download my [CV](/weblog/downloads/DirkCV_encrypted.pdf) as a [signed](/weblog/downloads/DirkCV.pdf.sig) and encrypted PDF. If you need the
 password, send me an [email](mailto:polymathmonkey@keksmafia.org).
 
 -   ****Key ID****: \`0xC2920C559CAD6CB\`
@@ -35,4 +35,4 @@ password, send me an [email](mailto:polymathmonkey@keksmafia.org).
 -   ****SHA-256 Hash****:
     \`c7359e0e8bd69ed7cee3ea97453c10e327bfe2416822f54c6390efe72b0d6e7a\`
 
-[publickey](/downloads/key.asc)
+[publickey](/weblog/downloads/key.asc)
