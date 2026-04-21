@@ -6,14 +6,14 @@
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2026 11:08:05 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2026 06:48:30 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/forensic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sans FOR608</title>
       <link>http://localhost:1313/artifacts/sans_for608/index.html</link>
       <pubDate>Fri, 20 Mar 2026 07:39:00 +0100</pubDate>
       <guid>http://localhost:1313/artifacts/sans_for608/index.html</guid>
-      <description>Enterprise Threat Hunting and Incident Response (FOR608) Preparing for the exam: building an index 608.1 – Proactive Detection and Response 608.2 – Scaling Response and Analysis 608.3 – Modern Attacks against Windows and Linux 608.4 – macOS and Docker Containers 608.5 – Cloud Attacks and Response 608.6 – Capstone What I took away from this Enterprise Threat Hunting and Incident Response (FOR608) My employer booked me back in 2025 onto SANS FOR608 in the on-demand version.</description>
+      <description>Enterprise Threat Hunting and Incident Response (FOR608) Preparing for the exam: building an index 608.1 – Proactive Detection and Response 608.2 – Scaling Response and Analysis 608.3 – Modern Attacks against Windows and Linux 608.4 – macOS and Docker Containers 608.5 – Cloud Attacks and Response 608.6 – Capstone What I took away from this The unseen hero of OpenBSD: otto’s malloc What this is about Start here: what malloc actually does A brief history: how we got here The internal structure The defense mechanisms, together Why classic heap exploits fail here Comparison with other allocators What I took away from this References Enterprise Threat Hunting and Incident Response (FOR608) My employer booked me back in 2025 onto SANS FOR608 in the on-demand version.</description>
     </item>
     <item>
       <title>Rescue to the softraid</title>

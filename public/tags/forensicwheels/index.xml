@@ -6,7 +6,7 @@
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Apr 2026 06:38:57 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2026 06:48:30 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/forensicwheels/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
@@ -37,6 +37,13 @@
       <description>Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.</description>
     </item>
     <item>
+      <title>Sans FOR608</title>
+      <link>http://localhost:1313/artifacts/sans_for608/index.html</link>
+      <pubDate>Fri, 20 Mar 2026 07:39:00 +0100</pubDate>
+      <guid>http://localhost:1313/artifacts/sans_for608/index.html</guid>
+      <description>Enterprise Threat Hunting and Incident Response (FOR608) Preparing for the exam: building an index 608.1 – Proactive Detection and Response 608.2 – Scaling Response and Analysis 608.3 – Modern Attacks against Windows and Linux 608.4 – macOS and Docker Containers 608.5 – Cloud Attacks and Response 608.6 – Capstone What I took away from this The unseen hero of OpenBSD: otto’s malloc What this is about Start here: what malloc actually does A brief history: how we got here The internal structure The defense mechanisms, together Why classic heap exploits fail here Comparison with other allocators What I took away from this References Enterprise Threat Hunting and Incident Response (FOR608) My employer booked me back in 2025 onto SANS FOR608 in the on-demand version.</description>
+    </item>
+    <item>
       <title>Threat hunting II: SSH Honeypot</title>
       <link>http://localhost:1313/artifacts/theathuntinghoneypot/index.html</link>
       <pubDate>Mon, 29 Sep 2025 07:18:00 +0200</pubDate>
@@ -56,13 +63,6 @@
       <pubDate>Mon, 20 Apr 2026 17:09:00 +0200</pubDate>
       <guid>http://localhost:1313/artifacts/openbsdmalloc/index.html</guid>
       <description>The unseen hero of OpenBSD: OpenBSD’s malloc What this is about This is me learning about OpenBSD’s malloc.&#xA;I try not to do a surface-level overview.&#xA;I want to understand the internals better, the data structures, the design decisions, and why those decisions make heap exploitation so much harder.&#xA;Start here: what malloc actually does Every C program that needs memory at runtime calls malloc.&#xA;malloc is a library function. It’s not a syscall – it’s a layer between your code and the kernel.</description>
-    </item>
-    <item>
-      <title>Sans FOR608</title>
-      <link>http://localhost:1313/artifacts/sans_for608/index.html</link>
-      <pubDate>Fri, 20 Mar 2026 07:39:00 +0100</pubDate>
-      <guid>http://localhost:1313/artifacts/sans_for608/index.html</guid>
-      <description>Enterprise Threat Hunting and Incident Response (FOR608) Preparing for the exam: building an index 608.1 – Proactive Detection and Response 608.2 – Scaling Response and Analysis 608.3 – Modern Attacks against Windows and Linux 608.4 – macOS and Docker Containers 608.5 – Cloud Attacks and Response 608.6 – Capstone What I took away from this Enterprise Threat Hunting and Incident Response (FOR608) My employer booked me back in 2025 onto SANS FOR608 in the on-demand version.</description>
     </item>
     <item>
       <title>Monitor systems with monit</title>
