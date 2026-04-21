@@ -2,7 +2,7 @@
 title: "The unseen hero of OpenBSD"
 author: ["Dirk"]
 date: 2026-04-20T17:09:00+02:00
-lastmod: 2026-04-21T15:54:53+02:00
+lastmod: 2026-04-21T16:02:27+02:00
 tags: ["forensicwheels", "openbsd"]
 draft: false
 weight: 1005
@@ -15,11 +15,11 @@ weight: 1005
 
 This is me learning about OpenBSD's malloc.
 
-I try not to do a surface-level overview.
-
 I want to understand the internals better, the data structures, the design
 decisions, and why those decisions make heap exploitation so much
 harder.
+
+This is an actual Neurodivergent person with dyslexia trying to learn this
 
 ---
 
@@ -114,7 +114,7 @@ The design didn't freeze in 2008. Relevant additions since then:
 ### The internal structure {#the-internal-structure}
 
 
-#### Everything starts with `struct dir_info` {#everything-starts-with-struct-dir-info}
+#### It starts with `struct dir_info` {#it-starts-with-struct-dir-info}
 
 Every malloc pool is represented by one `struct dir_info`.
 
@@ -193,15 +193,7 @@ The canaries are the first and last fields. If anything corrupts
 I stipped away the MALLOC_STATS, you can find the full struct defintion [here](https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c#L233).
 
 Why is this structure in read-only memory? An attacker cannot directly corrupt
-`dir_info` because the canaries would catch that. However, if `malloc_readonly`
-were writable, an attacker could disable security features. For example,
-setting `malloc_freecheck` to zero would silence double-free detection.
-
-Setting `malloc_freeunmap` to zero would allow use-after-free bugs to succeed silently.
-To prevent this, the entire configuration structure lives in a read-only memory
-region, established via `mprotect(PROT_READ)` after initialization. The kernel
-will refuse any write attempt to this segment, forcing any exploit to crash
-rather than succeed.
+`dir_info` because the canaries would catch that.
 
 
 #### The metadata is not next to your data {#the-metadata-is-not-next-to-your-data}
@@ -319,7 +311,7 @@ sysctl vm.malloc_conf='JJ'
 ```
 
 
-#### realloc (`R`) {#realloc--r}
+#### Realloc (`R`) {#realloc--r}
 
 Always reallocate when realloc() is called, even if
 the initial allocation was big enough. This can substantially

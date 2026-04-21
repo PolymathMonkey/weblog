@@ -5,49 +5,49 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.152.2">
     <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
-    <meta name="description" content="DRAFT Collecting netflow data with pflow(1) and logstash @threathuntingopenbsdvisibility DRAFT Threathunting III: HTTP Honeypot develop and setup honeypot@forensic Introduction Brief overview of the use case I recently set out to ingest web traffic data into my SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.">
+    <meta name="description" content="DRAFT Collecting netflow data with pflow(1) and logstash @threathuntingopenbsdvisibility DRAFT Threathunting IV: Setup ELK Server and ingest data @threathuntingvisibility DRAFT Testing webhoneypots with ZAP in server mode @threathunting DONE Threathunting I: Network setup @threathuntinghoneypotvisibility Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.">
     <meta name="author" content="Dirk">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Forensic Wheels - Forensic wheels">
-    <meta name="twitter:description" content="DRAFT Collecting netflow data with pflow(1) and logstash @threathuntingopenbsdvisibility DRAFT Threathunting III: HTTP Honeypot develop and setup honeypot@forensic Introduction Brief overview of the use case I recently set out to ingest web traffic data into my SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.">
+    <meta name="twitter:description" content="DRAFT Collecting netflow data with pflow(1) and logstash @threathuntingopenbsdvisibility DRAFT Threathunting IV: Setup ELK Server and ingest data @threathuntingvisibility DRAFT Testing webhoneypots with ZAP in server mode @threathunting DONE Threathunting I: Network setup @threathuntinghoneypotvisibility Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.">
     <meta property="og:url" content="http://localhost:1313/artifacts/tech-posts/index.html">
     <meta property="og:site_name" content="Forensic wheels">
     <meta property="og:title" content="Forensic Wheels - Forensic wheels">
-    <meta property="og:description" content="DRAFT Collecting netflow data with pflow(1) and logstash @threathuntingopenbsdvisibility DRAFT Threathunting III: HTTP Honeypot develop and setup honeypot@forensic Introduction Brief overview of the use case I recently set out to ingest web traffic data into my SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.">
+    <meta property="og:description" content="DRAFT Collecting netflow data with pflow(1) and logstash @threathuntingopenbsdvisibility DRAFT Threathunting IV: Setup ELK Server and ingest data @threathuntingvisibility DRAFT Testing webhoneypots with ZAP in server mode @threathunting DONE Threathunting I: Network setup @threathuntinghoneypotvisibility Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Artifacts">
-    <meta property="article:published_time" content="2026-04-20T19:54:26+02:00">
-    <meta property="article:modified_time" content="2026-04-20T19:54:26+02:00">
+    <meta property="article:published_time" content="2026-04-21T15:54:44+02:00">
+    <meta property="article:modified_time" content="2026-04-21T15:54:44+02:00">
     <meta property="article:tag" content="Forensicwheels">
     <meta itemprop="name" content="Forensic Wheels - Forensic wheels">
-    <meta itemprop="description" content="DRAFT Collecting netflow data with pflow(1) and logstash @threathuntingopenbsdvisibility DRAFT Threathunting III: HTTP Honeypot develop and setup honeypot@forensic Introduction Brief overview of the use case I recently set out to ingest web traffic data into my SIEM solution, which requires data to be ingested in a specific format. After researching various options, I sought an easy-to-use solution that could integrate with our existing Elasticsearch setup. One tool that caught my attention was HoneyPot HTTPD.">
-    <meta itemprop="datePublished" content="2026-04-20T19:54:26+02:00">
-    <meta itemprop="dateModified" content="2026-04-20T19:54:26+02:00">
-    <meta itemprop="wordCount" content="10529">
+    <meta itemprop="description" content="DRAFT Collecting netflow data with pflow(1) and logstash @threathuntingopenbsdvisibility DRAFT Threathunting IV: Setup ELK Server and ingest data @threathuntingvisibility DRAFT Testing webhoneypots with ZAP in server mode @threathunting DONE Threathunting I: Network setup @threathuntinghoneypotvisibility Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.">
+    <meta itemprop="datePublished" content="2026-04-21T15:54:44+02:00">
+    <meta itemprop="dateModified" content="2026-04-21T15:54:44+02:00">
+    <meta itemprop="wordCount" content="9675">
     <meta itemprop="keywords" content="Forensicwheels">
     <title>Forensic Wheels - Forensic wheels</title>
-    <link href="/images/logo.svg?1776707666" rel="icon" type="image/svg+xml">
-    <link href="/css/auto-complete/auto-complete.min.css?1776707666" rel="stylesheet">
-    <script src="/js/auto-complete/auto-complete.min.js?1776707666" defer></script>
-    <script src="/js/search-lunr.js?1776707666" defer></script>
-    <script src="/js/search.js?1776707666" defer></script>
+    <link href="/images/logo.svg?1776780147" rel="icon" type="image/svg+xml">
+    <link href="/css/auto-complete/auto-complete.min.css?1776780147" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1776780147" defer></script>
+    <script src="/js/search-lunr.js?1776780147" defer></script>
+    <script src="/js/search.js?1776780147" defer></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.index_js_url="/searchindex.en.js?1776707666";
+      window.relearn.index_js_url="/searchindex.en.js?1776780147";
     </script>
-    <script src="/js/lunr/lunr.min.js?1776707666" defer></script>
-    <script src="/js/lunr/lunr.stemmer.support.min.js?1776707666" defer></script>
-    <script src="/js/lunr/lunr.multi.min.js?1776707666" defer></script>
-    <script src="/js/lunr/lunr.en.min.js?1776707666" defer></script>
+    <script src="/js/lunr/lunr.min.js?1776780147" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1776780147" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1776780147" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1776780147" defer></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.contentLangs=['en'];
     </script>
-    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1776707666" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1776707666" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1776707666" rel="stylesheet">
-    <link href="/css/theme.css?1776707666" rel="stylesheet">
-    <link href="/css/format-html.css?1776707666" rel="stylesheet" id="R-format-style">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1776780147" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1776780147" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1776780147" rel="stylesheet">
+    <link href="/css/theme.css?1776780147" rel="stylesheet">
+    <link href="/css/format-html.css?1776780147" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -117,12 +117,6 @@
 <nav class="TableOfContents">
   <ul>
     <li><a href="#collecting-netflow-data-with-pflow--1--and-logstash">DRAFT Collecting netflow data with pflow(1) and logstash @threathuntingopenbsdvisibility</a></li>
-    <li><a href="#honeyhttpd">DRAFT Threathunting III: HTTP Honeypot develop and setup honeypot@forensic</a>
-      <ul>
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#setting-up-honeypot-httpd-for-web-data-ingestion">Setting up HoneyPot HTTPD for Web Data</a></li>
-      </ul>
-    </li>
     <li><a href="#threathunting-iv-setup-elk-server-and-ingest-data">DRAFT Threathunting IV: Setup ELK Server and ingest data @threathuntingvisibility</a></li>
     <li><a href="#testing-webhoneypots-with-zap-in-server-mode">DRAFT Testing webhoneypots with ZAP in server mode @threathunting</a></li>
     <li><a href="#threathuntingnet">DONE Threathunting I: Network setup @threathuntinghoneypotvisibility</a>
@@ -145,6 +139,19 @@
         <li><a href="#whats-next">Whats next</a></li>
       </ul>
     </li>
+    <li><a href="#honeyhttpd">DONE Threat Hunting III: HTTP Honeypot @threathuntinghoneypot</a>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#architecture-overview">Architecture Overview</a></li>
+        <li><a href="#containerizing-with-docker">Containerizing with Docker</a></li>
+        <li><a href="#configuration">Configuration</a></li>
+        <li><a href="#code-improvements">Code Improvements</a></li>
+        <li><a href="#advantages-over-the-original">Advantages Over the Original</a></li>
+        <li><a href="#testing">Testing</a></li>
+        <li><a href="#next-steps">Next Steps</a></li>
+        <li><a href="#summary">Summary</a></li>
+      </ul>
+    </li>
     <li><a href="#sans_for608">DONE Sans FOR608 @forensic@threathuntinghoneypotcanarytokens</a>
       <ul>
         <li><a href="#enterprise-threat-hunting-and-response--for608">Enterprise Threat Hunting and Incident Response (FOR608)</a></li>
@@ -160,7 +167,7 @@
     </li>
     <li><a href="#openbsdmalloc">DONE The unseen hero of OpenBSD openbsd</a>
       <ul>
-        <li><a href="#the-unseen-hero-of-openbsd-openbsd-s-malloc">The unseen hero of OpenBSD: OpenBSD&rsquo;s malloc</a></li>
+        <li><a href="#the-unseen-hero-of-openbsd-otto-s-malloc">The unseen hero of OpenBSD: otto&rsquo;s malloc</a></li>
       </ul>
     </li>
     <li><a href="#monitmon">DONE Monitor systems with monit openbsdpersonalvisibility</a>
@@ -246,455 +253,6 @@
 <h1 id="forensic-wheels">Forensic Wheels</h1>
 
 <h2 id="collecting-netflow-data-with-pflow--1--and-logstash"><!-- raw HTML omitted -->DRAFT<!-- raw HTML omitted --> Collecting netflow data with pflow(1) and logstash <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted -->openbsd<!-- raw HTML omitted --><!-- raw HTML omitted -->visibility<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
-<h2 id="honeyhttpd"><!-- raw HTML omitted -->DRAFT<!-- raw HTML omitted --> Threathunting III: HTTP Honeypot develop and setup <!-- raw HTML omitted --><!-- raw HTML omitted -->honeypot<!-- raw HTML omitted --><!-- raw HTML omitted -->@forensic<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
-<h3 id="introduction">Introduction</h3>
-<h4 id="brief-overview-of-the-use-case">Brief overview of the use case</h4>
-<p>I recently set out to ingest web traffic data into my SIEM solution,
-which requires data to be ingested in a specific format. After
-researching various options, I sought an easy-to-use solution that could
-integrate with our existing Elasticsearch setup. One tool that caught my
-attention was HoneyPot HTTPD.</p>
-<p>As I researched potential solutions, I realized that many of them
-required manual configuration and scripting to ingest web data into
-Elasticsearch. However, HoneyPot HTTPD offered a simple and elegant way
-to do so through its built-in ingestion feature. This was especially
-appealing since I wanted to integrate the web traffic data with our
-existing SIEM setup that utilized Elasticsearch.</p>
-<p>In particular, I needed a tool that could collect web traffic data and
-forward it to a centralized location for analysis and processing.
-Honeypot HTTPD&rsquo;s ability to ingest web data into Elasticsearch made it
-an attractive choice, as it would allow me to leverage our existing
-Elasticsearch infrastructure and integrate the data with our SIEM
-solution seamlessly.</p>
-<p>With this in mind, I set out to explore how to use HoneyPot HTTPD to
-ingest web traffic data into Elasticsearch. In the following sections,
-I&rsquo;ll walk you through the steps I took to configure HoneyPot HTTPD for
-ingestion, including the Dockerfile used to build the container and any
-additional configuration settings required.</p>
-<h3 id="setting-up-honeypot-httpd-for-web-data-ingestion">Setting up HoneyPot HTTPD for Web Data</h3>
-<h4 id="containerizing-the-application-to-run-inside-docker">Containerizing the application to run inside docker</h4>
-<ul>
-<li>
-<p>Creating a Dockerfile</p>
-<p>I started by creating a Dockerfile that would build the HoneHTTPD
-image. The Dockerfile included the following instructions:</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Use python base image</span>
-</span></span><span style="display:flex;"><span>FROM python:3
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set environment</span>
-</span></span><span style="display:flex;"><span>ARG APP_NAME<span style="color:#f92672">=</span>honeyhttpd
-</span></span><span style="display:flex;"><span>ENV APP_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>APP_NAME<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ARG USER_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10001&#34;</span>
-</span></span><span style="display:flex;"><span>ARG GROUP_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>
-</span></span><span style="display:flex;"><span>ARG HOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/app&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ENV HOME<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create user and environment</span>
-</span></span><span style="display:flex;"><span>RUN groupadd --gid <span style="color:#e6db74">${</span>USER_ID<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    useradd --create-home --uid <span style="color:#e6db74">${</span>USER_ID<span style="color:#e6db74">}</span> --gid <span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span> --home-dir /app <span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install dependencies</span>
-</span></span><span style="display:flex;"><span>RUN apt-get update <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get install -y --no-install-recommends <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        file        <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        gcc         <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        libwww-perl curl unzip <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get autoremove -y <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get clean
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set workdir</span>
-</span></span><span style="display:flex;"><span>WORKDIR <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Copy config files and certs into container</span>
-</span></span><span style="display:flex;"><span>COPY ./requirements.txt .
-</span></span><span style="display:flex;"><span>COPY ./config.json .
-</span></span><span style="display:flex;"><span>COPY ./server*.pem .
-</span></span><span style="display:flex;"><span>COPY ./ca.crt .
-</span></span><span style="display:flex;"><span>COPY honeyhttpd logs servers util .
-</span></span><span style="display:flex;"><span>COPY start.py .
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Upgrade python packages and install dependencies</span>
-</span></span><span style="display:flex;"><span>RUN pip3 install --upgrade pip
-</span></span><span style="display:flex;"><span>RUN pip3 install virtualenv
-</span></span><span style="display:flex;"><span>RUN python3 -m virtualenv <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>virtualenv <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span>RUN pip3 install --no-cache-dir --upgrade pip setuptools wheel elasticsearch<span style="color:#f92672">==</span>8.13.0 <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>pip3 install --no-cache-dir --upgrade -r ./requirements.txt <span style="color:#f92672">&amp;&amp;</span> pip3 install -r ./requirements.txt
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ADD . <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remove compilers</span>
-</span></span><span style="display:flex;"><span>RUN apt-get remove gcc --purge -y
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Drop root and change ownership of the application folder to the user</span>
-</span></span><span style="display:flex;"><span>RUN chown -R <span style="color:#e6db74">${</span>USER_ID<span style="color:#e6db74">}</span>:<span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span>USER <span style="color:#e6db74">${</span>USER_ID<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expose Honeypot ports to outside world</span>
-</span></span><span style="display:flex;"><span> EXPOSE 8443:8443
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># run cowrie with config</span>
-</span></span><span style="display:flex;"><span>CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;python3&#34;</span>, <span style="color:#e6db74">&#34;start.py&#34;</span>, <span style="color:#e6db74">&#34;--config&#34;</span>, <span style="color:#e6db74">&#34;config.json&#34;</span><span style="color:#f92672">]</span></span></span></code></pre></div>
-<p>In this Dockerfile, I:</p>
-<ul>
-<li>Installed necessary dependencies, including Python and pip</li>
-<li>Installed the required packages, including HoneyPot HTTPD</li>
-<li>Set the working directory to /usr/local/bin to run the application
-from</li>
-<li>Exposed port 80 for HTTP traffic</li>
-<li>Copied the configuration file (config.yaml) into the container</li>
-<li>Specified the command to run HoneyPot HTTPD with the -c option,
-which points</li>
-<li>to the configuration file</li>
-</ul>
-</li>
-<li>
-<p>Building and Running the Container</p>
-<p>Once I had created the Dockerfile, I built the image by running the
-following command:</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo docker build -t honeyhttpd .</span></span></code></pre></div>
-<p>This command told Docker to create an image with the tag honeyhttpd
-using the instructions in the Dockerfile.To run the container, I used
-the following command:</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo docker run --hostname honeyhttpd -p 8443:8443 honeyhttpd</span></span></code></pre></div>
-<p>This command started a new container from the honeyhttpd image and
-mapped port 8443 on the host machine to the port 8443 in the container.</p>
-</li>
-<li>
-<p>Configuring the Container</p>
-<p>To configure the honeypot, I updated the config.yaml file to point to
-my Elasticsearch instance. Here&rsquo;s an example of what the configuration
-file might look like:</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;loggers&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ElasticSearchLogger&#34;</span>: {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;active&#34;</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;config&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;server&#34;</span>: <span style="color:#e6db74">&#34;https://192.168.210.95:9200&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;verify_certs&#34;</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;elastic&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;SecretPassword&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;index&#34;</span>: <span style="color:#e6db74">&#34;cowrie.webhoneypot&#34;</span>,
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }</span></span></code></pre></div>
-<p>the server config itself is quite simplistic:</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;servers&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> [
-</span></span><span style="display:flex;"><span>        {<span style="color:#f92672">&#34;handler&#34;</span>: <span style="color:#e6db74">&#34;ApachePasswordServer&#34;</span>, <span style="color:#f92672">&#34;mode&#34;</span>: <span style="color:#e6db74">&#34;https&#34;</span>, <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">8443</span>, <span style="color:#f92672">&#34;domain&#34;</span>: <span style="color:#e6db74">&#34;cooldomain.com&#34;</span>, <span style="color:#f92672">&#34;timeout&#34;</span>: <span style="color:#ae81ff">10</span>, <span style="color:#f92672">&#34;cert_path&#34;</span>: <span style="color:#e6db74">&#34;server_cert.pem&#34;</span>, <span style="color:#f92672">&#34;key_path&#34;</span>: <span style="color:#e6db74">&#34;server_key.pem&#34;</span>},
-</span></span><span style="display:flex;"><span>    ]<span style="color:#960050;background-color:#1e0010">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;user&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;nobody&#34;</span><span style="color:#960050;background-color:#1e0010">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;group&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;nogroup&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span></span></span></code></pre></div>
-<p>This configuration told HoneyPot HTTPD to forward web traffic data to
-my Elasticsearch instance, where it could be processed and stored.</p>
-<p>For the cert_path and key_path we earlier copied the self signed cert and
-key to the container.</p>
-<p>With the container running and configured, I was now ready to test
-HoneyPot HTTPD&rsquo;s ability to ingest web traffic data into
-Elasticsearch.</p>
-<p>Which I did with just opening <a href="https://honeypot.home.arpa:8443" rel="external" target="_blank">https://honeypot.home.arpa:8443</a> in my
-webbrowser. Which gave me the htpasswd auth prompt.</p>
-</li>
-</ul>
-<h4 id="code-adjustments-for-our-environment">🚀 Code adjustments for our environment</h4>
-<p>I started from the original ApachePasswordServer in honeyhttpd, which was
-fairly minimal—it simply responded with a 401 on selected paths and captured
-credentials in a rudimentary way. I overhauled it to better structure logging,
-extract metadata, and sanitize inputs before sending logs to Elasticsearch.</p>
-<p>Below, I explain each change with commentary.</p>
-<ul>
-<li>
-<p>🔐 Improvements in ApachePasswordServer.py:</p>
-<p>This update significantly extends the functionality of ApachePasswordServer.py.
-It builds on the original honeyhttpd implementation by enhancing its ability to simulate
-Basic Authentication, extract and decode credentials from the `Authorization` header,
-and log structured metadata about each HTTP request and response.</p>
-<p>It now integrates tightly with an `ElasticSearchLogger`, providing enriched, sanitized logs
-for further analysis or visualization. Custom helper functions ensure safe parsing,
-while connection and client metadata offer greater context to the captured events.</p>
-<!-- raw HTML omitted -->
-<ul>
-<li>
-<p>📊 Summary of Changes</p>
-<ul>
-<li>2 files changed: ApachePasswordServer.py and Elasticsearchlogger.py</li>
-<li>Key improvements:
-<ul>
-<li>Simulation of Basic Auth (401 challenge on sensitive paths)</li>
-<li>Credential extraction and decoding from `Authorization` header</li>
-<li>Connection metadata collection (IP, port, useragent etc.)</li>
-<li>Header parsing with case-insensitive lookup</li>
-<li>Structured request and response logging</li>
-<li>Integration with `ElasticSearchLogger`</li>
-<li>Safer JSON serialization and error handling</li>
-</ul>
-</li>
-</ul>
-<p>Here I describe how I extended the honeypot server to improve credential
-logging and integrate with Elasticsearch for structured logging.</p>
-<p>Starting from a basic server that simply issued 401 responses,
-I added features to parse HTTP requests, decode Basic Auth headers,
-and enrich logs with request and connection metadata. This makes the
-server far more useful for DFIR research and threat hunting.</p>
-<hr>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>Original baseline (for reference)</p>
-<p>Big thanks to the great ground wrok from bocajspear1
-over at github with the <a href="https://github.com/bocajspear1/honeyhttpd" rel="external" target="_blank">honeyHTTPD</a> Server. That way
-I did not had to write all from scratch. But I still had to
-make some improvements in order to use the honeypot in my Environment.</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> servers.ApacheServer <span style="color:#f92672">import</span> ApacheServer
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> honeyhttpd.lib.encode <span style="color:#66d9ef">as</span> encode
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ApachePasswordServer</span>(ApacheServer):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_request</span>(self, handler):
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>, <span style="color:#66d9ef">None</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_GET</span>(self, path, headers):
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> path <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#f92672">or</span> path <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;/index.php&#34;</span> <span style="color:#f92672">or</span> path <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;/admin&#34;</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">401</span>, [],  <span style="color:#e6db74">&#34;Basic realm=</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">Secure Area</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">404</span>, [], <span style="color:#e6db74">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_POST</span>(self, path, headers, post_data):
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">404</span>, [], <span style="color:#e6db74">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_error</span>(self, code, headers, message):
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> code, [(<span style="color:#e6db74">&#34;Connection&#34;</span>, <span style="color:#e6db74">&#34;close&#34;</span>), (<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;text/html; charset=iso-8859-1&#34;</span>)], message
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_complete</span>(self, client, code, req_headers, res_headers, request, response):
-</span></span><span style="display:flex;"><span>        extra <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> header <span style="color:#f92672">in</span> req_headers:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> header[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>lower() <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;authorization&#34;</span>:
-</span></span><span style="display:flex;"><span>                auth_split <span style="color:#f92672">=</span> header[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34; &#34;</span>)
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> len(auth_split) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
-</span></span><span style="display:flex;"><span>                    auth_data <span style="color:#f92672">=</span> auth_split[<span style="color:#ae81ff">1</span>]
-</span></span><span style="display:flex;"><span>                    extra[<span style="color:#e6db74">&#39;creds&#39;</span>] <span style="color:#f92672">=</span> encode<span style="color:#f92672">.</span>decode_base64(auth_data)
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>log(client, request, response, extra)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">default_headers</span>(self):
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> []</span></span></code></pre></div>
-</li>
-</ul>
-<ul>
-<li>
-<p>🆕 Auto-Injection of ElasticSearchLogger in <strong>init</strong>()</p>
-<p>To ensure consistent structured logging, `ElasticSearchLogger` is
-now injected into the logger stack if not already present.</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#a6e22e">+ if loggers is None:
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+     loggers = []
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+ if not any(isinstance(logger, ElasticSearchLogger) for logger in loggers):
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+     loggers.append(ElasticSearchLogger())
-</span></span></span></code></pre></div>
-<p>This avoids missing logs if the user forgets to pass a logger during instantiation.</p>
-<hr>
-</li>
-</ul>
-<ul>
-<li>
-<p>🔐 New GET Handler Simulates Apache Basic Auth Challenge</p>
-<p>The server now returns `401 Unauthorized` and prompts for credentials on common admin paths.</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#a6e22e">+ def on_GET(self, path, headers):
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+     if path in [&#34;/&#34;, &#34;/index.php&#34;, &#34;/admin&#34;]:
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+         return 401, [], &#39;Basic realm=&#34;Secure Area&#34;&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+     return 404, [], &#34;&#34;
-</span></span></span></code></pre></div>
-<p>This turns the honeypot into a credential trap for automated brute-forcers and scanners.</p>
-<hr>
-</li>
-</ul>
-<ul>
-<li>
-<p>🧰 New Helper Functions for Header Parsing and Auth Decoding</p>
-<p>I had to introduce two utility functions:</p>
-<ul>
-<li>parse_to_json() transforms header tuples into a JSON dictionary.</li>
-<li>decode_basic_auth() decodes Base64 credentials and validates them.</li>
-</ul>
-<!-- raw HTML omitted -->
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">parse_to_json</span>(data):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> json<span style="color:#f92672">.</span>dumps({key: value <span style="color:#66d9ef">for</span> key, value <span style="color:#f92672">in</span> data})
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decode_basic_auth</span>(b64_string):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
-</span></span><span style="display:flex;"><span>        decoded_bytes <span style="color:#f92672">=</span> base64<span style="color:#f92672">.</span>b64decode(b64_string, validate<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-</span></span><span style="display:flex;"><span>        decoded_str <span style="color:#f92672">=</span> decoded_bytes<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;utf-8&#39;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#f92672">in</span> decoded_str:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> decoded_str
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;[invalid format: missing colon]&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[decode error: </span><span style="color:#e6db74">{</span>e<span style="color:#e6db74">}</span><span style="color:#e6db74">]&#34;</span></span></span></code></pre></div>
-<p>These enable safe and consistent parsing for incoming HTTP headers.</p>
-<hr>
-</li>
-</ul>
-<ul>
-<li>
-<p>📦 Structured Request Parsing &amp; Credential Extraction in on_complete()</p>
-<p>I had to completely rework the on_complete() method to:</p>
-<ul>
-<li>Parse the HTTP request line</li>
-<li>Convert headers to a JSON object</li>
-<li>Extract relevant metadata and credentials</li>
-<li>Store all data in `req_dict`, passed to the logger</li>
-</ul>
-<!-- raw HTML omitted -->
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#f92672">-        extra = {}
-</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+        req_dict = {}
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>...
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        lines = request.split(&#39;\n&#39;)
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        first_line = lines[0].strip()
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        parts = first_line.split()
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        requested_url = parts[1] if len(parts) &gt; 1 else &#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        method = parts[0] if len(parts) &gt; 0 else &#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;request_body&#39;] = requested_url
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;method&#39;] = method
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;code&#39;] = code
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        try:
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            req_output = parse_to_json(req_headers)
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            parsed_req = json.loads(req_output)
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        except Exception as e:
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            parsed_req = {}
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        for key in [&#39;Host&#39;, &#39;User-Agent&#39;, &#39;Accept&#39;, &#39;Accept-Language&#39;,
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                    &#39;Accept-Encoding&#39;, &#39;Authorization&#39;]:
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            req_dict[key] = parsed_req.get(key, &#39;&#39;)
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        auth = parsed_req.get(&#39;Authorization&#39;, &#39;&#39;)
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        if auth.startswith(&#34;Basic &#34;):
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            try:
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                auth_data = auth.split(&#34; &#34;, 1)[1]
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                decoded_creds = encode.decode_base64(auth_data)
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                req_dict[&#39;creds&#39;] = decoded_creds
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+            except Exception as e:
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+                req_dict[&#39;creds&#39;] = f&#34;[decode error: {e}]&#34;
-</span></span></span></code></pre></div>
-<p>This prepares the logs to include useful hunting metadata for later analysis.</p>
-<hr>
-</li>
-</ul>
-<ul>
-<li>
-<p>🌐 Enriched Connection Metadata Logging</p>
-<p>Additional context is logged to req_dict, including:</p>
-<ul>
-<li>Remote IP and port</li>
-<li>SSL usage</li>
-<li>Listening port</li>
-<li>HTTP response code</li>
-<li>Response headers</li>
-</ul>
-<!-- raw HTML omitted -->
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#a6e22e">+        remote_ip = client[0] if isinstance(client, tuple) else &#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        remote_port = client[1] if isinstance(client, tuple) else &#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        is_ssl = getattr(self, &#39;is_ssl&#39;, False)
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        port = getattr(self, &#39;port&#39;, &#39;8843&#39;)
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;remote_ip&#39;] = remote_ip
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;remote_port&#39;] = remote_port
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;is_ssl&#39;] = is_ssl
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;port&#39;] = port
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        req_dict[&#39;response_headers&#39;] = res_dict
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        self.log(client, request, response, res_dict, req_dict)
-</span></span></span></code></pre></div>
-<p>This provides rich forensic data for Elasticsearch or Splunk pipelines.</p>
-<hr>
-</li>
-</ul>
-<ul>
-<li>
-<p>🔑 Highlights</p>
-<ul>
-<li>
-<p><strong><strong>🆕 Auto-injection of `ElasticSearchLogger`</strong></strong>
-Ensures logs are never silently dropped, even if no logger is passed explicitly.</p>
-</li>
-<li>
-<p><strong><strong>🔐 Basic Auth Simulation with 401 Challenge</strong></strong>
-Returns `401 Unauthorized` on suspicious paths to bait scanners.</p>
-</li>
-<li>
-<p><strong><strong>🧰 Safe Parsing &amp; Decoding with Helpers</strong></strong>
-New functions parse_to_json() and decode_basic_auth() added for reliability.</p>
-</li>
-<li>
-<p><strong><strong>📦 Structured Logging in on_complete()</strong></strong>
-Fully rewritten to extract metadata, decode credentials, and prepare logs.</p>
-</li>
-<li>
-<p><strong><strong>🌐 Rich Connection Context</strong></strong>
-Logs IP, port, and full response headers for correlation.</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>🧠 Use Case</p>
-<p>These changes upgrade ApachePasswordServer.py from a toy honeypot to a serious
-data source for threat hunting. It can now be safely deployed in research
-environments, logging attack metadata in structured formats ideal for analysis
-pipelines like Elasticsearch + Kibana or Splunk.</p>
-</li>
-</ul>
-<h4 id="v-dot-conclusion">📝 Conclusion</h4>
-<ul>
-<li>
-<p>🔑 Key points about the changes in honeyhttpd</p>
-<p>This article detailed how I enhanced ApachePasswordServer.py and
-ElasticSearchLogger to make the simple honeypot into a powerful
-tool for capturing attacker behavior.</p>
-<p>I added Structured parsing of HTTP requests and responses combined with
-integration into ElasticSearchLogger allowed to generate rich, queryable logs,
-complete with client metadata, HTTP headers, and decoded credentials.</p>
-<p>This setup not only captures raw data but also organizes it in a way that
-facilitates downstream analysis using Elasticsearch or similar log management
-platforms.</p>
-</li>
-</ul>
-<ul>
-<li>
-<p>💡 Final thoughts</p>
-<p>Deploying this enhanced honeypot within your environment equips you with
-detailed, actionable insights into attacker tactics and techniques.
-The ability to collect and analyze credential attempts and associated metadata
-improves detection and supports incident response efforts.</p>
-<p>By bridging the gap between mere detection and detailed forensic logging, this
-solution empowers proactive threat hunting and accelerates the identification
-of emerging attack patterns. Integrating it into your security operations stack
-can thus significantly boost your detection and defense capabilities.</p>
-<p><!-- raw HTML omitted -->TODO<!-- raw HTML omitted --> - Extensive testing of the honeypot, there will be an article coming up
-how to do automated honeypot testing with Zap proxy, stay tuned!</p>
-<p><!-- raw HTML omitted -->TODO<!-- raw HTML omitted --> - Still need to deploy the honeypot to my honeypot server so that I can
-see how it operates in a live scenario. If you faster than me let me know you
-results</p>
-<p><!-- raw HTML omitted -->TODO<!-- raw HTML omitted --> - Upload the new honeyhttpd code to a git repo and ask honeyhttpd author
-if they interessted in a merge request from my code.</p>
-<p>Next, we will talk about Setting up the ELK Server and how to ingest data.
-Stay tuned!</p>
-<div id="giscus-comments" style="margin-top: 2rem;">
-        <script src="https://giscus.app/client.js"
-                data-repo="PolymathMonkey/weblog"
-                data-repo-id="R_kgDOOvWS_g"
-                data-category="General"
-                data-category-id="DIC_kwDOOvWS_s4CsdWD"
-                data-mapping="pathname"
-                data-theme="dark"
-                crossorigin="anonymous"
-                async>
-        </script>
-    </div>
-
-</li>
-</ul>
 <h2 id="threathunting-iv-setup-elk-server-and-ingest-data"><!-- raw HTML omitted -->DRAFT<!-- raw HTML omitted --> Threathunting IV: Setup ELK Server and ingest data <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted -->visibility<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
 <h2 id="testing-webhoneypots-with-zap-in-server-mode"><!-- raw HTML omitted -->DRAFT<!-- raw HTML omitted --> Testing webhoneypots with ZAP in server mode <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
 <h2 id="threathuntingnet"><!-- raw HTML omitted -->DONE<!-- raw HTML omitted --> Threathunting I: Network setup <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted -->honeypot<!-- raw HTML omitted --><!-- raw HTML omitted -->visibility<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
@@ -806,7 +364,7 @@ to threat intelligence and network defense.</p>
 <p>I drew inspiration for this setup from the DShield SIEM project by SANS and
 would like to express my gratitude for their valuable work.</p>
 <h3 id="whats-next">Whats next</h3>
-<p>Next I had to build the <a href="/artifacts/theathuntinghoneypot/index.html">ssh honeypot</a> and the <a href="~/../honeyhttpd">HTTP Honeypot</a>, stay tuned for the
+<p>Next I had to build the <a href="/artifacts/theathuntinghoneypot/index.html">ssh honeypot</a> and the <a href="/artifacts/honeyhttpd/index.html">HTTP Honeypot</a>, stay tuned for the
 follow up!</p>
 <div id="giscus-comments" style="margin-top: 2rem;">
     <script src="https://giscus.app/client.js"
@@ -1282,7 +840,7 @@ the logs to:</p>
 <li>Now I can sit back, sip coffee, and watch the kiddies play.</li>
 </ul>
 <h3 id="whats-next">Whats next</h3>
-<p>Next I build the <a href="~/../honeyhttpd">HTTP Honeypot</a></p>
+<p>Next I build the <a href="/artifacts/honeyhttpd/index.html">HTTP Honeypot</a></p>
 <div id="giscus-comments" style="margin-top: 2rem;">
     <script src="https://giscus.app/client.js"
             data-repo="PolymathMonkey/weblog"
@@ -1296,6 +854,216 @@ the logs to:</p>
     </script>
 </div>
 
+<h2 id="honeyhttpd"><!-- raw HTML omitted -->DONE<!-- raw HTML omitted --> Threat Hunting III: HTTP Honeypot <!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted -->honeypot<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h3 id="introduction">Introduction</h3>
+<p>I set out to build a honeypot that captures HTTP attack traffic and forwards it directly to Elasticsearch for analysis. Instead of reinventing the wheel, I built on top of <code>honeyhttpd</code> by bocajspear1 and added structured logging, credential extraction, and proper sanitization.</p>
+<p>The result is a production-ready honeypot that simulates an Apache server protected by HTTP Basic Authentication, capturing attacker credentials and request metadata in queryable Elasticsearch documents.</p>
+<h3 id="architecture-overview">Architecture Overview</h3>
+<p>The honeypot works in three layers:</p>
+<ol>
+<li><code>ApachePasswordServer</code> — Demands Basic Auth on every request, parses HTTP headers, and collects metadata</li>
+<li><code>ElasticSearchLogger</code> — Sanitizes logs and indexes them into Elasticsearch</li>
+<li>Docker Container — Runs the entire stack in an isolated environment</li>
+</ol>
+<h3 id="containerizing-with-docker">Containerizing with Docker</h3>
+<p>I packaged the honeypot as a Docker container for easy deployment:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">python:3</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> APP_NAME<span style="color:#f92672">=</span>honeyhttpd
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ARG</span> USER_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10001&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> GROUP_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> HOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/app&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> HOME<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Create unprivileged user</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> groupadd --gid <span style="color:#e6db74">${</span>USER_ID<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    useradd --create-home --uid <span style="color:#e6db74">${</span>USER_ID<span style="color:#e6db74">}</span> --gid <span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span> --home-dir /app <span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Install dependencies</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apt-get update <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get install -y --no-install-recommends <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        file gcc libwww-perl curl unzip <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get clean <span style="color:#f92672">&amp;&amp;</span> apt-get autoremove -y<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span> <span style="color:#e6db74">${HOME</span><span style="color:#f92672">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy application files</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./requirements.txt .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./config.json .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./server*.pem .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./ca.crt .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> honeyhttpd logs servers util .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> start.py .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Install Python dependencies</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip3 install --upgrade pip setuptools wheel <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    pip3 install --no-cache-dir elasticsearch<span style="color:#f92672">==</span>8.13.0 <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    pip3 install --no-cache-dir -r ./requirements.txt<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Remove build tools to reduce image size</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apt-get remove gcc --purge -y<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Set permissions and drop root</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> chown -R <span style="color:#e6db74">${</span>USER_ID<span style="color:#e6db74">}</span>:<span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">USER</span> <span style="color:#e6db74">${USER_ID</span><span style="color:#f92672">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span> <span style="color:#e6db74">8443</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;python3&#34;</span>, <span style="color:#e6db74">&#34;start.py&#34;</span>, <span style="color:#e6db74">&#34;--config&#34;</span>, <span style="color:#e6db74">&#34;config.json&#34;</span>]</span></span></code></pre></div>
+<p>Build and run:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker build -t honeyhttpd .
+</span></span><span style="display:flex;"><span>docker run --hostname honeyhttpd -p 8443:8443 honeyhttpd</span></span></code></pre></div>
+<h3 id="configuration">Configuration</h3>
+<p>Point the honeypot at your Elasticsearch instance via <code>config.json</code>:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;loggers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ElasticSearchLogger&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;active&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;config&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;server&#34;</span>: <span style="color:#e6db74">&#34;https://elasticsearch.example.com:9200&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;verify_certs&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;elastic&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;your-password&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;index&#34;</span>: <span style="color:#e6db74">&#34;honeypot-http&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;servers&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;handler&#34;</span>: <span style="color:#e6db74">&#34;ApachePasswordServer&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;mode&#34;</span>: <span style="color:#e6db74">&#34;https&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">8443</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;domain&#34;</span>: <span style="color:#e6db74">&#34;target.example.com&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;timeout&#34;</span>: <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;cert_path&#34;</span>: <span style="color:#e6db74">&#34;server_cert.pem&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;key_path&#34;</span>: <span style="color:#e6db74">&#34;server_key.pem&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h3 id="code-improvements">Code Improvements</h3>
+<h4 id="apachepasswordserver-dot-py">ApachePasswordServer.py</h4>
+<p>The server now properly simulates HTTP Basic Authentication and captures credentials in a structured way.</p>
+<p><strong>Key features:</strong></p>
+<ul>
+<li><code>on_request()</code> — Enforces Basic Auth on every request. Returns 401 if Authorization header is missing</li>
+<li><code>on_POST()</code> — Stashes POST bodies for logging (critical for capturing login attempts)</li>
+<li><code>on_complete()</code> — Parses HTTP metadata: method, URL, request/response headers, and decodes Basic Auth credentials</li>
+</ul>
+<p>Helper functions:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_decode_basic_auth</span>(b64_string):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Decode Base64 Basic-Auth credentials into &#39;user:pass&#39;.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        decoded_bytes <span style="color:#f92672">=</span> base64<span style="color:#f92672">.</span>b64decode(b64_string, validate<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>        decoded_str <span style="color:#f92672">=</span> decoded_bytes<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;utf-8&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> decoded_str <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#f92672">in</span> decoded_str <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;[invalid format]&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[decode error: </span><span style="color:#e6db74">{</span>e<span style="color:#e6db74">}</span><span style="color:#e6db74">]&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_extract_post_body</span>(raw_request):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Extract POST body from raw HTTP request.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\r\n\r\n</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">in</span> raw_request:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> raw_request<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\r\n\r\n</span><span style="color:#e6db74">&#39;</span>, <span style="color:#ae81ff">1</span>)[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">in</span> raw_request:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> raw_request<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#39;</span>, <span style="color:#ae81ff">1</span>)[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;&#39;</span></span></span></code></pre></div>
+<p>The <code>on_complete()</code> method collects:</p>
+<ul>
+<li>HTTP method and URL</li>
+<li>Request/response headers (User-Agent, Accept, Content-Type, etc.)</li>
+<li>HTTP status code</li>
+<li>Decoded credentials (username:password)</li>
+<li>POST body (for form submissions)</li>
+</ul>
+<h4 id="elasticsearchlogger-dot-py">ElasticSearchLogger.py</h4>
+<p>The logger sanitizes all input before indexing to prevent injection attacks and ensure clean Elasticsearch documents.</p>
+<p><strong>Sanitization functions:</strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sanitize_string</span>(s, max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Remove control characters and truncate strings.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(s, str):
+</span></span><span style="display:flex;"><span>        s <span style="color:#f92672">=</span> str(s)
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>sub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>, s)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> len(s) <span style="color:#f92672">&gt;</span> max_length:
+</span></span><span style="display:flex;"><span>        s <span style="color:#f92672">=</span> s[:max_length] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;...[cut]...&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> s
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sanitize_dict</span>(d, max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Recursively sanitize dictionaries and lists.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># ... sanitizes nested structures</span></span></span></code></pre></div>
+<p><strong>Elasticsearch indexing:</strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>log_entry <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;@timestamp&#34;</span>: datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now(datetime<span style="color:#f92672">.</span>timezone<span style="color:#f92672">.</span>utc)<span style="color:#f92672">.</span>isoformat(),
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;remote_ip&#34;</span>: remote_ip,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;remote_port&#34;</span>: remote_port,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;protocol&#34;</span>: <span style="color:#e6db74">&#34;https&#34;</span> <span style="color:#66d9ef">if</span> is_ssl <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;http&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;port&#34;</span>: port,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;request&#34;</span>: request,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;response&#34;</span>: response,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;http.response.status_code&#34;</span>: status_code,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;http.request.method&#34;</span>: method,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;user_agent.original&#34;</span>: user_agent,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;http.request.body.content&#34;</span>: post_body,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;creds&#34;</span>: decoded_credentials,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;host.name&#34;</span>: hostname
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<p>These fields are compatible with Elasticsearch&rsquo;s ECS (Elastic Common Schema), making queries and alerts straightforward.</p>
+<h3 id="advantages-over-the-original">Advantages Over the Original</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Original</th>
+          <th>Improved</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Credential Capture</td>
+          <td>Basic string parsing</td>
+          <td>Base64 decoding + validation</td>
+      </tr>
+      <tr>
+          <td>POST Body Handling</td>
+          <td>Not captured</td>
+          <td>Properly extracted and logged</td>
+      </tr>
+      <tr>
+          <td>Input Sanitization</td>
+          <td>None</td>
+          <td>Removes control chars, truncates</td>
+      </tr>
+      <tr>
+          <td>Error Handling</td>
+          <td>Minimal</td>
+          <td>Comprehensive logging</td>
+      </tr>
+      <tr>
+          <td>Elasticsearch Integration</td>
+          <td>Manual logging</td>
+          <td>Direct indexing with ECS schema</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="testing">Testing</h3>
+<p>Once deployed, test the honeypot:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -k -u attacker:password https://localhost:8443/</span></span></code></pre></div>
+<p>This should trigger a Basic Auth challenge. When credentials are provided, they get captured and indexed in Elasticsearch.</p>
+<p>Query Elasticsearch:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X GET <span style="color:#e6db74">&#34;elasticsearch:9200/honeypot-http/_search?q=creds:*&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -u elastic:password</span></span></code></pre></div>
+<h3 id="next-steps">Next Steps</h3>
+<ul>
+<li><!-- raw HTML omitted -->TODO<!-- raw HTML omitted -->: Automated testing with OWASP ZAP or similar tools</li>
+<li><!-- raw HTML omitted -->TODO<!-- raw HTML omitted -->: Deploy to production honeypot server for live monitoring</li>
+<li><!-- raw HTML omitted -->TODO<!-- raw HTML omitted -->: Submit improvements as pull request to original honeyhttpd project</li>
+<li><!-- raw HTML omitted -->TODO<!-- raw HTML omitted -->: ELK Stack setup guide for visualization and alerting</li>
+</ul>
+<h3 id="summary">Summary</h3>
+<p>This enhanced honeypot transforms a simple HTTP challenge responder into a structured threat hunting tool. By capturing credentials, request metadata, and response data in Elasticsearch, you gain visibility into attack patterns and attacker behavior.</p>
+<p>The honeypot is production-ready: it handles edge cases, sanitizes malicious input, and integrates seamlessly with existing SIEM infrastructure.</p>
 <h2 id="sans_for608"><!-- raw HTML omitted -->DONE<!-- raw HTML omitted --> Sans FOR608 <!-- raw HTML omitted --><!-- raw HTML omitted -->@forensic<!-- raw HTML omitted --><!-- raw HTML omitted -->@threathunting<!-- raw HTML omitted --><!-- raw HTML omitted -->honeypot<!-- raw HTML omitted --><!-- raw HTML omitted -->canarytokens<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
 <h3 id="enterprise-threat-hunting-and-response--for608">Enterprise Threat Hunting and Incident Response (FOR608)</h3>
 <p>My employer booked me back in 2025 onto SANS FOR608 in the on-demand
@@ -1517,7 +1285,7 @@ Cloud fundamentals will make 608.5 easier to follow.</p>
 </li>
 </ul>
 <h2 id="openbsdmalloc"><!-- raw HTML omitted -->DONE<!-- raw HTML omitted --> The unseen hero of OpenBSD <!-- raw HTML omitted --><!-- raw HTML omitted -->openbsd<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
-<h3 id="the-unseen-hero-of-openbsd-openbsd-s-malloc">The unseen hero of OpenBSD: OpenBSD&rsquo;s malloc</h3>
+<h3 id="the-unseen-hero-of-openbsd-otto-s-malloc">The unseen hero of OpenBSD: otto&rsquo;s malloc</h3>
 <h4 id="what-this-is-about">What this is about</h4>
 <p>This is me learning about OpenBSD&rsquo;s malloc.</p>
 <p>I try not to do a surface-level overview.</p>
@@ -1525,7 +1293,7 @@ Cloud fundamentals will make 608.5 easier to follow.</p>
 decisions, and why those decisions make heap exploitation so much
 harder.</p>
 <hr>
-<h4 id="start-here-what-malloc-actually-does">Start here: what malloc actually does</h4>
+<h4 id="what-malloc-actually-does">What malloc actually does</h4>
 <p>Every C program that needs memory at runtime calls <code>malloc</code>.</p>
 <p><code>malloc</code> is a library function. It&rsquo;s not a syscall &ndash; it&rsquo;s a layer
 between your code and the kernel.</p>
@@ -1546,7 +1314,7 @@ exploit.</p>
 <p>OpenBSD&rsquo;s malloc is designed to make these bugs loud, to turn silent
 corruption into immediate, reproducible crashes.</p>
 <hr>
-<h4 id="a-brief-history-how-we-got-here">A brief history: how we got here</h4>
+<h4 id="how-we-got-here">How we got here</h4>
 <ul>
 <li>
 <p>The original: sbrk() and one big heap</p>
@@ -1562,7 +1330,7 @@ where things would be in memory.</p>
 <li>
 <p>2001: mmap instead of sbrk</p>
 <p>Thierry Deval rewrote OpenBSD&rsquo;s malloc to use <code>mmap()</code> instead.</p>
-<p><code>mmap()</code> is a syscall that requests a fresh page of memory from the
+<p><code>mmap()</code> is a syscall that requests a fresh page (4k Bytes on x86/64) of memory from the
 kernel. Unlike <code>sbrk()</code>, it doesn&rsquo;t have to extend a single contiguous
 block. Each call can land anywhere in the address space.</p>
 <p>This was the first major break from the &ldquo;one big heap&rdquo; model.</p>
@@ -1663,7 +1431,16 @@ behavior. Not performance. Safety.</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">#endif
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">u_int32_t</span> malloc_canary;	<span style="color:#75715e">/* Matched against ones in pool */</span>
 </span></span><span style="display:flex;"><span>};</span></span></code></pre></div>
-<p>I stipped away the MALLOC_STATS, you can find the full struct defintion <a href="https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c#L233" rel="external" target="_blank">here</a></p>
+<p>I stipped away the MALLOC_STATS, you can find the full struct defintion <a href="https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c#L233" rel="external" target="_blank">here</a>.</p>
+<p>Why is this structure in read-only memory? An attacker cannot directly corrupt
+<code>dir_info</code> because the canaries would catch that. However, if <code>malloc_readonly</code>
+were writable, an attacker could disable security features. For example,
+setting <code>malloc_freecheck</code> to zero would silence double-free detection.</p>
+<p>Setting <code>malloc_freeunmap</code> to zero would allow use-after-free bugs to succeed silently.
+To prevent this, the entire configuration structure lives in a read-only memory
+region, established via <code>mprotect(PROT_READ)</code> after initialization. The kernel
+will refuse any write attempt to this segment, forcing any exploit to crash
+rather than succeed.</p>
 </li>
 </ul>
 <ul>
@@ -1680,7 +1457,7 @@ heap exploits are built on exactly this.</p>
 <ul>
 <li>
 <p>Small allocations: chunks and buckets</p>
-<p>Allocations smaller than half a page go into chunk pages.</p>
+<p>Allocations smaller than half ( &gt; 2k ) a page go into chunk pages.</p>
 <p>A chunk page is one <code>mmap</code>&rsquo;d page divided into uniform slots of the
 same size. Each chunk page is described by a <code>struct chunk_info</code>.</p>
 <p><a href="https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c#L217" rel="external" target="_blank">https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c#L217</a></p>
@@ -1696,8 +1473,26 @@ same size. Each chunk page is described by a <code>struct chunk_info</code>.</p>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#define CHUNK_INFO_TAIL			3
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        u_short bits[CHUNK_INFO_TAIL];	<span style="color:#75715e">/* which chunks are free */</span>
 </span></span><span style="display:flex;"><span>};</span></span></code></pre></div>
-<p>Slot selection within a chunk page uses the <code>rbytes</code> pool from
-<code>dir_info</code>. Which specific slot you get is not deterministic.</p>
+<p>The <code>bits</code> member deserves closer attention. It is a bitset composed of three
+<code>u_short</code> elements, totaling 48 bits. Each bit represents one slot within the
+chunk page. A bit value of 1 means the slot is free and available for
+allocation.</p>
+<p>A bit value of 0 means the slot is already allocated. This allows a single
+<code>chunk_info</code> structure to manage up to 48 chunks per page. When the allocator
+needs to place a new small allocation, it scans the bitset to find a free
+slot. The comment &ldquo;number of shorts should add up to 8&rdquo; refers to a deliberate
+size constraint. The entire <code>chunk_info</code> structure, including canary, bucket,
+free, total, offset, and the 6 bytes for the bits array, totals exactly 18
+bytes.</p>
+<p>This fixed, predictable size is not an accident. A structure this compact means
+that any corruption to <code>chunk_info</code> will immediately violate the surrounding
+memory layout expectations, triggering the canary check and causing the
+allocator to abort.</p>
+<p>Slot selection within a chunk page uses the <code>rbytes</code> pool from <code>dir_info</code>. The
+allocator does not simply take the first free slot. Instead, it hashes or
+randomly indexes into the available slots, ensuring that attackers cannot
+predict where your allocation will land. Which specific slot you get is
+not deterministic.</p>
 </li>
 </ul>
 <ul>
@@ -1714,8 +1509,15 @@ pointer to that address will fault on the next access.</p>
 <p><a href="https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c#L97" rel="external" target="_blank">https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c#L97</a></p>
 <div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#define SOME_JUNK      0xdb  </span><span style="color:#75715e">/* written on fresh allocation */</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define SOME_FREEJUNK  0xdf  </span><span style="color:#75715e">/* written before free */</span></span></span></code></pre></div>
-<p>When you see these values in a crash dump, you know immediately what
-kind of bug you&rsquo;re looking at.</p>
+<p>When you see these values in a crash dump or debugger, you know immediately
+what kind of bug you are looking at. The value 0xdb (11011011 in binary) is
+written to freshly allocated memory. The value 0xdf (11011111 in binary) is
+written to memory that has just been freed.</p>
+<p>Both values have the high bit set in each nibble, which makes them immediately
+suspicious when interpreted as pointers, ASCII strings, or integer values. An
+attacker cannot silently exploit these memory regions because the junk values
+will immediately cause dereferencing failures or type confusion that crashes
+the program.</p>
 <hr>
 </li>
 </ul>
@@ -1723,46 +1525,42 @@ kind of bug you&rsquo;re looking at.</p>
 <ul>
 <li>
 <p>Guard pages (<code>G</code>)</p>
-<p>An unmapped page placed after each page-size-or-larger allocation.</p>
+<p>“Guard”. Enable guard pages. Each page size or larger allocation is followed
+by a guard page that will cause a segmentation fault upon any access.</p>
 <div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sysctl vm.malloc_conf<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;G&#39;</span></span></span></code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>Junk filling (<code>J</code> / <code>j</code>)</p>
-<p>Level 1: freed memory gets filled with <code>0xdf</code>.
-Level 2: freshly allocated memory also gets filled with <code>0xdb</code>.</p>
+<p>J: “Junk”. Fill some junk into the area allocated. Currently junk is bytes of 0xd0 when allocating; this is pronounced “Duh”. :-) Freed chunks are filled with 0xdf.
+j: “Don&rsquo;t Junk”. By default, small chunks are always junked, and the first part of pages is junked after free. This option ensures that no junking is performed.</p>
 <div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sysctl vm.malloc_conf<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;JJ&#39;</span></span></span></code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
-<p>Redzones (<code>R</code>)</p>
-<p>Small allocations get padding. The canary check on free catches
-anything written into that padding.</p>
+<p>realloc (<code>R</code>)</p>
+<p>Always reallocate when realloc() is called, even if
+the initial allocation was big enough. This can substantially
+aid in compacting memory.</p>
 <div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sysctl vm.malloc_conf<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;R&#39;</span></span></span></code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>Use-after-free protection (<code>F</code>)</p>
-<p>Freed pages get <code>mprotect</code>&rsquo;d to <code>PROT_NONE</code> before entering the cache.</p>
+<p>Enable use after free detection. Unused pages on the freelist
+are read and write protected to cause a segmentation fault upon access.</p>
+<p>This will also switch off the delayed freeing of chunks, reducing random
+behaviour but detecting double free() calls as early as possible.</p>
 <div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sysctl vm.malloc_conf<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;F&#39;</span></span></span></code></pre></div>
-</li>
-</ul>
-<ul>
-<li>
-<p>Combining flags</p>
-<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Strong development / fuzzing setup</span>
-</span></span><span style="display:flex;"><span>sysctl vm.malloc_conf<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;GJJRF&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Shorthand: all security-relevant options at once</span>
-</span></span><span style="display:flex;"><span>sysctl vm.malloc_conf<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;S&#39;</span></span></span></code></pre></div>
+<p>Full list of <a href="https://man.openbsd.org/OpenBSD-5.6/malloc.conf.5#MALLOC_OPTIONS" rel="external" target="_blank">malloc options</a></p>
 <hr>
 </li>
 </ul>
 <h4 id="why-classic-heap-exploits-fail-here">Why classic heap exploits fail here</h4>
-<p>The <code>unsafe unlink</code> technique against glibc relies on predictable
+<p>The <a href="https://heap-exploitation.dhavalkapil.com/attacks/unlink_exploit" rel="external" target="_blank">unsafe unlink</a> exploit technique against glibc relies on predictable
 adjacency between allocations and in-band metadata.</p>
 <p>Against otto-malloc this fails because:</p>
 <ol>
@@ -1824,14 +1622,9 @@ eliminate the determinism exploitation depends on.</p>
   </tbody>
 </table>
 <hr>
-<h4 id="what-i-took-away-from-this">What I took away from this</h4>
-<p>The design is coherent. Every decision points in the same direction.</p>
-<p>Metadata out-of-band. Randomized placement. Read-only config.
-Canaries on bookkeeping structures. Junk fill. Guard pages.
-Fail fast on any inconsistency.</p>
-<p>Together they add up to an allocator that treats memory misuse as a
-hard contract violation rather than undefined behavior you get to
-exploit later.</p>
+<h4 id="what-i-took-away">What I took away</h4>
+<p>This was a fun project, I learned a lot about how the allocator in bsd protects
+the user from heap exploits.</p>
 <hr>
 <h4 id="references">References</h4>
 <ul>
@@ -1840,6 +1633,7 @@ exploit later.</p>
 <li><a href="https://www.openbsd.org/papers/eurobsdcon2023-otto-malloc.pdf" rel="external" target="_blank">Otto Moerbeek&rsquo;s malloc design talk (EuroBSDCon 2023)</a></li>
 <li><a href="https://isopenbsdsecu.re/mitigations/malloc/" rel="external" target="_blank">Summary of OpenBSD malloc evolution</a></li>
 <li><a href="https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c" rel="external" target="_blank">malloc.c source</a></li>
+<li><a href="https://heap-exploitation.dhavalkapil.com/attacks/unlink_exploit" rel="external" target="_blank">Unlink exploit explanation</a></li>
 </ul>
 <hr>
 <div id="giscus-comments" style="margin-top: 2rem;">
@@ -2403,7 +2197,7 @@ have a strong, decentralized identity system.</p>
 </div>
 
   <footer class="footline">
-              <i class='fa-fw fas fa-calendar'></i> Apr 20, 2026
+              <i class='fa-fw fas fa-calendar'></i> Apr 21, 2026
   </footer>
 </article>
         </div>
@@ -2449,11 +2243,11 @@ have a strong, decentralized identity system.</p>
         <div class="R-sidebarmenu R-shortcutmenu-main">
           <ul class="enlarge morespace collapsible-menu">
             <li class="parent " data-nav-id="/artifacts/index.html"><a class="padding" href="/artifacts/index.html">Artifacts</a><ul id="R-subsections-daf0213b858f6fe0b810dbdbfff8be9e" class="collapsible-menu">
-            <li class="" data-nav-id="/artifacts/openbsdmalloc/index.html"><a class="padding" href="/artifacts/openbsdmalloc/index.html">The unseen hero of OpenBSD</a></li>
+            <li class="" data-nav-id="/artifacts/honeyhttpd/index.html"><a class="padding" href="/artifacts/honeyhttpd/index.html">Threat Hunting III: HTTP Honeypot</a></li>
             <li class="" data-nav-id="/artifacts/threathuntingnet/index.html"><a class="padding" href="/artifacts/threathuntingnet/index.html">Threathunting I: Network setup</a></li>
-            <li class="" data-nav-id="/artifacts/theathuntinghoneypot/index.html"><a class="padding" href="/artifacts/theathuntinghoneypot/index.html">Threat hunting II: SSH Honeypot</a></li>
             <li class="" data-nav-id="/artifacts/sans_for608/index.html"><a class="padding" href="/artifacts/sans_for608/index.html">Sans FOR608</a></li>
-            <li class="" data-nav-id="/artifacts/monitmon/index.html"><a class="padding" href="/artifacts/monitmon/index.html">Monitor systems with monit</a></li>
+            <li class="" data-nav-id="/artifacts/theathuntinghoneypot/index.html"><a class="padding" href="/artifacts/theathuntinghoneypot/index.html">Threat hunting II: SSH Honeypot</a></li>
+            <li class="" data-nav-id="/artifacts/openbsdmalloc/index.html"><a class="padding" href="/artifacts/openbsdmalloc/index.html">The unseen hero of OpenBSD</a></li>
             <li class="" data-nav-id="/artifacts/yellowshardsinelastic/index.html"><a class="padding" href="/artifacts/yellowshardsinelastic/index.html">Fixing Yellow Shards in Elasticsearch</a></li>
             <li class="" data-nav-id="/artifacts/rescuetotheraid/index.html"><a class="padding" href="/artifacts/rescuetotheraid/index.html">Rescue to the softraid</a></li>
             <li class="" data-nav-id="/artifacts/gpgonmyyubi/index.html"><a class="padding" href="/artifacts/gpgonmyyubi/index.html">Putting my gpg key on my yubikey</a></li>
@@ -2493,8 +2287,8 @@ have a strong, decentralized identity system.</p>
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/js/clipboard/clipboard.min.js?1776707666" defer></script>
-    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1776707666" defer></script>
-    <script src="/js/theme.js?1776707666" defer></script>
+    <script src="/js/clipboard/clipboard.min.js?1776780147" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1776780147" defer></script>
+    <script src="/js/theme.js?1776780147" defer></script>
   </body>
 </html>

@@ -6,7 +6,7 @@
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Apr 2026 08:39:52 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2026 16:02:27 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/forensicwheels/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
@@ -69,14 +69,7 @@
       <link>http://localhost:1313/artifacts/openbsdmalloc/index.html</link>
       <pubDate>Mon, 20 Apr 2026 17:09:00 +0200</pubDate>
       <guid>http://localhost:1313/artifacts/openbsdmalloc/index.html</guid>
-      <description>The unseen hero of OpenBSD: otto’s malloc What this is about This is me learning about OpenBSD’s malloc.&#xA;I try not to do a surface-level overview.&#xA;I want to understand the internals better, the data structures, the design decisions, and why those decisions make heap exploitation so much harder.&#xA;What malloc actually does Every C program that needs memory at runtime calls malloc.&#xA;malloc is a library function. It’s not a syscall – it’s a layer between your code and the kernel.</description>
-    </item>
-    <item>
-      <title>Monitor systems with monit</title>
-      <link>http://localhost:1313/artifacts/monitmon/index.html</link>
-      <pubDate>Mon, 08 Dec 2025 11:40:00 +0100</pubDate>
-      <guid>http://localhost:1313/artifacts/monitmon/index.html</guid>
-      <description>Introduction Requirements Installing Monit on OpenBSD Monit – Essential System and Router Services System monitoring runs every 45 seconds. The first check is delayed by 120 seconds to avoid overloading the system immediately after boot.&#xA;set daemon 45 with start delay 120 Monit logs to syslog. `idfile` and `statefile` store Monit’s persistent state and identity across restarts.&#xA;set log syslog set idfile /var/monit/id set statefile /var/monit/state Limits control buffer sizes and timeouts for program outputs, network I/O, and service start/stop/restart operations. This prevents Monit from hanging or processing excessive data.</description>
+      <description>The unseen hero of OpenBSD: otto’s malloc What this is about This is me learning about OpenBSD’s malloc.&#xA;I want to understand the internals better, the data structures, the design decisions, and why those decisions make heap exploitation so much harder.&#xA;This is an actual Neurodivergent person with dyslexia trying to learn this&#xA;What malloc actually does Every C program that needs memory at runtime calls malloc.&#xA;malloc is a library function. It’s not a syscall – it’s a layer between your code and the kernel.</description>
     </item>
     <item>
       <title>Fixing Yellow Shards in Elasticsearch</title>
@@ -98,6 +91,13 @@
       <pubDate>Wed, 29 Oct 2025 12:17:00 +0100</pubDate>
       <guid>http://localhost:1313/artifacts/gpgonmyyubi/index.html</guid>
       <description>Why GPG? In an age where digital identities are easily faked and impersonation is just a few clicks away, I decided to take a step forward in securing mine. GPG (GNU Privacy Guard) provides a robust way to authenticate, encrypt, and sign digital content. In this post, I’ll walk you through how I:&#xA;Created a GPG key pair Set up subkeys and stored them on my YubiKey Published my public key on my website Signed and encrypted personal documents for secure public sharing Configured email signing using GPG Step 1: Installing GPG To start, I made sure GPG was installed. Here’s how I did it on each of my systems:</description>
+    </item>
+    <item>
+      <title>Forensic Wheels</title>
+      <link>http://localhost:1313/artifacts/tech-posts/index.html</link>
+      <pubDate>Tue, 21 Apr 2026 15:54:44 +0200</pubDate>
+      <guid>http://localhost:1313/artifacts/tech-posts/index.html</guid>
+      <description>DRAFT Collecting netflow data with pflow(1) and logstash @threathuntingopenbsdvisibility DRAFT Threathunting IV: Setup ELK Server and ingest data @threathuntingvisibility DRAFT Testing webhoneypots with ZAP in server mode @threathunting DONE Threathunting I: Network setup @threathuntinghoneypotvisibility Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.</description>
     </item>
   </channel>
 </rss>

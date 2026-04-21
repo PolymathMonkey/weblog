@@ -46,11 +46,7 @@
   </url>
   <url>
     <loc>http://localhost:1313/artifacts/openbsdmalloc/index.html</loc>
-    <lastmod>2026-04-21T07:41:10+02:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/artifacts/monitmon/index.html</loc>
-    <lastmod>2026-04-20T11:08:00+02:00</lastmod>
+    <lastmod>2026-04-21T16:02:27+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/artifacts/yellowshardsinelastic/index.html</loc>
@@ -65,16 +61,20 @@
     <lastmod>2026-04-20T11:06:03+02:00</lastmod>
   </url>
   <url>
+    <loc>http://localhost:1313/artifacts/tech-posts/index.html</loc>
+    <lastmod>2026-04-21T15:54:44+02:00</lastmod>
+  </url>
+  <url>
     <loc>http://localhost:1313/tags/forensicwheels/index.html</loc>
-    <lastmod>2026-04-21T08:39:52+02:00</lastmod>
+    <lastmod>2026-04-21T16:02:27+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/index.html</loc>
-    <lastmod>2026-04-21T08:39:52+02:00</lastmod>
+    <lastmod>2026-04-21T16:02:27+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/openbsd/index.html</loc>
-    <lastmod>2026-04-21T07:41:10+02:00</lastmod>
+    <lastmod>2026-04-21T16:02:27+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/categories/index.html</loc>
@@ -102,11 +102,11 @@
   </url>
   <url>
     <loc>http://localhost:1313/tags/personal/index.html</loc>
-    <lastmod>2026-04-20T11:08:00+02:00</lastmod>
+    <lastmod>2026-04-20T11:06:03+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/visibility/index.html</loc>
-    <lastmod>2026-04-20T11:08:00+02:00</lastmod>
+    <lastmod>2026-04-20T11:06:03+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/zen/index.html</loc>
