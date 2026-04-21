@@ -2,13 +2,13 @@
 title: "The unseen hero of OpenBSD"
 author: ["Dirk"]
 date: 2026-04-20T17:09:00+02:00
-lastmod: 2026-04-21T06:38:57+02:00
+lastmod: 2026-04-21T07:14:27+02:00
 tags: ["forensicwheels", "openbsd"]
 draft: false
 weight: 1005
 ---
 
-## The unseen hero of OpenBSD: OpenBSD's malloc {#the-unseen-hero-of-openbsd-openbsd-s-malloc}
+## The unseen hero of OpenBSD: otto's malloc {#the-unseen-hero-of-openbsd-otto-s-malloc}
 
 
 ### What this is about {#what-this-is-about}
@@ -24,7 +24,7 @@ harder.
 ---
 
 
-### Start here: what malloc actually does {#start-here-what-malloc-actually-does}
+### What malloc actually does {#what-malloc-actually-does}
 
 Every C program that needs memory at runtime calls `malloc`.
 
@@ -61,7 +61,7 @@ corruption into immediate, reproducible crashes.
 ---
 
 
-### A brief history: how we got here {#a-brief-history-how-we-got-here}
+### How we got here {#how-we-got-here}
 
 
 #### The original: sbrk() and one big heap {#the-original-sbrk-and-one-big-heap}
@@ -192,7 +192,15 @@ The canaries are the first and last fields. If anything corrupts
 
 I stipped away the MALLOC_STATS, you can find the full struct defintion [here](https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c#L233).
 
-Why is this structure in read-only memory? An attacker cannot directly corrupt `dir_info` because the canaries would catch that. However, if `malloc_readonly` were writable, an attacker could disable security features. For example, setting `malloc_freecheck` to zero would silence double-free detection. Setting `malloc_freeunmap` to zero would allow use-after-free bugs to succeed silently. To prevent this, the entire configuration structure lives in a read-only memory region, established via `mprotect(PROT_READ)` after initialization. The kernel will refuse any write attempt to this segment, forcing any exploit to crash rather than succeed.
+Why is this structure in read-only memory? An attacker cannot directly corrupt
+`dir_info` because the canaries would catch that. However, if `malloc_readonly`
+were writable, an attacker could disable security features. For example,
+setting `malloc_freecheck` to zero would silence double-free detection. Setting
+`malloc_freeunmap` to zero would allow use-after-free bugs tosucceed silently.
+To prevent this, the entire configuration structure lives in a read-only memory
+region, established via `mprotect(PROT_READ)` after initialization. The kernel
+will refuse any write attempt to this segment, forcing any exploit to crash
+rather than succeed.
 
 
 #### The metadata is not next to your data {#the-metadata-is-not-next-to-your-data}
@@ -231,9 +239,29 @@ same size. Each chunk page is described by a `struct chunk_info`.
 };
 ```
 
-The `bits` member deserves closer attention. It is a bitset composed of three `u_short` elements, totaling 48 bits. Each bit represents one slot within the chunk page. A bit value of 1 means the slot is free and available for allocation. A bit value of 0 means the slot is already allocated. This allows a single `chunk_info` structure to manage up to 48 chunks per page. When the allocator needs to place a new small allocation, it scans the bitset to find a free slot. The comment "number of shorts should add up to 8" refers to a deliberate size constraint. The entire `chunk_info` structure, including canary, bucket, free, total, offset, and the 6 bytes for the bits array, totals exactly 18 bytes. This fixed, predictable size is not an accident. A structure this compact means that any corruption to `chunk_info` will immediately violate the surrounding memory layout expectations, triggering the canary check and causing the allocator to abort.
+The `bits` member deserves closer attention. It is a bitset composed of three
+`u_short` elements, totaling 48 bits. Each bit represents one slot within the
+chunk page. A bit value of 1 means the slot is free and available for
+allocation.
 
-Slot selection within a chunk page uses the `rbytes` pool from `dir_info`. The allocator does not simply take the first free slot. Instead, it hashes or randomly indexes into the available slots, ensuring that attackers cannot predict where your allocation will land. Which specific slot you get is not deterministic.
+A bit value of 0 means the slot is already allocated. This allows a single
+`chunk_info` structure to manage up to 48 chunks per page. When the allocator
+needs to place a new small allocation, it scans the bitset to find a free
+slot. The comment "number of shorts should add up to 8" refers to a deliberate
+size constraint. The entire `chunk_info` structure, including canary, bucket,
+free, total, offset, and the 6 bytes for the bits array, totals exactly 18
+bytes.
+
+This fixed, predictable size is not an accident. A structure this compact means
+that any corruption to `chunk_info` will immediately violate the surrounding
+memory layout expectations, triggering the canary check and causing the
+allocator to abort.
+
+Slot selection within a chunk page uses the `rbytes` pool from `dir_info`. The
+allocator does not simply take the first free slot. Instead, it hashes or
+randomly indexes into the available slots, ensuring that attackers cannot
+predict where your allocation will land. Which specific slot you get is
+not deterministic.
 
 
 #### Large allocations: their own mmap region {#large-allocations-their-own-mmap-region}

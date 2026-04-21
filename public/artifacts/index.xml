@@ -6,7 +6,7 @@
     <description>Technical articles and project documentation</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Apr 2026 06:48:30 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2026 07:14:27 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/artifacts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Threathunting I: Network setup</title>
@@ -34,7 +34,7 @@
       <link>http://localhost:1313/artifacts/openbsdmalloc/index.html</link>
       <pubDate>Mon, 20 Apr 2026 17:09:00 +0200</pubDate>
       <guid>http://localhost:1313/artifacts/openbsdmalloc/index.html</guid>
-      <description>The unseen hero of OpenBSD: OpenBSD’s malloc What this is about This is me learning about OpenBSD’s malloc.&#xA;I try not to do a surface-level overview.&#xA;I want to understand the internals better, the data structures, the design decisions, and why those decisions make heap exploitation so much harder.&#xA;Start here: what malloc actually does Every C program that needs memory at runtime calls malloc.&#xA;malloc is a library function. It’s not a syscall – it’s a layer between your code and the kernel.</description>
+      <description>The unseen hero of OpenBSD: otto’s malloc What this is about This is me learning about OpenBSD’s malloc.&#xA;I try not to do a surface-level overview.&#xA;I want to understand the internals better, the data structures, the design decisions, and why those decisions make heap exploitation so much harder.&#xA;What malloc actually does Every C program that needs memory at runtime calls malloc.&#xA;malloc is a library function. It’s not a syscall – it’s a layer between your code and the kernel.</description>
     </item>
     <item>
       <title>Monitor systems with monit</title>
