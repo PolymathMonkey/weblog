@@ -2,7 +2,7 @@
 title: "The unseen hero of OpenBSD"
 author: ["Dirk"]
 date: 2026-04-20T17:09:00+02:00
-lastmod: 2026-04-21T07:29:19+02:00
+lastmod: 2026-04-21T07:41:10+02:00
 tags: ["forensicwheels", "openbsd"]
 draft: false
 weight: 1005
