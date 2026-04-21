@@ -2,7 +2,7 @@
 title: "The unseen hero of OpenBSD"
 author: ["Dirk"]
 date: 2026-04-20T17:09:00+02:00
-lastmod: 2026-04-21T07:14:27+02:00
+lastmod: 2026-04-21T07:29:19+02:00
 tags: ["forensicwheels", "openbsd"]
 draft: false
 weight: 1005
@@ -80,7 +80,7 @@ where things would be in memory.
 
 Thierry Deval rewrote OpenBSD's malloc to use `mmap()` instead.
 
-`mmap()` is a syscall that requests a fresh page of memory from the
+`mmap()` is a syscall that requests a fresh page (4k Bytes on x86/64) of memory from the
 kernel. Unlike `sbrk()`, it doesn't have to extend a single contiguous
 block. Each call can land anywhere in the address space.
 
@@ -195,8 +195,9 @@ I stipped away the MALLOC_STATS, you can find the full struct defintion [here](h
 Why is this structure in read-only memory? An attacker cannot directly corrupt
 `dir_info` because the canaries would catch that. However, if `malloc_readonly`
 were writable, an attacker could disable security features. For example,
-setting `malloc_freecheck` to zero would silence double-free detection. Setting
-`malloc_freeunmap` to zero would allow use-after-free bugs tosucceed silently.
+setting `malloc_freecheck` to zero would silence double-free detection.
+
+Setting `malloc_freeunmap` to zero would allow use-after-free bugs to succeed silently.
 To prevent this, the entire configuration structure lives in a read-only memory
 region, established via `mprotect(PROT_READ)` after initialization. The kernel
 will refuse any write attempt to this segment, forcing any exploit to crash
@@ -217,7 +218,7 @@ In otto-malloc, `dir_info` and `chunk_info` live in completely separate
 
 #### Small allocations: chunks and buckets {#small-allocations-chunks-and-buckets}
 
-Allocations smaller than half a page go into chunk pages.
+Allocations smaller than half ( &gt; 2k ) a page go into chunk pages.
 
 A chunk page is one `mmap`'d page divided into uniform slots of the
 same size. Each chunk page is described by a `struct chunk_info`.
@@ -284,11 +285,13 @@ pointer to that address will fault on the next access.
 When you see these values in a crash dump or debugger, you know immediately
 what kind of bug you are looking at. The value 0xdb (11011011 in binary) is
 written to freshly allocated memory. The value 0xdf (11011111 in binary) is
-written to memory that has just been freed. Both values have the high bit set
-in each nibble, which makes them immediately suspicious when interpreted as
-pointers, ASCII strings, or integer values. An attacker cannot silently exploit
-these memory regions because the junk values will immediately cause
-dereferencing failures or type confusion that crashes the program.
+written to memory that has just been freed.
+
+Both values have the high bit set in each nibble, which makes them immediately
+suspicious when interpreted as pointers, ASCII strings, or integer values. An
+attacker cannot silently exploit these memory regions because the junk values
+will immediately cause dereferencing failures or type confusion that crashes
+the program.
 
 ---
 
@@ -349,7 +352,7 @@ sysctl vm.malloc_conf='S'
 
 ### Why classic heap exploits fail here {#why-classic-heap-exploits-fail-here}
 
-The `unsafe unlink` technique against glibc relies on predictable
+The [unsafe unlink](https://heap-exploitation.dhavalkapil.com/attacks/unlink_exploit) exploit technique against glibc relies on predictable
 adjacency between allocations and in-band metadata.
 
 Against otto-malloc this fails because:
@@ -379,7 +382,7 @@ eliminate the determinism exploitation depends on.
 ---
 
 
-### What I took away from this {#what-i-took-away-from-this}
+### What I took away {#what-i-took-away}
 
 The design is coherent. Every decision points in the same direction.
 
@@ -401,6 +404,7 @@ exploit later.
 -   [Otto Moerbeek's malloc design talk (EuroBSDCon 2023)](https://www.openbsd.org/papers/eurobsdcon2023-otto-malloc.pdf)
 -   [Summary of OpenBSD malloc evolution](https://isopenbsdsecu.re/mitigations/malloc/)
 -   [malloc.c source](https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c)
+-   [Unlink exploit explanation](https://heap-exploitation.dhavalkapil.com/attacks/unlink_exploit)
 
 ---
 
