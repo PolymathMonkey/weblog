@@ -21,6 +21,10 @@
     <lastmod>2026-04-21T07:41:03+02:00</lastmod>
   </url>
   <url>
+    <loc>http://localhost:1313/artifacts/honeyhttpd/index.html</loc>
+    <lastmod>2026-04-21T08:39:52+02:00</lastmod>
+  </url>
+  <url>
     <loc>http://localhost:1313/essays/godelpenrosepsychology/index.html</loc>
     <lastmod>2026-04-20T10:24:48+02:00</lastmod>
   </url>
@@ -62,14 +66,14 @@
   </url>
   <url>
     <loc>http://localhost:1313/tags/forensicwheels/index.html</loc>
-    <lastmod>2026-04-21T07:41:10+02:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/tags/openbsd/index.html</loc>
-    <lastmod>2026-04-21T07:41:10+02:00</lastmod>
+    <lastmod>2026-04-21T08:39:52+02:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/index.html</loc>
+    <lastmod>2026-04-21T08:39:52+02:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/openbsd/index.html</loc>
     <lastmod>2026-04-21T07:41:10+02:00</lastmod>
   </url>
   <url>

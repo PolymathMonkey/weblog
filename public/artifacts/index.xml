@@ -6,8 +6,15 @@
     <description>Technical articles and project documentation</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Apr 2026 07:41:10 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2026 08:39:52 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/artifacts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Threat Hunting III: HTTP Honeypot</title>
+      <link>http://localhost:1313/artifacts/honeyhttpd/index.html</link>
+      <pubDate>Tue, 21 Apr 2026 08:39:00 +0200</pubDate>
+      <guid>http://localhost:1313/artifacts/honeyhttpd/index.html</guid>
+      <description>Introduction Architecture Overview Containerizing with Docker Configuration Code Improvements ApachePasswordServer.py ElasticSearchLogger.py Advantages Over the Original Testing Next Steps Summary Introduction I set out to build a honeypot that captures HTTP attack traffic and forwards it directly to Elasticsearch for analysis. Instead of reinventing the wheel, I built on top of honeyhttpd by bocajspear1 and added structured logging, credential extraction, and proper sanitization.</description>
+    </item>
     <item>
       <title>Threathunting I: Network setup</title>
       <link>http://localhost:1313/artifacts/threathuntingnet/index.html</link>

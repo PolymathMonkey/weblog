@@ -2,7 +2,7 @@
 title: "The unseen hero of OpenBSD"
 author: ["Dirk"]
 date: 2026-04-20T17:09:00+02:00
-lastmod: 2026-04-21T07:41:10+02:00
+lastmod: 2026-04-21T15:54:53+02:00
 tags: ["forensicwheels", "openbsd"]
 draft: false
 weight: 1005
@@ -301,7 +301,8 @@ the program.
 
 #### Guard pages (`G`) {#guard-pages--g}
 
-An unmapped page placed after each page-size-or-larger allocation.
+“Guard”. Enable guard pages. Each page size or larger allocation is followed
+by a guard page that will cause a segmentation fault upon any access.
 
 ```sh
 sysctl vm.malloc_conf='G'
@@ -310,18 +311,19 @@ sysctl vm.malloc_conf='G'
 
 #### Junk filling (`J` / `j`) {#junk-filling--j-j}
 
-Level 1: freed memory gets filled with `0xdf`.
-Level 2: freshly allocated memory also gets filled with `0xdb`.
+J: “Junk”. Fill some junk into the area allocated. Currently junk is bytes of 0xd0 when allocating; this is pronounced “Duh”. :-) Freed chunks are filled with 0xdf.
+j: “Don't Junk”. By default, small chunks are always junked, and the first part of pages is junked after free. This option ensures that no junking is performed.
 
 ```sh
 sysctl vm.malloc_conf='JJ'
 ```
 
 
-#### Redzones (`R`) {#redzones--r}
+#### realloc (`R`) {#realloc--r}
 
-Small allocations get padding. The canary check on free catches
-anything written into that padding.
+Always reallocate when realloc() is called, even if
+the initial allocation was big enough. This can substantially
+aid in compacting memory.
 
 ```sh
 sysctl vm.malloc_conf='R'
@@ -330,22 +332,17 @@ sysctl vm.malloc_conf='R'
 
 #### Use-after-free protection (`F`) {#use-after-free-protection--f}
 
-Freed pages get `mprotect`'d to `PROT_NONE` before entering the cache.
+Enable use after free detection. Unused pages on the freelist
+are read and write protected to cause a segmentation fault upon access.
+
+This will also switch off the delayed freeing of chunks, reducing random
+behaviour but detecting double free() calls as early as possible.
 
 ```sh
 sysctl vm.malloc_conf='F'
 ```
 
-
-#### Combining flags {#combining-flags}
-
-```sh
-# Strong development / fuzzing setup
-sysctl vm.malloc_conf='GJJRF'
-
-# Shorthand: all security-relevant options at once
-sysctl vm.malloc_conf='S'
-```
+Full list of [malloc options](https://man.openbsd.org/OpenBSD-5.6/malloc.conf.5#MALLOC_OPTIONS)
 
 ---
 
@@ -384,15 +381,8 @@ eliminate the determinism exploitation depends on.
 
 ### What I took away {#what-i-took-away}
 
-The design is coherent. Every decision points in the same direction.
-
-Metadata out-of-band. Randomized placement. Read-only config.
-Canaries on bookkeeping structures. Junk fill. Guard pages.
-Fail fast on any inconsistency.
-
-Together they add up to an allocator that treats memory misuse as a
-hard contract violation rather than undefined behavior you get to
-exploit later.
+This was a fun project, I learned a lot about how the allocator in bsd protects
+the user from heap exploits.
 
 ---
 
