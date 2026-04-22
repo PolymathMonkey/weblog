@@ -2,7 +2,7 @@
 title: "Putting my gpg key on my yubikey"
 author: ["Dirk"]
 date: 2025-10-29T12:17:00+01:00
-lastmod: 2026-04-20T11:06:03+02:00
+lastmod: 2026-04-22T07:09:36+02:00
 tags: ["forensicwheels"]
 draft: false
 weight: 1009

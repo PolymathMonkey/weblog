@@ -2,7 +2,7 @@
 title: "Threat Hunting III: HTTP Honeypot"
 author: ["Dirk"]
 date: 2026-04-21T08:39:00+02:00
-lastmod: 2026-04-22T06:55:03+02:00
+lastmod: 2026-04-22T07:09:35+02:00
 tags: ["forensicwheels", "honeypot"]
 categories: ["threathunting"]
 draft: false

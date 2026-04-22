@@ -18,37 +18,37 @@
     <meta property="og:type" content="article">
     <meta property="article:section" content="Artifacts">
     <meta property="article:published_time" content="2026-04-21T08:39:00+02:00">
-    <meta property="article:modified_time" content="2026-04-22T06:55:03+02:00">
+    <meta property="article:modified_time" content="2026-04-22T07:09:35+02:00">
     <meta property="article:tag" content="Forensicwheels">
     <meta property="article:tag" content="Honeypot">
     <meta itemprop="name" content="Threat Hunting III: HTTP Honeypot - Forensic wheels">
     <meta itemprop="description" content="Introduction Architecture Overview Containerizing with Docker Configuration Code Improvements ApachePasswordServer.py ElasticSearchLogger.py Advantages Over the Original Testing Next Steps Summary Introduction I set out to build a honeypot that captures HTTP attack traffic and forwards it directly to Elasticsearch for analysis. Instead of reinventing the wheel, I built on top of honeyhttpd by bocajspear1 and added structured logging, credential extraction, and proper sanitization.">
     <meta itemprop="datePublished" content="2026-04-21T08:39:00+02:00">
-    <meta itemprop="dateModified" content="2026-04-22T06:55:03+02:00">
+    <meta itemprop="dateModified" content="2026-04-22T07:09:35+02:00">
     <meta itemprop="wordCount" content="795">
     <meta itemprop="keywords" content="Forensicwheels,Honeypot">
     <title>Threat Hunting III: HTTP Honeypot - Forensic wheels</title>
-    <link href="/images/logo.svg?1776833747" rel="icon" type="image/svg+xml">
-    <link href="/css/auto-complete/auto-complete.min.css?1776833747" rel="stylesheet">
-    <script src="/js/auto-complete/auto-complete.min.js?1776833747" defer></script>
-    <script src="/js/search-lunr.js?1776833747" defer></script>
-    <script src="/js/search.js?1776833747" defer></script>
+    <link href="/images/logo.svg?1776834596" rel="icon" type="image/svg+xml">
+    <link href="/css/auto-complete/auto-complete.min.css?1776834596" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1776834596" defer></script>
+    <script src="/js/search-lunr.js?1776834596" defer></script>
+    <script src="/js/search.js?1776834596" defer></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.index_js_url="/searchindex.en.js?1776833747";
+      window.relearn.index_js_url="/searchindex.en.js?1776834596";
     </script>
-    <script src="/js/lunr/lunr.min.js?1776833747" defer></script>
-    <script src="/js/lunr/lunr.stemmer.support.min.js?1776833747" defer></script>
-    <script src="/js/lunr/lunr.multi.min.js?1776833747" defer></script>
-    <script src="/js/lunr/lunr.en.min.js?1776833747" defer></script>
+    <script src="/js/lunr/lunr.min.js?1776834596" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1776834596" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1776834596" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1776834596" defer></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.contentLangs=['en'];
     </script>
-    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1776833747" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1776833747" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1776833747" rel="stylesheet">
-    <link href="/css/theme.css?1776833747" rel="stylesheet">
-    <link href="/css/format-html.css?1776833747" rel="stylesheet" id="R-format-style">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1776834596" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1776834596" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1776834596" rel="stylesheet">
+    <link href="/css/theme.css?1776834596" rel="stylesheet">
+    <link href="/css/format-html.css?1776834596" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -457,8 +457,7 @@
             <li class="" data-nav-id="/artifacts/monitmon/index.html"><a class="padding" href="/artifacts/monitmon/index.html">monitor systems with monit</a></li>
             <li class="" data-nav-id="/artifacts/yellowshardsinelastic/index.html"><a class="padding" href="/artifacts/yellowshardsinelastic/index.html">Fixing Yellow Shards in Elasticsearch</a></li>
             <li class="" data-nav-id="/artifacts/rescuetotheraid/index.html"><a class="padding" href="/artifacts/rescuetotheraid/index.html">Rescue to the softraid</a></li>
-            <li class="" data-nav-id="/artifacts/gpgonmyyubi/index.html"><a class="padding" href="/artifacts/gpgonmyyubi/index.html">Putting my gpg key on my yubikey</a></li>
-            <li class="" data-nav-id="/artifacts/tech-posts/index.html"><a class="padding" href="/artifacts/tech-posts/index.html">Forensic Wheels</a></li></ul></li>
+            <li class="" data-nav-id="/artifacts/gpgonmyyubi/index.html"><a class="padding" href="/artifacts/gpgonmyyubi/index.html">Putting my gpg key on my yubikey</a></li></ul></li>
             <li class="" data-nav-id="/essays/index.html"><a class="padding" href="/essays/index.html">Essays</a><ul id="R-subsections-96960db5999256a2fdef533f36d8b0bf" class="collapsible-menu"></ul></li>
             <li class="" data-nav-id="/about/index.html"><a class="padding" href="/about/index.html">About</a></li>
             <li class="" data-nav-id="/links/index.html"><a class="padding" href="/links/index.html">Links</a></li>
@@ -494,8 +493,8 @@
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/js/clipboard/clipboard.min.js?1776833747" defer></script>
-    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1776833747" defer></script>
-    <script src="/js/theme.js?1776833747" defer></script>
+    <script src="/js/clipboard/clipboard.min.js?1776834596" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1776834596" defer></script>
+    <script src="/js/theme.js?1776834596" defer></script>
   </body>
 </html>

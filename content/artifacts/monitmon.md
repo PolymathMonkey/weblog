@@ -2,7 +2,7 @@
 title: "monitor systems with monit"
 author: ["Dirk"]
 date: 2025-12-08T11:40:00+01:00
-lastmod: 2026-04-22T06:55:10+02:00
+lastmod: 2026-04-22T07:09:36+02:00
 tags: ["forensicwheels", "openbsd", "personal", "visibility"]
 draft: false
 weight: 1006

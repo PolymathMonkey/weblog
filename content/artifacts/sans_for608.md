@@ -2,7 +2,7 @@
 title: "Sans FOR608"
 author: ["Dirk"]
 date: 2026-03-20T07:39:00+01:00
-lastmod: 2026-04-22T06:55:47+02:00
+lastmod: 2026-04-22T07:09:35+02:00
 tags: ["forensicwheels", "honeypot", "canarytokens"]
 categories: ["forensic", "threathunting"]
 draft: false

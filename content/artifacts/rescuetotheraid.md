@@ -2,7 +2,7 @@
 title: "Rescue to the softraid"
 author: ["Dirk"]
 date: 2025-10-15T19:03:00+02:00
-lastmod: 2026-04-22T06:55:16+02:00
+lastmod: 2026-04-22T07:09:36+02:00
 tags: ["forensicwheels", "personal", "openbsd"]
 categories: ["forensic"]
 draft: false

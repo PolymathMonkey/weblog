@@ -19,4 +19,4 @@ Documentation of things I build and run.
 ---- 
 Suggestions or feedback?  
 [Contact me here](/about/) or visit the [project repository](https://github.com/PolymathMonkey/weblog).  
-You can also [subscribe via RSS](/index.xml).
+You can also [subscribe via RSS](weblog/index.xml).
