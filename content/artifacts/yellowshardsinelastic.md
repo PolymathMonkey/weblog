@@ -2,7 +2,7 @@
 title: "Fixing Yellow Shards in Elasticsearch"
 author: ["Dirk"]
 date: 2025-11-12T11:07:00+01:00
-lastmod: 2026-04-20T11:06:03+02:00
+lastmod: 2026-04-22T06:55:13+02:00
 tags: ["forensicwheels"]
 draft: false
 weight: 1007

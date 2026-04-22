@@ -32,6 +32,10 @@ imageEffects.purple = false
   section = ['html', 'rss', 'print']
   page = ['html', 'rss', 'print']
 
+[outputFormats.RSS]
+  mediaType = "application/rss+xml"
+  baseName = "feed"
+
 [params]
   author.name = 'Dirk'
   themeVariant = [ "auto", "neon" ]

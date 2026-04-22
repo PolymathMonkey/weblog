@@ -2,7 +2,7 @@
 title: "The unseen hero of OpenBSD"
 author: ["Dirk"]
 date: 2026-04-20T17:09:00+02:00
-lastmod: 2026-04-21T16:02:27+02:00
+lastmod: 2026-04-22T06:55:08+02:00
 tags: ["forensicwheels", "openbsd"]
 draft: false
 weight: 1005
@@ -19,7 +19,7 @@ I want to understand the internals better, the data structures, the design
 decisions, and why those decisions make heap exploitation so much
 harder.
 
-This is an actual Neurodivergent person with dyslexia trying to learn this
+No deep dive but enough to get better understanding.
 
 ---
 
@@ -381,10 +381,8 @@ the user from heap exploits.
 
 ### References {#references}
 
--   [OpenBSD malloc manual](https://man.openbsd.org/OpenBSD-6.5/malloc)
--   [malloc.conf documentation](https://man.openbsd.org/OpenBSD-5.6/malloc.conf.5)
+-   [malloc man page](https://man.openbsd.org/malloc)
 -   [Otto Moerbeek's malloc design talk (EuroBSDCon 2023)](https://www.openbsd.org/papers/eurobsdcon2023-otto-malloc.pdf)
--   [Summary of OpenBSD malloc evolution](https://isopenbsdsecu.re/mitigations/malloc/)
 -   [malloc.c source](https://github.com/openbsd/src/blob/master/lib/libc/stdlib/malloc.c)
 -   [Unlink exploit explanation](https://heap-exploitation.dhavalkapil.com/attacks/unlink_exploit)
 

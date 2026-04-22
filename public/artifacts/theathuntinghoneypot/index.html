@@ -18,37 +18,37 @@
     <meta property="og:type" content="article">
     <meta property="article:section" content="Artifacts">
     <meta property="article:published_time" content="2025-09-29T07:18:00+02:00">
-    <meta property="article:modified_time" content="2026-04-20T11:06:03+02:00">
+    <meta property="article:modified_time" content="2026-04-22T06:55:01+02:00">
     <meta property="article:tag" content="Forensicwheels">
     <meta property="article:tag" content="Honeypot">
     <meta itemprop="name" content="Threat hunting II: SSH Honeypot - Forensic wheels">
     <meta itemprop="description" content="Introduction What is Cowrie? Why Podman over Docker? Preconditions / System setup Ubuntu Installed on Raspberry Pi 4&#43; System Fully Updated Podman installed and working VLAN Tagging Configured on Network Interface Setup environment, install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🎯 Operating the Honeypot 🔄 Automatically Restart Cowrie Podman Container with systemd 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Whats next Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.">
     <meta itemprop="datePublished" content="2025-09-29T07:18:00+02:00">
-    <meta itemprop="dateModified" content="2026-04-20T11:06:03+02:00">
+    <meta itemprop="dateModified" content="2026-04-22T06:55:01+02:00">
     <meta itemprop="wordCount" content="2145">
     <meta itemprop="keywords" content="Forensicwheels,Honeypot">
     <title>Threat hunting II: SSH Honeypot - Forensic wheels</title>
-    <link href="/images/logo.svg?1776780147" rel="icon" type="image/svg+xml">
-    <link href="/css/auto-complete/auto-complete.min.css?1776780147" rel="stylesheet">
-    <script src="/js/auto-complete/auto-complete.min.js?1776780147" defer></script>
-    <script src="/js/search-lunr.js?1776780147" defer></script>
-    <script src="/js/search.js?1776780147" defer></script>
+    <link href="/images/logo.svg?1776833747" rel="icon" type="image/svg+xml">
+    <link href="/css/auto-complete/auto-complete.min.css?1776833747" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1776833747" defer></script>
+    <script src="/js/search-lunr.js?1776833747" defer></script>
+    <script src="/js/search.js?1776833747" defer></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.index_js_url="/searchindex.en.js?1776780147";
+      window.relearn.index_js_url="/searchindex.en.js?1776833747";
     </script>
-    <script src="/js/lunr/lunr.min.js?1776780147" defer></script>
-    <script src="/js/lunr/lunr.stemmer.support.min.js?1776780147" defer></script>
-    <script src="/js/lunr/lunr.multi.min.js?1776780147" defer></script>
-    <script src="/js/lunr/lunr.en.min.js?1776780147" defer></script>
+    <script src="/js/lunr/lunr.min.js?1776833747" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1776833747" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1776833747" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1776833747" defer></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.contentLangs=['en'];
     </script>
-    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1776780147" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1776780147" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1776780147" rel="stylesheet">
-    <link href="/css/theme.css?1776780147" rel="stylesheet">
-    <link href="/css/format-html.css?1776780147" rel="stylesheet" id="R-format-style">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1776833747" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1776833747" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1776833747" rel="stylesheet">
+    <link href="/css/theme.css?1776833747" rel="stylesheet">
+    <link href="/css/format-html.css?1776833747" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -716,11 +716,12 @@ the logs to:</p>
         <div class="R-sidebarmenu R-shortcutmenu-main">
           <ul class="enlarge morespace collapsible-menu">
             <li class="parent " data-nav-id="/artifacts/index.html"><a class="padding" href="/artifacts/index.html">Artifacts</a><ul id="R-subsections-daf0213b858f6fe0b810dbdbfff8be9e" class="collapsible-menu">
-            <li class="" data-nav-id="/artifacts/honeyhttpd/index.html"><a class="padding" href="/artifacts/honeyhttpd/index.html">Threat Hunting III: HTTP Honeypot</a></li>
             <li class="" data-nav-id="/artifacts/threathuntingnet/index.html"><a class="padding" href="/artifacts/threathuntingnet/index.html">Threathunting I: Network setup</a></li>
-            <li class="" data-nav-id="/artifacts/sans_for608/index.html"><a class="padding" href="/artifacts/sans_for608/index.html">Sans FOR608</a></li>
             <li class="active " data-nav-id="/artifacts/theathuntinghoneypot/index.html"><a class="padding" href="/artifacts/theathuntinghoneypot/index.html">Threat hunting II: SSH Honeypot</a></li>
+            <li class="" data-nav-id="/artifacts/honeyhttpd/index.html"><a class="padding" href="/artifacts/honeyhttpd/index.html">Threat Hunting III: HTTP Honeypot</a></li>
+            <li class="" data-nav-id="/artifacts/sans_for608/index.html"><a class="padding" href="/artifacts/sans_for608/index.html">Sans FOR608</a></li>
             <li class="" data-nav-id="/artifacts/openbsdmalloc/index.html"><a class="padding" href="/artifacts/openbsdmalloc/index.html">The unseen hero of OpenBSD</a></li>
+            <li class="" data-nav-id="/artifacts/monitmon/index.html"><a class="padding" href="/artifacts/monitmon/index.html">monitor systems with monit</a></li>
             <li class="" data-nav-id="/artifacts/yellowshardsinelastic/index.html"><a class="padding" href="/artifacts/yellowshardsinelastic/index.html">Fixing Yellow Shards in Elasticsearch</a></li>
             <li class="" data-nav-id="/artifacts/rescuetotheraid/index.html"><a class="padding" href="/artifacts/rescuetotheraid/index.html">Rescue to the softraid</a></li>
             <li class="" data-nav-id="/artifacts/gpgonmyyubi/index.html"><a class="padding" href="/artifacts/gpgonmyyubi/index.html">Putting my gpg key on my yubikey</a></li>
@@ -760,8 +761,8 @@ the logs to:</p>
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/js/clipboard/clipboard.min.js?1776780147" defer></script>
-    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1776780147" defer></script>
-    <script src="/js/theme.js?1776780147" defer></script>
+    <script src="/js/clipboard/clipboard.min.js?1776833747" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1776833747" defer></script>
+    <script src="/js/theme.js?1776833747" defer></script>
   </body>
 </html>

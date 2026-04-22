@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.152.2">
+    <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
+    <meta name="description" content="Introduction Architecture Overview Containerizing with Docker Configuration Code Improvements ApachePasswordServer.py ElasticSearchLogger.py Advantages Over the Original Testing Next Steps Summary Introduction I set out to build a honeypot that captures HTTP attack traffic and forwards it directly to Elasticsearch for analysis. Instead of reinventing the wheel, I built on top of honeyhttpd by bocajspear1 and added structured logging, credential extraction, and proper sanitization.">
+    <meta name="author" content="Dirk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Threat Hunting III: HTTP Honeypot - Forensic wheels">
+    <meta name="twitter:description" content="Introduction Architecture Overview Containerizing with Docker Configuration Code Improvements ApachePasswordServer.py ElasticSearchLogger.py Advantages Over the Original Testing Next Steps Summary Introduction I set out to build a honeypot that captures HTTP attack traffic and forwards it directly to Elasticsearch for analysis. Instead of reinventing the wheel, I built on top of honeyhttpd by bocajspear1 and added structured logging, credential extraction, and proper sanitization.">
+    <meta property="og:url" content="http://localhost:1313/artifacts/honeyhttpd/index.html">
+    <meta property="og:site_name" content="Forensic wheels">
+    <meta property="og:title" content="Threat Hunting III: HTTP Honeypot - Forensic wheels">
+    <meta property="og:description" content="Introduction Architecture Overview Containerizing with Docker Configuration Code Improvements ApachePasswordServer.py ElasticSearchLogger.py Advantages Over the Original Testing Next Steps Summary Introduction I set out to build a honeypot that captures HTTP attack traffic and forwards it directly to Elasticsearch for analysis. Instead of reinventing the wheel, I built on top of honeyhttpd by bocajspear1 and added structured logging, credential extraction, and proper sanitization.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Artifacts">
+    <meta property="article:published_time" content="2026-04-21T08:39:00+02:00">
+    <meta property="article:modified_time" content="2026-04-22T06:55:03+02:00">
+    <meta property="article:tag" content="Forensicwheels">
+    <meta property="article:tag" content="Honeypot">
+    <meta itemprop="name" content="Threat Hunting III: HTTP Honeypot - Forensic wheels">
+    <meta itemprop="description" content="Introduction Architecture Overview Containerizing with Docker Configuration Code Improvements ApachePasswordServer.py ElasticSearchLogger.py Advantages Over the Original Testing Next Steps Summary Introduction I set out to build a honeypot that captures HTTP attack traffic and forwards it directly to Elasticsearch for analysis. Instead of reinventing the wheel, I built on top of honeyhttpd by bocajspear1 and added structured logging, credential extraction, and proper sanitization.">
+    <meta itemprop="datePublished" content="2026-04-21T08:39:00+02:00">
+    <meta itemprop="dateModified" content="2026-04-22T06:55:03+02:00">
+    <meta itemprop="wordCount" content="795">
+    <meta itemprop="keywords" content="Forensicwheels,Honeypot">
+    <title>Threat Hunting III: HTTP Honeypot - Forensic wheels</title>
+    <link href="/images/logo.svg?1776833747" rel="icon" type="image/svg+xml">
+    <link href="/css/auto-complete/auto-complete.min.css?1776833747" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1776833747" defer></script>
+    <script src="/js/search-lunr.js?1776833747" defer></script>
+    <script src="/js/search.js?1776833747" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="/searchindex.en.js?1776833747";
+    </script>
+    <script src="/js/lunr/lunr.min.js?1776833747" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1776833747" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1776833747" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1776833747" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1776833747" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1776833747" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1776833747" rel="stylesheet">
+    <link href="/css/theme.css?1776833747" rel="stylesheet">
+    <link href="/css/format-html.css?1776833747" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/artifacts\/honeyhttpd\/index.html';
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto', 'neon' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/artifacts/honeyhttpd/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#architecture-overview">Architecture Overview</a></li>
+    <li><a href="#containerizing-with-docker">Containerizing with Docker</a></li>
+    <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#code-improvements">Code Improvements</a>
+      <ul>
+        <li><a href="#apachepasswordserver-dot-py">ApachePasswordServer.py</a></li>
+        <li><a href="#elasticsearchlogger-dot-py">ElasticSearchLogger.py</a></li>
+      </ul>
+    </li>
+    <li><a href="#advantages-over-the-original">Advantages Over the Original</a></li>
+    <li><a href="#testing">Testing</a></li>
+    <li><a href="#next-steps">Next Steps</a></li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="topbar-breadcrumbs highlightable">
+            Threat Hunting III: HTTP Honeypot
+          </span>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable artifacts" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+<div class="R-taxonomy taxonomy-tags cstyle tags" title="Tags" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
+  <ul>
+    <li><a class="term-link" href="/tags/forensicwheels/index.html">Forensicwheels</a></li>
+    <li><a class="term-link" href="/tags/honeypot/index.html">Honeypot</a></li>
+  </ul>
+</div>
+  </header>
+
+<h1 id="threat-hunting-iii-http-honeypot">Threat Hunting III: HTTP Honeypot</h1>
+
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ul>
+<li><a href="/artifacts/honeyhttpd/index.html#introduction">Introduction</a></li>
+<li><a href="/artifacts/honeyhttpd/index.html#architecture-overview">Architecture Overview</a></li>
+<li><a href="/artifacts/honeyhttpd/index.html#containerizing-with-docker">Containerizing with Docker</a></li>
+<li><a href="/artifacts/honeyhttpd/index.html#configuration">Configuration</a></li>
+<li><a href="/artifacts/honeyhttpd/index.html#code-improvements">Code Improvements</a>
+<ul>
+<li><a href="/artifacts/honeyhttpd/index.html#apachepasswordserver-dot-py">ApachePasswordServer.py</a></li>
+<li><a href="/artifacts/honeyhttpd/index.html#elasticsearchlogger-dot-py">ElasticSearchLogger.py</a></li>
+</ul>
+</li>
+<li><a href="/artifacts/honeyhttpd/index.html#advantages-over-the-original">Advantages Over the Original</a></li>
+<li><a href="/artifacts/honeyhttpd/index.html#testing">Testing</a></li>
+<li><a href="/artifacts/honeyhttpd/index.html#next-steps">Next Steps</a></li>
+<li><a href="/artifacts/honeyhttpd/index.html#summary">Summary</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="introduction">Introduction</h2>
+<p>I set out to build a honeypot that captures HTTP attack traffic and forwards it directly to Elasticsearch for analysis. Instead of reinventing the wheel, I built on top of <code>honeyhttpd</code> by bocajspear1 and added structured logging, credential extraction, and proper sanitization.</p>
+<p>The result is a production-ready honeypot that simulates an Apache server protected by HTTP Basic Authentication, capturing attacker credentials and request metadata in queryable Elasticsearch documents.</p>
+<h2 id="architecture-overview">Architecture Overview</h2>
+<p>The honeypot works in three layers:</p>
+<ol>
+<li><code>ApachePasswordServer</code> — Demands Basic Auth on every request, parses HTTP headers, and collects metadata</li>
+<li><code>ElasticSearchLogger</code> — Sanitizes logs and indexes them into Elasticsearch</li>
+<li>Docker Container — Runs the entire stack in an isolated environment</li>
+</ol>
+<h2 id="containerizing-with-docker">Containerizing with Docker</h2>
+<p>I packaged the honeypot as a Docker container for easy deployment:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">python:3</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> APP_NAME<span style="color:#f92672">=</span>honeyhttpd
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ARG</span> USER_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10001&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> GROUP_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> HOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/app&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> HOME<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Create unprivileged user</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> groupadd --gid <span style="color:#e6db74">${</span>USER_ID<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    useradd --create-home --uid <span style="color:#e6db74">${</span>USER_ID<span style="color:#e6db74">}</span> --gid <span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span> --home-dir /app <span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Install dependencies</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apt-get update <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get install -y --no-install-recommends <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        file gcc libwww-perl curl unzip <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get clean <span style="color:#f92672">&amp;&amp;</span> apt-get autoremove -y<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span> <span style="color:#e6db74">${HOME</span><span style="color:#f92672">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy application files</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./requirements.txt .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./config.json .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./server*.pem .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./ca.crt .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> honeyhttpd logs servers util .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> start.py .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Install Python dependencies</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip3 install --upgrade pip setuptools wheel <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    pip3 install --no-cache-dir elasticsearch<span style="color:#f92672">==</span>8.13.0 <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    pip3 install --no-cache-dir -r ./requirements.txt<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Remove build tools to reduce image size</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apt-get remove gcc --purge -y<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Set permissions and drop root</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> chown -R <span style="color:#e6db74">${</span>USER_ID<span style="color:#e6db74">}</span>:<span style="color:#e6db74">${</span>GROUP_ID<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">USER</span> <span style="color:#e6db74">${USER_ID</span><span style="color:#f92672">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span> <span style="color:#e6db74">8443</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;python3&#34;</span>, <span style="color:#e6db74">&#34;start.py&#34;</span>, <span style="color:#e6db74">&#34;--config&#34;</span>, <span style="color:#e6db74">&#34;config.json&#34;</span>]</span></span></code></pre></div>
+<p>Build and run:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker build -t honeyhttpd .
+</span></span><span style="display:flex;"><span>docker run --hostname honeyhttpd -p 8443:8443 honeyhttpd</span></span></code></pre></div>
+<h2 id="configuration">Configuration</h2>
+<p>Point the honeypot at your Elasticsearch instance via <code>config.json</code>:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;loggers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ElasticSearchLogger&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;active&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;config&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;server&#34;</span>: <span style="color:#e6db74">&#34;https://elasticsearch.example.com:9200&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;verify_certs&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;elastic&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;your-password&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;index&#34;</span>: <span style="color:#e6db74">&#34;honeypot-http&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;servers&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;handler&#34;</span>: <span style="color:#e6db74">&#34;ApachePasswordServer&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;mode&#34;</span>: <span style="color:#e6db74">&#34;https&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">8443</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;domain&#34;</span>: <span style="color:#e6db74">&#34;target.example.com&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;timeout&#34;</span>: <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;cert_path&#34;</span>: <span style="color:#e6db74">&#34;server_cert.pem&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;key_path&#34;</span>: <span style="color:#e6db74">&#34;server_key.pem&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h2 id="code-improvements">Code Improvements</h2>
+<h3 id="apachepasswordserver-dot-py">ApachePasswordServer.py</h3>
+<p>The server now properly simulates HTTP Basic Authentication and captures credentials in a structured way.</p>
+<p><strong>Key features:</strong></p>
+<ul>
+<li><code>on_request()</code> — Enforces Basic Auth on every request. Returns 401 if Authorization header is missing</li>
+<li><code>on_POST()</code> — Stashes POST bodies for logging (critical for capturing login attempts)</li>
+<li><code>on_complete()</code> — Parses HTTP metadata: method, URL, request/response headers, and decodes Basic Auth credentials</li>
+</ul>
+<p>Helper functions:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_decode_basic_auth</span>(b64_string):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Decode Base64 Basic-Auth credentials into &#39;user:pass&#39;.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        decoded_bytes <span style="color:#f92672">=</span> base64<span style="color:#f92672">.</span>b64decode(b64_string, validate<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>        decoded_str <span style="color:#f92672">=</span> decoded_bytes<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;utf-8&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> decoded_str <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#f92672">in</span> decoded_str <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;[invalid format]&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[decode error: </span><span style="color:#e6db74">{</span>e<span style="color:#e6db74">}</span><span style="color:#e6db74">]&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_extract_post_body</span>(raw_request):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Extract POST body from raw HTTP request.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\r\n\r\n</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">in</span> raw_request:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> raw_request<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\r\n\r\n</span><span style="color:#e6db74">&#39;</span>, <span style="color:#ae81ff">1</span>)[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">in</span> raw_request:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> raw_request<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#39;</span>, <span style="color:#ae81ff">1</span>)[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;&#39;</span></span></span></code></pre></div>
+<p>The <code>on_complete()</code> method collects:</p>
+<ul>
+<li>HTTP method and URL</li>
+<li>Request/response headers (User-Agent, Accept, Content-Type, etc.)</li>
+<li>HTTP status code</li>
+<li>Decoded credentials (username:password)</li>
+<li>POST body (for form submissions)</li>
+</ul>
+<h3 id="elasticsearchlogger-dot-py">ElasticSearchLogger.py</h3>
+<p>The logger sanitizes all input before indexing to prevent injection attacks and ensure clean Elasticsearch documents.</p>
+<p><strong>Sanitization functions:</strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sanitize_string</span>(s, max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Remove control characters and truncate strings.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(s, str):
+</span></span><span style="display:flex;"><span>        s <span style="color:#f92672">=</span> str(s)
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>sub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>, s)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> len(s) <span style="color:#f92672">&gt;</span> max_length:
+</span></span><span style="display:flex;"><span>        s <span style="color:#f92672">=</span> s[:max_length] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;...[cut]...&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> s
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sanitize_dict</span>(d, max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Recursively sanitize dictionaries and lists.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># ... sanitizes nested structures</span></span></span></code></pre></div>
+<p><strong>Elasticsearch indexing:</strong></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>log_entry <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;@timestamp&#34;</span>: datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now(datetime<span style="color:#f92672">.</span>timezone<span style="color:#f92672">.</span>utc)<span style="color:#f92672">.</span>isoformat(),
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;remote_ip&#34;</span>: remote_ip,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;remote_port&#34;</span>: remote_port,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;protocol&#34;</span>: <span style="color:#e6db74">&#34;https&#34;</span> <span style="color:#66d9ef">if</span> is_ssl <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;http&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;port&#34;</span>: port,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;request&#34;</span>: request,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;response&#34;</span>: response,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;http.response.status_code&#34;</span>: status_code,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;http.request.method&#34;</span>: method,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;user_agent.original&#34;</span>: user_agent,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;http.request.body.content&#34;</span>: post_body,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;creds&#34;</span>: decoded_credentials,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;host.name&#34;</span>: hostname
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<p>These fields are compatible with Elasticsearch&rsquo;s ECS (Elastic Common Schema), making queries and alerts straightforward.</p>
+<h2 id="advantages-over-the-original">Advantages Over the Original</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Original</th>
+          <th>Improved</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Credential Capture</td>
+          <td>Basic string parsing</td>
+          <td>Base64 decoding + validation</td>
+      </tr>
+      <tr>
+          <td>POST Body Handling</td>
+          <td>Not captured</td>
+          <td>Properly extracted and logged</td>
+      </tr>
+      <tr>
+          <td>Input Sanitization</td>
+          <td>None</td>
+          <td>Removes control chars, truncates</td>
+      </tr>
+      <tr>
+          <td>Error Handling</td>
+          <td>Minimal</td>
+          <td>Comprehensive logging</td>
+      </tr>
+      <tr>
+          <td>Elasticsearch Integration</td>
+          <td>Manual logging</td>
+          <td>Direct indexing with ECS schema</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="testing">Testing</h2>
+<p>Once deployed, test the honeypot:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -k -u attacker:password https://localhost:8443/</span></span></code></pre></div>
+<p>This should trigger a Basic Auth challenge. When credentials are provided, they get captured and indexed in Elasticsearch.</p>
+<p>Query Elasticsearch:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X GET <span style="color:#e6db74">&#34;elasticsearch:9200/honeypot-http/_search?q=creds:*&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -u elastic:password</span></span></code></pre></div>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><!-- raw HTML omitted -->TODO<!-- raw HTML omitted -->: Automated testing with OWASP ZAP or similar tools</li>
+<li><!-- raw HTML omitted -->TODO<!-- raw HTML omitted -->: Deploy to production honeypot server for live monitoring</li>
+<li><!-- raw HTML omitted -->TODO<!-- raw HTML omitted -->: Submit improvements as pull request to original honeyhttpd project</li>
+<li><!-- raw HTML omitted -->TODO<!-- raw HTML omitted -->: ELK Stack setup guide for visualization and alerting</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>This enhanced honeypot transforms a simple HTTP challenge responder into a structured threat hunting tool. By capturing credentials, request metadata, and response data in Elasticsearch, you gain visibility into attack patterns and attacker behavior.</p>
+<p>The honeypot is production-ready: it handles edge cases, sanitizes malicious input, and integrates seamlessly with existing SIEM infrastructure.</p>
+
+  <footer class="footline">
+              <i class='fa-fw fas fa-calendar'></i> Apr 21, 2026
+<div class="R-taxonomy taxonomy-categories cstyle" title="Categories" style="--VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);">
+  <i class="fa-fw fas fa-layer-group"></i>
+  <ul>
+    <li><a class="term-link" href="/categories/threathunting/index.html">Threathunting</a></li>
+  </ul>
+</div>
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="/index.html">
+            <div class="logo-title">Forensic wheels</div>
+          </a>
+        </div>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="parent " data-nav-id="/artifacts/index.html"><a class="padding" href="/artifacts/index.html">Artifacts</a><ul id="R-subsections-daf0213b858f6fe0b810dbdbfff8be9e" class="collapsible-menu">
+            <li class="" data-nav-id="/artifacts/threathuntingnet/index.html"><a class="padding" href="/artifacts/threathuntingnet/index.html">Threathunting I: Network setup</a></li>
+            <li class="" data-nav-id="/artifacts/theathuntinghoneypot/index.html"><a class="padding" href="/artifacts/theathuntinghoneypot/index.html">Threat hunting II: SSH Honeypot</a></li>
+            <li class="active " data-nav-id="/artifacts/honeyhttpd/index.html"><a class="padding" href="/artifacts/honeyhttpd/index.html">Threat Hunting III: HTTP Honeypot</a></li>
+            <li class="" data-nav-id="/artifacts/sans_for608/index.html"><a class="padding" href="/artifacts/sans_for608/index.html">Sans FOR608</a></li>
+            <li class="" data-nav-id="/artifacts/openbsdmalloc/index.html"><a class="padding" href="/artifacts/openbsdmalloc/index.html">The unseen hero of OpenBSD</a></li>
+            <li class="" data-nav-id="/artifacts/monitmon/index.html"><a class="padding" href="/artifacts/monitmon/index.html">monitor systems with monit</a></li>
+            <li class="" data-nav-id="/artifacts/yellowshardsinelastic/index.html"><a class="padding" href="/artifacts/yellowshardsinelastic/index.html">Fixing Yellow Shards in Elasticsearch</a></li>
+            <li class="" data-nav-id="/artifacts/rescuetotheraid/index.html"><a class="padding" href="/artifacts/rescuetotheraid/index.html">Rescue to the softraid</a></li>
+            <li class="" data-nav-id="/artifacts/gpgonmyyubi/index.html"><a class="padding" href="/artifacts/gpgonmyyubi/index.html">Putting my gpg key on my yubikey</a></li>
+            <li class="" data-nav-id="/artifacts/tech-posts/index.html"><a class="padding" href="/artifacts/tech-posts/index.html">Forensic Wheels</a></li></ul></li>
+            <li class="" data-nav-id="/essays/index.html"><a class="padding" href="/essays/index.html">Essays</a><ul id="R-subsections-96960db5999256a2fdef533f36d8b0bf" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/about/index.html"><a class="padding" href="/about/index.html">About</a></li>
+            <li class="" data-nav-id="/links/index.html"><a class="padding" href="/links/index.html">Links</a></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+            <li class="R-variantswitcher">
+              <div class="padding menu-control">
+                <i class="fa-fw fas fa-paint-brush"></i>
+                <span>&nbsp;</span>
+                <div class="control-style">
+                  <label class="a11y-only" for="R-select-variant">Theme</label>
+                  <select id="R-select-variant">
+                    <option id="R-select-variant-auto" value="auto" selected>Auto</option>
+                    <option id="R-select-variant-neon" value="neon">Neon</option>
+                  </select>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <script>window.relearn.markVariant();</script>
+            </li>
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="/js/clipboard/clipboard.min.js?1776833747" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1776833747" defer></script>
+    <script src="/js/theme.js?1776833747" defer></script>
+  </body>
+</html>

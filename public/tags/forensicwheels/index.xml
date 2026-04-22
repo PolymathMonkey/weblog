@@ -6,7 +6,7 @@
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Apr 2026 16:02:27 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2026 06:55:47 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/forensicwheels/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
@@ -23,6 +23,20 @@
       <description>Links</description>
     </item>
     <item>
+      <title>Threathunting I: Network setup</title>
+      <link>http://localhost:1313/artifacts/threathuntingnet/index.html</link>
+      <pubDate>Tue, 08 Jul 2025 09:15:00 +0200</pubDate>
+      <guid>http://localhost:1313/artifacts/threathuntingnet/index.html</guid>
+      <description>Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.</description>
+    </item>
+    <item>
+      <title>Threat hunting II: SSH Honeypot</title>
+      <link>http://localhost:1313/artifacts/theathuntinghoneypot/index.html</link>
+      <pubDate>Mon, 29 Sep 2025 07:18:00 +0200</pubDate>
+      <guid>http://localhost:1313/artifacts/theathuntinghoneypot/index.html</guid>
+      <description>Introduction What is Cowrie? Why Podman over Docker? Preconditions / System setup Ubuntu Installed on Raspberry Pi 4+ System Fully Updated Podman installed and working VLAN Tagging Configured on Network Interface Setup environment, install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🎯 Operating the Honeypot 🔄 Automatically Restart Cowrie Podman Container with systemd 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Whats next Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.</description>
+    </item>
+    <item>
       <title>Threat Hunting III: HTTP Honeypot</title>
       <link>http://localhost:1313/artifacts/honeyhttpd/index.html</link>
       <pubDate>Tue, 21 Apr 2026 08:39:00 +0200</pubDate>
@@ -37,25 +51,11 @@
       <description>There is a problem with how psychology measures people. Not a problem that better tools will fix. A structural one.&#xA;I have been thinking about this for a while, and it got sharper recently when I went through a diagnostic process and the results did not quite fit. Not because the clinician was bad. She was not. But because the instruments have limits that nobody in the room talked about.</description>
     </item>
     <item>
-      <title>Threathunting I: Network setup</title>
-      <link>http://localhost:1313/artifacts/threathuntingnet/index.html</link>
-      <pubDate>Tue, 08 Jul 2025 09:15:00 +0200</pubDate>
-      <guid>http://localhost:1313/artifacts/threathuntingnet/index.html</guid>
-      <description>Introduction Why I Built a Home Lab for Threat Hunting 🕵 Network Setup Topology, Hardware and Tools 🛠 Firewall configuration🧱 Switch configuration What I Learned Whats next Introduction This is a small series I wanted to start, where I write about my small threathunting setup and describe a little what I build and what I am doing with it.</description>
-    </item>
-    <item>
       <title>Sans FOR608</title>
       <link>http://localhost:1313/artifacts/sans_for608/index.html</link>
       <pubDate>Fri, 20 Mar 2026 07:39:00 +0100</pubDate>
       <guid>http://localhost:1313/artifacts/sans_for608/index.html</guid>
-      <description>Enterprise Threat Hunting and Incident Response (FOR608) Preparing for the exam: building an index 608.1 – Proactive Detection and Response 608.2 – Scaling Response and Analysis 608.3 – Modern Attacks against Windows and Linux 608.4 – macOS and Docker Containers 608.5 – Cloud Attacks and Response 608.6 – Capstone What I took away from this The unseen hero of OpenBSD: otto’s malloc What this is about Start here: what malloc actually does A brief history: how we got here The internal structure The defense mechanisms, together Why classic heap exploits fail here Comparison with other allocators What I took away from this References Enterprise Threat Hunting and Incident Response (FOR608) My employer booked me back in 2025 onto SANS FOR608 in the on-demand version.</description>
-    </item>
-    <item>
-      <title>Threat hunting II: SSH Honeypot</title>
-      <link>http://localhost:1313/artifacts/theathuntinghoneypot/index.html</link>
-      <pubDate>Mon, 29 Sep 2025 07:18:00 +0200</pubDate>
-      <guid>http://localhost:1313/artifacts/theathuntinghoneypot/index.html</guid>
-      <description>Introduction What is Cowrie? Why Podman over Docker? Preconditions / System setup Ubuntu Installed on Raspberry Pi 4+ System Fully Updated Podman installed and working VLAN Tagging Configured on Network Interface Setup environment, install cowrie as container and adjust configuration 🐧 Create a Dedicated User for Cowrie (No Login Shell) 🐳 Pull and Configure Cowrie with Podman 🛠 cowrie.cfg – Basic Overview 🚀 Run Cowrie Container as ‘cowrie’ User 🎯 Operating the Honeypot 🔄 Automatically Restart Cowrie Podman Container with systemd 🔒 Security Notes Log Forwarding with Filebeat 📦 Install Filebeat on Ubuntu ⚙ Configure and test Filebeat 🚀 Start and Enable Filebeat 🎯 TL;DR – What Did We Just Do? Whats next Introduction This post provides a brief walkthrough of how to deploy a lightweight, containerized SSH honeypot using Cowrie and Podman, with the goal of capturing and analyzing malicious activity as part of my threat hunting strategy.</description>
+      <description>Enterprise Threat Hunting and Incident Response (FOR608) Preparing for the exam: building an index 608.1 – Proactive Detection and Response 608.2 – Scaling Response and Analysis 608.3 – Modern Attacks against Windows and Linux 608.4 – macOS and Docker Containers 608.5 – Cloud Attacks and Response 608.6 – Capstone What I took away from this Enterprise Threat Hunting and Incident Response (FOR608) My employer booked me back in 2025 onto SANS FOR608 in the on-demand version.</description>
     </item>
     <item>
       <title>Open BSD and Zen</title>
@@ -69,7 +69,14 @@
       <link>http://localhost:1313/artifacts/openbsdmalloc/index.html</link>
       <pubDate>Mon, 20 Apr 2026 17:09:00 +0200</pubDate>
       <guid>http://localhost:1313/artifacts/openbsdmalloc/index.html</guid>
-      <description>The unseen hero of OpenBSD: otto’s malloc What this is about This is me learning about OpenBSD’s malloc.&#xA;I want to understand the internals better, the data structures, the design decisions, and why those decisions make heap exploitation so much harder.&#xA;This is an actual Neurodivergent person with dyslexia trying to learn this&#xA;What malloc actually does Every C program that needs memory at runtime calls malloc.&#xA;malloc is a library function. It’s not a syscall – it’s a layer between your code and the kernel.</description>
+      <description>The unseen hero of OpenBSD: otto’s malloc What this is about This is me learning about OpenBSD’s malloc.&#xA;I want to understand the internals better, the data structures, the design decisions, and why those decisions make heap exploitation so much harder.&#xA;No deep dive but enough to get better understanding.&#xA;What malloc actually does Every C program that needs memory at runtime calls malloc.&#xA;malloc is a library function. It’s not a syscall – it’s a layer between your code and the kernel.</description>
+    </item>
+    <item>
+      <title>monitor systems with monit</title>
+      <link>http://localhost:1313/artifacts/monitmon/index.html</link>
+      <pubDate>Mon, 08 Dec 2025 11:40:00 +0100</pubDate>
+      <guid>http://localhost:1313/artifacts/monitmon/index.html</guid>
+      <description>Introduction Requirements Installing Monit on OpenBSD Monit – Essential System and Router Services System monitoring runs every 45 seconds. The first check is delayed by 120 seconds to avoid overloading the system immediately after boot.&#xA;set daemon 45 with start delay 120 Monit logs to syslog. `idfile` and `statefile` store Monit’s persistent state and identity across restarts.&#xA;set log syslog set idfile /var/monit/id set statefile /var/monit/state Limits control buffer sizes and timeouts for program outputs, network I/O, and service start/stop/restart operations. This prevents Monit from hanging or processing excessive data.</description>
     </item>
     <item>
       <title>Fixing Yellow Shards in Elasticsearch</title>

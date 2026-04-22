@@ -2,11 +2,11 @@
 title: "Threathunting I: Network setup"
 author: ["Dirk"]
 date: 2025-07-08T09:15:00+02:00
-lastmod: 2026-04-20T11:06:03+02:00
+lastmod: 2026-04-22T06:54:58+02:00
 tags: ["forensicwheels", "honeypot", "visibility"]
 categories: ["threathunting"]
 draft: false
-weight: 1003
+weight: 1001
 ---
 
 <div class="ox-hugo-toc toc">

@@ -2,11 +2,11 @@
 title: "Threat hunting II: SSH Honeypot"
 author: ["Dirk"]
 date: 2025-09-29T07:18:00+02:00
-lastmod: 2026-04-20T11:06:03+02:00
+lastmod: 2026-04-22T06:55:01+02:00
 tags: ["forensicwheels", "honeypot"]
 categories: ["threathunting"]
 draft: false
-weight: 1004
+weight: 1002
 ---
 
 <div class="ox-hugo-toc toc">
