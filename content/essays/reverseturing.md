@@ -2,7 +2,7 @@
 title: "The Reverse Turing Problem"
 author: ["Dirk"]
 date: 2026-05-26T11:00:00-05:00
-lastmod: 2026-05-26T07:39:18+02:00
+lastmod: 2026-05-26T08:28:14+02:00
 tags: ["forensicwheels", "personal"]
 draft: false
 weight: 1005
