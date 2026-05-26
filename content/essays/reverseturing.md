@@ -1,8 +1,8 @@
 ---
 title: "The Reverse Turing Problem"
 author: ["Dirk"]
-date: 2025-03-16T11:00:00-05:00
-lastmod: 2026-05-19T18:15:26+02:00
+date: 2026-05-26T11:00:00-05:00
+lastmod: 2026-05-26T07:39:18+02:00
 tags: ["forensicwheels", "personal"]
 draft: false
 weight: 1005
@@ -11,7 +11,7 @@ weight: 1005
 CLOSED: <span class="timestamp-wrapper"><span class="timestamp">[2026-05-19 Di 18:11]</span></span>
 
 
-## Reverse Turing Problem: Why We Can't Trust Our Own Perception of Machine Minds {#reverse-turing-problem-why-we-can-t-trust-our-own-perception-of-machine-minds}
+## Why We Can't Trust Our Own Perception of Machine Minds {#why-we-can-t-trust-our-own-perception-of-machine-minds}
 
 The Observation That Started This
 
@@ -244,7 +244,11 @@ appropriately humble about our answers.
 [^fn:1]: Turing, A. M. (1950). Computing Machinery and Intelligence. _Mind_, 59(236), 433–460. <https://doi.org/10.1093/mind/LIX.236.433>
 [^fn:2]: Epley, N., Waytz, A., &amp; Cacioppo, J. T. (2007). On seeing the human: a three-factor theory of anthropomorphism. _Psychological Review_, 114(4), 864–886. <https://doi.org/10.1037/0033-295X.114.4.864>
 [^fn:3]: Waytz, A., Cacioppo, J., &amp; Epley, N. (2010). Who Sees Human? The Stability and Importance of Individual Differences in Anthropomorphism. _Perspectives on Psychological Science_, 5(3), 219–232. <https://doi.org/10.1177/1745691610369336>
-[^fn:4]: Hofstadter, D. R. (1979). _Gödel, Escher, Bach: An Eternal Golden Braid_. Basic Books.
-[^fn:5]: Chalmers, D. J. (1995). Facing up to the problem of consciousness. _Journal of Consciousness Studies_, 2(3), 200–219.
+[^fn:4]: Hofstadter, D. R. (1979). _Gödel, Escher, Bach: An Eternal Golden
+    Braid_. Basic Books. <https://archive.org/details/godelescherbache0000hofs>
+[^fn:5]: Chalmers, D. J. (1995). Facing up to the problem of consciousness. _Journal
+    of Consciousness Studies_, 2(3), 200–219. <https://philpapers.org/rec/CHAFUT>
 [^fn:6]: Nagel, T. (1974). What is it like to be a bat? _The Philosophical Review_, 83(4), 435–450. <https://doi.org/10.2307/2183914>
-[^fn:7]: Gödel, K. (1931). Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I. _Monatshefte für Mathematik und Physik_, 38, 173–198.
+[^fn:7]: Gödel, K. (1931). Über formal unentscheidbare Sätze der Principia
+    Mathematica und verwandter Systeme I. _Monatshefte für Mathematik und Physik_,
+    38, 173–198. <https://link.springer.com/article/10.1007/BF01700692>
