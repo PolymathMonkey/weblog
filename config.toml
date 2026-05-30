@@ -50,6 +50,6 @@ imageEffects.purple = false
   faviconVersion       = ""
   # Disable showing the social sharing links on blog posts
   socialShareDisabled = false
-
+  mainSections = ["artifacts", "essays"]
 [markup.goldmark.renderer]
   unsafe = true

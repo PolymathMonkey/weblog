@@ -8,9 +8,6 @@ draft: false
 weight: 1005
 ---
 
-CLOSED: <span class="timestamp-wrapper"><span class="timestamp">[2026-05-19 Di 18:11]</span></span>
-
-
 ## Why We Can't Trust Our Own Perception of Machine Minds {#why-we-can-t-trust-our-own-perception-of-machine-minds}
 
 The Observation That Started This

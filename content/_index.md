@@ -6,6 +6,9 @@ author: ["dirk"]
 draft: false
 date: 2025-07-04
 weight: 1
+outputs:
+  - HTML
+  - RSS
 menu:
   main:
     weight: 1
