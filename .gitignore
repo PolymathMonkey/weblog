@@ -3,7 +3,6 @@
 /*~
 /go.mod
 /go.sum
-/hugo.toml
 /static/
 *.org~
 /content-org/ 
