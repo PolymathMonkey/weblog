@@ -7,7 +7,6 @@ lastmod: 2026-04-21T07:41:03+02:00
 tags: ["forensicwheels"]
 categories: ["personal"]
 draft: false
-weight: 3
 ---
 
 ## Friends: {#friends}

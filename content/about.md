@@ -7,7 +7,6 @@ lastmod: 2026-04-20T10:20:05+02:00
 tags: ["forensicwheels", "personal"]
 categories: ["personal"]
 draft: false
-weight: 1
 ---
 
 {{< figure src="../artifacts/img/fine.gif" >}}

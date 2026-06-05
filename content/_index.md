@@ -9,9 +9,6 @@ weight: 1
 outputs:
   - HTML
   - RSS
-menu:
-  main:
-    weight: 1
 ---
 
 Welcome to my technical blog and knowledge base!
@@ -19,6 +16,11 @@ Welcome to my technical blog and knowledge base!
 ## Technical Posts
 
 {{< newest-posts section="artifacts" >}}
+
+---- 
+## Security Research
+
+{{< newest-posts section="securityresearch" >}}
 
 ---- 
 ## Essays
@@ -30,6 +32,7 @@ Welcome to my technical blog and knowledge base!
 ## Topics
 - [🖥 Threathunting Tutorials](/tags/threathunting/)
 - [🖥 All things OpenBSD](/tags/openbsd/)
+- [🔬 Security Research](/securityresearch/)
 ---- 
 ## Get in Touch
 

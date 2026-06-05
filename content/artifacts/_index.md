@@ -5,10 +5,10 @@ description: "Technical articles and project documentation"
 author: ["dirk"]
 draft: false
 date: 2025-07-04
-weight: 1
-menu:
-  main:
-    weight: 1
+weight: 2
+outputs:
+  - HTML
+  - RSS
 ---
 
 ## Technical Posts
