@@ -2,7 +2,7 @@
 title: "Threathunting like a nerd"
 author: ["Dirk"]
 date: 2026-06-05T12:04:00+02:00
-lastmod: 2026-06-05T12:31:41+02:00
+lastmod: 2026-06-05T12:32:13+02:00
 tags: ["threathunting", "hassh", "misp", "securityresearch"]
 categories: ["threathunting"]
 draft: false
@@ -214,7 +214,7 @@ everything else. For a solo analyst, that is exactly enough.
 
 ## The Template {#the-template}
 
-The complete template is available [[<https://github.com/PolymathMonkey/templates/>][on GitHub]. It includes:
+The complete template is available [on GitHub](https://github.com/PolymathMonkey/templates/). It includes:
 
 -   All query blocks pre-configured for the Cowrie/Elasticsearch setup
     described in earlier posts
