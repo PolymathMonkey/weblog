@@ -3,13 +3,14 @@ title: "About"
 author: ["Dirk"]
 description: "Short intro about myself"
 date: 2025-06-28T16:16:00+02:00
-lastmod: 2026-04-20T10:20:05+02:00
+lastmod: 2026-06-06T13:28:28+02:00
 tags: ["forensicwheels", "personal"]
 categories: ["personal"]
 draft: false
+weight: 1
 ---
 
-{{< figure src="../artifacts/img/fine.gif" >}}
+{{< figure src="../posts/img/fine.gif" >}}
 
 Hi, I'm Dirk.
 
@@ -26,7 +27,7 @@ This blog is where I document what I build and what I figure out. Some
 of it is technical. Some of it is not. I try to be honest about the
 difference between what I know and what I'm guessing.
 
-You can download my [CV](/weblog/downloads/DirkCV_encrypted.pdf) as a [signed](/weblog/downloads/DirkCV.pdf.sig) and encrypted PDF. If you need the
+You can download my [CV](/downloads/DirkCV_encrypted.pdf) as a [signed](~/org/forensicwheels/static/downloads/DirkCV.pdf.sig) and encrypted PDF. If you need the
 password, send me an [email](mailto:polymathmonkey@keksmafia.org).
 
 -   ****Key ID****: \`0xC2920C559CAD6CB\`
@@ -34,4 +35,4 @@ password, send me an [email](mailto:polymathmonkey@keksmafia.org).
 -   ****SHA-256 Hash****:
     \`c7359e0e8bd69ed7cee3ea97453c10e327bfe2416822f54c6390efe72b0d6e7a\`
 
-[publickey](/weblog/downloads/key.asc)
+[publickey](/key.asc)
