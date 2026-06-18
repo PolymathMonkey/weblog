@@ -23,6 +23,12 @@ Welcome to my technical blog and knowledge base!
 {{< newest-posts section="securityresearch" >}}
 
 ---- 
+
+## Writeups
+
+{{< newest-posts section="writeups" >}}
+
+---- 
 ## Essays
 
 {{< newest-posts section="essays" >}}
