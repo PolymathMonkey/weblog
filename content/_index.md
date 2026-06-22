@@ -11,8 +11,6 @@ outputs:
   - RSS
 ---
 
-Welcome to my technical blog and knowledge base!
-
 ## Technical Posts
 
 {{< newest-posts section="artifacts" >}}
