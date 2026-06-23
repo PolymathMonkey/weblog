@@ -2,7 +2,7 @@
 title: "HTB: DevHub"
 author: ["Dirk"]
 date: 2026-06-22T12:39:00+02:00
-lastmod: 2026-06-22T13:22:17+02:00
+lastmod: 2026-06-22T14:02:00+02:00
 tags: ["jupyter", "privesc", "mcp", "flask"]
 categories: ["htb", "vulnerability"]
 draft: false
@@ -18,7 +18,6 @@ weight: 1002
 | Category   | Web + Lateral Movement + PrivEsc                            |
 | Key CVEs   | CVE-2026-23744                                              |
 | Techniques | RCE, API Abuse, Credential Exposure, WebSocket Manipulation |
-|            |                                                             |
 
 DevHub is a medium-difficulty Linux machine centered around a
 developer toolchain: an MCPJam Inspector instance, a JupyterLab
@@ -445,13 +444,12 @@ Root access obtained.
 
 ## Timeline {#timeline}
 
-| Stage    | Technique                     | Result         |
-|----------|-------------------------------|----------------|
-| Recon    | nmap, web interface analysis  | MCPJam on 6274 |
-| Foothold | CVE-2026-23744 RCE            | mcp-dev shell  |
-| Lateral  | Jupyter API + WebSocket       | analyst access |
-| PrivEsc  | Hidden admin tool + hardcoded | root access    |
-|          | credentials                   |                |
+| Stage    | Technique                                 | Result         |
+|----------|-------------------------------------------|----------------|
+| Recon    | nmap, web interface analysis              | MCPJam on 6274 |
+| Foothold | CVE-2026-23744 RCE                        | mcp-dev shell  |
+| Lateral  | Jupyter API + WebSocket                   | analyst access |
+| PrivEsc  | Hidden admin tool + hardcoded credentials | root access    |
 
 
 ## Tools &amp; References {#tools-and-references}
