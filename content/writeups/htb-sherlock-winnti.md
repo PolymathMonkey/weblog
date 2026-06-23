@@ -1,8 +1,8 @@
 ---
 title: "HTB Sherlock: KitsuneHook"
 author: ["Dirk"]
-date: 2026-06-16T00:00:00+02:00
-lastmod: 2026-06-23T10:00:46+02:00
+date: 2026-06-23T00:00:00+02:00
+lastmod: 2026-06-23T10:13:17+02:00
 tags: ["attribution", "osint", "malware-analysis"]
 categories: ["htb", "malware", "threathunting"]
 draft: false
