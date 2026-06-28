@@ -2,7 +2,7 @@
 title: "Two Cryptominer Campaigns in the Wild"
 author: ["Dirk"]
 date: 2026-06-26T09:34:00+02:00
-lastmod: 2026-06-26T09:34:58+02:00
+lastmod: 2026-06-28T05:11:10+02:00
 tags: ["threathunting", "misp", "securityresearch"]
 draft: false
 weight: 1003
