@@ -2,7 +2,7 @@
 title: "Two Cryptominer Campaigns in the Wild"
 author: ["Dirk"]
 date: 2026-06-26T09:34:00+02:00
-lastmod: 2026-06-28T05:11:10+02:00
+lastmod: 2026-06-29T05:58:08+02:00
 tags: ["threathunting", "misp", "securityresearch"]
 draft: false
 weight: 1003
@@ -152,8 +152,32 @@ given the prevalence of VPN and proxy infrastructure among threat
 actors, this is a weak signal at best and should not be treated as
 attribution.
 
-> Note: Shodan analysis of source IPs is pending. Results will be
-> added in a follow-up revision.
+Shodan analysis of the five confirmed deployment IPs reveals a
+consistent pattern: compromised third-party infrastructure rather
+than dedicated operator-controlled nodes.
+
+| IP               | ASN / Org                         | Country     | Shodan Profile                         |
+|------------------|-----------------------------------|-------------|----------------------------------------|
+| `109.199.126.3`  | Contabo GmbH (AS51167)            | Germany     | Windows, RDP exposed, Apache/Orbira360 |
+| `45.118.144.36`  | Long Van Soft Solution (AS131414) | Vietnam     | Ubuntu, Apache, anomalous SSH-2.0-Go   |
+| `172.206.17.236` | —                                 | UK          | No Shodan record                       |
+| `188.32.210.218` | Rostelecom (AS42610)              | Russia      | No Shodan record                       |
+| `5.255.122.180`  | Infra Group B.V. (AS60404)        | Netherlands | Transmission BitTorrent UI exposed     |
+
+Two observations stand out. First, `109.199.126.3` runs Windows with
+RDP exposed yet deployed Linux ELF binaries — consistent with a
+compromised Windows host being used as a relay. Second, `45.118.144.36`
+belongs to a Vietnamese logistics company running Ubuntu with an
+anomalous `SSH-2.0-Go` banner on port 22 rather than the standard
+OpenSSH implementation, a potential indicator of a backdoored SSH
+service.
+
+The diversity of compromised platforms — Windows servers, Linux web
+servers, consumer-grade NAS or home nodes — is itself a sophistication
+signal. Operators capable of maintaining a relay network across
+heterogeneous software stacks and operating systems demonstrate
+capabilities beyond commodity toolkits, regardless of their ultimate
+motivation.
 
 
 ## Comparison {#comparison}
@@ -181,15 +205,18 @@ infrastructure, irregular deployment suggesting manual operation.
 The campaign is persistent and actively maintained, but not
 technically ambitious.
 
-Cluster B presents a more uncertain picture. The infrastructure
-scale, masquerading behavior, and distributed deployment are
-consistent with either a larger organized criminal operation or a
-state-sponsored actor conducting opportunistic financial operations
-— a documented behavior pattern. The available data does not
-support distinguishing between these two hypotheses.
+Cluster B presents a more uncertain picture, but the Shodan analysis
+adds a concrete sophistication indicator: the deployment IPs are not
+rented bulletproof nodes but compromised third-party systems spanning
+Windows servers, Linux web servers, and consumer-grade infrastructure.
+Maintaining a functional relay network across this range of platforms
+and software stacks requires meaningful operational capability.
 
-Attribution beyond "financially motivated threat actor" is not
-warranted given current data.
+This elevates the operator profile beyond commodity criminal, but
+does not resolve the ambiguity between organized cybercrime and
+state-sponsored financial operations — both are consistent with the
+observed behavior. Attribution beyond "financially motivated,
+technically capable threat actor" is not warranted given current data.
 
 
 ## Indicators of Compromise {#indicators-of-compromise}
@@ -211,14 +238,14 @@ warranted given current data.
 
 ### Cluster B (systemd-worker) {#cluster-b--systemd-worker}
 
-| Type   | Value                                                              | Context                  |
-|--------|--------------------------------------------------------------------|--------------------------|
-| sha256 | `94f2e4d8d4436874785cd14e6e6d403507b8750852f7f2040352069a75da4c00` | sshd / systemd-worker    |
-| ip-src | `109.199.126.3`                                                    | Bulgaria / SoftLayer     |
-| ip-src | `45.118.144.36`                                                    | Vietnam / Long Van       |
-| ip-src | `172.206.17.236`                                                   | United Kingdom           |
-| ip-src | `188.32.210.218`                                                   | Russia / Rostelecom      |
-| ip-src | `5.255.122.180`                                                    | Netherlands / Liteserver |
+| Type   | Value                                                              | Context                          |
+|--------|--------------------------------------------------------------------|----------------------------------|
+| sha256 | `94f2e4d8d4436874785cd14e6e6d403507b8750852f7f2040352069a75da4c00` | sshd / systemd-worker            |
+| ip-src | `109.199.126.3`                                                    | Germany / Contabo (compromised)  |
+| ip-src | `45.118.144.36`                                                    | Vietnam / Long Van (compromised) |
+| ip-src | `172.206.17.236`                                                   | United Kingdom                   |
+| ip-src | `188.32.210.218`                                                   | Russia / Rostelecom              |
+| ip-src | `5.255.122.180`                                                    | Netherlands / Liteserver         |
 
 > Note: Additional hashes from Cluster B require VT verification
 > before inclusion as confirmed IoCs.
